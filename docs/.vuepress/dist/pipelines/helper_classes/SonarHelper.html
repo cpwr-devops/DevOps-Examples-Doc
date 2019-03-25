@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>SonarHelper.groovy</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.16c93b31.css" as="style"><link rel="preload" href="/assets/js/app.38dc2da7.js" as="script"><link rel="preload" href="/assets/js/31.7d298cf9.js" as="script"><link rel="prefetch" href="/assets/js/10.f1607b87.js"><link rel="prefetch" href="/assets/js/11.5935f050.js"><link rel="prefetch" href="/assets/js/12.e6a5ca86.js"><link rel="prefetch" href="/assets/js/13.78ae9647.js"><link rel="prefetch" href="/assets/js/14.a029e60a.js"><link rel="prefetch" href="/assets/js/15.ffe0034a.js"><link rel="prefetch" href="/assets/js/16.1114c444.js"><link rel="prefetch" href="/assets/js/17.0f1b6827.js"><link rel="prefetch" href="/assets/js/18.a3e3e402.js"><link rel="prefetch" href="/assets/js/19.ef7aad5c.js"><link rel="prefetch" href="/assets/js/2.da451cf3.js"><link rel="prefetch" href="/assets/js/20.e0b1db2d.js"><link rel="prefetch" href="/assets/js/21.40954eb3.js"><link rel="prefetch" href="/assets/js/22.212fc021.js"><link rel="prefetch" href="/assets/js/23.a314009f.js"><link rel="prefetch" href="/assets/js/24.cd8f299f.js"><link rel="prefetch" href="/assets/js/25.d2e6dbd5.js"><link rel="prefetch" href="/assets/js/26.7c8fed17.js"><link rel="prefetch" href="/assets/js/27.aca225c8.js"><link rel="prefetch" href="/assets/js/28.8015e33a.js"><link rel="prefetch" href="/assets/js/29.18be192f.js"><link rel="prefetch" href="/assets/js/3.3a07ef4f.js"><link rel="prefetch" href="/assets/js/30.bf2c58ed.js"><link rel="prefetch" href="/assets/js/32.acbdc620.js"><link rel="prefetch" href="/assets/js/33.b37a3e52.js"><link rel="prefetch" href="/assets/js/34.a6d5a9bf.js"><link rel="prefetch" href="/assets/js/35.aef6c1df.js"><link rel="prefetch" href="/assets/js/36.fed52b27.js"><link rel="prefetch" href="/assets/js/37.1a2efafc.js"><link rel="prefetch" href="/assets/js/38.99baad0c.js"><link rel="prefetch" href="/assets/js/39.3dd6385d.js"><link rel="prefetch" href="/assets/js/4.8d350108.js"><link rel="prefetch" href="/assets/js/5.e19c8ee8.js"><link rel="prefetch" href="/assets/js/6.955488f3.js"><link rel="prefetch" href="/assets/js/7.0f86fe07.js"><link rel="prefetch" href="/assets/js/8.b867c26c.js"><link rel="prefetch" href="/assets/js/9.e743477c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.16c93b31.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/compuware.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link router-link-active">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link">APIs</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link router-link-active">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link">APIs</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/pipelines/" class="sidebar-link">Getting Started</a></li><li><a href="/pipelines/pipelines.html" class="sidebar-link">Example Pipelines</a></li><li><a href="/pipelines/Mainframe_CI_Pipeline_from_Shared_Lib.html" class="sidebar-link">Shared Library Example</a></li><li><a href="/pipelines/Mainframe-CI-Example-pipeline.html" class="sidebar-link">Basic Example</a></li><li><a href="/pipelines/scenario/" class="sidebar-link">ISPW Scenario</a></li><li><a href="/pipelines/scenario/TTT_scenario.html" class="sidebar-link">Total Test User Scenario</a></li><li><a href="/pipelines/pipeline_parameters.html" class="sidebar-link">Pipeline Parameters</a></li><li><a href="/pipelines/config_files.html" class="sidebar-link">Configuration Files</a></li><li><a href="/pipelines/helper_classes/" class="sidebar-link">Helper classes</a></li><li><a href="/pipelines/Jenkins_Groovy.html" class="sidebar-link">Groovy Tips</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="sonarhelper-groovy"><a href="#sonarhelper-groovy" aria-hidden="true" class="header-anchor">#</a> SonarHelper.groovy</h1> <div class="language-groovy extra-class"><pre class="language-groovy"><code><span class="token keyword">package</span> com<span class="token operator">.</span>compuware<span class="token operator">.</span>devops<span class="token operator">.</span>util
+
+<span class="token comment">/**
+ Wrapper around the Git Plugin's Checkout Method
+ @param URL - URL for the git server
+ @param Branch - The branch that will be checked out of git
+ @param Credentials - Jenkins credentials for logging into git
+ @param Folder - Folder relative to the workspace that git will check out files into
+*/</span>
+<span class="token keyword">class</span> <span class="token class-name">SonarHelper</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">def</span> script
+    <span class="token keyword">def</span> steps
+    <span class="token keyword">def</span> scannerHome
+    <span class="token keyword">def</span> pConfig
+</code></pre></div><h1 id="sonarhelper"><a href="#sonarhelper" aria-hidden="true" class="header-anchor">#</a> SonarHelper</h1> <div class="language-groovy extra-class"><pre class="language-groovy"><code>    <span class="token function">SonarHelper</span><span class="token punctuation">(</span>script<span class="token punctuation">,</span> steps<span class="token punctuation">,</span> pConfig<span class="token punctuation">)</span> 
+    <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token operator">.</span>script     <span class="token operator">=</span> script
+        <span class="token keyword">this</span><span class="token operator">.</span>steps      <span class="token operator">=</span> steps
+        <span class="token keyword">this</span><span class="token operator">.</span>pConfig    <span class="token operator">=</span> pConfig
+    <span class="token punctuation">}</span>
+</code></pre></div><h1 id="initialize"><a href="#initialize" aria-hidden="true" class="header-anchor">#</a> initialize</h1> <div class="language-groovy extra-class"><pre class="language-groovy"><code>    <span class="token comment">/* A Groovy idiosynchrasy prevents constructors to use methods, therefore class might require an additional &quot;initialize&quot; method to initialize the class */</span>
+    <span class="token keyword">def</span> <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token operator">.</span>scannerHome    <span class="token operator">=</span> steps<span class="token operator">.</span>tool <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>pConfig<span class="token operator">.</span>sqScannerName<span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre></div><h1 id="scan"><a href="#scan" aria-hidden="true" class="header-anchor">#</a> scan</h1> <div class="language-groovy extra-class"><pre class="language-groovy"><code>    <span class="token keyword">def</span> <span class="token function">scan</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        steps<span class="token operator">.</span><span class="token function">withSonarQubeEnv</span><span class="token punctuation">(</span><span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>pConfig<span class="token operator">.</span>sqServerName<span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">)</span>       <span class="token comment">// 'localhost' is the name of the SonarQube server defined in Jenkins / Configure Systems / SonarQube server section</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">// Finds all of the Total Test results files that will be submitted to SonarQube</span>
+            <span class="token keyword">def</span> tttListOfResults    <span class="token operator">=</span> steps<span class="token operator">.</span><span class="token function">findFiles</span><span class="token punctuation">(</span>glob<span class="token punctuation">:</span> <span class="token string">'TTTSonar/*.xml'</span><span class="token punctuation">)</span>   <span class="token comment">// Total Test SonarQube result files are stored in TTTSonar directory</span>
+
+            <span class="token string regex">//</span> Build the sonar testExecutionReportsPaths property
+            <span class="token string regex">//</span> Start will the property itself
+            <span class="token keyword">def</span> sqTestResult       <span class="token operator">=</span> <span class="token string gstring">&quot;-Dsonar.testExecutionReportPaths=&quot;</span>    
+
+            <span class="token string regex">//</span> Loop through each result Total Test results file found
+            tttListOfResults<span class="token operator">.</span>each 
+            <span class="token punctuation">{</span>
+                sqTestResult       <span class="token operator">=</span> sqTestResult <span class="token operator">+</span> <span class="token string gstring">&quot;TTTSonar/&quot;</span> <span class="token operator">+</span> it<span class="token operator">.</span>name <span class="token operator">+</span>  <span class="token string">','</span> <span class="token string regex">//</span> Append the results file to the property
+            <span class="token punctuation">}</span>
+
+            <span class="token string regex">//</span> Build the rest of the SonarQube Scanner Properties
+            
+            <span class="token string regex">//</span> Test and Coverage results
+            <span class="token keyword">def</span> sqScannerProperties   <span class="token operator">=</span> <span class="token string gstring">&quot; -Dsonar.tests=tests <span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>sqTestResult<span class="token punctuation">}</span></span> -Dsonar.coverageReportPaths=Coverage/CodeCoverage.xml&quot;</span>
+            <span class="token string regex">//</span> SonarQube project to load results into
+            sqScannerProperties       <span class="token operator">=</span> sqScannerProperties <span class="token operator">+</span> <span class="token string gstring">&quot; -Dsonar.projectKey=<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>script<span class="token operator">.</span>JOB_NAME<span class="token punctuation">}</span></span> -Dsonar.projectName=<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>script<span class="token operator">.</span>JOB_NAME<span class="token punctuation">}</span></span> -Dsonar.projectVersion=1.0&quot;</span>
+            <span class="token string regex">//</span> Location of the Cobol Source Code to scan
+            sqScannerProperties       <span class="token operator">=</span> sqScannerProperties <span class="token operator">+</span> <span class="token string gstring">&quot; -Dsonar.sources=<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>pConfig<span class="token operator">.</span>ispwApplication<span class="token punctuation">}</span></span>\\${pConfig.mfSourceFolder}&quot;</span>
+            <span class="token string regex">//</span> Location of the Cobol copybooks to scan
+            sqScannerProperties       <span class="token operator">=</span> sqScannerProperties <span class="token operator">+</span> <span class="token string gstring">&quot; -Dsonar.cobol.copy.directories=<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>pConfig<span class="token operator">.</span>ispwApplication<span class="token punctuation">}</span></span>\\${pConfig.mfSourceFolder}&quot;</span>  
+            <span class="token string regex">//</span> File extensions <span class="token keyword">for</span> Cobol and Copybook files<span class="token operator">.</span>  The Total Test files need that contain tests need to be defined <span class="token keyword">as</span> cobol <span class="token keyword">for</span> SonarQube to process the results
+            sqScannerProperties       <span class="token operator">=</span> sqScannerProperties <span class="token operator">+</span> <span class="token string gstring">&quot; -Dsonar.cobol.file.suffixes=cbl,testsuite,testscenario,stub -Dsonar.cobol.copy.suffixes=cpy -Dsonar.sourceEncoding=UTF-8&quot;</span>
+            
+            <span class="token string regex">//</span> Call the SonarQube Scanner with properties defined above
+            steps<span class="token operator">.</span>bat <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>scannerHome<span class="token punctuation">}</span></span>/bin/sonar-scanner&quot;</span> <span class="token operator">+</span> sqScannerProperties
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.38dc2da7.js" defer></script><script src="/assets/js/31.7d298cf9.js" defer></script>
+  </body>
+</html>

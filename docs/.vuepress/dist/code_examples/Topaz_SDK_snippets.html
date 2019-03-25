@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Topaz SDK Code Snippets</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.16c93b31.css" as="style"><link rel="preload" href="/assets/js/app.38dc2da7.js" as="script"><link rel="preload" href="/assets/js/19.ef7aad5c.js" as="script"><link rel="prefetch" href="/assets/js/10.f1607b87.js"><link rel="prefetch" href="/assets/js/11.5935f050.js"><link rel="prefetch" href="/assets/js/12.e6a5ca86.js"><link rel="prefetch" href="/assets/js/13.78ae9647.js"><link rel="prefetch" href="/assets/js/14.a029e60a.js"><link rel="prefetch" href="/assets/js/15.ffe0034a.js"><link rel="prefetch" href="/assets/js/16.1114c444.js"><link rel="prefetch" href="/assets/js/17.0f1b6827.js"><link rel="prefetch" href="/assets/js/18.a3e3e402.js"><link rel="prefetch" href="/assets/js/2.da451cf3.js"><link rel="prefetch" href="/assets/js/20.e0b1db2d.js"><link rel="prefetch" href="/assets/js/21.40954eb3.js"><link rel="prefetch" href="/assets/js/22.212fc021.js"><link rel="prefetch" href="/assets/js/23.a314009f.js"><link rel="prefetch" href="/assets/js/24.cd8f299f.js"><link rel="prefetch" href="/assets/js/25.d2e6dbd5.js"><link rel="prefetch" href="/assets/js/26.7c8fed17.js"><link rel="prefetch" href="/assets/js/27.aca225c8.js"><link rel="prefetch" href="/assets/js/28.8015e33a.js"><link rel="prefetch" href="/assets/js/29.18be192f.js"><link rel="prefetch" href="/assets/js/3.3a07ef4f.js"><link rel="prefetch" href="/assets/js/30.bf2c58ed.js"><link rel="prefetch" href="/assets/js/31.7d298cf9.js"><link rel="prefetch" href="/assets/js/32.acbdc620.js"><link rel="prefetch" href="/assets/js/33.b37a3e52.js"><link rel="prefetch" href="/assets/js/34.a6d5a9bf.js"><link rel="prefetch" href="/assets/js/35.aef6c1df.js"><link rel="prefetch" href="/assets/js/36.fed52b27.js"><link rel="prefetch" href="/assets/js/37.1a2efafc.js"><link rel="prefetch" href="/assets/js/38.99baad0c.js"><link rel="prefetch" href="/assets/js/39.3dd6385d.js"><link rel="prefetch" href="/assets/js/4.8d350108.js"><link rel="prefetch" href="/assets/js/5.e19c8ee8.js"><link rel="prefetch" href="/assets/js/6.955488f3.js"><link rel="prefetch" href="/assets/js/7.0f86fe07.js"><link rel="prefetch" href="/assets/js/8.b867c26c.js"><link rel="prefetch" href="/assets/js/9.e743477c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.16c93b31.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/compuware.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link router-link-active">APIs</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link router-link-active">APIs</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/code_examples/" class="sidebar-link">API, SDK and CLI</a></li><li><a href="/code_examples/Rest_api.html" class="sidebar-link">REST APIs</a></li><li><a href="/code_examples/Topaz_cli.html" class="sidebar-link">Topaz CLI</a></li><li><a href="/code_examples/Topaz_SDK.html" class="sidebar-link">Topaz SDK</a></li><li><a href="/code_examples/Passticket.html" class="sidebar-link">Developing A PassTicket Extension</a></li><li><a href="/code_examples/Topaz_SDK_snippets.html" class="active sidebar-link">Topaz SDK Code Snippets</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#obtaining-one-or-more-defined-z-os-hosts" class="sidebar-link">Obtaining one or more Defined z/OS Hosts</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#connecting-to-a-z-os-host-for-dataset-or-jes-api-usage" class="sidebar-link">Connecting to a z/OS Host for Dataset or JES API Usage</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#obtaining-a-dataset-command-provider" class="sidebar-link">Obtaining a Dataset Command Provider</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#allocating-partitioned-or-sequential-datasets" class="sidebar-link">Allocating Partitioned or Sequential Datasets</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#creating-a-pds-member" class="sidebar-link">Creating a PDS Member</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#deleting-a-pds-member" class="sidebar-link">Deleting a PDS Member</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#obtaining-one-or-more-datasets" class="sidebar-link">Obtaining one or more Datasets</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#reading-the-content-of-a-sequential-dataset" class="sidebar-link">Reading the Content of a Sequential Dataset</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#writing-to-a-sequential-dataset" class="sidebar-link">Writing to a Sequential Dataset</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#reading-the-content-of-a-pds-member" class="sidebar-link">Reading the Content of a PDS Member</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#writing-content-to-a-pds-member" class="sidebar-link">Writing Content to a PDS Member</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#obtaining-the-characteristics-of-a-dataset" class="sidebar-link">Obtaining the Characteristics of a Dataset</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#obtaining-the-statistics-of-a-pds-member" class="sidebar-link">Obtaining the Statistics of a PDS Member</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#recalling-a-migrated-dataset" class="sidebar-link">Recalling a Migrated Dataset</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#obtaining-a-jes-command-provider" class="sidebar-link">Obtaining a JES Command Provider</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#submitting-a-job" class="sidebar-link">Submitting a Job</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#checking-a-job’s-status" class="sidebar-link">Checking a Job’s Status</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#launching-a-z-os-user-program" class="sidebar-link">Launching a z/OS User Program</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#writing-reading-user-defined-data-to-from-a-z-os-user-program" class="sidebar-link">Writing/Reading User-Defined Data to/from a z/OS User Program</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_SDK_snippets.html#listening-for-z-os-user-program-termination-events" class="sidebar-link">Listening for z/OS User Program Termination Events</a></li></ul></li></ul> </div> <div class="page"> <div class="content"><h1 id="code-snippets"><a href="#code-snippets" aria-hidden="true" class="header-anchor">#</a> Code Snippets</h1> <p>The following scenarios contain a brief description as well as one or more code snippets pertinent to the scenario:</p> <h2 id="obtaining-one-or-more-defined-z-os-hosts"><a href="#obtaining-one-or-more-defined-z-os-hosts" aria-hidden="true" class="header-anchor">#</a> Obtaining one or more Defined z/OS Hosts</h2> <p>In order to connect to a z/OS host, one or more defined z/OS hosts must first be obtained.</p> <p>To obtain a list of all defined z/OS hosts:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">// get a IHostManager</span>
+IHostManager hostManager <span class="token operator">=</span> HostServicesAPI<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getHostManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// get all defined hosts, an empty list is returned if none are defined</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>IZOSHost<span class="token punctuation">&gt;</span></span> zosHostList <span class="token operator">=</span> hostManager<span class="token punctuation">.</span><span class="token function">getZOSHosts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To obtain a single z/OS host:</p> <div class="language-java extra-class"><pre class="language-java"><code>String host <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">int</span> port <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// get a IHostManager</span>
+IHostManager hostManager <span class="token operator">=</span> HostServicesAPI<span class="token punctuation">.</span><span class="token function">getInstance</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getHostManager</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// find z/OS host, null is returned if this host is not defined</span>
+IZOSHost zosHost <span class="token operator">=</span> hostManager<span class="token punctuation">.</span><span class="token function">findZOSHost</span><span class="token punctuation">(</span>host<span class="token punctuation">,</span> port<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="connecting-to-a-z-os-host-for-dataset-or-jes-api-usage"><a href="#connecting-to-a-z-os-host-for-dataset-or-jes-api-usage" aria-hidden="true" class="header-anchor">#</a> Connecting to a z/OS Host for Dataset or JES API Usage</h2> <p>In order to use the dataset or JES APIs on a defined z/OS host, a connection to that z/OS host must first be established.</p> <p>To connect to a z/OS host for dataset or JES API usage:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHost zosHost <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String userID <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String password <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+ 
+<span class="token comment">// use one of the several ZOSCredentialsFactory methods to get a z/OS credentials object</span>
+IZOSCredentials credentials <span class="token operator">=</span> ZOSCredentialsFactory<span class="token punctuation">.</span><span class="token function">createZOSCredentials</span><span class="token punctuation">(</span>userID<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// create a connection from the z/OS host</span>
+IZOSHostConnection zosHostConnection <span class="token operator">=</span> zosHost<span class="token punctuation">.</span><span class="token function">createZOSHostConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// connect to the host</span>
+	zosHostConnection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>credentials<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token comment">// the connection is now available for use</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">HostCredentialsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// credentials were invalid, likely caused by incorrect login information or expired password</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Alternatively, you may connect to a z/OS host by using the credentials of the currently logged in UI user (this requires the use of the com.compuware.api.hostservices.ui bundle):</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHost zosHost <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// make sure we have access to the UI user's credentials (either saved credentials, or the UI user is currently logged in)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>zosHost<span class="token punctuation">.</span><span class="token function">hasUIUserCredentials</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// connect the UI user so we can access their credentials (user will be presented with a login dialog)</span>
+	zosHost<span class="token punctuation">.</span><span class="token function">connectUIUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// we should have the UI user's credentials now, unless they cancelled the login dialog</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>zosHost<span class="token punctuation">.</span><span class="token function">hasUIUserCredentials</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token comment">// get UI user's z/OS credentials</span>
+	IZOSCredentials credentials <span class="token operator">=</span> zosHost<span class="token punctuation">.</span><span class="token function">getUIUserCredentials</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">try</span>
+	<span class="token punctuation">{</span>
+		<span class="token comment">// create a connection from the z/OS host</span>
+		IZOSHostConnection zosHostConnection <span class="token operator">=</span> zosHost<span class="token punctuation">.</span><span class="token function">createZOSHostConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// connect to the host</span>
+		zosHostConnection<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>credentials<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// the connection is now available for use</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">HostCredentialsException</span> e<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token comment">// credentials were invalid, likely caused by expired password</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="obtaining-a-dataset-command-provider"><a href="#obtaining-a-dataset-command-provider" aria-hidden="true" class="header-anchor">#</a> Obtaining a Dataset Command Provider</h2> <p>In order to obtain one or more datasets, a dataset command provider must first be obtained.</p> <p>To obtain a dataset command provider:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHostConnection zosHostConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// get the dataset command provider from a z/OS host connection</span>
+<span class="token comment">// note: the command provider will only be usable while the z/OS host connection is connected to its host</span>
+IDataSetCommandProvider commandProvider <span class="token operator">=</span> zosHostConnection<span class="token punctuation">.</span><span class="token function">getDataSetCommandProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="allocating-partitioned-or-sequential-datasets"><a href="#allocating-partitioned-or-sequential-datasets" aria-hidden="true" class="header-anchor">#</a> Allocating Partitioned or Sequential Datasets</h2> <p>In order to allocate partitioned or sequential datasets, you first must create the allocate parameters using an AllocateParametersBuilder. After creating your allocate parameters, you can then allocate your datasets using an IDatasetCommandProvider.</p> <p>To create allocate parameters based off of an existing dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">// note: the dataset may also be an ISequentialDataSet</span>
+IPartitionedDataSet dataset <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    IAllocateParameters parameters <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">like</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset can no longer be found</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the user does not have access to this dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset has been migrated since it was first retrieved</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To create allocate parameters based off of an existing dataset while overriding some parameters:</p> <div class="language-java extra-class"><pre class="language-java"><code><span class="token comment">// note: the dataset may also be an ISequentialDataSet</span>
+IPartitionedDataSet dataset <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    IAllocateParameters parameters <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">like</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token function">setRecordFormat</span><span class="token punctuation">(</span>RecordFormat<span class="token punctuation">.</span>VB<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setLogicalRecordLength</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setBlockSize</span><span class="token punctuation">(</span><span class="token number">124</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// alternatively:</span>
+
+    AllocateParametersBuilder builder <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">like</span><span class="token punctuation">(</span>dataset<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    builder<span class="token punctuation">.</span><span class="token function">setRecordFormat</span><span class="token punctuation">(</span>RecordFormat<span class="token punctuation">.</span>VB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    builder<span class="token punctuation">.</span><span class="token function">setLogicalRecordLength</span><span class="token punctuation">(</span><span class="token number">120</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    builder<span class="token punctuation">.</span><span class="token function">setBlockSize</span><span class="token punctuation">(</span><span class="token number">124</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    IAllocateParameters parameters2 <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset can no longer be found</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the user does not have access to this dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e1<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset has been migrated since it was first retrieved</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To create allocate parameters for a partitioned dataset based off of defaults:</p> <div class="language-java extra-class"><pre class="language-java"><code>IAllocateParameters parameters <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">partitionedDefaults</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+		<span class="token punctuation">.</span><span class="token function">setAllocationUnit</span><span class="token punctuation">(</span>IAllocateParameters<span class="token punctuation">.</span>AllocationUnit<span class="token punctuation">.</span>CYLINDERS<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPrimaryQuantity</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSecondaryQuantity</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// alternatively:</span>
+
+AllocateParametersBuilder builder <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">partitionedDefaults</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span><span class="token function">setAllocationUnit</span><span class="token punctuation">(</span>IAllocateParameters<span class="token punctuation">.</span>AllocationUnit<span class="token punctuation">.</span>CYLINDERS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span><span class="token function">setPrimaryQuantity</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span><span class="token function">setSecondaryQuantity</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+IAllocateParameters parameters2 <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To create allocate parameters for a sequential dataset based off of defaults:</p> <div class="language-java extra-class"><pre class="language-java"><code>IAllocateParameters parameters <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">sequentialDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">.</span><span class="token function">setAllocationUnit</span><span class="token punctuation">(</span>IAllocateParameters<span class="token punctuation">.</span>AllocationUnit<span class="token punctuation">.</span>CYLINDERS<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setPrimaryQuantity</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setSecondaryQuantity</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// alternatively:</span>
+
+AllocateParametersBuilder builder <span class="token operator">=</span> AllocateParametersBuilder<span class="token punctuation">.</span><span class="token function">sequentialDefaults</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span><span class="token function">setAllocationUnit</span><span class="token punctuation">(</span>IAllocateParameters<span class="token punctuation">.</span>AllocationUnit<span class="token punctuation">.</span>CYLINDERS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span><span class="token function">setPrimaryQuantity</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span><span class="token function">setSecondaryQuantity</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+IAllocateParameters parameters2 <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To allocate a partitioned dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+IAllocateParameters parameters <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    commandProvider<span class="token punctuation">.</span><span class="token function">allocatePartitionedDataSet</span><span class="token punctuation">(</span>dataSetName<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetExistsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset already exists</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">AllocationFailedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the allocation failed - most likely because the user does not have the proper authority</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To allocate a sequential dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+IAllocateParameters parameters <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+    commandProvider<span class="token punctuation">.</span><span class="token function">allocateSequentialDataSet</span><span class="token punctuation">(</span>dataSetName<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetExistsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the dataset already exists</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">AllocationFailedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the allocation failed - most likely because the user does not have the proper authority</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="creating-a-pds-member"><a href="#creating-a-pds-member" aria-hidden="true" class="header-anchor">#</a> Creating a PDS Member</h2> <p>To create a single PDS member from an IDatasetCommandProvider:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String pdsName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// create the member</span>
+	commandProvider<span class="token punctuation">.</span><span class="token function">createPDSMember</span><span class="token punctuation">(</span>pdsName<span class="token punctuation">,</span> memberName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset does not exist</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberAlreadyExistsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// a member with the same name already exists in the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To create a single PDS member from an IPartitionedDataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IPartitionedDataSet partitionedDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// create the member</span>
+	partitionedDataSet<span class="token punctuation">.</span><span class="token function">createMember</span><span class="token punctuation">(</span>memberName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset does not exist</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberAlreadyExistsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// a member with the same name already exists in the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="deleting-a-pds-member"><a href="#deleting-a-pds-member" aria-hidden="true" class="header-anchor">#</a> Deleting a PDS Member</h2> <p>To delete a single PDS member from an IDatasetCommandProvider:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String pdsName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// delete the member</span>
+	commandProvider<span class="token punctuation">.</span><span class="token function">deletePDSMember</span><span class="token punctuation">(</span>pdsName<span class="token punctuation">,</span> memberName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset does not exist</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the member is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// a member with the same name already exists in the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To delete a single PDS member from an IPartitionedDataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IPartitionedDataSet partitionedDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// delete the member</span>
+	partitionedDataSet<span class="token punctuation">.</span><span class="token function">deleteMember</span><span class="token punctuation">(</span>memberName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset does not exist</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the member is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// a member with the same name already exists in the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="obtaining-one-or-more-datasets"><a href="#obtaining-one-or-more-datasets" aria-hidden="true" class="header-anchor">#</a> Obtaining one or more Datasets</h2> <p>To retrieve a single dataset of any type:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSet will be null if it cannot be found</span>
+IDataSet dataSet <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findDataSet</span><span class="token punctuation">(</span>dataSetName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a list of datasets of any type matching a filter:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetFilter <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSets will be empty if no datasets match the dataset filter</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>IDataSet<span class="token punctuation">&gt;</span></span> dataSets <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findDataSets</span><span class="token punctuation">(</span>dataSetFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a single partitioned dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSet will be null if it cannot be found</span>
+IPartitionedDataSet dataSet <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findPartitionedDataSet</span><span class="token punctuation">(</span>dataSetName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a list of partitioned datasets matching a filter:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetFilter <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSets will be empty if no partitioned datasets match the dataset filter</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>IPartitionedDataSet<span class="token punctuation">&gt;</span></span> dataSets <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findPartitionedDataSets</span><span class="token punctuation">(</span>dataSetFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a single sequential dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSet will be null if it cannot be found</span>
+ISequentialDataSet dataSet <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findSequentialDataSet</span><span class="token punctuation">(</span>dataSetName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a list of sequential datasets matching a filter:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetFilter <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSets will be empty if no sequential datasets match the dataset filter</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>ISequentialDataSet<span class="token punctuation">&gt;</span></span> dataSets <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findSequentialDataSets</span><span class="token punctuation">(</span>dataSetFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a single VSAM cluster:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String vsamClusterName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// vsamCluster will be null if it cannot be found</span>
+IVSAMCluster vsamCluster <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findVSAMCluster</span><span class="token punctuation">(</span>vsamClusterName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a list of VSAM clusters matching a filter:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetFilter <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// vsamClusters will be empty if no VSAM clusters match the dataset filter</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>IVSAMCluster<span class="token punctuation">&gt;</span></span> vsamClusters <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findVSAMClusters</span><span class="token punctuation">(</span>dataSetFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a single migrated dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSet will be null if it cannot be found</span>
+IMigratedDataSet dataSet <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findMigratedDataSet</span><span class="token punctuation">(</span>dataSetName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>To retrieve a list of migrated datasets matching a filter:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSetCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String dataSetFilter <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// dataSets will be empty if no migrated datasets match the dataset filter</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>IMigratedDataSet<span class="token punctuation">&gt;</span></span> dataSets <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">findMigratedDataSets</span><span class="token punctuation">(</span>dataSetFilter<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="reading-the-content-of-a-sequential-dataset"><a href="#reading-the-content-of-a-sequential-dataset" aria-hidden="true" class="header-anchor">#</a> Reading the Content of a Sequential Dataset</h2> <p>To read the content of a sequential dataset from an ISequentialDataSet:</p> <div class="language-java extra-class"><pre class="language-java"><code>ISequentialDataSet sequentialDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedReader wrapping a new DataSetReader using a try-with-resources statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedReader reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DataSetReader</span><span class="token punctuation">(</span>sequentialDataSet<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// read the sequential dataset data using the reader</span>
+	String record<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>record <span class="token operator">=</span> reader<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// note: non-displayable characters will be output as the '\uFFFD' (lozenge) character (displays as '?' in some character sets)</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the sequential dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error has occurred reading a line and/or closing the reader</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To read the content of a sequential dataset using an IZOSHostConnection:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHostConnection zosHostConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String sequentialDataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedReader wrapping a new DataSetReader using a try-with-resource statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedReader reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DataSetReader</span><span class="token punctuation">(</span>zosHostConnection<span class="token punctuation">,</span> sequentialDataSetName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// read the sequential dataset data using the reader</span>
+	String record<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>record <span class="token operator">=</span> reader<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// note: non-displayable characters will be output as the '\uFFFD' (lozenge) character (displays as '?' in some character sets)</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the sequential dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset could not be found or is not a sequential dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error has occurred reading a line and/or closing the reader</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="writing-to-a-sequential-dataset"><a href="#writing-to-a-sequential-dataset" aria-hidden="true" class="header-anchor">#</a> Writing to a Sequential Dataset</h2> <p>To write the content of a sequential dataset from an ISequentialDataSet:</p> <div class="language-java extra-class"><pre class="language-java"><code>String dataSetContents <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+ISequentialDataSet sequentialDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+ 
+<span class="token comment">// create a BufferedWriter wrapping a new DataSetWriter using a try-with-resources statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedWriter writer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DataSetWriter</span><span class="token punctuation">(</span>sequentialDataSet<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// write the sequential dataset using the writer</span>
+    writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>dataSetContents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the user does not have access to the sequential dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the sequential dataset is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the sequential dataset has been migrated since it was first retrieved</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the sequential dataset can no longer be found</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// an IO error has occurred writing the sequential dataset and/or closing the writer</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To write the content of a sequential dataset using an IZOSHostConnection:</p> <div class="language-java extra-class"><pre class="language-java"><code>String dataSetContents <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+IZOSHostConnection zosHostConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String sequentialDataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedWriter wrapping a new DataSetWriter using a try-with-resource statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedWriter writer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DataSetWriter</span><span class="token punctuation">(</span>zosHostConnection<span class="token punctuation">,</span> sequentialDataSetName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// write the sequential dataset data using the writer</span>
+    writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>dataSetContents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the user does not have access to the sequential dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the sequential dataset is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the sequential dataset is migrated</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the sequential dataset could not be found or is not a sequential dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// an IO error has occurred writing the sequential dataset and/or closing the writer</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="reading-the-content-of-a-pds-member"><a href="#reading-the-content-of-a-pds-member" aria-hidden="true" class="header-anchor">#</a> Reading the Content of a PDS Member</h2> <p>To read the content of a PDS member from an IPartitionedDataSetMember:</p> <div class="language-java extra-class"><pre class="language-java"><code>IPartitionedDataSetMember partitionedDataSetMember <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedReader wrapping a new MemberReader using a try-with-resource statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedReader reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MemberReader</span><span class="token punctuation">(</span>partitionedDataSetMember<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// read the partitioned dataset member data using the reader</span>
+	String record<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>record <span class="token operator">=</span> reader<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// note: non-displayable characters will be output as the '\uFFFD' (lozenge) character (displays as '?' in some character sets)</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset member can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error has occurred reading a line and/or closing the reader</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To read the content of a PDS member using an IZOSHostConnection:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHostConnection zosHostConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String pdsName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedReader wrapping a new MemberReader using a try-with-resource statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedReader reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MemberReader</span><span class="token punctuation">(</span>zosHostConnection<span class="token punctuation">,</span> pdsName<span class="token punctuation">,</span> memberName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// read the partitioned dataset member data using the reader</span>
+	String record<span class="token punctuation">;</span>
+	<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>record <span class="token operator">=</span> reader<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// note: non-displayable characters will be output as the '\uFFFD' (lozenge) character (displays as '?' in some character sets)</span>
+		System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>record<span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset could not be found or is not a partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset member could not be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error has occurred reading a line and/or closing the reader</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="writing-content-to-a-pds-member"><a href="#writing-content-to-a-pds-member" aria-hidden="true" class="header-anchor">#</a> Writing Content to a PDS Member</h2> <p>To write to a PDS member from an IPartitionedDataSetMember:</p> <div class="language-java extra-class"><pre class="language-java"><code>String memberContents <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+IPartitionedDataSetMember partitionedDataSetMember <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedWriter wrapping a new MemberWriter using a try-with-resource statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedWriter writer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MemberWriter</span><span class="token punctuation">(</span>partitionedDataSetMember<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// write the partitioned dataset member data using the writer</span>
+    writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>memberContents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the user does not have access to the partitioned dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset has been migrated since it was first retrieved</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset can no longer be found</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset member can no longer be found</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset member is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// an IO error has occurred writing the partitioned dataset member and/or closing the writer</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To write to a PDS member using an IZOSHostConnection:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHostConnection zosHostConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String pdsName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a BufferedWriter wrapping a new MemberWriter using a try-with-resource statement</span>
+<span class="token keyword">try</span> <span class="token punctuation">(</span>BufferedWriter writer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MemberWriter</span><span class="token punctuation">(</span>zosHostConnection<span class="token punctuation">,</span> pdsName<span class="token punctuation">,</span> memberName<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// write the partitioned dataset member data using the writer</span>
+    writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>memberContents<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the user does not have access to the partitioned dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset is migrated</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset could not be found or is not a partitioned dataset</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset member could not be found</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// the partitioned dataset member is enqueued by another user or job</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// an IO error has occurred writing the partitioned dataset member and/or closing the writer</span>
+    <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="obtaining-the-characteristics-of-a-dataset"><a href="#obtaining-the-characteristics-of-a-dataset" aria-hidden="true" class="header-anchor">#</a> Obtaining the Characteristics of a Dataset</h2> <p>To obtain the characteristics of a dataset of any type:</p> <div class="language-java extra-class"><pre class="language-java"><code>IDataSet dataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// fetch the characteristics from the dataset</span>
+	IDataSetCharacteristics dataSetCharacteristics <span class="token operator">=</span> dataSet<span class="token punctuation">.</span><span class="token function">fetchCharacteristics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to this dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To obtain the characteristics of a partitioned dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IPartitionedDataSet dataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// fetch the partitioned dataset characteristics from the partitioned dataset</span>
+	IPartitionedDataSetCharacteristics partitionedDataSetCharacteristics <span class="token operator">=</span> partitionedDataSet<span class="token punctuation">.</span><span class="token function">fetchCharacteristics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to this dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To obtain the characteristics of a sequential dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>ISequentialDataSet sequentialDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// fetch the sequential dataset characteristics from the sequential dataset</span>
+	ISequentialDataSetCharacteristics sequentialDataSetCharacteristics <span class="token operator">=</span> sequentialDataSet<span class="token punctuation">.</span><span class="token function">fetchCharacteristics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to this dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To obtain the characteristics of a VSAM cluster:</p> <div class="language-java extra-class"><pre class="language-java"><code>IVSAMCluster vsamCluster <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// fetch the VSAM cluster characteristics from the VSAM cluster</span>
+	IVSAMClusterCharacteristics vsamClusterCharacteristics <span class="token operator">=</span> vsamCluster<span class="token punctuation">.</span><span class="token function">fetchCharacteristics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to this VSAM cluster</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the VSAM cluster is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the VSAM cluster has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the VSAM cluster can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="obtaining-the-statistics-of-a-pds-member"><a href="#obtaining-the-statistics-of-a-pds-member" aria-hidden="true" class="header-anchor">#</a> Obtaining the Statistics of a PDS Member</h2> <p>To obtain the statistics of a PDS member:</p> <div class="language-java extra-class"><pre class="language-java"><code>IPartitionedDataSetMember partitionedDataSetMember <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// fetch the partitioned dataset member statistics from the partitioned dataset member</span>
+	IPartitionedDataSetMemberStatistics partitionedDataSetMemberStatistics <span class="token operator">=</span> partitionedDataSetMember<span class="token punctuation">.</span><span class="token function">fetchStatistics</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset member can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="recalling-a-migrated-dataset"><a href="#recalling-a-migrated-dataset" aria-hidden="true" class="header-anchor">#</a> Recalling a Migrated Dataset</h2> <p>To recall a migrated dataset:</p> <div class="language-java extra-class"><pre class="language-java"><code>IMigratedDataSet migratedDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// recall the migrated dataset</span>
+	IDataSet recalledDataSet <span class="token operator">=</span> migratedDataSet<span class="token punctuation">.</span><span class="token function">recall</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the migrated dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="obtaining-a-jes-command-provider"><a href="#obtaining-a-jes-command-provider" aria-hidden="true" class="header-anchor">#</a> Obtaining a JES Command Provider</h2> <p>In order to perform various JES functions, a JES command provider must first be obtained.</p> <p>To obtain a JES command provider:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHostConnection zosHostConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// get the JES command provider from a z/OS host connection</span>
+<span class="token comment">// note: the command provider will only be usable while the z/OS host connection is connected to its host</span>
+IJESCommandProvider commandProvider <span class="token operator">=</span> zosHostConnection<span class="token punctuation">.</span><span class="token function">getJESCommandProvider</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="submitting-a-job"><a href="#submitting-a-job" aria-hidden="true" class="header-anchor">#</a> Submitting a Job</h2> <p>To submit a job from a partitioned dataset member using an IPartitionedDataSetMember:</p> <div class="language-java extra-class"><pre class="language-java"><code>IJESCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+IPartitionedDataSetMember member <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// submit the job (the returned JobInfo may be used to retrieve/monitor the job's status)</span>
+	JobInfo jobInfo <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>member<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the partitioned dataset member can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To submit a job from a partitioned dataset member using a partitioned dataset name and member name:</p> <div class="language-java extra-class"><pre class="language-java"><code>IJESCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String pdsName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String memberName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// submit the job (the returned JobInfo may be used to retrieve/monitor the job's status)</span>
+	JobInfo jobInfo <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>pdsName<span class="token punctuation">,</span> memberName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset could not be found or is not a partitioned dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">MemberNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the member could not be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To submit a job from a sequential dataset using an ISequentialDataSet:</p> <div class="language-java extra-class"><pre class="language-java"><code>IJESCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+ISequentialDataSet sequentialDataSet <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// submit the job (the returned JobInfo may be used to retrieve/monitor the job's status)</span>
+	JobInfo jobInfo <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>sequentialDataSet<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the sequential dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset has been migrated since it was first retrieved</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the sequential dataset can no longer be found</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To submit a job from a sequential dataset using a sequential dataset name:</p> <div class="language-java extra-class"><pre class="language-java"><code>IJESCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String sequentialDataSetName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// submit the job (the returned JobInfo may be used to retrieve/monitor the job's status)</span>
+	JobInfo jobInfo <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>sequentialDataSetName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetAccessException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the user does not have access to the dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetInUseException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is enqueued by another user or job</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetMigratedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset is migrated</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">DataSetNotFoundException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// the dataset could not be found or is not a sequential dataset</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To submit a job from a list of String records:</p> <div class="language-java extra-class"><pre class="language-java"><code>IJESCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+List<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> jclRecords <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// submit the job (the returned JobInfo may be used to retrieve/monitor the job's status)</span>
+JobInfo jobInfo <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">submit</span><span class="token punctuation">(</span>jclRecords<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="checking-a-job’s-status"><a href="#checking-a-job’s-status" aria-hidden="true" class="header-anchor">#</a> Checking a Job’s Status</h2> <p>To check a job’s status:</p> <div class="language-java extra-class"><pre class="language-java"><code>IJESCommandProvider commandProvider <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+JobInfo jobInfo <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// get the job status from the JES command provider</span>
+JobStatus jobStatus <span class="token operator">=</span> commandProvider<span class="token punctuation">.</span><span class="token function">getJobStatus</span><span class="token punctuation">(</span>jobInfo<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="launching-a-z-os-user-program"><a href="#launching-a-z-os-user-program" aria-hidden="true" class="header-anchor">#</a> Launching a z/OS User Program</h2> <p>In order to communicate with a z/OS user program, the program must first be launched.</p> <p>To launch a z/OS user program:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHost zosHost <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String userID <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String password <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String userProcedureName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String userProgramName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// use one of the several ZOSCredentialsFactory methods to create a z/OS credentials object</span>
+IZOSCredentials credentials <span class="token operator">=</span> ZOSCredentialsFactory<span class="token punctuation">.</span><span class="token function">createZOSCredentials</span><span class="token punctuation">(</span>userID<span class="token punctuation">,</span> password<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// create a user program connection from the z/OS host</span>
+IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> zosHost<span class="token punctuation">.</span><span class="token function">createZOSUserProgramConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// launch the user program</span>
+	zosUserProgramConnection<span class="token punctuation">.</span><span class="token function">launchUserProgram</span><span class="token punctuation">(</span>credentials<span class="token punctuation">,</span> userProcedureName<span class="token punctuation">,</span> userProgramName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// the user program connection is now able to communicate with the program (for as long as it remains running)</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">HostCredentialsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// credentials were invalid, likely caused by incorrect login information or expired password</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>Alternatively, a z/OS user program can be launched using the credentials of the currently logged in UI user (this requires the use of the com.compuware.api.hostservices.ui bundle).</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSHost zosHost <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String userProcedureName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String userProgramName <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// make sure we have access to the UI user's credentials (either saved credentials, or the UI user is currently logged in)</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>zosHost<span class="token punctuation">.</span><span class="token function">hasUIUserCredentials</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// connect the UI user so we can access their credentials (user will be presented with a login dialog)</span>
+	zosHost<span class="token punctuation">.</span><span class="token function">connectUIUser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// we should have the UI user's credentials now, unless they cancelled the login dialog</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>zosHost<span class="token punctuation">.</span><span class="token function">hasUIUserCredentials</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// get UI user's z/OS credentials</span>
+	IZOSCredentials credentials <span class="token operator">=</span> zosHost<span class="token punctuation">.</span><span class="token function">getUIUserCredentials</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token keyword">try</span> <span class="token punctuation">{</span>
+		<span class="token comment">// create a user program connection from the z/OS host</span>
+		IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> zosHost<span class="token punctuation">.</span><span class="token function">createZOSUserProgramConnection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// launch the user program</span>
+		zosUserProgramConnection<span class="token punctuation">.</span><span class="token function">launchUserProgram</span><span class="token punctuation">(</span>credentials<span class="token punctuation">,</span> userProcedureName<span class="token punctuation">,</span> userProgramName<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+		<span class="token comment">// the user program connection is now able to communicate with the program (for as long as it remains running)</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">HostCredentialsException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// credentials were invalid, likely caused by expired password</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="writing-reading-user-defined-data-to-from-a-z-os-user-program"><a href="#writing-reading-user-defined-data-to-from-a-z-os-user-program" aria-hidden="true" class="header-anchor">#</a> Writing/Reading User-Defined Data to/from a z/OS User Program</h2> <p>A java.io.OutputStream is used to write user-defined data to a z/OS user program. A java.io.InputStream is used to read user-defined data from a z/OS user program.</p> <p>To send byte data to a z/OS user program:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> data <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// get the user program's output stream</span>
+	<span class="token comment">// note: a user program must be executing before calling this method</span>
+	OutputStream outputStream <span class="token operator">=</span> zosUserProgramConnection<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// use any of the output stream's &quot;write&quot; methods to write data</span>
+	outputStream<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error occurred getting the input stream or reading its data</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To send text data to a z/OS user program:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+String data <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// get the user program's output stream</span>
+	<span class="token comment">// note: a user program must be executing before calling this method</span>
+	OutputStream outputStream <span class="token operator">=</span> zosUserProgramConnection<span class="token punctuation">.</span><span class="token function">getOutputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// wrap the user program's output stream in a buffered writer</span>
+	<span class="token comment">// note: this code assumes the user program is decoding received data using UTF-8</span>
+	BufferedWriter writer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span>outputStream<span class="token punctuation">,</span> <span class="token string">&quot;UTF-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// use any of the writer's &quot;write&quot; methods to write text to the user program</span>
+	writer<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// flush the writer to ensure the data gets sent to the user program</span>
+	writer<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error occurred getting the input stream or reading its data</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To read byte data from a z/OS user program:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> buffer <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// get the user program's input stream</span>
+	<span class="token comment">// note: a user program must be executing before calling this method</span>
+	InputStream inputStream <span class="token operator">=</span> zosUserProgramConnection<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// use any of the input stream's &quot;read&quot; methods to read data</span>
+	<span class="token keyword">int</span> numBytesRead <span class="token operator">=</span> inputStream<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>buffer<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error occurred getting the input stream or reading its data</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>To read text data from a z/OS user program:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+	<span class="token comment">// get the user program's input stream</span>
+	<span class="token comment">// note: a user program must be executing before calling this method</span>
+	InputStream inputStream <span class="token operator">=</span> zosUserProgramConnection<span class="token punctuation">.</span><span class="token function">getInputStream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// wrap the user program's input stream in a buffered reader</span>
+	<span class="token comment">// note: this code assumes the user program is encoding its data using UTF-8</span>
+	BufferedReader reader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BufferedReader</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">InputStreamReader</span><span class="token punctuation">(</span>inputStream<span class="token punctuation">,</span> <span class="token string">&quot;UTF-8&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+	<span class="token comment">// use the any of the reader's &quot;read&quot; methods to read text from the user program</span>
+	String data <span class="token operator">=</span> reader<span class="token punctuation">.</span><span class="token function">readLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// an IO error occurred getting the input stream or reading its data</span>
+	<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="listening-for-z-os-user-program-termination-events"><a href="#listening-for-z-os-user-program-termination-events" aria-hidden="true" class="header-anchor">#</a> Listening for z/OS User Program Termination Events</h2> <p>To listen for z/OS user program termination events:</p> <div class="language-java extra-class"><pre class="language-java"><code>IZOSUserProgramConnection zosUserProgramConnection <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+
+<span class="token comment">// create a z/OS user program termination listener</span>
+IZOSUserProgramTerminationListener terminationListener <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IZOSUserProgramTerminationListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token punctuation">{</span><span class="token annotation punctuation">@code</span> <span class="token annotation punctuation">@Override</span><span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">programCompleted</span><span class="token punctuation">(</span>IZOSUserProgramCompletionEvent event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// handle z/OS user program normal completion here</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token punctuation">{</span><span class="token annotation punctuation">@code</span> <span class="token annotation punctuation">@Override</span><span class="token punctuation">}</span>
+	<span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">programAbended</span><span class="token punctuation">(</span>IZOSUserProgramAbendEvent event<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">// handle z/OS user program abend here</span>
+		<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// add listener to z/OS user program connection</span>
+<span class="token comment">// note: this listener will be notified of the termination of all user programs launched via this z/OS user program connection until it is removed</span>
+zosUserProgramConnection<span class="token punctuation">.</span>addUserProgramTerminationListener
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/code_examples/Passticket.html" class="prev">
+          Developing A PassTicket Extension
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.38dc2da7.js" defer></script><script src="/assets/js/19.ef7aad5c.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Topaz CLI</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.16c93b31.css" as="style"><link rel="preload" href="/assets/js/app.38dc2da7.js" as="script"><link rel="preload" href="/assets/js/20.e0b1db2d.js" as="script"><link rel="prefetch" href="/assets/js/10.f1607b87.js"><link rel="prefetch" href="/assets/js/11.5935f050.js"><link rel="prefetch" href="/assets/js/12.e6a5ca86.js"><link rel="prefetch" href="/assets/js/13.78ae9647.js"><link rel="prefetch" href="/assets/js/14.a029e60a.js"><link rel="prefetch" href="/assets/js/15.ffe0034a.js"><link rel="prefetch" href="/assets/js/16.1114c444.js"><link rel="prefetch" href="/assets/js/17.0f1b6827.js"><link rel="prefetch" href="/assets/js/18.a3e3e402.js"><link rel="prefetch" href="/assets/js/19.ef7aad5c.js"><link rel="prefetch" href="/assets/js/2.da451cf3.js"><link rel="prefetch" href="/assets/js/21.40954eb3.js"><link rel="prefetch" href="/assets/js/22.212fc021.js"><link rel="prefetch" href="/assets/js/23.a314009f.js"><link rel="prefetch" href="/assets/js/24.cd8f299f.js"><link rel="prefetch" href="/assets/js/25.d2e6dbd5.js"><link rel="prefetch" href="/assets/js/26.7c8fed17.js"><link rel="prefetch" href="/assets/js/27.aca225c8.js"><link rel="prefetch" href="/assets/js/28.8015e33a.js"><link rel="prefetch" href="/assets/js/29.18be192f.js"><link rel="prefetch" href="/assets/js/3.3a07ef4f.js"><link rel="prefetch" href="/assets/js/30.bf2c58ed.js"><link rel="prefetch" href="/assets/js/31.7d298cf9.js"><link rel="prefetch" href="/assets/js/32.acbdc620.js"><link rel="prefetch" href="/assets/js/33.b37a3e52.js"><link rel="prefetch" href="/assets/js/34.a6d5a9bf.js"><link rel="prefetch" href="/assets/js/35.aef6c1df.js"><link rel="prefetch" href="/assets/js/36.fed52b27.js"><link rel="prefetch" href="/assets/js/37.1a2efafc.js"><link rel="prefetch" href="/assets/js/38.99baad0c.js"><link rel="prefetch" href="/assets/js/39.3dd6385d.js"><link rel="prefetch" href="/assets/js/4.8d350108.js"><link rel="prefetch" href="/assets/js/5.e19c8ee8.js"><link rel="prefetch" href="/assets/js/6.955488f3.js"><link rel="prefetch" href="/assets/js/7.0f86fe07.js"><link rel="prefetch" href="/assets/js/8.b867c26c.js"><link rel="prefetch" href="/assets/js/9.e743477c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.16c93b31.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/compuware.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link router-link-active">APIs</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link router-link-active">APIs</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/code_examples/" class="sidebar-link">API, SDK and CLI</a></li><li><a href="/code_examples/Rest_api.html" class="sidebar-link">REST APIs</a></li><li><a href="/code_examples/Topaz_cli.html" class="active sidebar-link">Topaz CLI</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/code_examples/Topaz_cli.html#workspace" class="sidebar-link">Workspace</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_cli.html#getting-online-help" class="sidebar-link">Getting &quot;online&quot; help</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_cli.html#common-parameters" class="sidebar-link">Common parameters</a></li><li class="sidebar-sub-header"><a href="/code_examples/Topaz_cli.html#specific-parameters" class="sidebar-link">Specific parameters</a></li></ul></li><li><a href="/code_examples/Topaz_SDK.html" class="sidebar-link">Topaz SDK</a></li><li><a href="/code_examples/Passticket.html" class="sidebar-link">Developing A PassTicket Extension</a></li><li><a href="/code_examples/Topaz_SDK_snippets.html" class="sidebar-link">Topaz SDK Code Snippets</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="topaz-workbench-command-line-interface"><a href="#topaz-workbench-command-line-interface" aria-hidden="true" class="header-anchor">#</a> Topaz Workbench Command Line Interface</h1> <p>The Topaz Workbench Command Line Interface (CLI) is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. After <a href="/tool_configuration/">installation</a>, the command line interface folder contains a set of <code>.bat</code> files that can be used to execute the required functions. These are</p> <table><thead><tr><th><code>.bat</code> file</th> <th>description</th></tr></thead> <tbody><tr><td><code>CodeCoverageCLI.bat</code></td> <td>Allows downloading results from a Xpediter Code Coverage repository by specifying the repository name, system name and test ID.</td></tr> <tr><td><code>SCMDownloaderCLI.bat</code></td> <td>Allows interaction with the ISPW downloader to download sources from ISPW repositories, Endevor repositories or PDS</td></tr> <tr><td><code>SubmitJclCLI.bat</code></td> <td>Allows submitting JCL on the mainframe and retrieving the return code</td></tr> <tr><td><code>TotalTestCLI.bat</code></td> <td>Allows execution of Topaz for Total Test scenarios and suites. The Topaz for Total Test CLI is also documented in the Topaz online help</td></tr></tbody></table> <h2 id="workspace"><a href="#workspace" aria-hidden="true" class="header-anchor">#</a> Workspace</h2> <p>The Topaz Workbench CLI will want create a workspace to use during execution. Also, it will want to write to the <code>configuration</code> folder. Therefore, the user executing the Topaz Workbench CLI will</p> <ul><li>either need write access to the installation folders (containing the <code>configuration</code> folder) and the default workspace</li> <li>or will have to specify a workspace folder using the <code>-data</code> parameter during execution</li></ul> <p>E.g.</p> <div class="language- extra-class"><pre class="language-text"><code>CodeCoverageCLI.bat -data C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace
+</code></pre></div><p>will create a workspace in the user's profile, copy the <code>configuration</code> folder into that workspace and use that workspace and it's content for execution. All <code>.bat</code> files may use the same workspace, once that has been created by any one of the files.</p> <h2 id="getting-online-help"><a href="#getting-online-help" aria-hidden="true" class="header-anchor">#</a> Getting &quot;online&quot; help</h2> <p>Executing any of the <code>.bat</code> files without parameters, or with just the <code>-data</code> parameter, or with the <code>-help</code> parameter will return the help pages for the respective file. E.g. using the previous command will result in the following output:</p> <div class="language- extra-class"><pre class="language-text"><code>Code Coverage CLI started, version = 19.02.01. 
+Program arguments were not passed in the ALL_ARGS environment variable, will use the Eclipse command line to parse. 
+usage: Code Coverage CLI
+    --cc.ddio.overrides &lt;arg&gt;   comma separated list of DDIO overrides
+    --cc.repos &lt;arg&gt;            the code coverage repository (dataset
+                                name)
+    --cc.sources &lt;arg&gt;          comma separated list of source folders
+                                where the source has been downloaded
+    --cc.system &lt;arg&gt;           the code coverage system name
+    --cc.test &lt;arg&gt;             the code coverage test name
+ -code &lt;arg&gt;                    the code page for the connection
+ -help                          print help
+ -host &lt;arg&gt;                    the host name or IP to be connected
+ -id &lt;arg&gt;                      the user name
+ -pass &lt;arg&gt;                    the user password
+ -port &lt;arg&gt;                    the port to be connected
+ -targetFolder &lt;arg&gt;            the target folder where the source will be
+                                downloaded
+ -timeout &lt;arg&gt;                 the timeout (in minutes) for the
+                                connection
+The host parameter is not specified. 
+Code Coverage CLI ended with status = 4. 
+</code></pre></div><h2 id="common-parameters"><a href="#common-parameters" aria-hidden="true" class="header-anchor">#</a> Common parameters</h2> <p>Several parameters are common between the <code>.bat</code> files. These are:</p> <table><thead><tr><th>Parameter</th> <th>Description</th></tr></thead> <tbody><tr><td><code>-code &lt;arg&gt;</code></td> <td>the code page for the connection</td></tr> <tr><td><code>-help</code></td> <td>print help</td></tr> <tr><td><code>-host &lt;arg&gt;</code></td> <td>the host name or IP to be connected</td></tr> <tr><td><code>-id &lt;arg&gt;</code></td> <td>the user name</td></tr> <tr><td><code>-pass &lt;arg&gt;</code></td> <td>the user password (in clear text)</td></tr> <tr><td><code>-port &lt;arg&gt;</code></td> <td>the port to be connected</td></tr> <tr><td><code>-timeout &lt;arg&gt;</code></td> <td>the timeout (in minutes) for the connection</td></tr></tbody></table> <h2 id="specific-parameters"><a href="#specific-parameters" aria-hidden="true" class="header-anchor">#</a> Specific parameters</h2> <p>In addition to the above parameters, the <code>.bat</code> files use parameters specfic to each individual file.</p> <h3 id="codecoveragecli-bat"><a href="#codecoveragecli-bat" aria-hidden="true" class="header-anchor">#</a> CodeCoverageCLI.bat</h3> <table><thead><tr><th>Parameter</th> <th>Description</th></tr></thead> <tbody><tr><td><code>-cc.ddio.overrides &lt;arg&gt;</code></td> <td>comma separated list of DDIO overrides</td></tr> <tr><td><code>-cc.repos &lt;arg&gt;</code></td> <td>the code coverage repository (dataset name)</td></tr> <tr><td><code>-cc.sources &lt;arg&gt;</code></td> <td>comma separated list of source folders where the source has been downloaded to</td></tr> <tr><td><code>-cc.system &lt;arg&gt;</code></td> <td>the code coverage system name</td></tr> <tr><td><code>-cc.test &lt;arg&gt;</code></td> <td>the code coverage test name</td></tr> <tr><td><code>-targetFolder &lt;arg&gt;</code></td> <td>the target folder where the data will be downloaded to</td></tr></tbody></table> <p>This example will download the Code Coverage results from repository <code>'HDDRXM0.DEMO.COCO.REPOS'</code>, using the system <code>RXN3</code>, and test ID <code>646</code>. All resources reside on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>. The results will be downloaded to the <code>Coverage</code> sub folder of the specified target folder. The sources to compare the Code Coverage results against are expected to reside in sub folder <code>RXN3\MF_Source</code>. (The latter requires that the sources of the programs in question have been downloaded already to the specified folder.)</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to download CoCo results using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;targetFolder=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET &quot;repo=HDDRXM0.DEMO.COCO.REPOS&quot;
+SET &quot;test=646&quot;
+SET &quot;system=RXN3&quot;
+SET &quot;sources=RXN3\MF_Source&quot;
+
+SET &quot;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101&quot;
+
+&quot;%CLIPath%&quot;CodeCoverageCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout &quot;0&quot; -targetFolder %targetFolder% -data %workspace% -cc.repos %repo% -cc.test %test% -cc.system %system% -cc.sources %sources%
+</code></pre></div><h3 id="scmdownloadercli-bat"><a href="#scmdownloadercli-bat" aria-hidden="true" class="header-anchor">#</a> SCMDownloaderCLI.bat</h3> <table><thead><tr><th>Parameter</th> <th>Description</th></tr></thead> <tbody><tr><td><code>-ext &lt;arg&gt;</code></td> <td>the file extension for the downloaded source files</td></tr> <tr><td><code>-filter &lt;arg&gt;</code></td> <td>the filter patterns for the source location on the host</td></tr> <tr><td><code>-ispwComponentType &lt;arg&gt;</code></td> <td>the ISPW component type</td></tr> <tr><td><code>-ispwContainerName &lt;arg&gt;</code></td> <td>the ISPW container name</td></tr> <tr><td><code>-ispwContainerType &lt;arg&gt;</code></td> <td>the ISPW container type (0 - assignment, 1 - release, 2 - set)</td></tr> <tr><td><code>-ispwDownloadAll &lt;arg&gt;</code></td> <td>Whether to keep the workspace in sync</td></tr> <tr><td><code>-ispwFilterFiles &lt;arg&gt;</code></td> <td>the ISPW filter files checkbox</td></tr> <tr><td><code>-ispwFilterFolders &lt;arg&gt;</code></td> <td>the ISPW filter folders checkbox</td></tr> <tr><td><code>-ispwFolderName &lt;arg&gt;</code></td> <td>the ISPW folder name</td></tr> <tr><td><code>-ispwLevelOption &lt;arg&gt;</code></td> <td>the ISPW level option (0 - selected level only, 1 - level and above)</td></tr> <tr><td><code>-ispwServerApp &lt;arg&gt;</code></td> <td>the ISPW server application</td></tr> <tr><td><code>-ispwServerConfig &lt;arg&gt;</code></td> <td>the ISPW server config</td></tr> <tr><td><code>-ispwServerLevel &lt;arg&gt;</code></td> <td>the ISPW server level</td></tr> <tr><td><code>-ispwServerStream &lt;arg&gt;</code></td> <td>the ISPW server stream</td></tr> <tr><td><code>-scm &lt;arg&gt;</code></td> <td>the source code management type (ispw - repository downloader, ispwc - container downloader, endevor - Endevor downloader)</td></tr></tbody></table> <h4 id="example-using-the-ispw-container-downloader"><a href="#example-using-the-ispw-container-downloader" aria-hidden="true" class="header-anchor">#</a> Example using the ISPW container downloader</h4> <p>This example will download all COBOL components and copybooks from ISPW assignment (<code>-ispwContainerType &quot;0&quot;</code>) <code>RXN3000007</code>, using the container downloader (<code>-scm &quot;ispwc&quot;</code>). Sources will be downloaded, regardless if they have been changed or not (<code>ispwDownloadAll &quot;true&quot;</code>)
+The resources reside on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>.
+The downloaded sources will end up in the sub folder <code>&lt;application&gt;/MF_Source</code> (in the example <code>RXN3\MF_Source</code>) of the specified target folder name.</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to download sources from ISPW using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET &quot;scm=ispwc&quot;
+SET &quot;container=RXN3000007&quot;
+SET &quot;contType=0&quot;
+SET &quot;downloadAll=true&quot;
+
+SET &quot;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101&quot;
+
+&quot;%CLIPath%&quot;SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout &quot;0&quot; -targetFolder %workspace% -data %workspace% -scm %scm% -ispwContainerName %container% -ispwContainerType %contType% -ispwDownloadAll %downloadAll%
+</code></pre></div><h4 id="example-using-the-ispw-repository-downloader"><a href="#example-using-the-ispw-repository-downloader" aria-hidden="true" class="header-anchor">#</a> Example using the ISPW repository downloader</h4> <p>This example will download all COBOL components and copybooks from ISPW stream <code>FTSDEMO</code>, application <code>RXN3</code>, from level <code>DEV1</code> only (<code>-ispwLevelOption &quot;0&quot;</code>), using the repository downloader (<code>-scm &quot;ispw&quot;</code>). Sources will be downloaded, regardless if they have been changed or not (<code>ispwDownloadAll &quot;true&quot;</code>)
+The resources reside on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>.
+The downloaded sources will end up in the sub folder <code>&lt;application&gt;/MF_Source</code> (in the example <code>RXN3\MF_Source</code>) of the specified target folder name.</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to download sources from ISPW using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;targetFolder=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET &quot;scm=ispw&quot;
+SET &quot;stream=FTSDEMO&quot;
+SET &quot;application=RXN3&quot;
+SET &quot;level=DEV1&quot;
+SET &quot;levelOption=0&quot;
+SET &quot;filterFiles=true&quot;
+SET &quot;filterFolders=false&quot;
+SET compType=&quot;COB,COPY&quot;
+SET &quot;downloadAll=true&quot;
+
+SET &quot;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101&quot;
+
+&quot;%CLIPath%&quot;SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout &quot;0&quot; -targetFolder %targetFolder% -data %workspace% -scm %scm% -ispwServerStream %stream% -ispwServerApp %application% -ispwServerLevel %level% -ispwLevelOption %levelOption% -ispwFilterFiles %filterFiles% -ispwFilterFolders %filterFolders% -ispwComponentType %compType% -ispwDownloadAll %downloadAll%
+</code></pre></div><h4 id="example-using-the-pds-downloader"><a href="#example-using-the-pds-downloader" aria-hidden="true" class="header-anchor">#</a> Example using the PDS downloader</h4> <p>This example will download all members from PDS <code>'SALESSUP.RXN3.DEV1.COB'</code>, using the PDS downloader (<code>-scm &quot;ispw&quot;</code>). Sources will be downloaded, regardless if they have been changed or not (<code>ispwDownloadAll &quot;true&quot;</code>)
+The resources reside on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>. The results will be downloaded to the workspace.
+The downloaded sources will end up in specified target folder in one sub folder per PDS in the list that contained members.</p> <p>E.g.</p> <div class="language- extra-class"><pre class="language-text"><code>&lt;workspace-root&gt;
++- RXN3
+    +- MF_Source_PDS
+        +- SALESSUP.RXN3.DEV1.COB
+        +- SALESSUP.RXN3.PRD.COB
+</code></pre></div><p>if there are no members in the <code>QA1</code> or <code>STG</code> PDS.</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to download sources from PDS using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;targetFolder=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace\RXN3\MF_Source_PDS&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET &quot;scm=pds&quot;
+SET filter=&quot;SALESSUP.RXN3.DEV1.COB,SALESSUP.RXN3.QA1.COB,SALESSUP.RXN3.STG.COB,SALESSUP.RXN3.PRD.COB&quot;
+SET extension=cbl
+
+SET &quot;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101&quot;
+
+&quot;%CLIPath%&quot;SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout &quot;0&quot; -targetFolder %targetFolder% -data %workspace% -scm %scm% -filter %filter% -ext %extension%
+</code></pre></div><h3 id="submitjclcli-bat"><a href="#submitjclcli-bat" aria-hidden="true" class="header-anchor">#</a> SubmitJclCLI.bat</h3> <table><thead><tr><th>Parameter</th> <th>Description</th></tr></thead> <tbody><tr><td><code>-jcl &lt;arg&gt;</code></td> <td>a comma separated list of jcl lines to submit as a JCL job.</td></tr> <tr><td><code>-jcldsns &lt;arg&gt;</code></td> <td>a comma separated list of sequential datasets or PDS(MEMBER) names to submit as JCL jobs.</td></tr> <tr><td><code>-maxcc &lt;arg&gt;</code></td> <td>the maximum job condition code which will allow JCL submissions to continue.</td></tr></tbody></table> <h4 id="submit-jcl-residing-on-the-mainframe"><a href="#submit-jcl-residing-on-the-mainframe" aria-hidden="true" class="header-anchor">#</a> Submit JCL residing on the mainframe</h4> <p>This example will submit two jobs on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>. If the return code of any of the jobs is greater than <code>4</code> the subsequent jobs will not be submitted and the pipeline will fail with an <code>error</code>.</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to submit JCL from PDS using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET maxcc=4
+SET jclMems=&quot;HDDRXM0.DEMO.JCL(CWXTJCLC),HDDRXM0.DEMO.JCL(CWXTIMS)&quot;
+
+SET &quot;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101&quot;
+
+&quot;%CLIPath%&quot;SubmitJclCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout &quot;0&quot; -data %workspace% -maxcc %maxcc% -jcldsns %jclMems%
+</code></pre></div><h4 id="submit-jcl-residing-locally-in-a-file"><a href="#submit-jcl-residing-locally-in-a-file" aria-hidden="true" class="header-anchor">#</a> Submit JCL residing locally in a file</h4> <p>This example will submit a JCL that resides locally in file <code>C:\temp\JCL.txt</code> on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>. If the return code of any of the jobs is greater than <code>4</code> the pipeline will fail with an <code>error</code>.</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to submit JCL from local file using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET maxcc=4
+SET &quot;jclFile=c:\temp\JCL.txt&quot;
+
+SET &quot;JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101&quot;
+
+&quot;%CLIPath%&quot;SubmitJclCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout &quot;0&quot; -data %workspace% -maxcc %maxcc% -jcl %jclFile%
+</code></pre></div><h3 id="totaltestcli-bat"><a href="#totaltestcli-bat" aria-hidden="true" class="header-anchor">#</a> TotalTestCLI.bat</h3> <p>The general syntax for using the <code>TotalTestCLI.bat</code> is <code>TotalTestCLI.bat -cmd=&lt;command&gt; options</code> with the following set of possible commands. The most important command is the <code>runtest</code> command, which will excute all of the other commands in sequence. Each command uses an individual set of options.</p> <table><thead><tr><th>Command</th> <th>Description</th></tr></thead> <tbody><tr><td><code>build</code></td> <td>Parses a test suite or test scenario and creates the required binary files.</td></tr> <tr><td><code>upload</code></td> <td>Uploads the parsed local binary files to the target host system.</td></tr> <tr><td><code>submit</code></td> <td>Submit JCL to run a test.</td></tr> <tr><td><code>download</code></td> <td>Downloads the test results from the target host to a local file.</td></tr> <tr><td><code>parse</code></td> <td>Parses the local binary result file and updates the archive (history).</td></tr> <tr><td><code>resultscheck</code></td> <td>Parses the updated archive  (history), applying the check conditions to the output data and updating the archive accordingly.</td></tr> <tr><td><code>runtest</code></td> <td>Performs all the above commands (in the specified order).</td></tr></tbody></table> <p>A challenge with using the individual commands in sequence - instead of using the <code>runtest</code> command - is that using the <code>upload</code>, the CLI will 'randomly' generate names for the target binary files on the mainframe (To be more precise, the 'ID' qualifier is generated randomly - other than using Topaz for Total Test from the GUI, where these qualifiers will be increased in numerical sequence, if the files are not replaced anyway). Currently, there is no known, simple way to control these names or determine which names have been generated. Therefore, we will concentrate on the <code>runtest</code> command, and refer to the Topaz for Total Test online help for further information on using any of the other commands for now.</p> <h4 id="prameters-options-for-runtest"><a href="#prameters-options-for-runtest" aria-hidden="true" class="header-anchor">#</a> Prameters/options for <code>runtest</code></h4> <table><thead><tr><th>Parameter/Option</th> <th>Description</th></tr></thead> <tbody><tr><td><code>-project</code></td> <td>The Total Test project folder.</td></tr> <tr><td><code>-testsuite</code></td> <td>The name of a test suite from the Suites folder or the name of a test scenario from the Scenario folder.</td></tr> <tr><td><code>-testsuitelist</code></td> <td>Specifies a comma delimted list of test scenarios/suites names to be run. Test scenarios/suites names can contain the wildcard characters asterisk (*) to indicate any characters or a question (?) to indicate a single character. 'All_Scenarios' can be used to run all scenarios. 'All_Suites' can be used to run all test suites.</td></tr> <tr><td><code>-jcl</code></td> <td>The name of a JCL file from the JCL folder.</td></tr> <tr><td><code>-jcldsn</code></td> <td>The name of a dataset containing the JCL to submit.</td></tr> <tr><td><code>-targetencoding</code></td> <td>The character encoding (charset) used on the target platform. Default is '1047'.</td></tr> <tr><td><code>-noreport</code></td> <td>If specified with the -p option, no report file will be created.</td></tr> <tr><td><code>-noresult</code></td> <td>If specified with the -p option, no result file will be created.</td></tr> <tr><td><code>-nojunit</code></td> <td>If specified with the -p option, no JUnit file will be created.</td></tr> <tr><td><code>-nosonar</code></td> <td>If specified with the -p option, no Sonar file will be created.</td></tr> <tr><td><code>-ccrepository</code></td> <td>The name of the Code Coverage repository dataset. Must be specified to enable Code Coverage.</td></tr> <tr><td><code>-ccsystem</code></td> <td>Code Coverage system. If not specified with '-ccrepo', defaults to the test suite or test scenario name.</td></tr> <tr><td><code>-cctestid</code></td> <td>Code Coverage test id. If not specified with '-ccrepo', defaults to the test suite or test scenario name.</td></tr> <tr><td><code>-ccstepname</code></td> <td>Specifies the Topaz for Total Test step name. Should be used if the Topaz for Total Test step is contained in a cataloged procedure.</td></tr> <tr><td><code>-ccprogramtype</code></td> <td>Specifies the main executable program (this is the program specified on the 'EXEC PGM=' JCL statement in runner*.JCL) for Code Coverage. Specify: (-cctype=DB2 when the main program is IKJEFT01 or IKJEFT1B for live Db2, -cctype=TOTALTEST when the main program is TTTRUNNR, -cctype=IMS when the main program is DFSRRC00 for live IMS)</td></tr> <tr><td><code>-ccclearstats</code></td> <td>Specifies whether the Code Coverage repository statistics should be cleared before running the test. Valid values are 'true' or 'false'. The default value is 'true'.</td></tr> <tr><td><code>-externaltoolsworkspace</code></td> <td>Specifies the workspace of an external tool. This argument requires the 'postruncommands' argument be specified.</td></tr> <tr><td><code>-postruncommands</code></td> <td>Specifies the commands to be run after test completion. Currently only 'CopyJUnit' and 'CopySonar' are supported. If both are specified, they should be separated by a comma. This command requires the 'externaltoolsworkspace' argument be specified. 'CopyJUnit' will copy the JUnit results to the directory TTTJUnit, in the location specified by the external tools workspace argument. 'CopySonar' will copy the Sonar results to the directory TTTSonar, in the location specified by the external tools workspace argument.</td></tr></tbody></table> <p>The followwing example will execute the suite <code>CWXTSUBC.testsuite</code> residing in Topaz for Total Test project <code>project=C:\Users\cwde-rnuesse\Compuware\Topaz\Workspace\Unit CWXTSUBC 1.0</code>, on host <code>my.mainframe.host</code>, communicating on port <code>16196</code>, using the <code>Runner.jcl</code> file for the job to submit.</p> <div class="language-bat extra-class"><pre class="language-text"><code>@echo off
+
+REM
+REM Script to submit JCL using the Topaz CLI
+REM 
+REM **********************************************************
+REM Configuration Variables for the Script
+REM
+REM Change according to your environment
+REM 
+REM **********************************************************
+REM
+REM CLIPath  Installation Path of your Topaz CLI 
+REM
+REM JAVA_HOME Installation Path of Java
+ 
+SET &quot;CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\&quot;
+SET &quot;workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace&quot;
+SET &quot;host=my.mainframe.host&quot;
+SET &quot;port=16196&quot;
+SET &quot;codepage=1047&quot;
+SET &quot;user=++++++++&quot;
+SET &quot;pw=********&quot;
+
+SET &quot;project=C:\Users\cwde-rnuesse\Compuware\Topaz\Workspace\Unit CWXTSUBC 1.0&quot;
+SET &quot;suite=CWXTSUBC&quot;
+SET &quot;JCL=Runner.jcl&quot;
+
+&quot;%CLIPath%&quot;TotalTestCLI.bat -data=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace -cmd=runtest -host=%host% -port=%port% -user=%user% -pw=%password% &quot;-project=%project%&quot; &quot;-testsuite=%suite%.testsuite&quot; -te=%codepage% &quot;-j=%JCL%&quot;
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/code_examples/Rest_api.html" class="prev">
+          REST APIs
+        </a></span> <span class="next"><a href="/code_examples/Topaz_SDK.html">
+          Topaz SDK
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/app.38dc2da7.js" defer></script><script src="/assets/js/20.e0b1db2d.js" defer></script>
+  </body>
+</html>

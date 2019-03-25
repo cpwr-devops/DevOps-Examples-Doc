@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>PipelineConfig.groovy</title>
+    <meta name="description" content="">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.16c93b31.css" as="style"><link rel="preload" href="/assets/js/app.38dc2da7.js" as="script"><link rel="preload" href="/assets/js/30.bf2c58ed.js" as="script"><link rel="prefetch" href="/assets/js/10.f1607b87.js"><link rel="prefetch" href="/assets/js/11.5935f050.js"><link rel="prefetch" href="/assets/js/12.e6a5ca86.js"><link rel="prefetch" href="/assets/js/13.78ae9647.js"><link rel="prefetch" href="/assets/js/14.a029e60a.js"><link rel="prefetch" href="/assets/js/15.ffe0034a.js"><link rel="prefetch" href="/assets/js/16.1114c444.js"><link rel="prefetch" href="/assets/js/17.0f1b6827.js"><link rel="prefetch" href="/assets/js/18.a3e3e402.js"><link rel="prefetch" href="/assets/js/19.ef7aad5c.js"><link rel="prefetch" href="/assets/js/2.da451cf3.js"><link rel="prefetch" href="/assets/js/20.e0b1db2d.js"><link rel="prefetch" href="/assets/js/21.40954eb3.js"><link rel="prefetch" href="/assets/js/22.212fc021.js"><link rel="prefetch" href="/assets/js/23.a314009f.js"><link rel="prefetch" href="/assets/js/24.cd8f299f.js"><link rel="prefetch" href="/assets/js/25.d2e6dbd5.js"><link rel="prefetch" href="/assets/js/26.7c8fed17.js"><link rel="prefetch" href="/assets/js/27.aca225c8.js"><link rel="prefetch" href="/assets/js/28.8015e33a.js"><link rel="prefetch" href="/assets/js/29.18be192f.js"><link rel="prefetch" href="/assets/js/3.3a07ef4f.js"><link rel="prefetch" href="/assets/js/31.7d298cf9.js"><link rel="prefetch" href="/assets/js/32.acbdc620.js"><link rel="prefetch" href="/assets/js/33.b37a3e52.js"><link rel="prefetch" href="/assets/js/34.a6d5a9bf.js"><link rel="prefetch" href="/assets/js/35.aef6c1df.js"><link rel="prefetch" href="/assets/js/36.fed52b27.js"><link rel="prefetch" href="/assets/js/37.1a2efafc.js"><link rel="prefetch" href="/assets/js/38.99baad0c.js"><link rel="prefetch" href="/assets/js/39.3dd6385d.js"><link rel="prefetch" href="/assets/js/4.8d350108.js"><link rel="prefetch" href="/assets/js/5.e19c8ee8.js"><link rel="prefetch" href="/assets/js/6.955488f3.js"><link rel="prefetch" href="/assets/js/7.0f86fe07.js"><link rel="prefetch" href="/assets/js/8.b867c26c.js"><link rel="prefetch" href="/assets/js/9.e743477c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.16c93b31.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/compuware.png" alt="" class="logo"> <!----></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link router-link-active">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link">APIs</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">Home</a></div><div class="nav-item"><a href="/pipelines/" class="nav-link router-link-active">Pipelines</a></div><div class="nav-item"><a href="/tool_configuration/" class="nav-link">Configuration</a></div><div class="nav-item"><a href="/code_examples/" class="nav-link">APIs</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/pipelines/" class="sidebar-link">Getting Started</a></li><li><a href="/pipelines/pipelines.html" class="sidebar-link">Example Pipelines</a></li><li><a href="/pipelines/Mainframe_CI_Pipeline_from_Shared_Lib.html" class="sidebar-link">Shared Library Example</a></li><li><a href="/pipelines/Mainframe-CI-Example-pipeline.html" class="sidebar-link">Basic Example</a></li><li><a href="/pipelines/scenario/" class="sidebar-link">ISPW Scenario</a></li><li><a href="/pipelines/scenario/TTT_scenario.html" class="sidebar-link">Total Test User Scenario</a></li><li><a href="/pipelines/pipeline_parameters.html" class="sidebar-link">Pipeline Parameters</a></li><li><a href="/pipelines/config_files.html" class="sidebar-link">Configuration Files</a></li><li><a href="/pipelines/helper_classes/" class="sidebar-link">Helper classes</a></li><li><a href="/pipelines/Jenkins_Groovy.html" class="sidebar-link">Groovy Tips</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="pipelineconfig-groovy"><a href="#pipelineconfig-groovy" aria-hidden="true" class="header-anchor">#</a> PipelineConfig.groovy</h1> <div class="language-groovy extra-class"><pre class="language-groovy"><code><span class="token keyword">package</span> com<span class="token operator">.</span>compuware<span class="token operator">.</span>devops<span class="token operator">.</span>util
+
+<span class="token comment">/* 
+    Pipeline execution specific and server specific parameters which are use throughout the pipeline
+*/</span>
+<span class="token keyword">class</span> <span class="token class-name">PipelineConfig</span> <span class="token keyword">implements</span> <span class="token class-name">Serializable</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">def</span> steps
+    <span class="token keyword">def</span> mailListLines
+    <span class="token keyword">def</span> mailListMap <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">]</span>
+
+    <span class="token keyword">private</span> String configGitProject    <span class="token operator">=</span> <span class="token string gstring">&quot;Jenkinsfiles&quot;</span>         <span class="token comment">// Git Hub Repository containing the configuration files for the pipeline</span>
+    <span class="token keyword">private</span> String configGitBranch                              <span class="token comment">// Branch in Git Hub Repository containing the configuration files for the pipeline    </span>
+    <span class="token keyword">private</span> String configGitPath       <span class="token operator">=</span> <span class="token string gstring">&quot;config&quot;</span>               <span class="token comment">// Folder in Git Hub Repository containing the configuration files for the pipeline    </span>
+
+    <span class="token keyword">private</span> String configPath           <span class="token operator">=</span> <span class="token string">'config\\pipeline'</span>    <span class="token comment">// Path containing config files after downloading them from Git Hub Repository</span>
+    <span class="token keyword">private</span> String pipelineConfigFile   <span class="token operator">=</span> <span class="token string">'pipeline.config'</span>     <span class="token comment">// Config file containing pipeline configuration</span>
+    <span class="token keyword">private</span> String tttGitConfigFile     <span class="token operator">=</span> <span class="token string">'tttgit.config'</span>       <span class="token comment">// Config gile containing for TTT projects stroed in Git Hub</span>
+
+    <span class="token keyword">private</span> String workspace
+
+<span class="token comment">/* Environment specific settings, which differ between Jenkins servers and applications, but not between runs */</span>
+    <span class="token keyword">public</span> String gitTargetBranch                               <span class="token comment">// Used for synchronizing TTT project stored in Git with programs stored in ISPW</span>
+    <span class="token keyword">public</span> String gitBranch                                     <span class="token comment">// Used for synchronizing TTT project stored in Git with programs stored in ISPW</span>
+    
+    <span class="token keyword">public</span> String sqScannerName                                 <span class="token comment">// Sonar Qube Scanner Tool name as defined in &quot;Manage Jenkins&quot; -&gt; &quot;Global Tool Configuration&quot; -&gt; &quot;SonarQube scanner&quot;</span>
+    <span class="token keyword">public</span> String sqServerName                                  <span class="token comment">// Sonar Qube Scanner Server name as defined in &quot;Manage Jenkins&quot; -&gt; &quot;Configure System&quot; -&gt; &quot;SonarQube servers&quot;</span>
+    <span class="token keyword">public</span> String sqServerUrl                                   <span class="token comment">// URL to the SonarQube server</span>
+    <span class="token keyword">public</span> String mfSourceFolder                                <span class="token comment">// Folder containing sources after downloading from ISPW</span>
+    <span class="token keyword">public</span> String xlrTemplate                                   <span class="token comment">// XL Release template to start</span>
+    <span class="token keyword">public</span> String xlrUser                                       <span class="token comment">// XL Release user to use</span>
+    <span class="token keyword">public</span> String tttFolder                                     <span class="token comment">// Folder containing TTT projects after downloading from Git Hub</span>
+    <span class="token keyword">public</span> String ispwUrl                                       <span class="token comment">// ISPW/CES URL for native REST API calls</span>
+    <span class="token keyword">public</span> String ispwRuntime                                   <span class="token comment">// ISPW Runtime</span>
+
+<span class="token comment">/* Runtime specific settings, which differ runs and get passed as parameters or determined during execution */</span>
+    <span class="token keyword">public</span> String ispwStream
+    <span class="token keyword">public</span> String ispwApplication
+    <span class="token keyword">public</span> String ispwRelease
+    <span class="token keyword">public</span> String ispwAssignment
+    <span class="token keyword">public</span> String ispwContainer
+    <span class="token keyword">public</span> String ispwContainerType
+    <span class="token keyword">public</span> String ispwSrcLevel
+    <span class="token keyword">public</span> String ispwTargetLevel
+    <span class="token keyword">public</span> String ispwOwner         
+    <span class="token keyword">public</span> String applicationPathNum
+
+    <span class="token keyword">public</span> String gitProject        
+    <span class="token keyword">public</span> String gitCredentials    
+    <span class="token keyword">public</span> String gitUrl            
+    <span class="token keyword">public</span> String gitTttRepo        
+
+    <span class="token keyword">public</span> String cesTokenId        
+    <span class="token keyword">public</span> String hciConnId         
+    <span class="token keyword">public</span> String hciTokenId        
+    <span class="token keyword">public</span> String ccRepository      
+
+    <span class="token keyword">public</span> String tttJcl 
+      
+    <span class="token keyword">public</span> String mailRecipient 
+
+    <span class="token keyword">def</span> <span class="token function">PipelineConfig</span><span class="token punctuation">(</span>steps<span class="token punctuation">,</span> workspace<span class="token punctuation">,</span> params<span class="token punctuation">,</span> mailListLines<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token operator">.</span>configGitBranch    <span class="token operator">=</span> params<span class="token operator">.</span>Config_Git_Branch
+        <span class="token keyword">this</span><span class="token operator">.</span>steps              <span class="token operator">=</span> steps
+        <span class="token keyword">this</span><span class="token operator">.</span>workspace          <span class="token operator">=</span> workspace
+        <span class="token keyword">this</span><span class="token operator">.</span>mailListLines      <span class="token operator">=</span> mailListLines
+
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwStream         <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Stream
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwApplication    <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Application
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwRelease        <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Release
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwAssignment     <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Assignment
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwContainer      <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Container
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwContainerType  <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Container_Type
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwOwner          <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Owner        
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwSrcLevel       <span class="token operator">=</span> params<span class="token operator">.</span>ISPW_Src_Level
+
+        <span class="token keyword">this</span><span class="token operator">.</span>applicationPathNum <span class="token operator">=</span> ispwSrcLevel<span class="token operator">.</span><span class="token function">charAt</span><span class="token punctuation">(</span>ispwSrcLevel<span class="token operator">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+        <span class="token keyword">this</span><span class="token operator">.</span>ispwTargetLevel    <span class="token operator">=</span> <span class="token string gstring">&quot;QA&quot;</span> <span class="token operator">+</span> applicationPathNum
+        <span class="token keyword">this</span><span class="token operator">.</span>tttJcl             <span class="token operator">=</span> <span class="token string gstring">&quot;Runner_PATH&quot;</span> <span class="token operator">+</span> applicationPathNum <span class="token operator">+</span> <span class="token string gstring">&quot;.jcl&quot;</span>
+
+        <span class="token keyword">this</span><span class="token operator">.</span>gitProject         <span class="token operator">=</span> params<span class="token operator">.</span>Git_Project
+        <span class="token keyword">this</span><span class="token operator">.</span>gitCredentials     <span class="token operator">=</span> params<span class="token operator">.</span>Git_Credentials
+        
+        <span class="token keyword">this</span><span class="token operator">.</span>gitUrl             <span class="token operator">=</span> <span class="token string gstring">&quot;https://github.com/<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>gitProject<span class="token punctuation">}</span></span>&quot;</span>
+        <span class="token keyword">this</span><span class="token operator">.</span>gitTttRepo         <span class="token operator">=</span> <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>ispwStream<span class="token punctuation">}</span></span>_<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>ispwApplication<span class="token punctuation">}</span></span>_Unit_Tests.git&quot;</span>
+
+        <span class="token keyword">this</span><span class="token operator">.</span>cesTokenId         <span class="token operator">=</span> params<span class="token operator">.</span>CES_Token       
+        <span class="token keyword">this</span><span class="token operator">.</span>hciConnId          <span class="token operator">=</span> params<span class="token operator">.</span>HCI_Conn_ID
+        <span class="token keyword">this</span><span class="token operator">.</span>hciTokenId         <span class="token operator">=</span> params<span class="token operator">.</span>HCI_Token
+        <span class="token keyword">this</span><span class="token operator">.</span>ccRepository       <span class="token operator">=</span> params<span class="token operator">.</span>CC_repository
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/* A Groovy idiosynchrasy prevents constructors to use methods, therefore class might require an additional &quot;initialize&quot; method to initialize the class */</span>
+    <span class="token keyword">def</span> <span class="token function">initialize</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        steps<span class="token operator">.</span><span class="token function">dir</span><span class="token punctuation">(</span><span class="token string gstring">&quot;.\\&quot;</span><span class="token punctuation">)</span> 
+        <span class="token punctuation">{</span>
+            steps<span class="token operator">.</span><span class="token function">deleteDir</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+
+        GitHelper gitHelper     <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">GitHelper</span><span class="token punctuation">(</span>steps<span class="token punctuation">)</span>
+
+        gitHelper<span class="token operator">.</span><span class="token function">checkoutPath</span><span class="token punctuation">(</span>gitUrl<span class="token punctuation">,</span> configGitBranch<span class="token punctuation">,</span> configGitPath<span class="token punctuation">,</span> gitCredentials<span class="token punctuation">,</span> configGitProject<span class="token punctuation">)</span>
+
+        <span class="token function">setServerConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token function">setTttGitConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token function">setMailConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>    
+    <span class="token punctuation">}</span>
+    <span class="token comment">/* Read configuration values from pipeline.config file */</span>
+    <span class="token keyword">def</span> <span class="token function">setServerConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">def</span> lineToken
+        <span class="token keyword">def</span> parmName
+        <span class="token keyword">def</span> parmValue
+
+        <span class="token keyword">def</span> lines <span class="token operator">=</span> <span class="token function">readConfigFile</span><span class="token punctuation">(</span><span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>pipelineConfigFile<span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">)</span>
+
+        lines<span class="token operator">.</span>each
+        <span class="token punctuation">{</span>
+            lineToken   <span class="token operator">=</span> it<span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">tokenize</span><span class="token punctuation">(</span><span class="token string gstring">&quot;=&quot;</span><span class="token punctuation">)</span>
+            parmName    <span class="token operator">=</span> lineToken<span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            parmValue   <span class="token operator">=</span> lineToken<span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">switch</span><span class="token punctuation">(</span>parmName<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;SQ_SCANNER_NAME&quot;</span><span class="token punctuation">:</span>
+                    sqScannerName   <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;SQ_SERVER_NAME&quot;</span><span class="token punctuation">:</span> 
+                    sqServerName    <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;SQ_SERVER_URL&quot;</span><span class="token punctuation">:</span>
+                    sqServerUrl     <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;MF_SOURCE_FOLDER&quot;</span><span class="token punctuation">:</span>
+                    mfSourceFolder  <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;XLR_TEMPLATE&quot;</span><span class="token punctuation">:</span>
+                    xlrTemplate     <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;XLR_USER&quot;</span><span class="token punctuation">:</span>
+                    xlrUser         <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;TTT_FOLDER&quot;</span><span class="token punctuation">:</span>
+                    tttFolder       <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;ISPW_URL&quot;</span><span class="token punctuation">:</span>
+                    ispwUrl         <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;ISPW_RUNTIME&quot;</span><span class="token punctuation">:</span>
+                    ispwRuntime     <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span>
+                    steps<span class="token operator">.</span>echo <span class="token string gstring">&quot;Found unknown Parameter &quot;</span> <span class="token operator">+</span> parmName <span class="token operator">+</span> <span class="token string gstring">&quot; &quot;</span> <span class="token operator">+</span> parmValue <span class="token operator">+</span> <span class="token string gstring">&quot;\nWill ignore and continue.&quot;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">/* Read configuration values from tttgit.config file */</span>
+    <span class="token keyword">def</span> <span class="token function">setTttGitConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">def</span> lineToken
+        <span class="token keyword">def</span> parmName
+        <span class="token keyword">def</span> parmValue
+        <span class="token keyword">def</span> lines <span class="token operator">=</span> <span class="token function">readConfigFile</span><span class="token punctuation">(</span><span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>tttGitConfigFile<span class="token punctuation">}</span></span>&quot;</span><span class="token punctuation">)</span>
+
+        lines<span class="token operator">.</span>each
+        <span class="token punctuation">{</span>
+            lineToken   <span class="token operator">=</span> it<span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">tokenize</span><span class="token punctuation">(</span><span class="token string gstring">&quot;=&quot;</span><span class="token punctuation">)</span>
+            parmName    <span class="token operator">=</span> lineToken<span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            parmValue   <span class="token operator">=</span> lineToken<span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">switch</span><span class="token punctuation">(</span>parmName<span class="token punctuation">)</span>
+            <span class="token punctuation">{</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;TTT_GIT_TARGET_BRANCH&quot;</span><span class="token punctuation">:</span>
+                    gitTargetBranch   <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">case</span> <span class="token string gstring">&quot;TTT_GIT_BRANCH&quot;</span><span class="token punctuation">:</span> 
+                    gitBranch    <span class="token operator">=</span> parmValue
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+                <span class="token keyword">default</span><span class="token punctuation">:</span>
+                    steps<span class="token operator">.</span>echo <span class="token string gstring">&quot;Found unknown Parameter &quot;</span> <span class="token operator">+</span> parmName <span class="token operator">+</span> <span class="token string gstring">&quot; &quot;</span> <span class="token operator">+</span> parmValue <span class="token operator">+</span> <span class="token string gstring">&quot;\nWill ignore and continue.&quot;</span>
+                    <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">/* Read list of email addresses from config file */</span>
+    <span class="token keyword">def</span> <span class="token function">setMailConfig</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>        
+        <span class="token keyword">def</span> lineToken
+        <span class="token keyword">def</span> tsoUser
+        <span class="token keyword">def</span> emailAddress
+
+        mailListLines<span class="token operator">.</span>each
+        <span class="token punctuation">{</span>
+            lineToken       <span class="token operator">=</span> it<span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">tokenize</span><span class="token punctuation">(</span><span class="token string gstring">&quot;:&quot;</span><span class="token punctuation">)</span>
+            tsoUser         <span class="token operator">=</span> lineToken<span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            emailAddress    <span class="token operator">=</span> lineToken<span class="token operator">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">.</span><span class="token function">trim</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+            <span class="token keyword">this</span><span class="token operator">.</span>mailListMap<span class="token operator">.</span><span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>tsoUser<span class="token punctuation">}</span></span>&quot;</span> <span class="token operator">=</span> <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>emailAddress<span class="token punctuation">}</span></span>&quot;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">this</span><span class="token operator">.</span>mailRecipient  <span class="token operator">=</span> mailListMap<span class="token punctuation">[</span><span class="token punctuation">(</span>ispwOwner<span class="token operator">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  
+    <span class="token keyword">def</span> <span class="token function">readConfigFile</span><span class="token punctuation">(</span>String fileName<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">def</span> filePath <span class="token operator">=</span> <span class="token string gstring">&quot;<span class="token expression"><span class="token punctuation">$</span><span class="token punctuation">{</span>workspace<span class="token punctuation">}</span></span>\\${configPath}\\${fileName}&quot;</span>
+
+        FileHelper fileHelper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileHelper</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        <span class="token keyword">return</span> fileHelper<span class="token operator">.</span><span class="token function">readLines</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <!----> </div> <!----></div></div>
+    <script src="/assets/js/app.38dc2da7.js" defer></script><script src="/assets/js/30.bf2c58ed.js" defer></script>
+  </body>
+</html>
