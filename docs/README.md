@@ -17,4 +17,3 @@ features:
   details: APIs, CLIs and SDK that can be used to integrate Mainframe processes into DevOps tools
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
-[![Netlify Status](https://api.netlify.com/api/v1/badges/430d8c57-d682-4311-b012-3975defc35a9/deploy-status)](https://app.netlify.com/sites/objective-wing-e4aab5/deploys)
