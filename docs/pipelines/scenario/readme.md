@@ -1,5 +1,5 @@
 ---
-title: ISPW Scenario
+title: ISPW Setup
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 

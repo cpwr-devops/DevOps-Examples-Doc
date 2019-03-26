@@ -12,12 +12,12 @@ module.exports = {
         ],
         sidebar: {
             '/pipelines/': [
-              '',   //getting started
-              'pipelines',  //example pipelines
-              'Mainframe_CI_Pipeline_from_Shared_Lib',  
-              'Mainframe-CI-Example-pipeline',  
-              'scenario/',  //ISPW scenario
-              'scenario/TTT_scenario',
+              '',  
+              'pipelines',
+              'Mainframe-CI-Example-pipeline', 
+              'Mainframe_CI_Pipeline_from_Shared_Lib', 
+              'scenario/',  
+              'scenario/TTT_scenario',   
               'pipeline_parameters',
               'config_files',
               'helper_classes/',

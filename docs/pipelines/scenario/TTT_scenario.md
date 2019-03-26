@@ -1,5 +1,5 @@
 ---
-title: Total Test User Scenario
+title: Total Test Setup
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 

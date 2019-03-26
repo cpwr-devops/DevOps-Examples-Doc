@@ -60,7 +60,7 @@ refers to the name of a [Shared Library](../pipelines/helper_classes/PipelineCon
 refers to the name of the `.groovy` file in the `vars` [folder of the GitHub repository](../readme.md), containing the pipeline code
 - Within the brackets `(...)` parameters are passed to the pipeline script. `Mainframe_CI_Pipeline_from_Shared_Lib` expects a `groovy` [`Map`](http://groovy-lang.org/syntax.html#_maps), containing the following `key:value` pairs.
 
-The parameters in this first set are specific to the individual execution of the pipeline. The values are the parameters defined in the [pipeline configuration above](#Setting up the pipeline job). The syntax `"${parameter}"` ensures that the value passed to this parameter is taken as value in the `Map`.
+The parameters in this first set are specific to the individual execution of the pipeline. The values are the parameters defined as pipeline parameters). The syntax `"${parameter}"` ensures that the value passed to this parameter is taken as value in the `Map`.
 
 Key  | Default Value | Description
 ----- | ------------- | -----------
@@ -77,8 +77,8 @@ The second set of parameters is installation specific and reference tokens and o
 
 Usually, these parameters will be installation specific rather than pipeline job or execution specific. Future versions of the example will take care of this, and move these parameters to configuration files.
 
-Key  | Default Value | Description
------ | ------------- | -----------
+Key  |  Description
+----- | -----------
 Config_Git_Branch | Branch in the Git repository where configuration files are to be read from
 CES_Token | The Jenkins token, referring to the CES token
 CES_Token_Clear | The "clear text" CES token (as copied from the CES server's Security > [Personal Access Tokens page](../tool_configuration/CES_credentials_token.md).
@@ -183,13 +183,11 @@ def call(Map pipelineParams)
         stage("Check SonarQube Quality Gate")
         {
             sonarHelper.scan()
-...
 ```
 
 9. Query the resulting Sonar quality gate, by registering a Sonar Webhook call back, if the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote -, and the pipeline job will be aborted
 
 ```groovy
-...
             // Wait for the results of the SonarQube Quality Gate
             timeout(time: 2, unit: 'MINUTES') {
 

@@ -54,7 +54,7 @@ def String getPathNum(String Level)
 {
 return Level.charAt(Level.length() - 1)
 }
-...
+
 // Determine the current ISPW Path and Level that the code Promotion is from
 def PathNum = getPathNum(ISPW_Level)
 
@@ -138,7 +138,7 @@ ListOfSources.each
 def TTTListOfScenarios = findFiles(glob: '**/*.testscenario')
 ```
 
-- match the two lists and execute all unit test scenarios that have a matching COBOL source; execution of the unit tests will collect code coverage data, using the Topaz for Total Test plugin
+6. match the two lists and execute all unit test scenarios that have a matching COBOL source; execution of the unit tests will collect code coverage data, using the Topaz for Total Test plugin
 
 ```groovy
 stage("Execute related Unit Tests")
@@ -182,7 +182,7 @@ stage("Execute related Unit Tests")
 }
 ```
 
-6. Download code coverage results from the underlying [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) repository, using the Xpediter Code Coverage plugin
+7. Download code coverage results from the underlying [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) repository, using the Xpediter Code Coverage plugin
 
 ```groovy
 stage("Collect Coverage Metrics")
@@ -203,7 +203,7 @@ stage("Collect Coverage Metrics")
 
 ```
 
-7. Pass downloaded COBOL sources, the results of the unit tests, and code coverage metrics to SonarQube using the Sonar Scanner
+8. Pass downloaded COBOL sources, the results of the unit tests, and code coverage metrics to SonarQube using the Sonar Scanner
 
 ```groovy
 stage("Check SonarQube Quality Gate")
@@ -245,7 +245,7 @@ stage("Check SonarQube Quality Gate")
     }
 ```
 
-8. Query the resulting Sonar quality gate, by registering a Sonar Webhook call back, if the quality gate fails, the pipeline job will be aborted
+9. Query the resulting Sonar quality gate, by registering a Sonar Webhook call back, if the quality gate fails, the pipeline job will be aborted
 
 ```groovy
 
@@ -265,7 +265,7 @@ stage("Check SonarQube Quality Gate")
 }
 ```
 
-9. If the quality gate passes an XL Release template will be triggered - using the XL Release plugin - to execute CD stages beyond the Jenkins pipeline
+10. If the quality gate passes an XL Release template will be triggered - using the XL Release plugin - to execute CD stages beyond the Jenkins pipeline
 
 ```groovy
 stage("Start release in XL Release")
