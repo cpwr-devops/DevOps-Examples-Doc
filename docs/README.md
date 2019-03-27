@@ -1,11 +1,11 @@
 ---
 home: true
 title: Compuware
-metaTitle: Compuware DevOps
-heroText: Compuware DevOps
+metaTitle: Compuware
+heroText: Mainstream the Mainframe
 heroImage: /infinity_loop.png
 #sidebar: auto
-tagline: Building DevOps pipelines using Compuware products
+tagline: Building CI / CD pipelines using Compuware products
 actionText: Getting Started →
 actionLink: ./pipelines/
 features:

@@ -12,15 +12,15 @@ Successively add the following string parameters (the default values are the one
 
 The parameters in this first set are specific to the individual execution of the pipeline and get passed by the [ISPW Webhook](../tool_configuration/webhook_setup.md).
 
-Name  | Default Value | Description
------ | ------------- | -----------
-ISPW_Stream | FTSDEMO | ISPW Stream Name
+Name  |  Description
+----- |  -----------
+ISPW_Stream | ISPW Stream Name
 ISPW_Application | RXN3 ISPW Application
-ISPW_Src_Level | DEV1 | ISPW Level the promote has been started from
-ISPW_Release | | ISPW Release Name
-ISPW_Container | | ISPW Set ID
-ISPW_Container_Type | 2 | ISPW Container Type -0 - assignment -1 - release -2 - set
-ISPW_Owner | | ISPW Owner User ID
+ISPW_Src_Level | ISPW Level the promote has been started from
+ISPW_Release | ISPW Release Name
+ISPW_Container | ISPW Set ID
+ISPW_Container_Type | ISPW Container Type -0 - assignment -1 - release -2 - set
+ISPW_Owner | ISPW Owner User ID
 
 ### Loading the script from a shared library
 
