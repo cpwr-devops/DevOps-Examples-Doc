@@ -7,21 +7,27 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Getting Started
 
-This repository is dedicated to providing information and working examples for anyone who is looking for information on how to integrate mainframe development into CI/CD pipelines, specifically Jenkins pipelines to start with. 
+To get started building your own mainframe DevOps pipeline, we have provided Jenkins pipeline examples and setup instructions.
 
-The pages will contain example code and documentation on:
+The pages contains example code and documentation on:
 
-- whole Jenkins pipelines as we would suggest as starting point
+- Jenkins CI pipelines as we would suggest as starting point
+- Compuware and 3rd party tools used in the pipelines
+- Instructions setting configuring Jenkins and SonarQube
 - code snippets for specific tasks and purposes outside the general purpose
-- using the Compuware plugins to integrate mainframe development
-- using third party plugins
-- setting up Jenkins and Jenkins plugins being used
 
-Some pieces of code already show how to use the underlying APIs rather than the Jenkins specific plugins, and we intend to expand to other CI/CD tools as the need arises.
+## CI Pipeline examples
+
+We have published two examples of "complete" pipelines which show partly different process steps and different techniques in Jenkins.
+
+- [Mainframe-CI-Example-pipeline](./Mainframe-CI-Example-pipeline.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/blob/suggest/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - is a scripted pipeline using parameters.  This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best approach to scale a pipelines across your enterprise.
+
+
+- [Mainframe_CI_Pipeline_from_Shared_Lib](./Mainframe_CI_Pipeline_from_Shared_Lib.md) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/suggest/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference a steps.  This allows organizations to develop pipelines in a more standard way.
 
 ## Tools Used
 
-Currently, both examples use a development scenario based on
+The example pipelines use a development scenario based on:
 
 - [ISPW](https://compuware.com/ispw-source-code-management/) as SCM to store and govern mainframe sources
 - [Git (GitHub)](https://github.com/) as SCM to store unit test assets
@@ -30,12 +36,7 @@ Currently, both examples use a development scenario based on
 - [SonarQube](https://www.sonarsource.com/) as server for code analysis and setting up quality gates
 - [XLRelease](https://xebialabs.com/) as CD server for release steps following the initial CI process Jenkins
 
-## Primary examples
-
-Currently, we have published two examples of "complete" pipelines which show partly different process steps and different techniques in Jenkins.
-
-- [Mainframe-CI-Example-pipeline](./Mainframe-CI-Example-pipeline.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/blob/suggest/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - is a scripted pipeline using parameters
-- [Mainframe_CI_Pipeline_from_Shared_Lib](./Mainframe_CI_Pipeline_from_Shared_Lib.md) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/suggest/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is a pipeline loaded from a Jenkins shared library.
+Instructions on configuring the various tools can be found in the [Configuration](../tool_configuration/readme.md) of this site.
 
 ## Other code examples
 
@@ -62,17 +63,19 @@ Based on the description above and due to the requirements for the use of [Pipel
     +- config                                               # configuration and other files used by the pipelines
     |   +- pipeline
     |       +- pipeline.config                              # environment specific configuration
-    |       +- tttgit.config                                # configuration for the GitHub repository storing unit test assets
+    |       +- tttgit.config                                # configuration for the GitHub repository storing unit test
+    |
+    +- assets
     |   +- skels                                            # mainframe JCL "skeleton" files
     |
     +- Jenkinsfile                                          # scripted pipeline code and groovy example code
     |   +- Mainframe-CI-Example-pipeline.jenkinsfile        # primary example pipeline (Scripted Pipeline)
-    |   +- JCL_Pipeline_Example.jenkinsfile                 # Example of execution JCL from Jenkins using the Topaz Utilities Plugin
+    |   +- JCL_Pipeline_Example.jenkinsfile                 # Example of execution JCL from Jenkins using the Topaz 
     |
-    +- ISPW-REST-API-Examples                               # Code examples using the ISPW REST API
-    |   +- ISPW_Operations.ps1                              # Windows powershell script as wrapper for all available ISPW API calls
+    Utilities Plugin
     |
-    +- docs                                                 # GitHub pages
+    Other Examples
+    |   +- ISPW_Operations.ps1                              # Windows powershell script as wrapper for all available ISPW 
 
 ## People wanting to contribute
 
