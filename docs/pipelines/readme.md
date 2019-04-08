@@ -38,14 +38,17 @@ The example pipelines use a development scenario based on:
 
 Instructions on configuring the various tools can be found in the [Configuration](../tool_configuration/readme.md) of this site.
 
-## Other code examples
+## Code examples
 
-Code snippets and examples related to Jenkins/Groovy will be stored alongside the *Mainframe-CI-Example-pipeline* in the [Jenkinsfile folder](https://github.com/cpwr-devops/DevOps-Examples/tree/suggest/Jenkinsfile) of the repository.
+Code examples related are stored in a GitHub repository located at  [https://github.com/cpwr-devops/DevOps-Examples/](https://github.com/cpwr-devops/DevOps-Examples/).
+
+The example pipelines, snippets and other examples related to Jenkins/Groovy will be stored alongside the *Mainframe-CI-Example-pipeline* in the [Jenkinsfile folder](https://github.com/cpwr-devops/DevOps-Examples/tree/master/Jenkinsfile) of the repository.
 
 Code snippets and examples not directly related are stored in separate folders in the root directory of the repository. Currently these are:
 
 - [ISPW-REST-API-Examples](https://github.com/cpwr-devops/DevOps-Examples/tree/suggest/ISPW-REST-API-Examples) containing a Windows powershell script that demonstrates the use of ISPW's REST APIs. This code may be used a starting point if Jenkins is not the CI server of choice.
 
+<->
 ## The code repository folder structure
 
 Based on the description above and due to the requirements for the use of [Pipeline Shared Libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/) in Jenkins the folder structure of the DevOps-Examples repository is as follows:
@@ -55,28 +58,22 @@ Based on the description above and due to the requirements for the use of [Pipel
     |   +- com
     |       +- compuware
     |           +- devops
-    |               +- util                                 # classes used by the pipelines
+    |               +- util                                 # Classes used by the pipelines
     |
-    +- vars
-    |   +- Mainframe_CI_Pipeline_from_Shared_Lib.groovy     # primary example pipeline (Shared Library)
+    +- vars                                                 # Shared Library Pipeline Examples
     |
-    +- config                                               # configuration and other files used by the pipelines
-    |   +- pipeline
-    |       +- pipeline.config                              # environment specific configuration
-    |       +- tttgit.config                                # configuration for the GitHub repository storing unit test
+    +- resources                                            # Files used by the pipelines
+    |   +- pipeline                                         # Configuration files for pipeline variables
+    |   +- skels                                            # Mainframe JCL "skeleton" files
     |
-    +- assets
-    |   +- skels                                            # mainframe JCL "skeleton" files
+    +- Jenkinsfile                                          # Basic pipeline examples
+    |   +- Mainframe-CI-Example-pipeline.jenkinsfile        # Primary example pipeline (Scripted Pipeline)
+    |   +- JCL_Pipeline_Example.jenkinsfile                 # Example of execution JCL from a pipeline
     |
-    +- Jenkinsfile                                          # scripted pipeline code and groovy example code
-    |   +- Mainframe-CI-Example-pipeline.jenkinsfile        # primary example pipeline (Scripted Pipeline)
-    |   +- JCL_Pipeline_Example.jenkinsfile                 # Example of execution JCL from Jenkins using the Topaz 
-    |
-    Utilities Plugin
-    |
-    Other Examples
-    |   +- ISPW_Operations.ps1                              # Windows powershell script as wrapper for all available ISPW 
+    Other_Examples
+    |   +- ISPW_Operations.ps1                              # Windows powershell script that drives ISPW
 
+<->
 ## People wanting to contribute
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
