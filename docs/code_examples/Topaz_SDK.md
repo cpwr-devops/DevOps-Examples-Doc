@@ -7,7 +7,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 The Compuware Host Services SDK includes the Compuware Host Services API as well as developer resources such as examples, an examples template, a PassTicket Extension template, code snippets, and Javadoc. The Compuware Host Services API provides users with methods to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs. The PassTicket Extension template provides a starter Plug-in project for users to provide an implementation of PassTicket authentication to z/OS.
 
-## Dataset API
+### Dataset API
 
 The Compuware Host Services API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI.
 
@@ -38,7 +38,7 @@ The following actions are provided regarding JES:
 
 ### z/OS User Program API
 
-The Compuware Host Services API provides users with methods to programmatically launch and communicate with their own z/OS programs.
+The Compuware Host Services API provides users with methods to programmatically launch and communicate with their own z/OS programs.  These programs can be developed with the Compuware Shared Services Application Programing Interaction.  For more information about developing a z/OS program that can communicate with Topaz Workbench, see view the [CSS TP Application Programming Interface](http://frontline.compuware.com/doc/cy/CY1702/html/CSS_UserRef/Responsive%20HTML5/index.html#t=CSS_UserRef%2Fappx_cwAPI%2Fappx_cwAPI.htm) documentation.
 
 The following actions are provided regarding z/OS user programs:
 
