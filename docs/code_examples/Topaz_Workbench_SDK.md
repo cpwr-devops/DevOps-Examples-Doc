@@ -6,6 +6,14 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 The Compuware Topaz Workbench SDK includes the Compuware Topaz Workbench API as well as developer resources such as examples, an examples template, a PassTicket Extension template, code snippets, and Javadoc. The Compuware Topaz Workbench API provides users with methods to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs. The PassTicket Extension template provides a starter Plug-in project for users to provide an implementation of PassTicket authentication to z/OS.
 
+The Compuware Topaz Workbench API consists of two separate layers:
+
+* A base Topaz API that provides the majority of the API features with no dependencies on Topaz Workbench components
+* The Topaz Workbench API which provides additional features to access Topaz Workbench client components and configurations
+
+The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
+The Compuware Topaz Workbench API Specification (Javadoc) can be found <a href="../javadoc/topaz_workbench_api/index.html" target="_blank">here</a>.
+
 ## Dataset API
 
 The Compuware Topaz Workbench API provides users with methods to programmatically access and perform actions on datasets. These API&#8217;s do not provide the capability to manipulate the Topaz Workbench UI.
@@ -56,11 +64,16 @@ For more information regarding the API examples, see the [Developing for the Top
 
 ## PassTicket Extension
 
-Topaz Workbench provides an Eclipse extension which can be used to authenticate users to z/OS via a passticket. A passticket is a single use token which can be used in place of a password when authenticating to z/OS. It order to use passtickets securely the user id must have been pre-authenticated. The implementation of the PassTicket extension is responsible for two items, first an authenticated user id and second a generated passticket which can be used in place of a password. These two responsibilities are satisfied by the implementation of two interfaces, IPassTicketUserProvider and IPassTicketGenerator. The SDK provides a template project to assist the user in developing the implementations for these two interfaces. 
+Topaz Workbench provides an Eclipse extension which can be used to authenticate users to z/OS via a passticket. A passticket is a single use token which can be used in place of a password when authenticating to z/OS. It order to use passtickets securely the user id must have been pre-authenticated. The implementation of the PassTicket extension is responsible for two items, first an authenticated user id and second a generated passticket which can be used in place of a password. These two responsibilities are satisfied by the implementation of two interfaces, IPassTicketUserProvider and IPassTicketGenerator. The SDK provides a template project to assist the user in developing the implementations for these two interfaces.
+
+For more information on developing a PassTicket extension, see [Developing A PassTicket Extension](Passticket.md).
 
 ## Developing for the Topaz Workbench API
 
-The following topics are designed to help developers write their own programs using the Compuware Topaz Workbench SDK. For Javadoc, see the [Topaz Workbench API Specification](#topaz-workbench-api-specifications) section.
+The following topics are designed to help developers write their own programs using the Compuware Topaz Workbench SDK.
+
+The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
+The Compuware Topaz Workbench API Specification (Javadoc) can be found <a href="../javadoc/topaz_workbench_api/index.html" target="_blank">here</a>.
 
 ## Example Launcher View
 
@@ -171,6 +184,7 @@ Once the custom feature is created:
    2. The com.compuware.api.topaz.eclipse plug-in
    3. The com.compuware.api.topaz plug-in
    4. Any other plug-ins or fragments that the custom plug-in requires
+
 ### Export the Feature in a p2 Repository
 
 Lastly, developers must create a p2 repository that users can point to for installation of the developer&#8217;s custom feature. A p2 repository can be created in two different ways:
@@ -181,13 +195,3 @@ Lastly, developers must create a p2 repository that users can point to for insta
 On the `Deployable features` dialog, check the custom feature from the list of features and define the directory to which the p2 repository will be exported to. You can export the p2 repository as either a directory or an archive.
 
 Once the p2 repository has been exported, it should be deployed so that all users can point to it and install the custom feature from it.
-
-## Topaz Workbench API Specifications
-
-The Compuware Topaz Workbench API consists of two separate layers:
-
-* A base Topaz API that provides the majority of the API features with no dependencies on Topaz Workbench components
-* The Topaz Workbench API which provides additional features to access Topaz Workbench client components and configurations
-
-The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
-The Compuware Topaz Workbench API Specification (Javadoc) can be found <a href="../javadoc/topaz_workbench_api/index.html" target="_blank">here</a>.
