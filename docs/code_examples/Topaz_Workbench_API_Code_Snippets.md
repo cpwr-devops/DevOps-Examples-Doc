@@ -32,6 +32,7 @@ IHostManager hostManager = HostManager.getInstance();
 // find z/OS host, null is returned if this host is not defined
 IZOSHost zosHost = hostManager.findZOSHost(host, port);
 ```
+
 ## Connecting to a z/OS Host for Dataset or JES API Usage
 
 In order to use the dataset or JES APIs on a defined z/OS host, a connection to that z/OS host must first be established.
@@ -64,6 +65,7 @@ try {
 	...
 }
 ```
+
 <a name="get-ui-creds"></a>
 Alternatively, you may connect to a z/OS host by using the credentials of the currently logged in Topaz Workbench UI user using the ZOSUIUserCredentialsManager:
 
@@ -84,7 +86,7 @@ if (ZOSUIUserCredentialsManager.hasUIUserCredentials(zosHost)) {
 	// get UI user's z/OS credentials
 	IZOSCredentials credentials = ZOSUIUserCredentialsManager
 			.getUIUserCredentials(zosHost);
-	
+
 	// you may now use these credentials to connect to the z/OS Host
 	...
 }
@@ -106,7 +108,7 @@ IDataSetCommandProvider commandProvider = zosHostConnection
 
 ## Allocating Partitioned or Sequential Datasets
 
-In order to allocate partitioned or sequential datasets, you first must create the allocate parameters using an AllocateParametersBuilder. After creating your allocate parameters, you can then allocate your datasets using an IDatasetCommandProvider. 
+In order to allocate partitioned or sequential datasets, you first must create the allocate parameters using an AllocateParametersBuilder. After creating your allocate parameters, you can then allocate your datasets using an IDatasetCommandProvider.
 
 To create allocate parameters based off of an existing dataset:
 
@@ -920,7 +922,7 @@ IMigratedDataSet migratedDataSet = ...
 try {
 	// recall the migrated dataset
 	IDataSet recalledDataSet = migratedDataSet.recall();
-	
+
 	...
 } catch (DataSetNotFoundException e) {
 	// the migrated dataset can no longer be found
@@ -933,6 +935,7 @@ try {
 In order to perform various JES functions, a JES command provider must first be obtained.
 
 To obtain a JES command provider:
+
 ```java
 IZOSHostConnection zosHostConnection = ...
 

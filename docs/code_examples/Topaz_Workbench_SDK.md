@@ -33,6 +33,7 @@ The following actions are provided regarding datasets:
 * Write content to a sequential dataset or a PDS member
 * Obtain the characteristics of a dataset or the statistics of a PDS member
 * Recall a migrated dataset
+
 ## JES API
 
 The Compuware Topaz Workbench API provides users with methods to programmatically perform JES actions.
@@ -41,6 +42,7 @@ The following actions are provided regarding JES:
 
 * Submit JCL
 * Track a job&#8217;s status
+
 ## z/OS User Program API
 
 The Compuware Topaz Workbench API provides users with methods to programmatically launch and communicate with their own z/OS programs.
