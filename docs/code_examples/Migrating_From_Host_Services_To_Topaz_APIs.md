@@ -10,7 +10,7 @@ Plug-ins currently using the Host Services API will continue to work in Topaz Wo
 
 The following is an summary of the differences between the Host Services API and the Topaz APIs, with descriptions of how to modify your code to work with the new Topaz APIs.
 
-Change | How to convert to work with new Topaz Workbench API
+Change | How to convert to work with new Topaz APIs
 ------ | ---------------------------------------------------
 Plug-in and package names were changed from com.compuware.api.hostservices.* to com.compuware.api.topaz.* | Update plug-in dependencies to reference new com.compuware.api.topaz and com.compuware.api.topaz.eclipse plug-ins and packages.
 Removed restrictions requiring that the Topaz API is used within a Topaz Workbench environment | Using the Topaz API by itself (without the Topaz Workbench API), users can now write plug-ins and Java applications that can run outside of a Topaz Workbench environment.
