@@ -16,13 +16,7 @@ The Compuware Topaz Workbench API Specification (Javadoc) can be found <a href="
 
 ## Dataset API
 
-The Compuware Topaz Workbench API provides users with methods to programmatically access and perform actions on datasets. These API&#8217;s do not provide the capability to manipulate the Topaz Workbench UI.
-
-The following dataset types are supported:
-
-* Sequential
-* Partitioned
-* VSAM
+The Compuware Topaz Workbench API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI. `Sequential`, `Partitioned` and `VSAM` are supported.
 
 The following actions are provided regarding datasets:
 
@@ -36,12 +30,10 @@ The following actions are provided regarding datasets:
 
 ## JES API
 
-The Compuware Topaz Workbench API provides users with methods to programmatically perform JES actions.
-
-The following actions are provided regarding JES:
+The Compuware Topaz Workbench API provides users with methods to programmatically perform JES actions. The following actions are provided regarding JES:
 
 * Submit JCL
-* Track a job&#8217;s status
+* Track a job’s status
 
 ## z/OS User Program API
 
@@ -52,6 +44,7 @@ The following actions are provided regarding z/OS user programs:
 * Launch a z/OS user program
 * Write/read user-defined data to/from the z/OS user program
 * Be notified of when the z/OS user program has ended
+
 ## API Examples
 
 The Compuware Topaz Workbench API provides users with examples to not only verify API functionality on a given host, but to assist developers with using the Compuware Topaz Workbench API in their own programs.
@@ -109,7 +102,7 @@ The following set of API examples is provided within the Example Launcher view:
   * Write to a Member
 * JES
   * Submit a Job
-  * Get a Job&#8217;s Status
+  * Get a Job’s Status
 * User Programs
   * Hello Mainframe
   * Termination Listener
@@ -167,7 +160,7 @@ Developers must package their custom plug-ins so they can be distributed for ins
 
 ### Add the Topaz Workbench API as a Dependency
 
-Developers must include the Topaz Workbench API and Topaz API as a dependency of any custom plug-in they create that uses the Topaz Workbench API. This can be done in two different ways within a plug-in&#8217;s MANIFEST.MF file:
+Developers must include the Topaz Workbench API and Topaz API as a dependency of any custom plug-in they create that uses the Topaz Workbench API. This can be done in two different ways within a plug-in’s MANIFEST.MF file:
 
 1. Open the plugin.xml file using the Plug-in Manifest Editor.
 2. On the `Dependencies` tab of the editor, do one of the following:
@@ -189,7 +182,7 @@ Once the custom feature is created:
 
 ### Export the Feature in a p2 Repository
 
-Lastly, developers must create a p2 repository that users can point to for installation of the developer&#8217;s custom feature. A p2 repository can be created in two different ways:
+Lastly, developers must create a p2 repository that users can point to for installation of the developer’s custom feature. A p2 repository can be created in two different ways:
 
 1. On the `Overview` tab of the Feature Manifest Editor, click the `Export Wizard` link under the `Exporting` section
 2. Use the `File`->`Export...` menu and choose `Deployable features` under the `Plug-in Development` category
