@@ -9,13 +9,7 @@ The Compuware Host Services SDK includes the Compuware Host Services API as well
 
 ### Dataset API
 
-The Compuware Host Services API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI.
-
-The following dataset types are supported:
-
-- Sequential
-- Partitioned
-- VSAM
+The Compuware Host Services API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI.  `Sequential`, `Partitioned` and `VSAM` are supported.
 
 The following actions are provided regarding datasets:
 
@@ -29,9 +23,7 @@ The following actions are provided regarding datasets:
 
 ### JES API
 
-The Compuware Host Services API provides users with methods to programmatically perform JES actions.
-
-The following actions are provided regarding JES:
+The Compuware Host Services API provides users with methods to programmatically perform JES actions.  The following actions are provided regarding JES:
 
 - Submit JCL
 - Track a job’s status
@@ -55,8 +47,6 @@ The following are provided regarding API examples:
 - Example Launcher View - A view from which a set of API examples can be launched by users
 - Examples Template - A template that can be used to view the source of the examples provided in the Example Launcher view
 - Code Snippets - Snippets that can be viewed to see how the Compuware Host Services API can be used to perform a certain action
-
-For more information regarding the API examples, see the “Developing for the Host Services API” section.
 
 ## PassTicket Extension
 
