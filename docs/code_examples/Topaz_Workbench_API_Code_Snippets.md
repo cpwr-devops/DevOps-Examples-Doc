@@ -6,9 +6,22 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 The following scenarios contain a brief description as well as one or more code snippets pertinent to the scenario:
 
+## Create a z/OS Host
+
+When writing Java applications or (Eclipse plug-ins not running in a Topaz Workbench client), you can create instances of z/OS Hosts using the HostFactory class:
+
+```java
+String host = ...
+int port = ...
+Protocol protocol = ...
+int timeoutSeconds = ...
+
+IZOSHost zosHost = HostFactory.createZOSHost(host, port, protocol, timeoutSeconds);
+```
+
 ## Obtaining one or more Defined z/OS Hosts
 
-In order to connect to a z/OS host, one or more defined z/OS hosts must first be obtained.
+When writing Eclipse plug-ins running in a Topaz Workbench client, one or more defined z/OS hosts can be obtained using the HostManager class.
 
 To obtain a list of all defined z/OS hosts:
 
@@ -67,7 +80,7 @@ try {
 ```
 
 <a name="get-ui-creds"></a>
-Alternatively, you may connect to a z/OS host by using the credentials of the currently logged in Topaz Workbench UI user using the ZOSUIUserCredentialsManager:
+When writing plug-ins running in a Topaz Workbench client, you may also connect to a z/OS host by using the credentials of the currently logged in Topaz Workbench UI user using the ZOSUIUserCredentialsManager:
 
 ```java
 IZOSHost zosHost = ...
@@ -1117,7 +1130,7 @@ try {
 }
 ```
 
-Alternatively, a z/OS user program can be launched using the credentials of the currently logged in UI user using the ZOSUIUserCredentialsManager (see previous example [here](#get-ui-creds)).
+When writing plug-ins running in a Topaz Workbench client, a z/OS user program can also be launched using the credentials of the currently logged in UI user using the ZOSUIUserCredentialsManager (see previous example [here](#get-ui-creds)).
 
 ## Writing/Reading User-Defined Data to/from a z/OS User Program
 
