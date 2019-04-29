@@ -1,7 +1,4 @@
 # Ignore Node
-/node_modules/
-node_modules
-node_modules/
-/.vuepress/dist/
-.vuepress/dist
-.vuepress/dist/
+**/node_modules
+**/dist
+
