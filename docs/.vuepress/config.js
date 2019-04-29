@@ -10,8 +10,8 @@ module.exports = {
             { text: 'Pipeline Scenarios',
               link: '/pipeline_scenario/pipelines'
             },
-            {   text: 'Basic Pipelines Example',
-                link: '/pipelines/'
+            { text: 'Basic Pipelines Example',
+              link: '/pipelines/'
             },
             { text: 'Shared Library Example',
               link: '/shared_library/Mainframe_CI_Pipeline_from_Shared_Lib'
@@ -20,17 +20,17 @@ module.exports = {
         },
         { text: 'Configuration',
           items: [{
-              text: 'Plugins',
+              text: 'Jenkins Plugins',
               link: '/tool_configuration/plugins'
+            },
+            { text: 'Jenkins Configuration',
+              link: '/tool_configuration/Jenkins_config'
             },
             { text: 'CES Webhook Configuration',
               link: '/tool_configuration/webhook_setup'
             },
             { text: 'CES Access Token Configuration',
               link: '/tool_configuration/CES_credentials_token'
-            },
-            { text: 'Jenkins Configuration',
-              link: '/tool_configuration/Jenkins_config'
             }
           ] 
         },
@@ -62,16 +62,15 @@ module.exports = {
             ],            
             '/shared_library/': [ 
               'Mainframe_CI_Pipeline_from_Shared_Lib',
-              'pipeline_parameters',
               'config_files',
               'helper_classes/'
             ],
             '/tool_configuration/': [
-              'plugins', 
+              'plugins',
+              'Jenkins_config',
               '',      //configurations
               'webhook_setup',
-              'CES_credentials_token',
-              'Jenkins_config'
+              'CES_credentials_token'
             ],
             '/code_examples/': [
                 'Rest_api',

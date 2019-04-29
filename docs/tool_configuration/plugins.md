@@ -1,13 +1,13 @@
 ---
-title: Plugins
+title: Jenkins Plugins
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
 # Plugins
 
-![Plugins](../tool_configuration/images/Plugins.png)
+![Plugins](./images/Plugins.png)
 
-The examples - especially the two [primary pipelines](../pipelines/pipelines.md) - use plugins that may not be part of a standard installation of Jenkins; this will likely be the case for the Compuware plugins. All plugins described here can be obtained from the Jenkins plugin marketplace using *Manage Jenkins* / *Manage Plugins*.
+The examples - especially the two [primary pipelines](../pipeline_scenario/pipelines.md) - use plugins that may not be part of a standard installation of Jenkins; this will likely be the case for the Compuware plugins. All plugins described here can be obtained from the Jenkins plugin marketplace using *Manage Jenkins* / *Manage Plugins*.
 
 ::: tip
 Jenkins allows generating pipeline syntax based on plugins. Using the Compuware plugins, and probably other plugins as well, this often causes the challenge for users to find the correct entries in the selection boxes, to find the required plugin. For the Compuware plugin we point to the correct location in the corresponding description.
@@ -86,7 +86,7 @@ This interface is delivered with the Topaz Workbench full install download and c
 
 The CLI must be installed locally to the Jenkins server.
 
-![Installing CLI](../tool_configuration/images/Install_CLI.png)
+![Installing CLI](./images/Install_CLI.png)
 
 ## Third party plugins
 
