@@ -9,7 +9,6 @@ The APIs use a token based authentication for securely accessing the mainframe. 
 
 Please visit our [Swagger REST API documentation](https://ispw.api.compuware.com/) for more details on the various APIs.
 
-![Rest API](./images/Rest_api.png)
+![Rest API](./images/Swagger.png)
 
 For an example of how to call the Rest API from a scripting language, please see this [Powershell script](./ISPW_Operations.ps1) that calls ISPW's API.
-
