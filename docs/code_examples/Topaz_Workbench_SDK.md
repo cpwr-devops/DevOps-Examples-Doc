@@ -9,13 +9,7 @@ The Compuware Host Services SDK includes the Compuware Host Services API as well
 
 ## Dataset API
 
-The Compuware Host Services API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI.
-
-The following dataset types are supported:
-
-- Sequential
-- Partitioned
-- VSAM
+The Compuware Host Services API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI.  `Sequential`, `Partitioned` and `VSAM` are supported.
 
 The following actions are provided regarding datasets:
 
