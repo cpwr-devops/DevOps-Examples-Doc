@@ -1,5 +1,5 @@
 ---
-title: Basic Example
+title: Basic Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
@@ -27,7 +27,7 @@ ISPW_Container |  | ISPW Set ID
 ISPW_Container_Type | 2 | ISPW Container Type (0. - assignment, 1. - release, 2. - set)
 ISPW_Owner | | ISPW Owner User ID
 
-The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](./pipeline_parameters.md).
+The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](../shared_library/pipeline_parameters.md).
 
 Name | Description
 ---- | -----------
@@ -37,7 +37,7 @@ HCI_Token | Jenkins internal ID for HCI Token
 CC_repository | Code Coverage Repository - Check with your Xpediter Code Coverage administrator for the name to use
 Git_Project | Github (or other Git based repository) project used to store the Topaz for Total Test Projects
 
-### Loading the script from GitHub
+## Loading the script from GitHub
 
 Instead of using a Pipeline script and placing the pipeline code into the Script text box, the pipeline uses a Pipeline from SCM stored in GitHub.
 

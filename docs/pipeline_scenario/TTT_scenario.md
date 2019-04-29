@@ -1,5 +1,5 @@
 ---
-title: Total Test Setup
+title: Total Test Pipeline Setup
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
@@ -23,7 +23,7 @@ Since most mainframe development is not green field development, the first step 
         - Segment data
 - Any write stub will also create assertions for the data written to the external data source
 
-<!--![Record test case](../images/TTT_record_testcase.png)-->
+![Record test case](./images/TTT_record_test_case.png)
 
 ## Structuring Tests
 
@@ -34,12 +34,12 @@ Topaz for Total Test allows storing one or more test case for one or more progra
 In order to map Topaz for Total Test project assets, stored in Git, to program components, stored in ISPW, naming conventions are used. These should be followed already when recording the unit tests, but asset names may be changed later, after recording, to use the following naming conventions:
 
 - The Topaz for Total Test project name uses `<Target_Program_Name>_Unit_Tests` as project name
-- The test scenario files or test suite files contain the `<Target_Program_Name>` as first part of their file name, followed by an underscore `_`, follwowed by any trailing name. 
+- The test scenario files or test suite files contain the `<Target_Program_Name>` as first part of their file name, followed by an underscore `_`, follwowed by any trailing name.
 - Topaz for Total Test itself requires the file extensions
     - `.testscenario` for test scenarios
     - `.testsuite` for test suites
 
-The [Git repository](./TTT_in_Git.html) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
+The [Git repository](./TTT_in_Git) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
 
 ## The Topaz for Total Test project structure
 
@@ -54,7 +54,7 @@ A Topaz for Total Test project will use the following folder structure, which wi
         +- Stubs                                    # Simulation data for sub-programs and external I/O
         +- Suites                                   # test suite(s) executing one or more test scenarios
 
-![TTT_project](../images/TTT_project_structure.png)
+![TTT_project](./images/TTT_project_structure.png)
 
 ## The runner.jcl
 
@@ -72,7 +72,7 @@ Due to the design of the example application, there are three paths through the 
 - `Runner_PATH2.jcl` is used for the path from `DEV2` to `PRD`
 - `Runner_PATH3.jcl` is used for the path from `DEV3` to `PRD`
 
-![Life Cycle](../../tool_configuration/images/Example_life_cycle.png)
+![Life Cycle](../tool_configuration/images/Example_life_cycle.png)
 
 ```jcl
 //RUNNER EXEC PGM=TTTRUNNR
@@ -94,4 +94,8 @@ New test cases may be added to an existing test scenario by duplicating existing
 
 The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is [storing these projects in Git/GitHub repositories.](./TTT_in_Git.html)
 
-![TTT in Git](../images/TTT_in_Git_and_GitHub.png)
+![TTT in Git](./images/TTT_in_Git_and_GitHub.png)
+
+## Next Steps
+
+- [Building a Pipeline](../pipelines/readme.md) for a list and description of plugins that are used within the examples

@@ -20,7 +20,7 @@ The pages contains example code and documentation on:
 The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements.
 :::
 
-## CI Pipeline examples
+## Pipeline examples
 
 We have published several examples of "complete" pipelines which show partly different process steps and different techniques in Jenkins.
 

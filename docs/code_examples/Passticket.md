@@ -1,5 +1,5 @@
 ---
-title: Developing A PassTicket Extension
+title: Developing A Topaz PassTicket Extension
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Helper classes
+title: Pipeline Helper classes
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
@@ -18,7 +18,7 @@ The [FileHelper](./FileHelper.md) class is used to read external files and provi
 
 The [GitHelper](./GitHelper.md) class serves as a wrapper around the Git SCM plugin and provides the methods [GitHelper(steps)](./GitHelper.md#GitHelper).
 
-- The constructor receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../Jenkins_Groovy.md).
+- The constructor receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../pipelines/Jenkins_Groovy.md).
 - [checkout(String gitUrl, String gitBranch, String gitCredentials, String tttFolder)](./GitHelper.md#checkout) checks out the branch `gitBranch` in the Git(Hub) repository at `gitUrl`. It uses the `gitCredentials` to authenticate, and places the cloned Git repository into the folder `tttFolder` (within the Jenkins workspace).
 - [checkoutPath(String gitUrl, String gitBranch, String path, String gitCredentials, String gitProject)](./GitHelper.md#checkoutPath) performs a *sparse checkout*, and checks out path `path` in the branch `gitBranch` in the project `gitProject` in the Git(Hub) repository at `gitUrl`. It uses the `gitCredentials` to authenticate.
 
@@ -26,8 +26,8 @@ The [GitHelper](./GitHelper.md) class serves as a wrapper around the Git SCM plu
 
 The [IspwHelper](./IspwHelper.md) class serves as a wrapper around the Compuware ISPW plugin and provides the methods IspwHelper(steps, pConfig).  
 
-- The constructor receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../Jenkins_Groovy.md) and a [PipelineConfig](./#PipelineConfig) to make use of pipeline execution specific parameters.
-- [downloadSources()](./IspwHelper.md#downloadSources) downloads all sources (COBOL programs and copybooks) contained in [ISPW set](../scenario/readme.md) triggering the pipeline.
+- The constructor receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../pipeline/Jenkins_Groovy.md) and a [PipelineConfig](./#PipelineConfig) to make use of pipeline execution specific parameters.
+- [downloadSources()](./IspwHelper.md#downloadSources) downloads all sources (COBOL programs and copybooks) contained in [ISPW set](../pipelines/scenario/readme.md) triggering the pipeline.
 - [downloadCopyBooks(String workspace)](./IspwHelper.md#downloadCopyBooks) does the following items:
   - receives the path to the `workspace` of the pipeline job
   - uses the `referencedCopyBooks` method to determine all copybooks used by the download COBOL programs
@@ -53,7 +53,7 @@ The [IspwHelper](./IspwHelper.md) class serves as a wrapper around the Compuware
 The [JclSkeleton](./JclSkeleton.md) class allows the pipelines to customize pieces of `JCL` in certain, predefined ways. This allows changing e.g. `job cards`, `STEPLIB` concatenations and others during runtime. The `JCL` skeletons are read from folder ['./config/skels'](./Jcl_skeletons.md) in the pipeline workspace.
 
 - The constructor [JclSkeleton(steps, String workspace, String ispwApplication, String ispwPathNum)](./Jcl_skeletons.md#JclSkeleton) receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../Jenkins_Groovy.md), the path to the pipeline `workpace`, the name of the ISPW application in `ispwApplication` and the [number of the development path](../scenario/TTT_scenario.md) in `pathNum`.
-- [initialize()](./Jcl_skeletons.md#initialize) is used for additional [initialization which cannot be executed in the constructor](../Jenkins_Groovy.md) and it:
+- [initialize()](./Jcl_skeletons.md#initialize) is used for additional [initialization which cannot be executed in the constructor](../pipelines/Jenkins_Groovy.md) and it:
   - reads the `JobCard.jcl` skeleton file
   - reads the `deleteDs.skel` skeleton file  
   - initializes the `IEBCOPY` `JCL` by using the `buildIebcopySkel` method
@@ -80,8 +80,8 @@ The [JclSkeleton](./JclSkeleton.md) class allows the pipelines to customize piec
 
 The [PipelineConfig](./PipelineConfig.md) class stores and allows retrieval of any pipeline [configuration and runtime specific parameters](../pipeline_parameters.md).
 
-- The constructor [PipelineConfig(steps, workspace, params, mailListLines)](./PipelineConfig.md#PipelineConfig) receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../Jenkins_Groovy.md), the path of the pipeline `workspace` the `Map` `params` containing the `key:value` parameter pairs from the [pipeline call](../Mainframe_CI_Pipeline_from_Shared_Lib.md), and a the list of records from the [`mailList.config` file](../../tool_configuration/readme.md) and initializes all parameters that can be initialized immediately.
-- [initialize()](.PipelineConfig#initialize) is used for additional [initialization which cannot be executed in the constructor](../Jenkins_Groovy.md) and it:
+- The constructor [PipelineConfig(steps, workspace, params, mailListLines)](./PipelineConfig.md#PipelineConfig) receives the `steps` from the pipeline to [allow use of pipeline step within the class code](../pipelines/Jenkins_Groovy.md), the path of the pipeline `workspace` the `Map` `params` containing the `key:value` parameter pairs from the [pipeline call](./Mainframe_CI_Pipeline_from_Shared_Lib.md), and a the list of records from the [`mailList.config` file](../../tool_configuration/readme.md) and initializes all parameters that can be initialized immediately.
+- [initialize()](.PipelineConfig#initialize) is used for additional [initialization which cannot be executed in the constructor](../pipelines/Jenkins_Groovy.md) and it:
   - deletes any old content from the pipeline workspace
   - Uses the `checkoutPath`method of the [`GitHelper` class](#GitHelper) to download the path containing the configuration files from the GitHub repository containing the configuration. (In future configuration files will be move to [Managed Files](../../tool_configuration/readme.md), thus avoiding to have to download configuration from GitHub and exposure of configuration on GitHub.)
   - execute the following internal methods to set the remaining configuration values
@@ -104,7 +104,7 @@ The [PipelineConfig](./PipelineConfig.md) class stores and allows retrieval of a
 The [SonarHelper](./SonarHelper.md) class serves as a wrapper to execute the SonarQube scanner.
 
 - The constructor [SonarHelper(script, steps, pConfig)](./SonarHelper.md#SonarHelper) receives the `script`object and the `steps` from the pipeline  and a [`PipelineConfig`](./#PipelineConfig) to make use of pipeline execution specific parameters.
-- [initialize()](./SonarHelper.md#initialize) is used for additional [initialization which cannot be executed in the constructor](../Jenkins_Groovy.md) and determines the scanner home path
+- [initialize()](./SonarHelper.md#initialize) is used for additional [initialization which cannot be executed in the constructor](../../pipeline/Jenkins_Groovy.md) and determines the scanner home path
 - [scan()](./SonarHelper.md#scan) Executes the Sonar scanner. First it prepares all required parameters required for this scenario:
   - [`sonar.testExecutionReportPaths`](https://docs.sonarqube.org/display/SONAR/Generic+Test+Data) allows using a comma-separated list of paths the results of unit tests (Topaz for Total Test in our case) in the format required by the Sonar scanner.
   - [`sonar.tests`](https://docs.sonarqube.org/display/SONAR/Analysis+Parameters) comma-separated list of folders containing unit tests (Topaz for Total Test projects in our case)

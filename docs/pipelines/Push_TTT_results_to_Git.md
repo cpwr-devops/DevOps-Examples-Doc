@@ -1,8 +1,9 @@
 ---
-title: Push Topaz for Total Test results to GitHub
+title: Test results in GitHub Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Problem to solve
+
 When using Topaz for Total Test unit tests and SonarQube to analyze the results, the SonarQube dashboard will tell users how many cases (assertions) have been executed.
 
 ![SonarQubeDashboard](./images/SonarQubeDashboard.png)
@@ -17,12 +18,14 @@ The problem arises when users would like to see more details. E.g. when selectin
 
 This in part due to the way Topaz for Total Test stores and uses test and assertion definitions. The execution results passed to Sonar refer to these definition files. Other than in JUnit they are not defined as code but defined using xml, which SonarQube is not able to “understand”. Resolving this issue on the product level would require a considerable change in Topaz for Total Test’s architecture, since the assertion definitions are used not only for reporting but primarily used for execution of the tests.
 
-# Idea
+## Idea
+
 The idea of this work around is to make use of the reporting capability in Topaz for Total Test itself and of the fact that Compuware and most of our customers use GitHub (or any other server edition of Git) to store, share and make Topaz for Total Test unit tests available to Jenkins. Whenever I refer to “GitHub” in the following description, read “GitHub or suchlike”. Since, prior to executing the tests, they need to be downloaded from GitHub. This means cloning the underlying Git repository (completely or partly using a sparse checkout), which in turn means, the resulting project in the Jenkins workspace is a fully functional Git repository. Any changes to the project appearing on the Jenkins server can be pushed back to GitHub.
 
 ![Push_TTT_Results_To_Git_Pipeline](./images/Push_TTT_Results_To_Git_Pipeline.png)
 
 Every time a user executes a test scenario or suite, Topaz for Total Test generates a set of reports that can be used for analysis. These reports are stored in the Output in different sub folder using different formats, depending on further purposes. These are
+
 - As *.archive* files in the *Last Execution* folder. This is the format that Topaz for Total Test uses after execution of a scenario in the Eclipse UI.
 - As *.xml* files in the *JUnit* folder. This is standard JUnit format.
 - As *.xml* files in the *Sonar* folder. This is the format passed to SonarQube.
@@ -50,5 +53,6 @@ And review the results in their Eclipse UI.
 
 ![TTT_Results_Report_1](./images/TTT_Results_Report_2.png)
 
-# Code
+## Code
+
 The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last *stage("Push TTT Results to GitHub")*.
