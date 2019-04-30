@@ -82,7 +82,7 @@ In the Pipeline Syntax generator, the plugin can be accessed
 
 ## Installing the Topaz Workbench CLI
 
-This interface is delivered with the Topaz Workbench full install download and can be installed using the provided setup.exe. In this dialog select the tab **CLI** and select either Windows or Linus installation.
+This interface is delivered with the Topaz Workbench full install download and can be installed using the provided setup.exe. In this dialog select the tab **CLI** and select either Windows or Linux installation.
 
 The CLI must be installed locally to the Jenkins server.
 
