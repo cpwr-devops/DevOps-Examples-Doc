@@ -13,7 +13,7 @@ module.exports = {
             { text: 'Pipeline Scenarios',
               link: '/pipeline_scenario/pipelines'
             },
-            { text: 'Basic Pipeline Example',
+            { text: 'Basic Pipeline Examples',
             link: '/pipelines/Mainframe-CI-Example-pipeline'
             },
             { text: 'Shared Library Example',

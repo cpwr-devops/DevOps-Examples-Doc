@@ -2,7 +2,7 @@
 title: Basic Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
-# Basic Pipeline
+# Basic CI Pipeline
 This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipeline_scenario/pipelines.md):
 - Retrieve the mainframe code from ISPW for later analysis by SonarQube
 - Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
