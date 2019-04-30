@@ -2,6 +2,7 @@
 title: Jenkins Configuration
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Jenkins Configuration
 The plugins installed into Jenkins used by the examples require additional setup like server locations/URLs or additional credentials to use. We describe the required steps by "location" in the Jenkins UI.
 
 ## Compuware Configurations
@@ -54,7 +55,7 @@ Use the credentials manager to store the following credentials for use in the ex
 
 ## Managed Files
 
-The option `Manage Jenkins` -> `Managed Files` will be available after installation of the [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) plugin. The examples make use of configuration files handled and stored by this plugin. Especially this will be a list of TSO user IDs and [corresponding mail addresses](../pipelines/Config_files.md). Over time other configuration files will use the same technology.
+The option `Manage Jenkins` -> `Managed Files` will be available after installation of the [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) plugin. The examples make use of configuration files handled and stored by this plugin. Especially this will be a list of TSO user IDs and [corresponding mail addresses](../shared_library/Config_files.md). Over time other configuration files will use the same technology.
 
 In `Manage Jenkins` -> `Managed Files` select `Add a new Config` to add a new configuration file to be handled by this plugin. Once files are created you can select the existing files to review and modify their content.
 
@@ -66,6 +67,6 @@ After `submitting` specify a file name to use and start filling the file with co
 
 ### The email list
 
-The example mail list file uses a file name of `mailList.config` and pairs of `<TSO User ID>:<mailaddress>`, each on a separate line. The TSO user IDs used in this file correspond to the ISPW owner values passed by the [ISPW webhooks](webhook_setup.md).
+The example mail list file uses a file name of `mailList.config` and pairs of `<TSO User ID>:<mailaddress>`, each on a separate line. The TSO user IDs used in this file correspond to the ISPW owner values passed by the [ISPW webhooks](./webhook_setup.md).
 
 ![Mail List File](./images/MailList_Config_File.png)

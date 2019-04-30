@@ -1,7 +1,16 @@
 ---
-title: Basic Example
+title: Basic Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Basic CI Pipeline
+This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipeline_scenario/pipelines.md):
+- Retrieve the mainframe code from ISPW for later analysis by SonarQube
+- Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
+- Execute those test scenarios that belong to the COBOL programs that have been promoted
+- Retrieve the Code Coverage metrics generated during test execution from the mainframe repository
+- Pass all information (sources, test results, code coverage metrics) to SonarQube
+- Receive a Sonar quality gate webhook callback and analyze the status of the quality gate
+- If the quality gate was passed, continue the process by triggering an XL Release release template
 
 ## Setting up the pipeline job
 
@@ -27,7 +36,7 @@ ISPW_Container |  | ISPW Set ID
 ISPW_Container_Type | 2 | ISPW Container Type (0. - assignment, 1. - release, 2. - set)
 ISPW_Owner | | ISPW Owner User ID
 
-The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](./pipeline_parameters.md).
+The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](../shared_library/pipeline_parameters.md).
 
 Name | Description
 ---- | -----------
@@ -37,7 +46,7 @@ HCI_Token | Jenkins internal ID for HCI Token
 CC_repository | Code Coverage Repository - Check with your Xpediter Code Coverage administrator for the name to use
 Git_Project | Github (or other Git based repository) project used to store the Topaz for Total Test Projects
 
-### Loading the script from GitHub
+## Loading the script from GitHub
 
 Instead of using a Pipeline script and placing the pipeline code into the Script text box, the pipeline uses a Pipeline from SCM stored in GitHub.
 

@@ -1,14 +1,26 @@
 ---
-title: Shared Library Example
+title: Shared Library Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Pipeline from a Shared Library
+This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipeline_scenario/pipelines.md):
+- Retrieve the mainframe code from ISPW for later analysis by SonarQube
+- Retrieve any missing copbboks that were not part of the promotion, but are required by SonarQube 
+- Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
+- Execute those test scenarios that belong to the COBOL programs that have been promoted
+- Retrieve the Code Coverage metrics generated during test execution from the mainframe repository
+- Pass all information (sources, test results, code coverage metrics) to SonarQube
+- Receive a Sonar quality gate webhook callback and analyze the status of the quality gate
+- If the quality gate was passed, continue the process by triggering an XL Release release template
+- In either case (passed / dailed), send an email to the developer informing them of the status of the pipeline
+
 ## Setting up the pipeline job
 
-The job itself is defined via the usual way of creating a new pipeline job. It is important, though, to make sure that the resulting job uses parameters by checking the `This project is parameterized` box, ![Parameterized Pipeline](./images/parametertized_pipeline.png)
+The job itself is defined via the usual way of creating a new pipeline job. It is important, though, to make sure that the resulting job uses parameters by checking the `This project is parameterized` box, ![Parameterized Pipeline](../pipelines/images/parametertized_pipeline.png)
 
 Successively add the following string parameters (the default values are the ones used for the examples).
 
-![Adding parameters](./images/Adding_parameters.png)
+![Adding parameters](../pipelines/images/Adding_parameters.png)
 
 The parameters in this first set are specific to the individual execution of the pipeline and get passed by the [ISPW Webhook](../tool_configuration/webhook_setup.md).
 
@@ -22,11 +34,11 @@ ISPW_Container | ISPW Set ID
 ISPW_Container_Type | ISPW Container Type -0 - assignment -1 - release -2 - set
 ISPW_Owner | ISPW Owner User ID
 
-### Loading the script from a shared library
+## Loading the script from a shared library
 
 To tell Jenkins to execute a pipeline from a shared library, you need to add code like the following to the Pipeline script definition.
 
-![Pipeline from Shared Library](./images/pipeline_from_shared_lib.png)
+![Pipeline from Shared Library](../pipelines/images/pipeline_from_shared_lib.png)
 
 The example uses
 
@@ -55,9 +67,9 @@ Mainframe_CI_Pipeline_from_Shared_Lib(
 where
 
 - `@Library('RNU_Shared_Lib@Dev') _`
-refers to the name of a [Shared Library](../pipelines/helper_classes/PipelineConfig.md), with `@Dev` in this example referring to the `Dev` branch of the underlying GitHub repository. The trailing `_` is required by Jenkins.
+refers to the name of a [Shared Library](./helper_classes/PipelineConfig.md), with `@Dev` in this example referring to the `Dev` branch of the underlying GitHub repository. The trailing `_` is required by Jenkins.
 - `Mainframe_CI_Pipeline_from_Shared_Lib`
-refers to the name of the `.groovy` file in the `vars` [folder of the GitHub repository](../readme.md), containing the pipeline code
+refers to the name of the `.groovy` file in the `vars` folder of the GitHub repository, containing the pipeline code
 - Within the brackets `(...)` parameters are passed to the pipeline script. `Mainframe_CI_Pipeline_from_Shared_Lib` expects a `groovy` [`Map`](http://groovy-lang.org/syntax.html#_maps), containing the following `key:value` pairs.
 
 The parameters in this first set are specific to the individual execution of the pipeline. The values are the parameters defined as pipeline parameters). The syntax `"${parameter}"` ensures that the value passed to this parameter is taken as value in the `Map`.
@@ -88,7 +100,7 @@ CC_repository | The Xpediter Code Coverage repository to use
 Git_Project | The name of the GitHub repository storing Topaz for Total Test assets
 Git_Credentials | Jenkins internal ID for credentials to use the GitHub repository
 
-## Mainframe_CI_Pipeline_from_Shared_Lib
+## Shared Library Pipeline Steps
 
 Being a pipeline from a [shared library](https://jenkins.io/doc/book/pipeline/shared-libraries/) this pipeline must extend a `call` method. This pipeline expects a [`Map`](http://groovy-lang.org/syntax.html#_maps) object, containing the parameters to be passed to the pipeline from the job configuration and trigger.
 
@@ -103,7 +115,7 @@ def call(Map pipelineParams)
     {
 ```
 
-2. Execute its `initialize` method to read configuration files and instantiate objects of [helper classes](../pipelines/helper_classes/PipelineConfig.md)
+1. Execute its `initialize` method to read configuration files and instantiate objects of [helper classes](./helper_classes/PipelineConfig.md)
     - `PipelineConfig` containing global parameter values that:
         - passed by the job configuration/trigger and are pipeline/execution specific
         - not pipeline or execution specific, like server URLs. These parameters will be read from external configuration files
