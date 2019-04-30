@@ -55,7 +55,7 @@ module.exports = {
             '/pipelines/': [
               '',  
               'Mainframe-CI-Example-pipeline',
-              'Push_TTT_results_to_Git', 
+              'push_ttt_results_to_git', 
               'Jenkins_Groovy'
             ],
             '/pipeline_scenario/': [ 
