@@ -1,6 +1,7 @@
 module.exports = {
     title: "Mainframe DevOps",
     //description: "Mainframe DevOps",
+    ga: 'UA-139353569-1',
     themeConfig: {
         logo: '/compuware.png',
         //displayAllHeaders: true,
