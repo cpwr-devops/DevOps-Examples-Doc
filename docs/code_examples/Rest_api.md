@@ -16,7 +16,7 @@ To see the API Documentation on the internet, please visit our [Swagger REST API
 
 To access the APIs within your environment, go to the CES URL and select the `API Documentation` option in the Help menu (see below)
 
-![CES Doc](./images/CES_API.png)
+![CES Doc](./images/CES_api.png)
 
 ## Example of REST API usage
 
