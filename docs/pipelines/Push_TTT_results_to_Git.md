@@ -2,7 +2,7 @@
 title: Test results in GitHub Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
-# Problem to solve
+## Problem to solve
 
 When using Topaz for Total Test unit tests and SonarQube to analyze the results, the SonarQube dashboard will tell users how many cases (assertions) have been executed.
 
@@ -55,4 +55,4 @@ And review the results in their Eclipse UI.
 
 ## Code
 
-The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last *stage("Push TTT Results to GitHub")*.
+The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last `stage("Push TTT Results to GitHub")`.
