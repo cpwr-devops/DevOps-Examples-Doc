@@ -2,6 +2,15 @@
 title: Basic Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Basic Pipeline
+This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipeline_scenario/pipelines.md):
+- Retrieve the mainframe code from ISPW for later analysis by SonarQube
+- Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
+- Execute those test scenarios that belong to the COBOL programs that have been promoted
+- Retrieve the Code Coverage metrics generated during test execution from the mainframe repository
+- Pass all information (sources, test results, code coverage metrics) to SonarQube
+- Receive a Sonar quality gate webhook callback and analyze the status of the quality gate
+- If the quality gate was passed, continue the process by triggering an XL Release release template
 
 ## Setting up the pipeline job
 

@@ -17,7 +17,7 @@ The code reflects common patterns that we see emerging at different customers. I
 
 - **Step 3** In Topaz once the developer has finished working on the code, they promote their changes from the `DEV1` level to `QA1`, the next level in the application's life cycle.
   
-- **Step 4** Automatically in ISPW the promotion of from the `DEV1` level to the `QA1` level in ISPW creates an ISPW an containing all components that are part of this specific promotion.  Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via an [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../shared_library/pipeline_parameters.md) to the Jenkins job to control the execution.
+- **Step 4** Automatically in ISPW the promotion of from the `DEV1` level to the `QA1` level in ISPW creates an ISPW a set containing all components that are part of this specific promotion.  Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via an [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../shared_library/pipeline_parameters.md) to the Jenkins job to control the execution.
 
 - **Step 5** Automatically in Jenkins one of the below pipelines executes.  
   - For a simple self-contained pipeline example, the [Mainframe-CI-Example-pipeline](../pipelines/Mainframe-CI-Example-pipeline.md) can be used.  

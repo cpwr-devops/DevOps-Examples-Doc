@@ -2,6 +2,18 @@
 title: Shared Library Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Pipeline from a Shared Library
+This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipeline_scenario/pipelines.md):
+- Retrieve the mainframe code from ISPW for later analysis by SonarQube
+- Retrieve any missing copbboks that were not part of the promotion, but are required by SonarQube 
+- Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
+- Execute those test scenarios that belong to the COBOL programs that have been promoted
+- Retrieve the Code Coverage metrics generated during test execution from the mainframe repository
+- Pass all information (sources, test results, code coverage metrics) to SonarQube
+- Receive a Sonar quality gate webhook callback and analyze the status of the quality gate
+- If the quality gate was passed, continue the process by triggering an XL Release release template
+- In either case (passed / dailed), send an email to the developer informing them of the status of the pipeline
+
 ## Setting up the pipeline job
 
 The job itself is defined via the usual way of creating a new pipeline job. It is important, though, to make sure that the resulting job uses parameters by checking the `This project is parameterized` box, ![Parameterized Pipeline](../pipelines/images/parametertized_pipeline.png)

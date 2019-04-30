@@ -7,14 +7,11 @@ module.exports = {
         nav: [
         { text: 'Pipelines',
         items: [
-            { text: 'Getting started',
-            link: '/pipelines/'
-            },
             { text: 'Pipeline Scenarios',
               link: '/pipeline_scenario/pipelines'
             },
-            { text: 'Basic Pipeline Example',
-            link: '/pipelines/Mainframe-CI-Example-pipeline'
+            { text: 'Basic Pipelines Example',
+              link: '/pipelines/'
             },
             { text: 'Shared Library Example',
               link: '/shared_library/Mainframe_CI_Pipeline_from_Shared_Lib'

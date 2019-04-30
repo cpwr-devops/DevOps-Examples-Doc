@@ -2,6 +2,7 @@
 title: Jenkins Configuration
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Jenkins Configuration
 The plugins installed into Jenkins used by the examples require additional setup like server locations/URLs or additional credentials to use. We describe the required steps by "location" in the Jenkins UI.
 
 ## Compuware Configurations

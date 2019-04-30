@@ -2,6 +2,9 @@
 title: Test results in GitHub Pipeline
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Pushing Topaz for Total Test unit test results to GitHub
+This is a simple pipeline demonstrating a solution developed for a customer specific problem.
+
 ## Problem to solve
 
 When using Topaz for Total Test unit tests and SonarQube to analyze the results, the SonarQube dashboard will tell users how many cases (assertions) have been executed.

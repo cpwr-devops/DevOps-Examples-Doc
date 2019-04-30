@@ -2,6 +2,7 @@
 title: REST APIs
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
+# Rest API
 
 Compuware's Rest APIs are documented in [Swagger](https://swagger.io/solutions/api-documentation/), a commonly used format.  The Rest APIs are hosted in Compuware Enterprise Services, which connects to the underlying mainframe products to perform various actions on the mainframe.  
 
