@@ -1,4 +1,5 @@
 # Ignore Node
 **/node_modules
 **/dist
+**/public
 

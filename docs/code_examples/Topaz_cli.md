@@ -4,7 +4,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Topaz Workbench Command Line Interface
 
-The Topaz Workbench Command Line Interface (CLI) is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. After [installation](../tool_configuration/readme.md), the command line interface folder contains a set of `.bat` files that can be used to execute the required functions. These are
+The Topaz Workbench Command Line Interface (CLI) is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. After [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli), the command line interface folder contains a set of `.bat` files that can be used to execute the required functions. These are
 
 `.bat` file | description
 ----------- | -----------
