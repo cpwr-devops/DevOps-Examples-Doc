@@ -19,6 +19,10 @@ In `Manage Jenkins` -> `Configure System`, under the heading **SonarQube servers
 
 ![SonarQube Server Name](./images/SonarQube_Server_Name.png)
 
+In order to have a [Jenkins Job wait](https://jenkins.io/doc/pipeline/steps/sonar/#waitforqualitygate-wait-for-sonarqube-analysis-to-be-completed-and-return-quality-gate-status) for a SonarQube quality gate to be calculated, the SonarQube server needs to have a [SonarQube webhook](https://docs.sonarqube.org/latest/project-administration/webhooks/) configured to pass the quality gate status back to Jenkins.  A SonarQube webhook is configured in the SonarQube `Project` -> `Administration` section or globally in the `Adminstration` -> `Configuration` -> `Webhooks` section as show below.
+
+![SonarQube Webhook Setup](./images/SonarQube_Webhook.png)
+
 ## Global Pipeline Libraries
 
 In `Manage Jenkins` -> `Configure System`, under the heading **Global Pipeline Libraries** use a name for the Shared Library to refer to during pipeline definitions. Use select "Modern SCM" and the matching SCM you use for storing `jenkinsfiles`. The examples use GitHub and use the `master` branch as default branch. This can be overridden during pipeline definition.
