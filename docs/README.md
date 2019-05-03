@@ -15,5 +15,5 @@ features:
   details: Guides for configuring various tools used in the example Pipelines
 - title: APIs
   details: APIs, CLIs and SDK that can be used to integrate Mainframe processes into DevOps tools
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2019 - Compuware
 ---
