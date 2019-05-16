@@ -1,5 +1,5 @@
 ---
-title: Basic Pipeline
+title: Basic Pipeline Example
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Basic CI Pipeline

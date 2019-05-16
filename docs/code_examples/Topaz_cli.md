@@ -436,7 +436,7 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp; | Abbr. | Description
 `-loglevel` | -log | The logging level. Must be INFO, WARN, DEBUG or ERROR. The default is INFO.
 `-logparms` | -lp | Indicates if the various components run parameters should be logged before the run. Must be TRUE or FALSE. The default is TRUE.
 
-### Test Runner - parameters/options for `runtest`
+### Test Runner - parameters/options
 The Test Runner component allows for the complete end to end run of a Topaz for Total Test test suite or test scenario. The following tables list the input and optional parameters that must be provided in addition to the required parameters for all CLIs, i.e. host, port, usert, password :
 
 **Test Runner input parameters**

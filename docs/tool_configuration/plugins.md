@@ -1,9 +1,9 @@
 ---
-title: Jenkins Plugins
+title: Introduction to Jenkins Plugins
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
-# Plugins
+# Introduction to Jenkins Plugins
 
 ![Plugins](./images/Plugins.png)
 
@@ -56,7 +56,7 @@ respectively.
 
 ### Compuware Topaz for Total Test
 
-The [Compuware Topaz for Total Test](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+for+Total+Test+Plugin) plugin allows execution of Topaz for Total Test unit test scenarios and suites and retrieving of the results. The results will be downloaded and stored in *html* format as well as *xml* format for further use by SonarQube. Collection of Xpediter Code Coverage data can be triggered alongside the execution of the unit tests.
+The [Compuware Topaz for Total Test](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+for+Total+Test+Plugin) plugin allows execution of Topaz for Total Test unit and functional test scenarios and suites and retrieving of the results. The results will be downloaded and stored in *html* format as well as *xml* format for further use by SonarQube. Collection of Xpediter Code Coverage data can be triggered alongside the execution of the unit tests.
 
 ::: tip
 In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **step**, followed by the *Build Step* dropdown entry **Topaz for Total Test**.

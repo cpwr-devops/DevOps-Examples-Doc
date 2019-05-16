@@ -5,17 +5,18 @@ module.exports = {
     themeConfig: {
         logo: 'compuware_logo.png',
         //displayAllHeaders: true,
+        sidebarDepth: 2,
         nav: [
         { text: 'Pipelines',
         items: [
             { text: 'Getting started',
             link: '/pipelines/'
             },
+            { text: 'Basic Pipeline Example',
+            link: '/pipelines/Mainframe-CI-Example-pipeline'
+            },
             { text: 'Pipeline Scenarios',
               link: '/pipeline_scenario/pipelines'
-            },
-            { text: 'Basic Pipeline Examples',
-            link: '/pipelines/Mainframe-CI-Example-pipeline'
             },
             { text: 'Shared Library Example',
               link: '/shared_library/Mainframe_CI_Pipeline_from_Shared_Lib'
@@ -24,11 +25,17 @@ module.exports = {
         },
         { text: 'Configuration',
           items: [{
-              text: 'Jenkins Plugins',
+              text: 'Introduction to Jenkins Plugins',
               link: '/tool_configuration/plugins'
             },
             { text: 'Jenkins Configuration',
               link: '/tool_configuration/Jenkins_config'
+            },
+            { text: 'Using Jenkins Plugins',
+              link: '/tool_configuration/jenkins_usage'
+            },
+            { text: 'Tool Configurations',
+              link: '/tool_configuration/'
             },
             { text: 'CES Webhook Configuration',
               link: '/tool_configuration/webhook_setup'
@@ -62,7 +69,8 @@ module.exports = {
             '/pipeline_scenario/': [ 
               'pipelines',
               '',
-              'TTT_scenario'
+              'TTT_scenario',
+              'TTT_FT_scenario'
             ],            
             '/shared_library/': [ 
               'Mainframe_CI_Pipeline_from_Shared_Lib',
@@ -72,6 +80,7 @@ module.exports = {
             '/tool_configuration/': [
               'plugins',
               'Jenkins_config',
+              'jenkins_usage',
               '',      //configurations
               'webhook_setup',
               'CES_credentials_token'
