@@ -35,7 +35,7 @@ The example pipelines use a development scenario based on:
 
 - [ISPW](https://compuware.com/ispw-source-code-management/) as SCM to store and govern mainframe sources
 - [Git (GitHub)](https://github.com/) as SCM to store unit test assets
-- [Topaz for Total Test](https://compuware.com/topaz-for-total-test-automation/) as mainframe unit testing tool to create and maintain unit test assets
+- [Topaz for Total Test](https://compuware.com/topaz-for-total-test-automation/) as mainframe unit, functional and integration testing tool to create and maintain test assets
 - [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) as tool to gather code coverage data during execution of the unit tests
 - [SonarQube](https://www.sonarsource.com/) as server for code analysis and setting up quality gates
 - [XLRelease](https://xebialabs.com/) as CD server for release steps following the initial CI process Jenkins

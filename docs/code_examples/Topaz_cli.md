@@ -11,7 +11,8 @@ The Topaz Workbench Command Line Interface (CLI) is distributed via the full Top
 `CodeCoverageCLI.bat` | Allows downloading results from a Xpediter Code Coverage repository by specifying the repository name, system name and test ID.
 `SCMDownloaderCLI.bat` | Allows interaction with the ISPW downloader to download sources from ISPW repositories, Endevor repositories or PDS 
 `SubmitJclCLI.bat` | Allows submitting JCL on the mainframe and retrieving the return code
-`TotalTestCLI.bat` | Allows execution of Topaz for Total Test scenarios and suites. The Topaz for Total Test CLI is also documented in the Topaz online help
+`TotalTestCLI.bat` | Allows execution of Topaz for Total Test unit test scenarios and suites.
+`TotalTestFTCLI.bat` | Allows execution of Topaz for Total Test functional/integration test scenarios and suites.
 
 ## Workspace
 
@@ -366,45 +367,117 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SubmitJclCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -data %workspace% -maxcc %maxcc% -jcl %jclFile%
 ```
 
-### TotalTestCLI.bat
+## Total Test Unit Test (TotalTestCLI.bat)
+The CLI tools allow you to run test suites in batch – with no interactive client required – and/or from an integration server or within a build tool (like Hudson or Jenkins).
+### Prerequisites
+The Topaz for Total Test CLI components are installed as part of the Topaz Workbench CLI installation. A 64-bit Java Runtime Environment (JRE) is required for the Topaz for Total Test CLI. Refer to the Topaz® Workbench Installation Guide on how to install the Topaz Workbench CLI.
+The test suite must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
 
-The general syntax for using the `TotalTestCLI.bat` is `TotalTestCLI.bat -cmd=<command> options` with the following set of possible commands. The most important command is the `runtest` command, which will excute all of the other commands in sequence. Each command uses an individual set of options.
+### Usage
+Executing unit test scenarios is done with the `TotalTestCLI.bat` file. The general syntax for using the `TotalTestCLI.bat` is 
+```
+TotalTestCLI.bat -cmd=<command> options
+```
+The most important command is the `runtest` command, which will excute all of the other commands in sequence. Each command uses an individual set of options and can be seen in details in later sections.
 
-Command | Description
---------- | -----------
-`build` | Parses a test suite or test scenario and creates the required binary files.
-`upload` | Uploads the parsed local binary files to the target host system.
-`submit` | Submit JCL to run a test.
-`download` | Downloads the test results from the target host to a local file.
-`parse` | Parses the local binary result file and updates the archive (history).
-`resultscheck` | Parses the updated archive  (history), applying the check conditions to the output data and updating the archive accordingly.
-`runtest` | Performs all the above commands (in the specified order).
+### Complete End to End Run
+Use the runtest command to perform a complete end to end run of a Topaz for Total Test test suite or test scenario. See Test_Runner for more information. For example:
+```
+TotalTestCLI.bat -cmd=runtest -h=mfhost -pt=10239 -u=tsoab71 -pw=AKznXY -p=c:\Users\Username\Compuware\Workbench\workspace\TotalTestProject -ts=CWXTCOB_Scenario.testscenario -te=1047 -j=Runner.jcl
+```
+This example will execute all the test cases in "CWXTCOB_Scenario.testscenario" for project "TotalTestProject" on host "mfhost" using port "10239" and log on information UserID "tsoab71" with password "AKznXY" and submit "Runner.JCL".
 
-A challenge with using the individual commands in sequence - instead of using the `runtest` command - is that using the `upload`, the CLI will 'randomly' generate names for the target binary files on the mainframe (To be more precise, the 'ID' qualifier is generated randomly - other than using Topaz for Total Test from the GUI, where these qualifiers will be increased in numerical sequence, if the files are not replaced anyway). Currently, there is no known, simple way to control these names or determine which names have been generated. Therefore, we will concentrate on the `runtest` command, and refer to the Topaz for Total Test online help for further information on using any of the other commands for now.
+### Execute Individual Steps
+If you want to execute the individual steps, one at a time, to run a test, execute them in this order:
+1. Use the build command to create the binary input files for the test case(s) using the Binary Builder. See Binary Builder for more information.
+2. Use the upload command to upload the binary files created by the Binary Builder to the mainframe. See File Transfer for more information.
+3. Use the submit command to submit the JCL to execute the Topaz for Total Test Runner on the mainframe. Note that the binary files need to be uploaded before submitting the JCL to execute the Test Runner. See JCL Submit for more information.
+4. Use the download command to retrieve the result from the mainframe Topaz for Total Test Test Runner execution. See File Transfer for more information.
+5. Use the parse command to unpack the binary test results file created by the Topaz for Total Test Runner. See Binary Parser for more information.
+6. Use the resultcheck command to analyze the test results against the test check conditions. The result checker will output test archive files containing the test results. See Result Checker for more information.
 
-#### Parameters/options for `runtest`
 
-Parameter/Option | Description
---------- | -----------
-`-project` | The Total Test project folder.
-`-testsuite` | The name of a test suite from the Suites folder or the name of a test scenario from the Scenario folder.
-`-testsuitelist` | Specifies a comma delimted list of test scenarios/suites names to be run. Test scenarios/suites names can contain the wildcard characters asterisk (*) to indicate any characters or a question (?) to indicate a single character. 'All_Scenarios' can be used to run all scenarios. 'All_Suites' can be used to run all test suites.
-`-jcl` | The name of a JCL file from the JCL folder.
-`-jcldsn` | The name of a dataset containing the JCL to submit.
-`-targetencoding` | The character encoding (charset) used on the target platform. Default is '1047'.
-`-noreport` | If specified with the -p option, no report file will be created.
-`-noresult` | If specified with the -p option, no result file will be created.
-`-nojunit` | If specified with the -p option, no JUnit file will be created.
-`-nosonar` | If specified with the -p option, no Sonar file will be created.
-`-ccrepository` | The name of the Code Coverage repository dataset. Must be specified to enable Code Coverage.
-`-ccsystem` | Code Coverage system. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
-`-cctestid` | Code Coverage test id. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
-`-ccstepname` | Specifies the Topaz for Total Test step name. Should be used if the Topaz for Total Test step is contained in a cataloged procedure.
-`-ccprogramtype` | Specifies the main executable program (this is the program specified on the 'EXEC PGM=' JCL statement in runner*.JCL) for Code Coverage. Specify: (-cctype=DB2 when the main program is IKJEFT01 or IKJEFT1B for live Db2, -cctype=TOTALTEST when the main program is TTTRUNNR, -cctype=IMS when the main program is DFSRRC00 for live IMS)
-`-ccclearstats` | Specifies whether the Code Coverage repository statistics should be cleared before running the test. Valid values are 'true' or 'false'. The default value is 'true'.
-`-externaltoolsworkspace` | Specifies the workspace of an external tool. This argument requires the 'postruncommands' argument be specified.
-`-postruncommands` | Specifies the commands to be run after test completion. Currently only 'CopyJUnit' and 'CopySonar' are supported. If both are specified, they should be separated by a comma. This command requires the 'externaltoolsworkspace' argument be specified. 'CopyJUnit' will copy the JUnit results to the directory TTTJUnit, in the location specified by the external tools workspace argument. 'CopySonar' will copy the Sonar results to the directory TTTSonar, in the location specified by the external tools workspace argument.
+The batch script is in the directory where the Topaz Workbench CLI was installed. To execute the script, the configuration directory must be writable.
 
+::: tip
+If you install CLI in the default location (C:\Program Files\Compuware\Topaz Workbench CLI) or a Read-only location, you must add the -data parameter to specify the path to your workspace, for example:
+```
+TotalTestCLI.bat -cmd=<command> options -data=C:\Users\Username\Compuware\Workbench\workspace
+```
+The error message `The configuration area at C:\Program Files\Compuware\Topaz Workbench CLI\configuration is not writable. Please choose a writable location using the '-configuration' line command.`
+is an indication that the -data parameter is required.
+:::
+
+A challenge with using the individual commands in sequence - instead of using the `runtest` command - is that using the `upload`, the CLI will 'randomly' generate names for the target binary files on the mainframe (To be more precise, the 'ID' qualifier is generated randomly - other than using Topaz for Total Test from the GUI, where these qualifiers will be increased in numerical sequence, if the files are not replaced anyway). Currently, there is no known, simple way to control these names or determine which names have been generated. Therefore, we will concentrate on the `runtest` command.
+
+### CLI commands
+The following table lists the valid commands to invoke them from the command line. For options see the parameters explained below for each CLI component.
+Command | Component          | Description
+--------- |------------------ | ----------------------------------
+`build` | Binary Builder |Parses a test suite or test scenario and creates the required binary files.
+`upload` | File Transfer |Uploads the parsed local binary files to the target host system.
+`submit` | JCL Submit |Submit JCL to run a test.
+`download` | File Transfer |Downloads the test results from the target host to a local file.
+`parse` | Binary Parser|Parses the local binary result file and updates the archive (history).
+`resultscheck` | Result Checker |Parses the updated archive  (history), applying the check conditions to the output data and updating the archive accordingly.
+`runtest` | Test Runner |Performs all the above commands (in the specified order).
+
+All options have the following format:
+`parameter=value`
+If the value contains spaces, the entire option must be enclosed in quotes, for example:
+`"-t=c:\TotalTestProject\Unit Test\Suites\SimpleTest.testsuite"`
+To set the logging level of the CLI tools logging output, see the Debug Options below.
+
+### Debug Options
+The following table lists the debug parameters that can be used for all commands.
+
+Parameter&nbsp;&nbsp;&nbsp;&nbsp; | Abbr. | Description
+---------|---------|-----------
+`-loglevel` | -log | The logging level. Must be INFO, WARN, DEBUG or ERROR. The default is INFO.
+`-logparms` | -lp | Indicates if the various components run parameters should be logged before the run. Must be TRUE or FALSE. The default is TRUE.
+
+### Test Runner - parameters/options for `runtest`
+The Test Runner component allows for the complete end to end run of a Topaz for Total Test test suite or test scenario. The following tables list the input and optional parameters that must be provided in addition to the required parameters for all CLIs, i.e. host, port, usert, password :
+
+**Test Runner input parameters**
+| Parameter/Option | Abbr.&nbsp;&nbsp;&nbsp;&nbsp;| Description |
+--------- | -----------|---------------
+`-project` | -p| The Total Test project folder.
+`-testsuite` | -ts | The name of a test suite from the Suites folder or the name of a test scenario from the Scenario folder.
+`-testsuitelist` | -tsl | Specifies a comma delimted list of test scenarios/suites names to be run. Test scenarios/suites names can contain the wildcard characters asterisk (*) to indicate any characters or a question (?) to indicate a single character. 'All_Scenarios' can be used to run all scenarios. 'All_Suites' can be used to run all test suites.
+`-jcl` | -j | The name of a JCL file from the JCL folder.
+`-jcldsn` | -jdsn| The name of a dataset containing the JCL to submit.
+`-targetencoding` | -te | The character encoding (charset) used on the target platform. Default is '1047'.
+`-noreport` | | If specified with the -p option, no report file will be created.
+`-noresult` | | If specified with the -p option, no result file will be created.
+`-nojunit` | | If specified with the -p option, no JUnit file will be created.
+`-nosonar` | | If specified with the -p option, no Sonar file will be created.
+`-ccrepository` | -ccrepo | The name of the Code Coverage repository dataset. Must be specified to enable Code Coverage.
+`-ccsystem` | -ccsys | Code Coverage system. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
+`-cctestid` | -cctid | Code Coverage test id. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
+`-ccstepname` | -ccstep | Specifies the Topaz for Total Test step name. Should be used if the Topaz for Total Test step is contained in a cataloged procedure.
+`-ccprogramtype` | -cctype | Specifies the main executable program (this is the program specified on the 'EXEC PGM=' JCL statement in runner*.JCL) for Code Coverage. Specify: (-cctype=DB2 when the main program is IKJEFT01 or IKJEFT1B for live Db2, -cctype=TOTALTEST when the main program is TTTRUNNR, -cctype=IMS when the main program is DFSRRC00 for live IMS)
+`-ccclearstats` | -ccclear | Specifies whether the Code Coverage repository statistics should be cleared before running the test. Valid values are 'true' or 'false'. The default value is 'true'.
+`-externaltoolsworkspace` | -etws | Specifies the workspace of an external tool. This argument requires the 'postruncommands' argument be specified.
+`-postruncommands` | -prc | Specifies the commands to be run after test completion. Currently only 'CopyJUnit' and 'CopySonar' are supported. If both are specified, they should be separated by a comma. This command requires the 'externaltoolsworkspace' argument be specified. 'CopyJUnit' will copy the JUnit results to the directory TTTJUnit, in the location specified by the external tools workspace argument. 'CopySonar' will copy the Sonar results to the directory TTTSonar, in the location specified by the external tools workspace argument.
+
+::: tip
+-jcl and -jcldsn cannot both be used in the same statement. Specify either -jcl or -jcldsn.
+:::
+
+**Test Runner optional parameters**
+Parameter/Option | Abbr. |	Description
+--------- | -----------|---------------
+'-dsnhlq' | -hlq | High level qualifier to be used when allocating datasets.
+'-wait' | -w | Indicates if component waits for test completion. Must be TRUE or FALSE. The default is TRUE.
+'-maxwait' | -mw | The number of minutes to wait for the test to complete. The default is 20 minutes.
+'-useStubs' | -us | Indicates if the test should use stubs. Must be TRUE or FALSE. The default is TRUE.
+'-repeat' | -r | The number of time to repeat the test. The default is 0.
+'-backuparchive' | -ba | Indicates if the archive file should be backed up. The file will be time stamped and placed in the History project folder. Must be TRUE or FALSE. The default is TRUE.
+'-deletetemp' | -dt | Indicates if temporary files are to be deleted. Must be TRUE or FALSE. The default is TRUE.
+
+
+#### Example of using `runtest`
 The followwing example will execute the suite `CWXTSUBC.testsuite` residing in Topaz for Total Test project `project=C:\Users\cwde-rnuesse\Compuware\Topaz\Workspace\Unit CWXTSUBC 1.0`, on host `my.mainframe.host`, communicating on port `16196`, using the `Runner.jcl` file for the job to submit.
 
 ```bat
@@ -438,3 +511,218 @@ SET "JCL=Runner.jcl"
 
 "%CLIPath%"TotalTestCLI.bat -data=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace -cmd=runtest -host=%host% -port=%port% -user=%user% -pw=%password% "-project=%project%" "-testsuite=%suite%.testsuite" -te=%codepage% "-j=%JCL%"
 ```
+
+### Binary Builder - parameters/options
+The Binary Builder component parses a test suite or test scenario and creates the binary input file (containing the binary input data), and the reference file (containing the test case references).
+The following tables lists the input, output and optional parameters that must be provided.
+
+**Input parameters**
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
+------- | --------- | ---------
+-testsuite  | -t  | Test suite or test scenario name, if project is specified. Otherwise must be the full path name to the test suite or test scenario.
+-targetencoding  | -te  | The character encoding (charset) used on the target platform. Default is '1047'.
+
+**Output parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-archive | -a | The archive created containing all test data. See Optional Parameters for more information.
+-binput |-bin | The binary input data file. See Optional Parameters for more information.
+-binref |-brf | The binary reference file. See Optional Parameters for more information.
+
+**Optional output parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-project | -p | The Topaz for Total Test project folder. If specified, the archive, binary input file and reference file do not need to be specified. The files will be placed on the associated project folders.
+
+### File Transfer - parameters/options
+File Transfer transfers binary files to and from the target host. The following tables lists the input, common and upload parameters that must be provided:
+**File Transfer Input Parameter**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-command | -cmd | The command to be executed. Must be either 'upload' or 'download'.
+
+**File Transfer Common Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-host | -h | The host name or IP address of the target host.
+-port | -pt | The port the host is listening on.
+-user | -u | The name of the user (userID) to connect to the host with.
+-password | -pw | The password associated with the userID.
+-targetencoding | -te | The character encoding (charset) used on the target platform. Default is '1047'.
+
+**File Transfer Upload Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-bininp | -bin | The binary input data file produced by the builder.
+-binref | -brf | The binary reference file produced by the builder.
+-dsnhlq | -hlq | Optional high level qualifier to be used when allocating datasets.
+
+**File Transfer Download Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-binres | -brs | The binary result file to be written to.
+-binresdsn | -brsdsn | The BINRES dataset name on the target host to be downloaded.
+
+### JCL Submit - parameters/options
+The JCL submit component submits JCL to run the test(s) on the target host. The JCL can reside on the local files system (use parameter -j) or as a dataset on the target host (use parameter -jdsn) .
+The following tables list the submit, and optional parameters that must be provided.
+**JCL Submit Parameters**
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.&nbsp;&nbsp;&nbsp;&nbsp;  | Description
+------- | --------- | ---------
+-host | -h | The host name or IP address of the target host.
+-port | -pt | The port the host is listening on.
+-user | -u | The name of the user (userID) to connect to the host with.
+-password | -pw | The password associated with the userID.
+-targetencoding | -te | The character encoding (charset) used on the target platform. The default is ‘1047’.
+-bininpdsn | -bindsn | The BININP dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
+-binrefdsn | -brfdsn | The BINREF dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
+-binresdsn | -brsdsn | The BINRES dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
+-ccrepository | -ccrepo | The name of the Code Coverage repository dataset. Must be specified to enable Code Coverage.
+-ccsystem | -ccsys | Code Coverage system. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
+-cctestid | -cctid | Code Coverage test id. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
+-ccstepname | -ccstep | Specifies the Topaz for Total Test step name. Should be used if the Topaz for Total Test step is contained in a cataloged procedure.
+-ccprogramtype | -cctype | Specifies the main executable program (this is the program specified on the 'EXEC PGM=' JCL statement in runner*.JCL) for Code Coverage. Specify: `-cctype=DB2` when the main program is IKJEFT01 or IKJEFT1B for live Db2 `-cctype=TOTALTEST` when the main program is TTTRUNNR `-cctype=IMS` when the main program is DFSRRC00 for live IMS
+-ccclearstats | -ccclear | Specifies whether the Code Coverage repository statistics should be cleared before running the test. Valid values are 'true' or 'false'. The default value is 'true'.
+
+**JCL Submit Parameter from Local Host**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-jcl | -j | The file name containing the JCL to submit.
+
+**JCL Submit Parameter from z/OS Dataset**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-jcldsn | -jdsn | The name of a dataset containing the JCL to submit.
+
+::: tip
+-jcl and -jcldsn cannot both be used in the same statement. Specify either -jcl or -jcldsn.
+:::
+
+**JCL Submit Optional Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-wait | -w | Indicates if component waits for test completion. Must be true or false. Defaults to true.
+-maxwait | -mw | The number of minutes to wait for the test to complete, The default is 20 minutes.
+
+### Binary Parser - parameters/options
+The Binary Parser component parses the binary result file from an executed test and updates the archive file.
+The following table lists the input parameters that must be provided.
+
+**Binary Parser Input Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-binresult | -brs | The binary result data file which was the output of the test execution on the target platform.
+-targetencoding | -te | The character encoding (charset) used on the target platform. Default is '1047'.
+-archive | -a | The archive (history) created by the Builder which will be updated.
+
+There are no explicit output parameters. The Parser output data will be saved in the updated archive file.
+
+### Result Checker - parameters/options
+The Result Checker component parses the archive, applying the check conditions to the output data and updating the archive accordingly. In addition to that, the Result Checker will create a separate results file and report file. For details about the contents of these file, please refer to the section about Project Structure in this document.
+The following tables list the input, output and optional parameters that must be provided.
+
+**Result Checker Input Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-archive | -a | The archive from the Parser which will be updated (unless the output parameter is used – see below).
+
+**Result Checker Optional Input Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-targetencoding | -te | The character encoding (charset) used on the target platform. Defaults to the encoding stored in the archive.
+
+**Binary Parser Output Parameters**
+Parameter | Abbr.  | Description
+------- | --------- | ---------
+-result | -rs | The name of the XML result fle to be created. (Not required when project parameter is provided.)
+-noresult |  | If specified with the -p option, no result file will be created.
+-report | -rp | The name of the HTML result report to be created. (Not required when project parameter is provided.)
+-noreport |  | If specified with the -p option, no report file will be created.
+-nojunit |  | If specified with the -p option, no JUnit file will be created.
+-nosonar |  | If specified with the -p option, no Sonar file will be created.
+-externaltoolsworkspace | -etws | Specifies the workspace of an external tool. This argument requires the 'postruncommands' argument be specified.
+-postruncommands | -prc | Specifies the commands to be run after test completion. Currently only 'CopyJUnit' and 'CopySonar' are supported. If both are specified, they should be separated by a comma. This command requires the 'externaltoolsworkspace' argument be specified. <br><br>'CopyJUnit' will copy the JUnit results to the directory TTTJUnit, in the location specified by the external tools workspace argument. <br><br>'CopySonar' will copy the Sonar results to the directory TTTSonar, in the location specified by the external tools workspace argument.
+
+**Binary Parser Optional Output Parameters**
+Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
+------- | --------- | ---------
+-outputarchive | -oar | A new archive to be created instead of updating the input archive. Default is to update the input archive.
+-project | -p | Path to the project folder. If provided, the result and report parameters can be omitted, and their file names will be automatically derived. This parameter has no default.
+-fileencoding | -fe | The character encoding to be used for output files. Defaults to UTF-8.
+-save | -s | Save output or not. Set to TRUE to write output, or FALSE for no output. When set to FALSE, no files will be created and the archive will not be updated. Defaults to TRUE.
+
+## Total Test Functional Test (TotalTestFTCLI.bat)
+
+Topaz for Total Test Functional Test is not built on Topaz CLI and comes with a separate command line interface that can be used to execute functional test scenarios from the file system. It does not apply to the above general settings for the Topaz CLIs. 
+
+With the functional test CLI interface you can specify a folder path and an environment ID, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Functional Test server. This will typically be used from a Continuous Integration server like Jenkins, where source files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface. 
+
+Initial setup
+The `TotalTestFTCLI.bat` or `TotalTestFTCLI.sh` file is used to execute test scenarios. It references the DB2 jar files needed for using JDBC to access DB2 on the mainframe, and these jar files must be available in the same directory. The DB2 jar files are customer specific.
+
+The CLI interface is executed from a Windows or Linux terminal by writing:
+`./TotalTestFTCLI.sh` or `TotalTestFTCLI.bat`
+This will show the help for using the CLI as illustrated below.
+
+```bat
+usage: TotalTestFTCLI
+ -e,--environment <arg>               Environment in which to execute test
+                                      scenarios
+ -f,--file <arg>                      File or folder path to the TotalTest
+                                      .xactx file(s) to execute. Can be
+                                      absolute or relative to the
+                                      root-folder
+ -g,--report-folder <arg>             Optional file path to a folder that
+                                      will contain produced test results.
+                                      If omitted, results will be created
+                                      in same folders as test scenarios.
+                                      Can be absolute or relative to the
+                                      root folder
+ -G,--copy-reports-to-report-folder   Copy sonar qube reports to the
+                                      report folder root. Requires the
+                                      reportFolder to be set
+ -h,--halt-at-failure                 Halt the execution when first test
+                                      scenario fails
+ -help                                print this message
+ -p,--password <arg>                  tso password
+ -r,--root-folder <arg>               Optional path to the folder
+                                      containing the root of all source.
+                                      Is used to name test scenarios with
+                                      correct file paths from the file
+                                      structure. If not defined, it will
+                                      be set to the same value as the file
+                                      parameter
+ -R,--recursive                       Recursively find all relevant test
+                                      scenarios
+ -S,--source-folder <arg>             Optional file path to a folder that
+                                      contains source code of tested
+                                      programs. Default value is 'cobol'.
+                                      Is only used to set the source path
+                                      in code coverage reports.
+ -s,--server <arg>                    Address to the CES Server, e.g.
+                                      https://server.topaztotaltest.com/totaltestapi/
+ -u,--userid <arg>                    tso userid
+ -U,--use-xaunit-files                Find XaUnit files instead of context
+                                      files and auto generate a context
+                                      file for the selected environment
+                                      for each XaUnit found
+ -v,--sonar-version <arg>             Sonar Qube version - either 5 or 6.
+                                      Default value is 6
+ -x,--upload-result                   Upload result to server
+
+Example of executing all test scenarios in current dir: ./TotalTestFTCLI.sh
+-e simulator -f . -s https://server.topaztotaltest.com/totaltestapi/ -u XATUSER -p 123456
+--upload-result --recursive
+```
+
+The root folder is optional. It is used to calculate the relative path to the folder being executed and this path is set at the result in the Functional Test server as the External Reference. Normally the root folder will be the folder to which files have been checked out. With the Jenkins plugin the root folder will be set to the Jenkins workspace unless the folder path is absolute.
+
+For instance, if source files have been checked out to the path /temp and test scenarios in the folder /temp/Project/Acccounting must be executed for the environment with ID simulator, the
+command would look similar to:
+
+```bat
+./TotalTestFTCLI.sh -e simulator -f ./Project/Accounting -r /temp -s https://server.topaztotaltest.com/totaltestapi/ -u XATUSER -p 123456 --upload-result --recursive
+```
+The CLI interface will generate a log file in the logs directory where the CLI files are installed. This log file can be used to track down and understand issues in an execution. 
+
+
