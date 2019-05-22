@@ -21,6 +21,7 @@ Library | Version | Description
 com.compuware.api.topaz | 2.0.0 | The Topaz API
 com.compuware.frameworks.hostservices.hci | 19.5.1 | Internal Compuware library
 com.compuware.frameworks.hostservices.common | 19.5.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.core.messages | 19.5.1 | Internal Compuware Library
 com.compuware.frameworks.hostservices.crypto | 19.5.1 | Internal Compuware library
 com.compuware.frameworks.hostservices.icu | 19.5.1 | Internal Compuware library
 com.compuware.frameworks.hostservices.css | 19.5.1 | Internal Compuware library
