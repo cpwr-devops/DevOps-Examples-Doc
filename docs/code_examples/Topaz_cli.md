@@ -611,7 +611,7 @@ The following table lists the input parameters that must be provided.
 **Binary Parser Input Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--binresult | -brs | The binary result data file which was the output of the test execution on the target platform.
+-binres | -brs | The binary result data file which was the output of the test execution on the target platform.
 -targetencoding | -te | The character encoding (charset) used on the target platform. Default is '1047'.
 -archive | -a | The archive (history) created by the Builder which will be updated.
 
@@ -631,12 +631,14 @@ Parameter | Abbr.  | Description
 ------- | --------- | ---------
 -targetencoding | -te | The character encoding (charset) used on the target platform. Defaults to the encoding stored in the archive.
 
-**Binary Parser Output Parameters**
+**Result Checker Output Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
 -result | -rs | The name of the XML result fle to be created. (Not required when project parameter is provided.)
 -noresult |  | If specified with the -p option, no result file will be created.
 -report | -rp | The name of the HTML result report to be created. (Not required when project parameter is provided.)
+-junit | -ju | The full path name of the file to write the JUnit information to. It is a XML document describing the results, intended for JUnit displays.
+-sonar | -so | The full path name of the file to write the Sonar information to. It is a XML document describing the results, intended for Sonar displays.
 -noreport |  | If specified with the -p option, no report file will be created.
 -nojunit |  | If specified with the -p option, no JUnit file will be created.
 -nosonar |  | If specified with the -p option, no Sonar file will be created.
@@ -666,6 +668,11 @@ This will show the help for using the CLI as illustrated below.
 
 ```bat
 usage: TotalTestFTCLI
+ -a,--accounting-info <arg>            Optional job accounting information.
+                                      Use the accounting information
+                                      parameter to enter an account number
+                                      and any other accounting information
+                                      that your installation requires.
  -e,--environment <arg>               Environment in which to execute test
                                       scenarios
  -f,--file <arg>                      File or folder path to the TotalTest
