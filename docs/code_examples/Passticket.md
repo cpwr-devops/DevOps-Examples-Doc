@@ -1,9 +1,11 @@
 ---
-title: Developing A Topaz PassTicket Extension
+title: Developing a Topaz Workbench PassTicket Extension
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
-# Guide for PassTicket Authentication
+# Developing a Topaz Workbench PassTicket Extension
+
+Topaz Workbench provides an Eclipse extension which can be used to authenticate users to z/OS via a passticket. A passticket is a single use token which can be used in place of a password when authenticating to z/OS. It order to use passtickets securely the user id must have been pre-authenticated. The implementation of the PassTicket extension is responsible for two items, first an authenticated user id and second a generated passticket which can be used in place of a password. These two responsibilities are satisfied by the implementation of two interfaces, IPassTicketUserProvider and IPassTicketGenerator. The [Topaz Workbench SDK](./Topaz_Workbench_API_Code_Snippets) provides a template project to assist the user in developing the implementations for these two interfaces.
 
 The following topics describe the steps to develop and deploy the extension for PassTicket authentication.
 
@@ -20,7 +22,7 @@ The following topics describe the steps to develop and deploy the extension for 
 8. You may get prompted to open the Plug-in Development perspective. This is not required, but you may find it helpful to develop using this perspective.
 
 An Eclipse plug-in project is created and the Eclipse manifest editor is opened . In the Project Explorer under your project you will see a folder named src. Under the src folder you will see three classes, Activator, PassTicketGenerator, and PassTicketUserProvider. To complete the implementation of the PassTicket Extension you will write Java code for the contents of the PassTickedUserProvider.getUser method and PassTicketGenerator.generate method. The PassTicket extension is activated by Topaz when the user defines a Host Connection using the PassTicket Credential Provider. The getUser method is called by Topaz at the time of login. The user id returned is associated with the HCI connection which triggered the login. This user id is cached and will be used by Topaz throughout the current session without calling the extension again. The PassTicketGenerator.generate method is called by Topaz whenever Topaz has to make a connection to the HCI on behalf of the user. This includes the initial login and other situations where a secondary connection is necessary.
-
+ 
 Open the PassTicketUserProvider class. You will see the implementation of a single method getUser() which returns null. This method should be changed to return a string representing the z/OS user id of the user running Topaz.
 
 Open the PassTicketGenerator class. You will set the implementation of a single method generate which is responsible to generate a PassTicket which will be passed to the HCI to authenticate the user. When the method is called it is given the user id, the host name, and a Java Properties object which contains the port. The user id is the id which was returned from PassTicketUserProvider.getUser() method. The generate method may be called multiple times for each call to the getUser method.

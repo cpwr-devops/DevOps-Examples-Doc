@@ -54,8 +54,14 @@ module.exports = {
           link: '/code_examples/Topaz_cli'
         },
         { text: 'Topaz Workbench SDK',
-          link: '/code_examples/Topaz_Workbench_SDK'
-        }
+        link: '/code_examples/Topaz_Workbench_SDK'
+        },
+        { text: 'Topaz Java API',
+          link: '/code_examples/Topaz_API'
+        },
+        { text: 'Developing a Topaz Workbench PassTicket Extension',
+        link: '/code_examples/Passticket'
+      }
       ] 
     }
   ],
@@ -89,9 +95,10 @@ module.exports = {
                 'Rest_api',
                 'Topaz_cli',
                 'Topaz_Workbench_SDK',
-                'Passticket',
-                'Topaz_Workbench_API_Code_snippets'
-            ]            
+                'Topaz_API',
+                'Topaz_Workbench_API_Code_Snippets',
+                'Passticket'
+            ]
           }
     }
   }

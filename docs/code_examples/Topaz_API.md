@@ -1,4 +1,5 @@
 ---
+title: Topaz Java API
 footer: MIT Licensed | Copyright © 2019 - Compuware
 ---
 
@@ -9,6 +10,37 @@ The Topaz API is a Java library that can be used in Java applications to program
 If you are using the Topaz API for plug-ins meant to be run in a Topaz Workbench environment, you should use the [Topaz Workbench SDK](Topaz_Workbench_SDK.md) instead.
 
 The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
+
+## Dataset API
+
+The Compuware Topaz API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI. `Sequential`, `Partitioned` and `VSAM` are supported.
+
+The following actions are provided regarding datasets:
+
+* Allocate a partitioned or sequential dataset
+* Create or delete a PDS member
+* Obtain dataset and PDS member objects by name/pattern and type
+* Read the content of a sequential dataset or a PDS member
+* Write content to a sequential dataset or a PDS member
+* Obtain the characteristics of a dataset or the statistics of a PDS member
+* Recall a migrated dataset
+
+## JES API
+
+The Compuware Topaz API provides users with methods to programmatically perform JES actions. The following actions are provided regarding JES:
+
+* Submit JCL
+* Track a job’s status
+
+## z/OS User Program API
+
+The Compuware Topaz API provides users with methods to programmatically launch and communicate with their own z/OS programs.
+
+The following actions are provided regarding z/OS user programs:
+
+* Launch a z/OS user program
+* Write/read user-defined data to/from the z/OS user program
+* Be notified of when the z/OS user program has ended
 
 ## Dependencies
 
