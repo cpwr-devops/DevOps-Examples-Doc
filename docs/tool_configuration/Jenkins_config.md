@@ -21,7 +21,7 @@ In `Manage Jenkins` -> `Configure System`, under the heading **SonarQube servers
 
 In order to have a [Jenkins Job wait](https://jenkins.io/doc/pipeline/steps/sonar/#waitforqualitygate-wait-for-sonarqube-analysis-to-be-completed-and-return-quality-gate-status) for a SonarQube quality gate to be calculated, the SonarQube server needs to have a [SonarQube webhook](https://docs.sonarqube.org/latest/project-administration/webhooks/) configured to pass the quality gate status back to Jenkins.  A SonarQube webhook is configured in the SonarQube `Project` -> `Administration` section or globally in the `Adminstration` -> `Configuration` -> `Webhooks` section as show below.
 
-![SonarQube Webhook Setup](./images/Sonarqube_webhook.png)
+![SonarQube Webhook Setup](./images/sonarqube_webhook.png)
 
 ## Global Pipeline Libraries
 
