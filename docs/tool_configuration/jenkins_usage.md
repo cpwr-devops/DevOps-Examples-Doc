@@ -57,15 +57,15 @@ Follow these steps to create a Freestyle Project and name it the same as the Top
 * In the Description field, enter a comment describing the project.
 * Scroll down to the Build section and click 'Add build step'
 * In the dropdown, select 'Topaz for Total Test - Execute functional tests'. This will show the below properties that have to be filled.
-![Unit test build step](./images/jenkins_unit1.png)
+![Functional test build step](./images/jenkins_functional1.png)
 * The **environment** field specifies in which environment/lpar the tests should run. The id is found at the Total Test repository server
 * The **CES URL** must be specified at the Compuware configuration setup and is selected here. The CES server must have the Total Test repository server installed and setup.
 * Login credentials are the TSO credentials to be used for executing the tests
 * Click the Advanced button to see optional/advanced parameters. 
 * By default all functional test scenarios that have a corresponding .xactx file for the specified environment will be found. The pipeline will look into the folder specified by the 'Test folder path' in the advanced section. If this is a relative path or if the path is empty or a ., if will use the Jenkins workspace as the root folder.
 * If Recursive is selected, test cases will be found recursively in sub folders to the Test folder path.
-* If Halt at failure is selected, the test execution will stop as soon as one of the test cases fails.
-![Unit test build step](./images/jenkins_unit2.png)
+* If "Stop if test fails..." is selected, the test execution will stop as soon as one of the test cases fails.
+![Functional test build step](./images/jenkins_functional2.png)
 * Code coverage threshold is used to stop the build if any program has a code coverage % less than this value. Currently this only works for IBM Debug.
 * Sonar Qube versions specifies how the Sonar qube reports are written. There is a difference between version 5 and 6.
 * Source folder is used for the Sonar reports to link to where the source is located.
@@ -97,7 +97,7 @@ stage("Run Topaz for Total Test - functional test")
 ![Functional test build step](./images/jenkins_functional4.png)
 * Click the Generate Pipeline Script button.
 * Copy the generated script step as illustrated below into your clipboard.
-![Unit test build step](./images/jenkins_functional5.png)
+![Functional test build step](./images/jenkins_functional5.png)
 * Return to the Project and select Configure.
 * In the Script field, add a new line after the node{ line.
 * Paste the generated script step from the clipboard into the new line. You would now have a pipeline script looking like this
