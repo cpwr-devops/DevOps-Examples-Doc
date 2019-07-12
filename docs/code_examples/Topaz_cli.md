@@ -21,7 +21,7 @@ The Topaz Workbench CLI will want create a workspace to use during execution. Al
 - either need write access to the installation folders (containing the `configuration` folder) and the default workspace
 - or will have to specify a workspace folder using the `-data` parameter during execution
 
-E.g.
+For example:
 
 ```
 CodeCoverageCLI.bat -data C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace
@@ -31,7 +31,7 @@ will create a workspace in the user's profile, copy the `configuration` folder i
 
 ## Getting "online" help
 
-Executing any of the `.bat` files without parameters, or with just the `-data` parameter, or with the `-help` parameter will return the help pages for the respective file. E.g. using the previous command will result in the following output:
+Executing any of the `.bat` files without parameters, or with just the `-data` parameter, or with the `-help` parameter will return the help pages for the respective file. For example using the previous command will result in the following output:
 
 ```
 Code Coverage CLI started, version = 19.02.01. 
@@ -87,7 +87,7 @@ Parameter | Description
 `-cc.test <arg>` | the code coverage test name
 `-targetFolder <arg>` | the target folder where the data will be downloaded to
 
-This example will download the Code Coverage results from repository `'HDDRXM0.DEMO.COCO.REPOS'`, using the system `RXN3`, and test ID `646`. All resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the `Coverage` sub folder of the specified target folder. The sources to compare the Code Coverage results against are expected to reside in sub folder `RXN3\MF_Source`. (The latter requires that the sources of the programs in question have been downloaded already to the specified folder.)
+The following example will download the Code Coverage results from repository `'HDDRXM0.DEMO.COCO.REPOS'`, using the system `RXN3`, and test ID `646`. All resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the `Coverage` sub folder of the specified target folder. The sources to compare the Code Coverage results against are expected to reside in sub folder `RXN3\MF_Source`. (The latter requires that the sources of the programs in question have been downloaded already to the specified folder.)
 
 ```bat
 @echo off
@@ -146,7 +146,7 @@ Parameter | Description
 
 #### Example using the ISPW container downloader
 
-This example will download all COBOL components and copybooks from ISPW assignment (`-ispwContainerType "0"`) `RXN3000007`, using the container downloader (`-scm "ispwc"`). Sources will be downloaded, regardless if they have been changed or not (`ispwDownloadAll "true"`)
+The following example will download all COBOL components and copybooks from ISPW assignment (`-ispwContainerType "0"`) `RXN3000007`, using the container downloader (`-scm "ispwc"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`. 
 The downloaded sources will end up in the sub folder `<application>/MF_Source` (in the example `RXN3\MF_Source`) of the specified target folder name.
 
@@ -187,7 +187,7 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 
 #### Example using the ISPW repository downloader
 
-This example will download all COBOL components and copybooks from ISPW stream `FTSDEMO`, application `RXN3`, from level `DEV1` only (`-ispwLevelOption "0"`), using the repository downloader (`-scm "ispw"`). Sources will be downloaded, regardless if they have been changed or not (`ispwDownloadAll "true"`)
+The following example will download all COBOL components and copybooks from ISPW stream `FTSDEMO`, application `RXN3`, from level `DEV1` only (`-ispwLevelOption "0"`), using the repository downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`.
 The downloaded sources will end up in the sub folder `<application>/MF_Source` (in the example `RXN3\MF_Source`) of the specified target folder name.
 
@@ -234,11 +234,11 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 
 #### Example using the PDS downloader
 
-This example will download all members from PDS `'SALESSUP.RXN3.DEV1.COB'`, using the PDS downloader (`-scm "ispw"`). Sources will be downloaded, regardless if they have been changed or not (`ispwDownloadAll "true"`)
+The following example will download all members from PDS `'SALESSUP.RXN3.DEV1.COB'`, using the PDS downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the workspace. 
 The downloaded sources will end up in specified target folder in one sub folder per PDS in the list that contained members. 
 
-E.g.
+For example:
 
 ```
 <workspace-root>
@@ -332,7 +332,7 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 
 #### Submit JCL residing locally in a file
 
-This example will submit a JCL that resides locally in file `C:\temp\JCL.txt` on host `my.mainframe.host`, communicating on port `16196`. If the return code of any of the jobs is greater than `4` the pipeline will fail with an `error`.
+The following example will submit a JCL that resides locally in file `C:\temp\JCL.txt` on host `my.mainframe.host`, communicating on port `16196`. If the return code of any of the jobs is greater than `4` the pipeline will fail with an `error`.
 
 ```bat
 @echo off
@@ -368,9 +368,9 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 ```
 
 ## Total Test Unit Test (TotalTestCLI.bat)
-The CLI tools allow you to run test suites in batch – with no interactive client required – and/or from an integration server or within a build tool (like Hudson or Jenkins).
+The CLI tools allow you to run test suites in batch with no interactive client required and/or from an integration server or within a build tool (like Hudson or Jenkins).
 ### Prerequisites
-The Topaz for Total Test CLI components are installed as part of the Topaz Workbench CLI installation. A 64-bit Java Runtime Environment (JRE) is required for the Topaz for Total Test CLI. Refer to the Topaz® Workbench Installation Guide on how to install the Topaz Workbench CLI.
+The Topaz for Total Test CLI components are installed as part of the Topaz Workbench CLI installation. A 64-bit Java Runtime Environment (JRE) is required for the Topaz for Total Test CLI. Refer to the *Topaz&reg; Workbench Installation Guide* on how to install the Topaz Workbench CLI.
 The test suite must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
 
 ### Usage
@@ -381,7 +381,7 @@ TotalTestCLI.bat -cmd=<command> options
 The most important command is the `runtest` command, which will excute all of the other commands in sequence. Each command uses an individual set of options and can be seen in details in later sections.
 
 ### Complete End to End Run
-Use the runtest command to perform a complete end to end run of a Topaz for Total Test test suite or test scenario. See Test_Runner for more information. For example:
+Use the runtest command to perform a complete end to end run of a Topaz for Total Test test suite or test scenario. See [Test Runner](#test-runner-parameters-options) for more information. For example:
 ```
 TotalTestCLI.bat -cmd=runtest -h=mfhost -pt=10239 -u=tsoab71 -pw=AKznXY -p=c:\Users\Username\Compuware\Workbench\workspace\TotalTestProject -ts=CWXTCOB_Scenario.testscenario -te=1047 -j=Runner.jcl
 ```
@@ -389,12 +389,12 @@ This example will execute all the test cases in "CWXTCOB_Scenario.testscenario" 
 
 ### Execute Individual Steps
 If you want to execute the individual steps, one at a time, to run a test, execute them in this order:
-1. Use the build command to create the binary input files for the test case(s) using the Binary Builder. See Binary Builder for more information.
-2. Use the upload command to upload the binary files created by the Binary Builder to the mainframe. See File Transfer for more information.
-3. Use the submit command to submit the JCL to execute the Topaz for Total Test Runner on the mainframe. Note that the binary files need to be uploaded before submitting the JCL to execute the Test Runner. See JCL Submit for more information.
-4. Use the download command to retrieve the result from the mainframe Topaz for Total Test Test Runner execution. See File Transfer for more information.
-5. Use the parse command to unpack the binary test results file created by the Topaz for Total Test Runner. See Binary Parser for more information.
-6. Use the resultcheck command to analyze the test results against the test check conditions. The result checker will output test archive files containing the test results. See Result Checker for more information.
+1. Use the build command to create the binary input files for the test case(s) using the Binary Builder. See [Binary Builder](#binary-builder-parameters-options) for more information.
+2. Use the upload command to upload the binary files created by the Binary Builder to the mainframe. See [File Transfer](#file-transfer-parameters-options) for more information.
+3. Use the submit command to submit the JCL to execute the Topaz for Total Test Runner on the mainframe. Note that the binary files need to be uploaded before submitting the JCL to execute the Test Runner. See [JCL Submit](#jcl-submit-parameters-options) for more information.
+4. Use the download command to retrieve the result from the mainframe Topaz for Total Test Test Runner execution. See  [File Transfer](#file-transfer-parameters-options) for more information.
+5. Use the parse command to unpack the binary test results file created by the Topaz for Total Test Runner. See [Binary Parser](#binary-parser-parameters-options) for more information.
+6. Use the resultcheck command to analyze the test results against the test check conditions. The result checker will output test archive files containing the test results. See Result Checker](#result-checker-parameters-options) for more information.
 
 
 The batch script is in the directory where the Topaz Workbench CLI was installed. To execute the script, the configuration directory must be writable.
@@ -426,7 +426,7 @@ All options have the following format:
 `parameter=value`
 If the value contains spaces, the entire option must be enclosed in quotes, for example:
 `"-t=c:\TotalTestProject\Unit Test\Suites\SimpleTest.testsuite"`
-To set the logging level of the CLI tools logging output, see the Debug Options below.
+To set the logging level of the CLI tools logging output, see [Debug Options](#debug-options).
 
 ### Debug Options
 The following table lists the debug parameters that can be used for all commands.
@@ -437,14 +437,14 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp; | Abbr. | Description
 `-logparms` | -lp | Indicates if the various components run parameters should be logged before the run. Must be TRUE or FALSE. The default is TRUE.
 
 ### Test Runner - parameters/options
-The Test Runner component allows for the complete end to end run of a Topaz for Total Test test suite or test scenario. The following tables list the input and optional parameters that must be provided in addition to the required parameters for all CLIs, i.e. host, port, usert, password :
+The Test Runner component allows for the complete end to end run of a Topaz for Total Test test suite or test scenario. The following tables list the input and optional parameters that must be provided in addition to the required parameters for all CLIs, i.e. host, port, user, password :
 
 **Test Runner input parameters**
 | Parameter/Option | Abbr.&nbsp;&nbsp;&nbsp;&nbsp;| Description |
 --------- | -----------|---------------
 `-project` | -p| The Total Test project folder.
 `-testsuite` | -ts | The name of a test suite from the Suites folder or the name of a test scenario from the Scenario folder.
-`-testsuitelist` | -tsl | Specifies a comma delimted list of test scenarios/suites names to be run. Test scenarios/suites names can contain the wildcard characters asterisk (*) to indicate any characters or a question (?) to indicate a single character. 'All_Scenarios' can be used to run all scenarios. 'All_Suites' can be used to run all test suites.
+`-testsuitelist` | -tsl | Specifies a comma delimited list of test scenarios/suites names to be run. Test scenarios/suites names can contain the wildcard characters asterisk (*) to indicate any characters or a question (?) to indicate a single character. 'All_Scenarios' can be used to run all scenarios. 'All_Suites' can be used to run all test suites.
 `-jcl` | -j | The name of a JCL file from the JCL folder.
 `-jcldsn` | -jdsn| The name of a dataset containing the JCL to submit.
 `-targetencoding` | -te | The character encoding (charset) used on the target platform. Default is '1047'.
@@ -468,13 +468,13 @@ The Test Runner component allows for the complete end to end run of a Topaz for 
 **Test Runner optional parameters**
 Parameter/Option | Abbr. |	Description
 --------- | -----------|---------------
-'-dsnhlq' | -hlq | High level qualifier to be used when allocating datasets.
-'-wait' | -w | Indicates if component waits for test completion. Must be TRUE or FALSE. The default is TRUE.
-'-maxwait' | -mw | The number of minutes to wait for the test to complete. The default is 20 minutes.
-'-useStubs' | -us | Indicates if the test should use stubs. Must be TRUE or FALSE. The default is TRUE.
-'-repeat' | -r | The number of time to repeat the test. The default is 0.
-'-backuparchive' | -ba | Indicates if the archive file should be backed up. The file will be time stamped and placed in the History project folder. Must be TRUE or FALSE. The default is TRUE.
-'-deletetemp' | -dt | Indicates if temporary files are to be deleted. Must be TRUE or FALSE. The default is TRUE.
+`-dsnhlq` | -hlq | High level qualifier to be used when allocating datasets.
+`-wait` | -w | Indicates if component waits for test completion. Must be TRUE or FALSE. The default is TRUE.
+`-maxwait` | -mw | The number of minutes to wait for the test to complete. The default is 20 minutes.
+`-useStubs` | -us | Indicates if the test should use stubs. Must be TRUE or FALSE. The default is TRUE.
+`-repeat` | -r | The number of time to repeat the test. The default is 0.
+`-backuparchive` | -ba | Indicates if the archive file should be backed up. The file will be time stamped and placed in the History project folder. Must be TRUE or FALSE. The default is TRUE.
+`-deletetemp` | -dt | Indicates if temporary files are to be deleted. Must be TRUE or FALSE. The default is TRUE.
 
 
 #### Example of using `runtest`
@@ -618,13 +618,13 @@ Parameter | Abbr.  | Description
 There are no explicit output parameters. The Parser output data will be saved in the updated archive file.
 
 ### Result Checker - parameters/options
-The Result Checker component parses the archive, applying the check conditions to the output data and updating the archive accordingly. In addition to that, the Result Checker will create a separate results file and report file. For details about the contents of these file, please refer to the section about Project Structure in this document.
+The Result Checker component parses the archive, applying the check conditions to the output data and updating the archive accordingly. In addition to that, the Result Checker will create a separate results file and report file. For details about the contents of these file, please refer to the section about Project Structure in the Topaz for Total Test online help.
 The following tables list the input, output and optional parameters that must be provided.
 
 **Result Checker Input Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--archive | -a | The archive from the Parser which will be updated (unless the output parameter is used – see below).
+-archive | -a | The archive from the Parser which will be updated (unless the output parameter is used, see below).
 
 **Result Checker Optional Input Parameters**
 Parameter | Abbr.  | Description
@@ -657,9 +657,9 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 
 Topaz for Total Test Functional Test is not built on Topaz CLI and comes with a separate command line interface that can be used to execute functional test scenarios from the file system. It does not apply to the above general settings for the Topaz CLIs. 
 
-With the functional test CLI interface you can specify a folder path and an environment ID, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Functional Test server. This will typically be used from a Continuous Integration server like Jenkins, where source files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface. 
+With the Functional Test CLI interface you can specify a folder path and an environment ID, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Functional Test server. This will typically be used from a Continuous Integration server like Jenkins, where source files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface. 
 
-Initial setup
+### Initial setup
 The `TotalTestFTCLI.bat` or `TotalTestFTCLI.sh` file is used to execute test scenarios. It references the DB2 jar files needed for using JDBC to access DB2 on the mainframe, and these jar files must be available in the same directory. The DB2 jar files are customer specific.
 
 The CLI interface is executed from a Windows or Linux terminal by writing:
