@@ -57,6 +57,32 @@ Use the credentials manager to store the following credentials for use in the ex
 
 ![Jenkins Credentials](./images/Jenkins_credentials.png)
 
+## Cross Site Request Forgery (CSRF) Protection
+
+Usually, Jenkins gets installed with [Cross site request forgery Protection](https://wiki.jenkins.io/display/JENKINS/CSRF+Protection) being turned on. This prevents people to trigger jobs from outside using the REST API unless they have a so called "crumb", which acts as a kind of authentication Token. The result if CSRF Protection is turned on and you try to use the REST API without specifying the required crumb header will look something like this:
+
+![CSRF bad response](./images/CSRF_bad_response.png)
+
+It is not recommended to turn the protection off, instead you will need to modify your API call to include a "crumb" header. Here I describe how to determine the header. First make sure that CSRF Protection is turned on, by going to "Manage Jenkins" -> "Configure Global Security" and scrolling down to the CSRF Protection section:
+
+![Set CSRF Protection](./images/Set_CSRF_Protection.png)
+
+Make sure, the check box is checked, and the radio button "Default Crumb Issuer" is marked. Next you need to determine the correct crumb to use in your further REST calls. This page explains the details in general.
+
+Use a REST API tool, for example ARC (The Google Advanced Rest Client Plugin to Chrome) to issue the required GET call.
+
+```http://<jenkins URL>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)```
+
+![Get CSRF crumb](./images/Get_CSRF_crumb.png)
+
+**Make sure to include an authorization header and using the pencil button to provide your credentials for your Jenkins server.**
+
+![Create authorization header](./images/Create_authorization_header.png)
+
+**Otherwise you will not be allowed to retrieve the crumb:**
+
+![No authorization header](./images/No_authorization_header.png)
+
 ## Managed Files
 
 The option `Manage Jenkins` -> `Managed Files` will be available after installation of the [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) plugin. The examples make use of configuration files handled and stored by this plugin. Especially this will be a list of TSO user IDs and [corresponding mail addresses](../shared_library/Config_files.md). Over time other configuration files will use the same technology.
@@ -69,7 +95,7 @@ Configuration files used in the examples are plain text files. Therefore, chose 
 
 After `submitting` specify a file name to use and start filling the file with content. 
 
-### The email list
+## The email list
 
 The example mail list file uses a file name of `mailList.config` and pairs of `<TSO User ID>:<mailaddress>`, each on a separate line. The TSO user IDs used in this file correspond to the ISPW owner values passed by the [ISPW webhooks](./webhook_setup.md).
 
