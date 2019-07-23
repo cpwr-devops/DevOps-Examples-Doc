@@ -22,7 +22,10 @@ Once the code has been changed, the developer generates (compile, link, etc.) th
 - getting Topaz for Total Test **unit tests** for this ISPW application
 - executing the **unit tests for exactly** the tasks that have been generated within the set
 - getting Code Coverage metrics for the unit test executions
-- passing all results to SonarQube
+- passing all results to SonarQube using a project name consisting of the
+    - Owner of the set
+    - ISPW Stream name
+    - ISPW Application name
 - querying the Sonar Quality Gate 
     - sending mail messages informing the developer about the status of the quality gate
 
@@ -34,7 +37,9 @@ Once the developer thinks they are done with development and unit testing they p
 - downloading the sources of all (COBOL) tasks that are at the target level of the promotion
 - getting Topaz for Total Test **functional tests** for this ISPW application
 - executing **all functional tests**
-- passing all results to SonarQube
+- passing all results to SonarQube using a project name consisting of the
+    - ISPW Stream name
+    - ISPW Application name
 - querying the Sonar Quality Gate 
     - in case the gate was passed, triggers an XL Release template to automate the next **release process** steps
     - sending mail messages informing the developer about the status of the quality gate
