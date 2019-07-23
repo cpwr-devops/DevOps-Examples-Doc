@@ -15,16 +15,42 @@ module.exports = {
             { text: 'Basic Pipeline Example',
             link: '/pipelines/Mainframe-CI-Example-pipeline'
             },
-            { text: 'Pipeline Scenarios',
-              link: '/pipeline_scenario/pipelines'
+            { text: 'Groovy Tips',
+            link: '/pipelines/Jenkins_Groovy'
+            },
+            { text: '----------------------',
+              link: ''
             },
             { text: 'Shared Library Example',
               link: '/shared_library/Mainframe_CI_Pipeline_from_Shared_Lib'
             }
           ]
         },
+        { text: 'Scenarios',
+        items: [
+            { text: 'Basic Scenario',
+            link: '/pipeline_scenario/'
+            },
+            { text: 'Elaborate Scenarios',
+            link: '/pipeline_scenario/Elaborate_scenario'
+            },
+            { text: 'ISPW Setup',
+            link: '/pipeline_scenario/ISPW_setup'
+            },
+            { text: 'Unit Test Setup',
+            link: '/pipeline_scenario/TTT_scenario'
+            },
+            { text: 'Functional Test Setup',
+            link: '/pipeline_scenario/TTT_FT_scenario'
+            },
+            { text: 'Advanced Scenarios',
+            link: '/pipeline_scenario/push_ttt_results_to_git'
+            },            
+          ]
+        },
         { text: 'Configuration',
-          items: [{
+        items: [
+            {
               text: 'Introduction to Jenkins Plugins',
               link: '/tool_configuration/plugins'
             },
@@ -46,37 +72,39 @@ module.exports = {
           ] 
         },
         { text: 'APIs',
-        items: [{
+        items: [
+          {
           text: 'Rest API',
           link: '/code_examples/Rest_api'
-        },
-        { text: 'Topaz CLI',
-          link: '/code_examples/Topaz_cli'
-        },
-        { text: 'Topaz Workbench SDK',
-        link: '/code_examples/Topaz_Workbench_SDK'
-        },
-        { text: 'Topaz Java API',
-          link: '/code_examples/Topaz_API'
-        },
-        { text: 'Developing a Topaz Workbench PassTicket Extension',
-        link: '/code_examples/Passticket'
+          },
+          { text: 'Topaz CLI',
+            link: '/code_examples/Topaz_cli'
+          },
+          { text: 'Topaz Workbench SDK',
+          link: '/code_examples/Topaz_Workbench_SDK'
+          },
+          { text: 'Topaz Java API',
+            link: '/code_examples/Topaz_API'
+          },
+          { text: 'Developing a Topaz Workbench PassTicket Extension',
+          link: '/code_examples/Passticket'
+          }
+        ] 
       }
-      ] 
-    }
-  ],
+    ],
         sidebar: {
             '/pipelines/': [
               '',  
               'Mainframe-CI-Example-pipeline',
-              'push_ttt_results_to_git', 
               'Jenkins_Groovy'
             ],
             '/pipeline_scenario/': [ 
-              'pipelines',
               '',
+              'Elaborate_scenario',
+              'ISPW_setup',
               'TTT_scenario',
-              'TTT_FT_scenario'
+              'TTT_FT_scenario',
+              'push_ttt_results_to_git'              
             ],            
             '/shared_library/': [ 
               'Mainframe_CI_Pipeline_from_Shared_Lib',
@@ -96,7 +124,7 @@ module.exports = {
                 'Topaz_cli',
                 'Topaz_Workbench_SDK',
                 'Topaz_API',
-                'Topaz_Workbench_API_Code_Snippets',
+                'Topaz_Workbench_API_Code_snippets',
                 'Passticket'
             ]
           }

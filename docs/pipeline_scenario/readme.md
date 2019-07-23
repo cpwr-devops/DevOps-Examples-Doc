@@ -1,56 +1,29 @@
 ---
-title: ISPW Pipeline Setup
+title: Basic Continuous Integration (CI) Scenario
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
-## ISPW Step by Step Example
+![Toolchain](../pipelines/images/jenkins_pipeline2.png)
 
-Both scenarios handled by the two primary pipelines work on Compuware's demonstration stream `FTSDEMO`, using application `RXN3`, in our example. In this version of the application, some of the components (`CWXTSUBC`) use copybooks.
+# Basic Continuous Integration (CI) Scenario
 
-![ISPW repository explorer](./images/ISPW_repository_explorer.png)
+The examples of Jenkins pipelines make use of Compuware's and other plugins to implement the following process and scenario. They can be used to create a standardized approach for implementing a CI process for mainframe development. The scenario(s) and code are based on request and requirements from customers who already have started implementing their own pipeline and asked Compuware for advice. The code itself shows our solution to these, while the respective solutions as implemented by our customers are - in parts considerably - different.
 
-## Checking out code to an assignment
+The code reflects common patterns that we see emerging at different customers. In addition, the examples are supposed to help mainframe developers to familiarize with [Groovy](http://groovy-lang.org/documentation.html) and its concepts, as well as demonstrate some of the [idiosyncrasies of the Jenkins Groovy dialect](../pipelines/Jenkins_Groovy) that we stumbled across.
 
-In ISPW the developer checks out a few components to a new or existing assignment. Depending on the pipeline being used:
+## Step 1 - Checking out Code
+In Topaz a developer [checks out a set of sources, copybooks and other components](./ISPW_setup.md) required to fulfill a specific requirement.
 
-- [Mainframe-CI-Example-pipeline](../pipelines/Mainframe-CI-Example-pipeline.md)
-The developer has to check out all related copybooks for the final analysis in SonarQube to work. This is issue will be handled differently by the second pipeline
-- [Mainframe_CI_Pipeline_from_Shared_Lib](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md)
-The developer may check out any component. Missing copybooks will be determined and gathered in one of the pipeline steps.
+## Step 2 -  Creating/Maintaining Unit Tests
+In Topaz [Topaz for Total Test](./TTT_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
 
-They check out the following components
+## Step 3 - Code Promotion
+In Topaz once the developer has finished working on the code, they promote their changes from the `DEV1` level to `QA1`, the next level in the application's life cycle.
+  
+## Step 4 - ISPW Webhook trigger
+Automatically in ISPW the promotion of from the `DEV1` level to the `QA1` level in ISPW creates an ISPW a set containing all components that are part of this specific promotion.  Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via an [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../shared_library/pipeline_parameters.md) to the Jenkins job to control the execution.
 
-- COBOL program `CWXTCOB`
-- COBOL program `CWXTSUBC`
-- COBOL program `CWXTDATE`
-
-and add them to a new or existing assignment. In the example, they use the `DEV1` path.
-
-In case of the first scenario, the developer also needs to check out the copybook `EMPFILE`.
-
-![ISPW checkout](./images/ISPW_checkout.png)
-
-## Changing code
-
-The developer applies changes to the code, stores them back to ISPW, and generates (`compile`, `link`, `bind`, etc.) the new code.
-
-## Modifying the unit tests
-
-Parallel to changing the code, the developer also adds new test cases or modifies existing test cases to the set of unit tests for the components in question./scenario/TTT_scenario.md). Since the unit tests are stored in GitHub, the changes need to be `committed` and `pushed` to the GitHub repository, before continuing.  For best practices for creating Topaz for Total Test Unit test cases in a CI pipeline, please review this page-> [Total Test Best Practices](./TTT_scenario.md).
-
-## Promoting the code changes
-
-Once the new code has been `generated`, and the unit tests have been `pushed` to GitHub, the develop can promote the selected components, or the complete assignment to the next level.
-
-![ISPW promote](./images/ISPW_promote.png)
-
-## The resulting set
-
-The promote will create a `set container` in ISPW, which will perform the steps required for the `promotion` of the code. This `set` has its own ID and contains all `tasks` that were `promoted`. The way the [ISPW webhook](../tool_configuration/webhook_setup.md) has been set up, once the `promotion` has finished, the webhook will trigger one of the two pipeline jobs. (Depending on the job being triggered by the webhook's `POST` request.)
-
-![ISPW set](./images/ISPW_set.png)
-
-## Jenkins Pipeline Triggered
-
-The webhook triggers the Jenkins job which executes the tasks defined in the pipeline script.  
-![ISPW set](../pipelines/images/Jenkins_Pipeline.png)
+## Step 5 - Jenkins Job
+Automatically in Jenkins one of the below pipelines executes.  
+  - For a simple self-contained pipeline example, the [Mainframe-CI-Example-pipeline](../pipelines/Mainframe-CI-Example-pipeline.md) can be used.  
+  - For a more realistic enterprise grade example, the shared libraries in Jenkins should be used.  For shared library approach, the [Mainframe_CI_Pipeline_from_Shared_Lib](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md) should be used.

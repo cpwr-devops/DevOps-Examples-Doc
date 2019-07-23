@@ -63,7 +63,7 @@ Usually, Jenkins gets installed with [Cross site request forgery Protection](htt
 
 ![CSRF bad response](./images/CSRF_bad_response.png)
 
-It is not recommended to turn the protection off, instead you will need to modify your API call to include a "crumb" header. Here I describe how to determine the header. First make sure that CSRF Protection is turned on, by going to "Manage Jenkins" -> "Configure Global Security" and scrolling down to the CSRF Protection section:
+It is not recommended to turn the protection off, instead you will need to modify your API call to include a "crumb" header. Here I describe how to determine the header. First make sure that CSRF Protection is turned on, by going to ```Manage Jenkins``` -> ```Configure Global Security``` and scrolling down to the CSRF Protection section:
 
 ![Set CSRF Protection](./images/Set_CSRF_Protection.png)
 
@@ -95,7 +95,7 @@ Configuration files used in the examples are plain text files. Therefore, chose 
 
 After `submitting` specify a file name to use and start filling the file with content. 
 
-## The email list
+### The email list
 
 The example mail list file uses a file name of `mailList.config` and pairs of `<TSO User ID>:<mailaddress>`, each on a separate line. The TSO user IDs used in this file correspond to the ISPW owner values passed by the [ISPW webhooks](./webhook_setup.md).
 
