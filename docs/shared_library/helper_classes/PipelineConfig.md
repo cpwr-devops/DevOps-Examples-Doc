@@ -67,7 +67,6 @@ class PipelineConfig implements Serializable
 
     def PipelineConfig(steps, workspace, params, mailListLines)
     {
-        this.configGitBranch    = params.Config_Git_Branch
         this.steps              = steps
         this.workspace          = workspace
         this.mailListLines      = mailListLines

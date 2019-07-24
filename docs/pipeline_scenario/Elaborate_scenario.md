@@ -45,4 +45,4 @@ Once the developer thinks they are done with development and unit testing they p
     - sending mail messages informing the developer about the status of the quality gate
 
 ## The two Jenkins jobs
-The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md)
+The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md). They require the [same parameters](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.html#loading-the-script-from-a-shared-library) to be defined and passed into the job as this jobs.

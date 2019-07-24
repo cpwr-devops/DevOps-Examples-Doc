@@ -53,9 +53,7 @@ Mainframe_CI_Pipeline_from_Shared_Lib(
     ISPW_Container_Type :"${ISPW_Container_Type}",                  // ISPW Container Type (2 for Set)
     ISPW_Src_Level      :"${ISPW_Src_Level}",                       // ISPW Level the promote worked from
     ISPW_Owner          :"${ISPW_Owner}",                           // ISPW User doing the promote
-    Config_Git_Branch   :'Dev',
     CES_Token           :'xxxx',
-    CES_Token_Clear     :'xxxx',
     HCI_Conn_ID         :'xxxx',
     HCI_Token           :'xxxx',
     CC_repository       :'xxxx',
@@ -91,9 +89,7 @@ Usually, these parameters will be installation specific rather than pipeline job
 
 Key  |  Description
 ----- | -----------
-Config_Git_Branch | Branch in the Git repository where configuration files are to be read from
 CES_Token | The Jenkins token, referring to the CES token
-CES_Token_Clear | The "clear text" CES token (as copied from the CES server's Security > [Personal Access Tokens page](../tool_configuration/CES_credentials_token.md).
 HCI_Conn_ID | The Jenkins internal ID for the HCI connection to use
 HCI_Token | Jenkins internal ID for HCI Token
 CC_repository | The Xpediter Code Coverage repository to use
@@ -106,7 +102,7 @@ Being a pipeline from a [shared library](https://jenkins.io/doc/book/pipeline/sh
 
 Once this pipeline has been triggered, the job will execute the following steps.
 
-1. Execute its `call` method, within which it will
+Execute its `call` method, within which it will
 
 ```groovy
 def call(Map pipelineParams)
@@ -116,6 +112,7 @@ def call(Map pipelineParams)
 ```
 
 1. Execute its `initialize` method to read configuration files and instantiate objects of [helper classes](./helper_classes/PipelineConfig.md)
+    - Reading the [mail list configuration file](../tool_configuration/Jenkins_config.md#the-email-list) and build in internal map of ISPW owner IDs and corresponding email addresses
     - `PipelineConfig` containing global parameter values that:
         - passed by the job configuration/trigger and are pipeline/execution specific
         - not pipeline or execution specific, like server URLs. These parameters will be read from external configuration files
@@ -131,17 +128,14 @@ def call(Map pipelineParams)
 3. Use the `downloadSources` method of class `IspwHelper` to download all COBOL sources and COBOL copybooks from ISPW (the mainframe) that are part of the set triggering this specific pipeline execution
 
 ```groovy
-        stage("Retrieve Code From ISPW")
+        stage("Retrieve Mainframe Code")
         {
             ispwHelper.downloadSources()
-        }
 ```
 
 4. Not always will all required COBOL copybooks be part of an ISPW assignment or set. In order to retrieve any missing copybooks, the next stage will use the `downloadCopyBooks` method of class `ispwHelper` to determine all required copybooks and download them from the mainframe
 
 ```groovy
-        stage("Retrieve Copy Books From ISPW")
-        {
             ispwHelper.downloadCopyBooks("${workspace}")
         }
 ```
@@ -149,24 +143,16 @@ def call(Map pipelineParams)
 5. Use the `checkout` method of the `gitHelper`class to clone the Git repository for the ISPW application.  
 
 ```groovy
-        /* Retrieve the Tests from Github that match that ISPWW Stream and Application */
-        stage("Retrieve Tests")
+        stage("Execute Unit Tests")
         {
             def gitUrlFullPath = "${pConfig.gitUrl}/${pConfig.gitTttRepo}"
 
             gitHelper.checkout(gitUrlFullPath, pConfig.gitBranch, pConfig.gitCredentials, pConfig.tttFolder)
-        }
- }
 ```
 
 6. Initialize the `TttHelper` instance, loop through the downloaded Topaz for Total Test scenarios, and pass the results to JUnit (within Jenkins) using the methods `initialize`, `loopThruScenarios`, and `passResultsToJunit` of the `TttHelper` class, respectively.
 
 ```groovy
-        /*
-        This stage executes any Total Test Projects related to the mainframe source that was downloaded
-        */
-        stage("Execute related Unit Tests")
-        {
             tttHelper.initialize()
             tttHelper.loopThruScenarios()
             tttHelper.passResultsToJunit()
@@ -176,10 +162,7 @@ def call(Map pipelineParams)
 7. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coveragre metrics from the Xpediter Code Coverage repository
 
 ```groovy
-        /*
-        This stage retrieve Code Coverage metrics from Xpediter Code Coverage for the test executed in the Pipeline
-        */
-        stage("Collect Coverage Metrics")
+        stage("Collect Metrics")
         {
             tttHelper.collectCodeCoverageResults()
         }
@@ -188,10 +171,6 @@ def call(Map pipelineParams)
 8. Use the `scan` method of the `SonarHelper` class to pass downloaded COBOL sources, the results of the unit tests, and code coverage metrics to SonarQube
 
 ```groovy
-        /*
-        This stage pushes the Source Code, Test Metrics and Coverage metrics into SonarQube and then checks the status of the SonarQube Quality Gate.  
-        If the SonarQube quality date fails, the Pipeline fails and stops
-        */
         stage("Check SonarQube Quality Gate")
         {
             sonarHelper.scan()
@@ -200,13 +179,10 @@ def call(Map pipelineParams)
 9. Query the resulting Sonar quality gate, by registering a Sonar Webhook call back, if the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote -, and the pipeline job will be aborted
 
 ```groovy
-            // Wait for the results of the SonarQube Quality Gate
             timeout(time: 2, unit: 'MINUTES') {
 
-                // Wait for webhook call back from SonarQube.  SonarQube webhook for callback to Jenkins must be configured on the SonarQube server.
                 def sonarGate = waitForQualityGate()
 
-                // Evaluate the status of the Quality Gate
                 if (sonarGate.status != 'OK')
                 {
                     echo "Sonar quality gate failure: ${sonarGate.status}"
@@ -214,7 +190,6 @@ def call(Map pipelineParams)
 
                     currentBuild.result = "FAILURE"
 
-                    // Send Standard Email
                     emailext subject:       '$DEFAULT_SUBJECT',
                                 body:       '$DEFAULT_CONTENT',
                                 replyTo:    '$DEFAULT_REPLYTO',
@@ -222,11 +197,10 @@ def call(Map pipelineParams)
 
                     withCredentials([string(credentialsId: pConfig.cesTokenId, variable: 'cesTokenClear')])
                     {
-                        //ispwHelper.regressAssignmentList(assignmentList, cesTokenClear)
                         ispwHelper.regressAssignment(pConfig.ispwAssignment, cesTokenClear)
                     }
 
-                    error "Exiting Pipeline" // Exit the pipeline with an error if the SonarQube Quality Gate is failing
+                    error "Exiting Pipeline" 
                 }
             }
         }
@@ -235,25 +209,20 @@ def call(Map pipelineParams)
 10. If the quality gate passes an XL Release template will be triggered - using the XL Release plugin - to execute CD stages beyond the Jenkins pipeline, and an email will be sent to the owner of the ISPW set - notifying them about the success of the promote
 
 ```groovy
-        /*
-        This stage triggers a XL Release Pipeline that will move code into the high levels in the ISPW Lifecycle  
-        */
         stage("Start release in XL Release")
         {
-            // Trigger XL Release Jenkins Plugin to kickoff a Release
             xlrCreateRelease(
                 releaseTitle:       'A Release for $BUILD_TAG',
                 serverCredentials:  "${pConfig.xlrUser}",
                 startRelease:       true,
                 template:           "${pConfig.xlrTemplate}",
                 variables:          [
-                                        [propertyName:  'ISPW_Dev_level',   propertyValue: "${pConfig.ispwTargetLevel}"], // Level in ISPW that the Code resides currently
-                                        [propertyName:  'ISPW_RELEASE_ID',  propertyValue: "${pConfig.ispwRelease}"],     // ISPW Release value from the ISPW Webhook
+                                        [propertyName:  'ISPW_Dev_level',   propertyValue: "${pConfig.ispwTargetLevel}"],
+                                        [propertyName:  'ISPW_RELEASE_ID',  propertyValue: "${pConfig.ispwRelease}"],
                                         [propertyName:  'CES_Token',        propertyValue: "${pConfig.cesTokenId}"]
                                     ]
             )
 
-            // Send Standard Email
             emailext subject:       '$DEFAULT_SUBJECT',
                         body:       '$DEFAULT_CONTENT \n' + 'Promote passed the Quality gate and a new XL Release was started.',
                         replyTo:    '$DEFAULT_REPLYTO',
