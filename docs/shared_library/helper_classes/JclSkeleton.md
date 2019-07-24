@@ -8,18 +8,15 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 ```groovy
 package com.compuware.devops.util
 
-/**
- Static Class to contain different JCL Skeletons
-*/
 class JclSkeleton implements Serializable {
 
     def steps
 
-    private String skeletonPath     = 'config\\skels'       // Path containing JCL "skeletons" after downloading them from Git Hub Repository
-    private String jobCardSkel      = 'JobCard.jcl'         // Skeleton for job cards
-    private String iebcopySkel      = 'iebcopy.skel'        // Skeleton for IEBCOPY job
-    private String iebcopyInDdSkel  = 'iebcopyInDd.skel'    // Skeleton for input DDs for IEBCOPY job
-    private String deleteDsSkel     = 'deleteDs.skel'       // Skeleton for deleting the PDS after downloading copy books
+    private String skeletonPath     = 'skels'
+    private String jobCardSkel      = 'JobCard.jcl'
+    private String iebcopySkel      = 'iebcopy.skel'
+    private String iebcopyInDdSkel  = 'iebcopyInDd.skel'
+    private String deleteDsSkel     = 'deleteDs.skel'
 
     private String workspace
 
@@ -45,7 +42,6 @@ class JclSkeleton implements Serializable {
 ## initialize
 
 ```groovy
-    /* A Groovy idiosyncrasy prevents constructors to use methods, therefore class might require an additional "initialize" method to initialize the class */
     def initialize()
     {
         this.jobCardJcl                 = readSkelFile(jobCardSkel).join("\n")
@@ -63,15 +59,18 @@ class JclSkeleton implements Serializable {
     {
 
         def jclSkel                 = readSkelFile(iebcopySkel).join("\n")
+        
         def tempInputDdStatements   = readSkelFile(iebcopyInDdSkel)
+
         def copyDdStatements        = []
 
         for(int i=0; i < tempInputDdStatements.size(); i++)
-        {
+        {                        
             copyDdStatements.add ("       INDD=IN${i+1}")
         }
 
         def inputDdJcl      = tempInputDdStatements.join("\n")
+
         def inputCopyJcl    = copyDdStatements.join("\n")
 
         jclSkel             = jclSkel.replace("<source_copy_pds_list>", inputDdJcl)
@@ -127,13 +126,11 @@ class JclSkeleton implements Serializable {
 ```groovy
     def readSkelFile(String fileName)
     {
-        def jclStatements       = []
-        FileHelper fileHelper   = new FileHelper()
-
-        def skelFilePath    = "${workspace}\\${skeletonPath}\\${fileName}"
-
-        def lines           = fileHelper.readLines(skelFilePath)
-
+        def jclStatements   = []
+        def skelFilePath    = "${skeletonPath}\\${fileName}"
+        def fileText        = steps.libraryResource skelFilePath
+        def lines           = fileText.tokenize("\n")
+        
         lines.each
         {
             jclStatements.add(it.toString())

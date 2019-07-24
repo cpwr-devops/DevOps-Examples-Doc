@@ -8,13 +8,6 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 ```groovy
 package com.compuware.devops.util
 
-/**
- Wrapper around the Git Plugin's Checkout Method
- @param URL - URL for the git server
- @param Branch - The branch that will be checked out of git
- @param Credentials - Jenkins credentials for logging into git
- @param Folder - Folder relative to the workspace that git will check out files into
-*/
 class SonarHelper implements Serializable {
 
     def script
@@ -26,7 +19,7 @@ class SonarHelper implements Serializable {
 ## SonarHelper
 
 ```groovy
-    SonarHelper(script, steps, pConfig)
+    SonarHelper(script, steps, pConfig) 
     {
         this.script     = script
         this.steps      = steps
@@ -37,7 +30,6 @@ class SonarHelper implements Serializable {
 ## initialize
 
 ```groovy
-    /* A Groovy idiosynchrasy prevents constructors to use methods, therefore class might require an additional "initialize" method to initialize the class */
     def initialize()
     {
         this.scannerHome    = steps.tool "${pConfig.sqScannerName}";
@@ -49,35 +41,123 @@ class SonarHelper implements Serializable {
 ```groovy
     def scan()
     {
-        steps.withSonarQubeEnv("${pConfig.sqServerName}")       // 'localhost' is the name of the SonarQube server defined in Jenkins / Configure Systems / SonarQube server section
+        def testResults = determineUtResultPath()
+
+        runScan(testResults, script.JOB_NAME)
+    }
+```
+
+## scan(pipelineType)
+
+```groovy
+    def scan(pipelineType)
+    {
+        def project
+        def testPath
+        def resultPath
+        def coveragePath
+
+        switch(pipelineType)
         {
-            // Finds all of the Total Test results files that will be submitted to SonarQube
-            def tttListOfResults    = steps.findFiles(glob: 'TTTSonar/*.xml')   // Total Test SonarQube result files are stored in TTTSonar directory
+            case "UT":
+                project         = determineUtProjectName()
+                testPath        = 'tests'
+                resultPath      = determineUtResultPath()
+                coveragePath    = "Coverage/CodeCoverage.xml"
+                break;
+            case "FT":
+                project         = determineFtProjectName()
+                testPath        = '"tests\\' + pConfig.ispwStream + '_' + pConfig.ispwApplication + '_Functional_Tests\\Functional Test"'
+                resultPath      = 'TestResults\\SonarTestReport.xml'
+                coveragePath    = ''
+                break;
+            default:
+                steps.echo "SonarHelper.scan received wrong pipelineType: " + pipelineType
+                steps.echo "Valid types are 'UT' or FT"
+                break;
+        }
 
-            // Build the sonar testExecutionReportsPaths property
-            // Start will the property itself
-            def sqTestResult       = "-Dsonar.testExecutionReportPaths="
+        runScan(testPath, resultPath, coveragePath, project)
+    }
+```
 
-            // Loop through each result Total Test results file found
-            tttListOfResults.each
+## checkQualityGate
+
+```groovy
+    String checkQualityGate()
+    {
+        String result
+
+        steps.timeout(time: 2, unit: 'MINUTES') 
+        {                
+            def sonarGate = steps.waitForQualityGate()
+
+            result = sonarGate.status
+        }
+
+        return result
+    }
+```
+
+## determineUtProjectName
+
+```groovy
+    private String determineUtProjectName()
+    {
+        return pConfig.ispwOwner + '_' + pConfig.ispwStream + '_' + pConfig.ispwApplication
+    }
+```
+
+## determineFtProjectName
+
+```groovy
+    private String determineFtProjectName()
+    {
+        return pConfig.ispwStream + '_' + pConfig.ispwApplication
+    }
+```
+
+## determineUtResultPath
+
+```groovy
+    private String determineUtResultPath()
+    {
+        def tttListOfResults    = steps.findFiles(glob: 'TTTSonar/*.xml')
+        def testResults         = ""    
+ 
+        tttListOfResults.each 
+        {
+            testResults         = testResults + "TTTSonar/" + it.name +  ',' 
+        }
+
+        return testResults
+    }
+```
+
+## runScan
+
+```groovy
+    private runScan(testPath, testResultPath, coveragePath, projectName)
+    {
+        steps.withSonarQubeEnv("${pConfig.sqServerName}")
+        {
+            def sqScannerProperties   = ' -Dsonar.tests=' + testPath
+
+            sqScannerProperties       = sqScannerProperties + " -Dsonar.testExecutionReportPaths=${testResultPath}"
+
+            if(coveragePath != '')
             {
-                sqTestResult       = sqTestResult + "TTTSonar/" + it.name +  ',' // Append the results file to the property
+                sqScannerProperties       = sqScannerProperties + " -Dsonar.coverageReportPaths=${coveragePath}"
             }
 
-            // Build the rest of the SonarQube Scanner Properties
+            sqScannerProperties       = sqScannerProperties + " -Dsonar.projectKey=${projectName} -Dsonar.projectName=${projectName} -Dsonar.projectVersion=1.0"
 
-            // Test and Coverage results
-            def sqScannerProperties   = " -Dsonar.tests=tests ${sqTestResult} -Dsonar.coverageReportPaths=Coverage/CodeCoverage.xml"
-            // SonarQube project to load results into
-            sqScannerProperties       = sqScannerProperties + " -Dsonar.projectKey=${script.JOB_NAME} -Dsonar.projectName=${script.JOB_NAME} -Dsonar.projectVersion=1.0"
-            // Location of the Cobol Source Code to scan
             sqScannerProperties       = sqScannerProperties + " -Dsonar.sources=${pConfig.ispwApplication}\\${pConfig.mfSourceFolder}"
-            // Location of the Cobol copybooks to scan
-            sqScannerProperties       = sqScannerProperties + " -Dsonar.cobol.copy.directories=${pConfig.ispwApplication}\\${pConfig.mfSourceFolder}"  
-            // File extensions for Cobol and Copybook files.  The Total Test files need that contain tests need to be defined as cobol for SonarQube to process the results
-            sqScannerProperties       = sqScannerProperties + " -Dsonar.cobol.file.suffixes=cbl,testsuite,testscenario,stub -Dsonar.cobol.copy.suffixes=cpy -Dsonar.sourceEncoding=UTF-8"
 
-            // Call the SonarQube Scanner with properties defined above
+            sqScannerProperties       = sqScannerProperties + " -Dsonar.cobol.copy.directories=${pConfig.ispwApplication}\\${pConfig.mfSourceFolder}"  
+
+            sqScannerProperties       = sqScannerProperties + " -Dsonar.cobol.file.suffixes=cbl,testsuite,testscenario,stub -Dsonar.cobol.copy.suffixes=cpy -Dsonar.sourceEncoding=UTF-8"
+            
             steps.bat "${scannerHome}/bin/sonar-scanner" + sqScannerProperties
         }
     }

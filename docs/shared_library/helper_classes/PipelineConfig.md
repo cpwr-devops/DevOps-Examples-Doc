@@ -8,39 +8,30 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 ```groovy
 package com.compuware.devops.util
 
-/*
-    Pipeline execution specific and server specific parameters which are use throughout the pipeline
-*/
 class PipelineConfig implements Serializable
 {
     def steps
     def mailListLines
     def mailListMap = [:]
 
-    private String configGitProject    = "Jenkinsfiles"         // Git Hub Repository containing the configuration files for the pipeline
-    private String configGitBranch                              // Branch in Git Hub Repository containing the configuration files for the pipeline
-    private String configGitPath       = "config"               // Folder in Git Hub Repository containing the configuration files for the pipeline
-
-    private String configPath           = 'config\\pipeline'    // Path containing config files after downloading them from Git Hub Repository
-    private String pipelineConfigFile   = 'pipeline.config'     // Config file containing pipeline configuration
-    private String tttGitConfigFile     = 'tttgit.config'       // Config gile containing for TTT projects stroed in Git Hub
-
+    private String configPath           = 'pipeline'            
+    private String pipelineConfigFile   = 'pipeline.config'     
+    private String tttGitConfigFile     = 'tttgit.config'       
     private String workspace
 
-/* Environment specific settings, which differ between Jenkins servers and applications, but not between runs */
-    public String gitTargetBranch                               // Used for synchronizing TTT project stored in Git with programs stored in ISPW
-    public String gitBranch                                     // Used for synchronizing TTT project stored in Git with programs stored in ISPW
-    public String sqScannerName                                 // Sonar Qube Scanner Tool name as defined in "Manage Jenkins" -> "Global Tool Configuration" -> "SonarQube scanner"
-    public String sqServerName                                  // Sonar Qube Scanner Server name as defined in "Manage Jenkins" -> "Configure System" -> "SonarQube servers"
-    public String sqServerUrl                                   // URL to the SonarQube server
-    public String mfSourceFolder                                // Folder containing sources after downloading from ISPW
-    public String xlrTemplate                                   // XL Release template to start
-    public String xlrUser                                       // XL Release user to use
-    public String tttFolder                                     // Folder containing TTT projects after downloading from Git Hub
-    public String ispwUrl                                       // ISPW/CES URL for native REST API calls
-    public String ispwRuntime                                   // ISPW Runtime
-
-/* Runtime specific settings, which differ runs and get passed as parameters or determined during execution */
+    public String gitTargetBranch
+    public String gitBranch      
+    public String sqScannerName
+    public String sqServerName 
+    public String sqServerUrl  
+    public String xaTesterUrl  
+    public String xaTesterEnvId
+    public String mfSourceFolder
+    public String xlrTemplate   
+    public String xlrUser       
+    public String tttFolder     
+    public String ispwUrl       
+    public String ispwRuntime   
     public String ispwStream
     public String ispwApplication
     public String ispwRelease
@@ -49,27 +40,36 @@ class PipelineConfig implements Serializable
     public String ispwContainerType
     public String ispwSrcLevel
     public String ispwTargetLevel
-    public String ispwOwner
+    public String ispwOwner         
     public String applicationPathNum
 
-    public String gitProject
-    public String gitCredentials
-    public String gitUrl
-    public String gitTttRepo
+    public String gitProject        
+    public String gitCredentials    
+    public String gitUrl            
+    public String gitTttRepo        
+    public String gitTttUtRepo        
+    public String gitTttFtRepo        
 
-    public String cesTokenId
-    public String hciConnId
-    public String hciTokenId
-    public String ccRepository
+    public String cesTokenId        
+    public String hciConnId         
+    public String hciTokenId        
+    public String ccRepository      
 
-    public String tttJcl
-    public String mailRecipient
+    public String tttJcl 
+      
+    public String mailRecipient 
+```
 
+## PipelineConfig
+
+```groovy
     def PipelineConfig(steps, workspace, params, mailListLines)
     {
         this.steps              = steps
         this.workspace          = workspace
         this.mailListLines      = mailListLines
+
+        this.xaTesterEnvId      = "5b5f2a71787be73b59238d7b"
 
         this.ispwStream         = params.ISPW_Stream
         this.ispwApplication    = params.ISPW_Application
@@ -77,7 +77,7 @@ class PipelineConfig implements Serializable
         this.ispwAssignment     = params.ISPW_Assignment
         this.ispwContainer      = params.ISPW_Container
         this.ispwContainerType  = params.ISPW_Container_Type
-        this.ispwOwner          = params.ISPW_Owner
+        this.ispwOwner          = params.ISPW_Owner        
         this.ispwSrcLevel       = params.ISPW_Src_Level
 
         this.applicationPathNum = ispwSrcLevel.charAt(ispwSrcLevel.length() - 1)
@@ -86,34 +86,40 @@ class PipelineConfig implements Serializable
 
         this.gitProject         = params.Git_Project
         this.gitCredentials     = params.Git_Credentials
+        
         this.gitUrl             = "https://github.com/${gitProject}"
         this.gitTttRepo         = "${ispwStream}_${ispwApplication}_Unit_Tests.git"
+        this.gitTttUtRepo       = "${ispwStream}_${ispwApplication}_Unit_Tests.git"
+        this.gitTttFtRepo       = "${ispwStream}_${ispwApplication}_Functional_Tests.git"
 
-        this.cesTokenId         = params.CES_Token
+        this.cesTokenId         = params.CES_Token       
         this.hciConnId          = params.HCI_Conn_ID
         this.hciTokenId         = params.HCI_Token
         this.ccRepository       = params.CC_repository
     }
+```
 
-    /* A Groovy idiosyncrasy prevents constructors to use methods, therefore class might require an additional "initialize" method to initialize the class */
+## initialize
+
+```groovy
     def initialize()
     {
-        steps.dir(".\\")
+        steps.dir(".\\") 
         {
             steps.deleteDir()
         }
-
-        GitHelper gitHelper     = new GitHelper(steps)
-
-        gitHelper.checkoutPath(gitUrl, configGitBranch, configGitPath, gitCredentials, configGitProject)
 
         setServerConfig()
 
         setTttGitConfig()
 
-        setMailConfig()
+        setMailConfig()    
     }
-    /* Read configuration values from pipeline.config file */
+```
+
+## setServerConfig
+
+```groovy
     def setServerConfig()
     {
         def lineToken
@@ -139,6 +145,9 @@ class PipelineConfig implements Serializable
                 case "SQ_SERVER_URL":
                     sqServerUrl     = parmValue
                     break;
+                case "XA_TESTER_SERVER_URL":
+                    xaTesterUrl     = parmValue
+                    break;
                 case "MF_SOURCE_FOLDER":
                     mfSourceFolder  = parmValue
                     break;
@@ -158,17 +167,22 @@ class PipelineConfig implements Serializable
                     ispwRuntime     = parmValue
                     break;
                 default:
-                    steps.echo "Found unknown Parameter " + parmName + " " + parmValue + "\nWill ignore and continue."
+                    steps.echo "Found unknown Pipeline Parameter " + parmName + " " + parmValue + "\nWill ignore and continue."
                     break;
             }
         }
     }
-    /* Read configuration values from tttgit.config file */
+```
+
+## setTttGitConfig
+
+```groovy
     def setTttGitConfig()
     {
         def lineToken
         def parmName
         def parmValue
+
         def lines = readConfigFile("${tttGitConfigFile}")
 
         lines.each
@@ -182,19 +196,22 @@ class PipelineConfig implements Serializable
                 case "TTT_GIT_TARGET_BRANCH":
                     gitTargetBranch   = parmValue
                     break;
-                case "TTT_GIT_BRANCH":
+                case "TTT_GIT_BRANCH": 
                     gitBranch    = parmValue
                     break;
                 default:
-                    steps.echo "Found unknown Parameter " + parmName + " " + parmValue + "\nWill ignore and continue."
+                    steps.echo "Found unknown TTT Parameter " + parmName + " " + parmValue + "\nWill ignore and continue."
                     break;
             }
         }
     }
+```
 
-    /* Read list of email addresses from config file */
+## setMailConfig
+
+```groovy
     def setMailConfig()
-    {
+    {        
         def lineToken
         def tsoUser
         def emailAddress
@@ -210,14 +227,17 @@ class PipelineConfig implements Serializable
 
         this.mailRecipient  = mailListMap[(ispwOwner.toUpperCase())]
     }
-  
+```
+
+## readConfigFile
+
+```groovy
     def readConfigFile(String fileName)
-    {
-        def filePath = "${workspace}\\${configPath}\\${fileName}"
+    {        
+        def filePath    = "${configPath}/${fileName}"
+        def fileText    = steps.libraryResource filePath
 
-        FileHelper fileHelper = new FileHelper()
-
-        return fileHelper.readLines(filePath)
+        return fileText.tokenize("\n")
     }
 }
 ```

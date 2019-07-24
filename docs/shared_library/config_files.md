@@ -12,8 +12,26 @@ One additional file, containing [email addresses](../tool_configuration/readme.m
 
 ## pipeline.config
 
-The `resources\pipeline\pipeline.config` file contains configuration settings about the 'environment' the Jenkins pipeline is executing in/for, i.e. URLs of servers like SonarQube or XL Release and others. 
+The `resources\pipeline\pipeline.config` file contains configuration settings about the 'environment' the Jenkins pipeline is executing in/for, i.e. URLs of servers like SonarQube or XL Release and others.
+
+```
+SQ_SCANNER_NAME=xxxx 
+SQ_SERVER_NAME=xxxx 
+SQ_SERVER_URL=xxxx
+XA_TESTER_SERVER_URL=xxxx
+MF_SOURCE_FOLDER=xxxx
+XLR_TEMPLATE=xxxx
+XLR_USER=xxxx                           
+TTT_FOLDER=xxxx
+ISPW_URL=xxxx
+ISPW_RUNTIME=xxxx         
+``` 
 
 ## tttgit.config
 
 The example scenarios use GitHub to store Topaz for Total Test unit test projects. The `resources\pipeline\tttgit.config` file stores information on which branch of the repository to use.
+
+```
+TTT_GIT_TARGET_BRANCH=xxx
+TTT_GIT_BRANCH=master
+```

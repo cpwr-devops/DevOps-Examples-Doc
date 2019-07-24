@@ -65,24 +65,22 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 ```
     (root)
-    +- src                                                  # Groovy source files
+    +- src                                                  # (Groovy) source files
     |   +- com
-    |       +- compuware
-    |           +- devops
-    |               +- util                                 # Classes used by the pipelines
+    |   |   +- compuware
+    |   |       +- devops
+    |   |           +- util                                 # Classes used by the pipelines
+    |   |
+    |   +- Jenkinsfile                                      # "simple" example job scripts
+    |   |
+    |   +- misc-examples                                    # non Jenkins related (non Groovy) code examples
     |
     +- vars                                                 # Shared Library Pipeline Examples
     |
     +- resources                                            # Files used by the pipelines
-    |   +- pipeline                                         # Configuration files for pipeline variables
-    |   +- skels                                            # Mainframe JCL "skeleton" files
-    |
-    +- Jenkinsfile                                          # Basic pipeline examples
-    |   +- Mainframe-CI-Example-pipeline.jenkinsfile        # Primary example pipeline (Scripted Pipeline)
-    |   +- JCL_Pipeline_Example.jenkinsfile                 # Example of execution JCL from a pipeline
-    |
-    Other_Examples
-    |   +- ISPW_Operations.ps1                              # Windows powershell script that drives ISPW
+        +- pipeline                                         # Configuration files for pipeline variables
+        |
+        +- skels                                            # Mainframe JCL "skeleton" files
 ```
 
 ## People wanting to contribute
