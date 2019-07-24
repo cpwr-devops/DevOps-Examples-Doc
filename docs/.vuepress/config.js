@@ -96,7 +96,7 @@ module.exports = {
                 'Topaz_cli',
                 'Topaz_Workbench_SDK',
                 'Topaz_API',
-                'Topaz_Workbench_API_Code_Snippets',
+                'Topaz_Workbench_API_Code_snippets',
                 'Passticket'
             ]
           }
