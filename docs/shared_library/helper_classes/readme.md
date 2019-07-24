@@ -135,14 +135,14 @@ Is used for additional initialization which cannot be executed in the constructo
 ### [`setServerConfig()`](.PipelineConfig#setserverconfig) 
 
 Performs the following tasks:
-- reads the pipeline configuration file [`pipeline.config`](./config_files.md#pipeline-config), containing server URLs (e.g. Sonar, XL Release) etc.
+- reads the pipeline configuration file [`pipeline.config`](../config_files.md#pipeline-config), containing server URLs (e.g. Sonar, XL Release) etc.
 - extracts the values for the corresponding parameters
 - sets the parameters
 
 ### [`setTttGitConfig()`](.PipelineConfig#settttgitconfig) 
 
 Performs the following tasks:
-- reads the pipeline configuration file [`tttgit.config`](./config_files.md#tttgit-config), containing information about the GitHub repository storing the Topaz for Total Test projects
+- reads the pipeline configuration file [`tttgit.config`](../config_files.md#tttgit-config), containing information about the GitHub repository storing the Topaz for Total Test projects
 - extracts the values for the corresponding parameters
 - sets the parameters
 
