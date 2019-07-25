@@ -63,12 +63,14 @@ Usually, Jenkins gets installed with [Cross site request forgery Protection](htt
 
 ![CSRF bad response](./images/CSRF_bad_response.png)
 
-It is not recommended to turn the protection off, instead you will need to modify your API call to include a "crumb" header. Here I describe how to determine the header. First make sure that CSRF Protection is turned on, by going to "Manage Jenkins" -> "Configure Global Security" and scrolling down to the CSRF Protection section:
+### Setting CSRF Protection
+It is not recommended to turn the protection off, instead you will need to modify your API call to include a "crumb" header. Here I describe how to determine the header. First make sure that CSRF Protection is turned on, by going to ```Manage Jenkins``` -> ```Configure Global Security``` and scrolling down to the CSRF Protection section:
 
 ![Set CSRF Protection](./images/Set_CSRF_Protection.png)
 
 Make sure, the check box is checked, and the radio button "Default Crumb Issuer" is marked. Next you need to determine the correct crumb to use in your further REST calls. This page explains the details in general.
 
+### Getting the Jenkins crumb
 Use a REST API tool, for example ARC (The Google Advanced Rest Client Plugin to Chrome) to issue the required GET call.
 
 ```http://<jenkins URL>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)```
@@ -83,6 +85,11 @@ Use a REST API tool, for example ARC (The Google Advanced Rest Client Plugin to 
 
 ![No authorization header](./images/No_authorization_header.png)
 
+### Using the Jenkins crumb in a REST call
+To, finally, use the crumb in a REST call, make sure to include the `Jenkins-crumb` header, as well as the `authorization` header from above. From ARC this looks like the following:
+
+![CSRF_Using_Crumb](./images/CSRF_Using_Crumb.png)
+
 ## Managed Files
 
 The option `Manage Jenkins` -> `Managed Files` will be available after installation of the [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) plugin. The examples make use of configuration files handled and stored by this plugin. Especially this will be a list of TSO user IDs and [corresponding mail addresses](../shared_library/Config_files.md). Over time other configuration files will use the same technology.
@@ -95,7 +102,7 @@ Configuration files used in the examples are plain text files. Therefore, chose 
 
 After `submitting` specify a file name to use and start filling the file with content. 
 
-## The email list
+### The email list
 
 The example mail list file uses a file name of `mailList.config` and pairs of `<TSO User ID>:<mailaddress>`, each on a separate line. The TSO user IDs used in this file correspond to the ISPW owner values passed by the [ISPW webhooks](./webhook_setup.md).
 
