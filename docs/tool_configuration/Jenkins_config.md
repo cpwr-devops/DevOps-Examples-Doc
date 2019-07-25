@@ -63,12 +63,14 @@ Usually, Jenkins gets installed with [Cross site request forgery Protection](htt
 
 ![CSRF bad response](./images/CSRF_bad_response.png)
 
+### Setting CSRF Protection
 It is not recommended to turn the protection off, instead you will need to modify your API call to include a "crumb" header. Here I describe how to determine the header. First make sure that CSRF Protection is turned on, by going to ```Manage Jenkins``` -> ```Configure Global Security``` and scrolling down to the CSRF Protection section:
 
 ![Set CSRF Protection](./images/Set_CSRF_Protection.png)
 
 Make sure, the check box is checked, and the radio button "Default Crumb Issuer" is marked. Next you need to determine the correct crumb to use in your further REST calls. This page explains the details in general.
 
+### Getting the Jenkins crumb
 Use a REST API tool, for example ARC (The Google Advanced Rest Client Plugin to Chrome) to issue the required GET call.
 
 ```http://<jenkins URL>/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,":",//crumb)```
@@ -82,6 +84,11 @@ Use a REST API tool, for example ARC (The Google Advanced Rest Client Plugin to 
 **Otherwise you will not be allowed to retrieve the crumb:**
 
 ![No authorization header](./images/No_authorization_header.png)
+
+### Using the Jenkins crumb in a REST call
+To, finally, use the crumb in a REST call, make sure to include the `Jenkins-crumb` header, as well as the `authorization` header from above. From ARC this looks like the following:
+
+![CSRF_Using_Crumb](./images/CSRF_Using_Crumb.png)
 
 ## Managed Files
 
