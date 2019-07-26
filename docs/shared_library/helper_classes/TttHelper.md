@@ -148,3 +148,21 @@ class TttHelper implements Serializable {
     }
 }
 ```
+
+### cleanUpCodeCoverageResults
+
+```groovy
+    def cleanUpCodeCoverageResults()
+    {
+        int testId = Integer.parseInt(script.BUILD_NUMBER) - 1
+
+        steps.echo "Cleaning up Code Coverage results from previous job execution"
+        steps.echo "Determined Test ID " + testId
+
+        def cleanupJcl = jclSkeleton.createCleanUpCcRepo(pConfig.ispwApplication, testId.toString())
+
+        steps.topazSubmitFreeFormJcl connectionId:  pConfig.hciConnId, 
+            credentialsId:                          pConfig.hciTokenId, 
+            jcl:                                    cleanupJcl, 
+            maxConditionCode:                       '8'
+    }

@@ -83,7 +83,8 @@ The constructor  receives the `steps` from the pipeline to allow use of pipeline
 
 Is used for additional initialization which cannot be executed in the constructor and it:
   - reads the `JobCard.jcl` skeleton file
-  - reads the `deleteDs.skel` skeleton file  
+  - reads the `deleteDs.skel` skeleton file
+  - reads the `cleanUpCcRepo.skel` skeleton file  
   - initializes the `IEBCOPY` `JCL` by using the [`buildIebcopySkel`](#buildiebcopyskel) method.
 
 ### [`buildIebcopySkel()`](./JclSkeleton.md#buildiebcopyskel)
@@ -97,17 +98,36 @@ Initializes the `IEBCOPY` `JCL` by
 ### [`createIebcopyCopyBooksJcl(String targetDsn, List copyMembers)`](./JclSkeleton.md#createiebcopycopybooksjcl)
 
 Receives the target DSN for the `IEBCOPY` job in `targetDsn` and the list of required copybooks in `copyMembers` and
-  - places the `job card` from `initialize` in front of the `JCL` code
   - builds a `SELECT MEMBER=` card for each entry in `copyMembers`
-  - replaces the placeholders in the skeleton `JCL` by the concrete values
-  - returns the resulting `JCL`code 
+  - Uses method `buildFinalJcl` to build the final `JCL` passing
+    - the `jobCardJcl` from `initialize`
+    - the `iebcopyCopyBooksJclSkel` built previously in `initialize`
+    - a map array of parameter markers and values
+  - returns the resulting `JCL` code 
 
 ### [`createDeleteTempDsn(String targetDsn)`](./JclSkeleton.md#createdeletetempdsn)
 
-Receives the target DSN for the `DELETE` job in `targetDsn` and places the `job card` from `initialize` in front of the `JCL` code
-  - adds the `DELETE` skeleton code
-  - replaces the placeholders in the skeleton `JCL` by the concrete values
-  - returns the resulting `JCL`code
+Receives the target DSN for the `DELETE` job in `targetDsn` and
+  - Uses method `buildFinalJcl` to build the final `JCL` passing
+    - the `jobCardJcl` from `initialize`
+    - the `cleanUpDatasetJclSkel` built previously in `initialize`
+    - a map array of parameter markers and values
+  - returns the resulting `JCL` code 
+
+### [`createCleanUpCcRepo()`](./JclSkeleton.md#createcleanupccrepo)
+
+  - Uses method `buildFinalJcl` to build the final `JCL` passing
+    - the `jobCardJcl` from `initialize`
+    - the `cleanUpCcRepoJclSkel` built previously in `initialize`
+    - a map array of parameter markers and values
+  - returns the resulting `JCL` code 
+
+### [`buildFinalJcl(jobCard, jclSkel, parametersMap)`](./JclSkeleton.md#buildfinaljcl)
+
+Receives a `jobCard`, a `jclSkel` skeleton JCL, a parameter map `parametersMap` and
+  - places the `jobCard` in front of the `jclSkel` test
+  - for each element in `parametersMap` replaces the corresponding parameter marker stored in `parmName` by the corresponding value stored in `parmValue`
+  - returns the resulting `JCL` code
 
 ### [`readSkelFile(String fileName)`](./JclSkeleton.md#readskelfile)
 
@@ -243,3 +263,7 @@ Uses the JUnit plugin to display the unit test results on the pipeline dashboard
 ### [`collectCodeCoverageResults()`](./TttHelper.md#collectcodecoverageresults) 
 
 Uses the Xpediter Code Coverage plugin to retrieve code coverage results from the Xpediter Code Coverage repository.
+
+### [`cleanUpCodeCoverageResults()`](./TttHelper.md#cleanupcodecoverageresults)
+
+Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.

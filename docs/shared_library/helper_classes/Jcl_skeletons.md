@@ -68,3 +68,23 @@ The placeholders are:
 
 - `<ispw_application>` will be replaced by the ISPW application being passed to the pipeline.
 - `<ispw_path>` will be replaced by the path through the life cycle to be used.
+
+## Cleaning up a Code Coverage repository
+
+The purpose of this JCL skeleton is to delete all System and Test ID statistics from a Code Coverage repository.
+
+```
+//DELETE  EXEC PGM=XVTTADEL                        
+//STEPLIB  DD  DISP=SHR,DSN=SYS2.CW.&CWGAXV..SLXVLOAD
+//XCOVER   DD  DISP=SHR,DSN=HDDRXM0.DEMO.COCO.REPOS
+//SYSPRINT DD  SYSOUT=A                            
+//SYSOUT   DD  DUMMY                               
+//SYSABEND DD  SYSOUT=A                            
+//SYSIN    DD  *                                   
+  DELETE TYPE=C SYS='<cc_sysname>' TESTID='<cc_test_id>'
+```
+
+The placeholders are:
+
+- `<cc_sysname>` will be replaced by a Code Coverage system name
+- `cc_test_id>` will be replaced Code Coverage Test ID

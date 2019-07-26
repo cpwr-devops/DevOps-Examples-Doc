@@ -17,12 +17,14 @@ class JclSkeleton implements Serializable {
     private String iebcopySkel      = 'iebcopy.skel'
     private String iebcopyInDdSkel  = 'iebcopyInDd.skel'
     private String deleteDsSkel     = 'deleteDs.skel'
+    private String cleanUpCcRepoSkel    = 'cleanUpCcRepo.skel'
 
     private String workspace
 
     String jobCardJcl
     String iebcopyCopyBooksJclSkel
     String cleanUpDatasetJclSkel
+    String cleanUpCcRepoJclSkel
     String ispwApplication
     String ispwPathNum
 ```
@@ -49,6 +51,8 @@ class JclSkeleton implements Serializable {
         this.cleanUpDatasetJclSkel      = readSkelFile(deleteDsSkel).join("\n")
 
         this.iebcopyCopyBooksJclSkel    = buildIebcopySkel()
+
+        this.cleanUpCcRepoJclSkel       = readSkelFile(cleanUpCcRepoSkel).join("\n")
     }
 ```
 
@@ -89,21 +93,30 @@ class JclSkeleton implements Serializable {
     def String createIebcopyCopyBooksJcl(String targetDsn, List copyMembers)
     {
 
-        def iebcopyCopyBooksJcl = this.jobCardJcl
         def selectStatements    = []
 
-        copyMembers.each {
+        copyMembers.each 
+        {
             selectStatements.add("  SELECT MEMBER=${it}")
         }
 
         def selectJcl       = selectStatements.join("\n")  
 
-        iebcopyCopyBooksJcl = iebcopyCopyBooksJcl + "\n" + iebcopyCopyBooksJclSkel
-        iebcopyCopyBooksJcl = iebcopyCopyBooksJcl.replace("<target_dsn>", targetDsn)
-        iebcopyCopyBooksJcl = iebcopyCopyBooksJcl.replace("<select_list>",selectJcl)
-
+        def iebcopyCopyBooksJcl =   buildFinalJcl(jobCardJcl,
+                                        iebcopyCopyBooksJclSkel,
+                                        [
+                                            [
+                                                parmName:   "<target_dsn>",
+                                                parmValue:  targetDsn
+                                            ],
+                                            [
+                                                parmName:   "<select_list>",
+                                                parmValue:  selectJcl
+                                            ]
+                                        ]
+                                    )
+                                    
         return iebcopyCopyBooksJcl
-
     }
 ```
 
@@ -112,12 +125,59 @@ class JclSkeleton implements Serializable {
 ```groovy
     def String createDeleteTempDsn(String targetDsn)
     {
-        def deleteJcl   = jobCardJcl
-
-        deleteJcl       = deleteJcl + "\n" + cleanUpDatasetJclSkel
-        deleteJcl       = deleteJcl.replace("<clean_dsn>", targetDsn)
+        def deleteJcl   =   buildFinalJcl(jobCardJcl, 
+                                cleanUpDatasetJclSkel,
+                                [
+                                    [
+                                        parmName:      "<clean_dsn>", 
+                                        parmValue:     targetDsn
+                                    ]
+                                ]
+                            )
 
         return deleteJcl
+    }
+```
+
+## createCleanUpCcRepo
+
+```groovy
+    def String createCleanUpCcRepo(String systemName, String testId)
+    {
+        def cleanUpJcl  =   buildFinalJcl(jobCardJcl, 
+                                cleanUpCcRepoJclSkel,
+                                [
+                                    [
+                                        parmName:      "<cc_sysname>", 
+                                        parmValue:     systemName
+                                    ],
+                                    [
+                                        parmName:      "<cc_test_id>", 
+                                        parmValue:     testId                                    
+                                    ]
+                                ]
+                            )
+
+        return cleanUpJcl
+    }
+```
+
+## buildFinalJcl
+
+```groovy
+    private String buildFinalJcl(jobCard, jclSkel, parametersMap)
+    {
+        String finalJcl
+
+        finalJcl    = jobCard
+        finalJcl    = finalJcl + "\n" + jclSkel
+
+        parametersMap.each
+        {
+            finalJcl    = finalJcl.replace(it.parmName, it.parmValue)
+        }
+
+        return finalJcl
     }
 ```
 

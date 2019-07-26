@@ -120,6 +120,7 @@ def call(Map pipelineParams)
     - `IspwHelper` serving as a wrapper for use of the ISPW plugins' methods
     - `TttHelper` serving as a wrapper for use of the TTT plugin's and Code Coverage plugin's methods
     - `SonarHelper` serving as a wrapper for use of the Sonar plugins' methods
+    - `XlrHelper` serving as a wrapper for use of the XL Release plugin
 
 ```groovy
         initialize(pipelineParams)
@@ -131,16 +132,10 @@ def call(Map pipelineParams)
         stage("Retrieve Mainframe Code")
         {
             ispwHelper.downloadSources()
-```
-
-4. Not always will all required COBOL copybooks be part of an ISPW assignment or set. In order to retrieve any missing copybooks, the next stage will use the `downloadCopyBooks` method of class `ispwHelper` to determine all required copybooks and download them from the mainframe
-
-```groovy
-            ispwHelper.downloadCopyBooks("${workspace}")
         }
 ```
 
-5. Use the `checkout` method of the `gitHelper`class to clone the Git repository for the ISPW application.  
+4. Use the `checkout` method of the `gitHelper`class to clone the Git repository for the ISPW application.  
 
 ```groovy
         stage("Execute Unit Tests")
@@ -150,16 +145,20 @@ def call(Map pipelineParams)
             gitHelper.checkout(gitUrlFullPath, pConfig.gitBranch, pConfig.gitCredentials, pConfig.tttFolder)
 ```
 
-6. Initialize the `TttHelper` instance, loop through the downloaded Topaz for Total Test scenarios, and pass the results to JUnit (within Jenkins) using the methods `initialize`, `loopThruScenarios`, and `passResultsToJunit` of the `TttHelper` class, respectively.
+5. Initialize the `TttHelper` instance, clean up statistics in the Code Coverage repository from the previous build (job execution), loop through the downloaded Topaz for Total Test scenarios, and pass the results to JUnit (within Jenkins) using the methods `initialize`, `cleanUpCodeCoverageResults`, `loopThruScenarios`, and `passResultsToJunit` of the `TttHelper` class, respectively.
 
 ```groovy
             tttHelper.initialize()
+
+            tttHelper.cleanUpCodeCoverageResults()
+
             tttHelper.loopThruScenarios()
+
             tttHelper.passResultsToJunit()
         }
 ```
 
-7. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coveragre metrics from the Xpediter Code Coverage repository
+6. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coveragre metrics from the Xpediter Code Coverage repository
 
 ```groovy
         stage("Collect Metrics")
@@ -168,66 +167,72 @@ def call(Map pipelineParams)
         }
 ```
 
-8. Use the `scan` method of the `SonarHelper` class to pass downloaded COBOL sources, the results of the unit tests, and code coverage metrics to SonarQube
+7. Not always will all required COBOL copybooks be part of an ISPW assignment or set. In order to retrieve any missing copybooks, the next stage will first use the `downloadCopyBooks` method of class `ispwHelper` to determine all required copybooks and download them from the mainframe
 
 ```groovy
         stage("Check SonarQube Quality Gate")
         {
+            ispwHelper.downloadCopyBooks("${workspace}")
+```
+
+8. The it will use the `scan` method of the `SonarHelper` class to pass downloaded COBOL sources, the results of the unit tests, and code coverage metrics to SonarQube
+
+```groovy
             sonarHelper.scan()
 ```
 
-9. Query the resulting Sonar quality gate, by registering a Sonar Webhook call back, if the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote -, and the pipeline job will be aborted
+9. And use the `sonarHelper.checkQualityGate` of the `sonarHelper.checkQualityGate` class to query the resulting Sonar quality gate. If the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote -, and the pipeline job will be aborted.
 
 ```groovy
-            timeout(time: 2, unit: 'MINUTES') {
+            String sonarGateResult = sonarHelper.checkQualityGate()
 
-                def sonarGate = waitForQualityGate()
+            if (sonarGateResult != 'OK')
+            {
+                echo "Sonar quality gate failure: ${sonarGate.status}"
+                echo "Pipeline will be aborted and ISPW Assignment will be regressed"
 
-                if (sonarGate.status != 'OK')
-                {
-                    echo "Sonar quality gate failure: ${sonarGate.status}"
-                    echo "Pipeline will be aborted and ISPW Assignment will be regressed"
+                mailMessageExtension    = "Generated code failed the Quality gate. Review Logs and apply corrections as indicated."
+                currentBuild.result     = "FAILURE"
 
-                    currentBuild.result = "FAILURE"
+                emailext subject:       '$DEFAULT_SUBJECT',
+                            body:       '$DEFAULT_CONTENT',
+                            replyTo:    '$DEFAULT_REPLYTO',
+                            to:         "${pConfig.mailRecipient}"
+                
+                error "Exiting Pipeline" 
+            }
+```
 
-                    emailext subject:       '$DEFAULT_SUBJECT',
-                                body:       '$DEFAULT_CONTENT',
-                                replyTo:    '$DEFAULT_REPLYTO',
-                                to:         "${pConfig.mailRecipient}"
+10. Otherwise a mail message will be prepared, informing the owner of the success.
 
-                    withCredentials([string(credentialsId: pConfig.cesTokenId, variable: 'cesTokenClear')])
-                    {
-                        ispwHelper.regressAssignment(pConfig.ispwAssignment, cesTokenClear)
-                    }
-
-                    error "Exiting Pipeline" 
-                }
+```groovy
+            else
+            {
+                mailMessageExtension = "Generated code passed the Quality gate. XL Release will be started."
             }
         }
 ```
 
-10. If the quality gate passes an XL Release template will be triggered - using the XL Release plugin - to execute CD stages beyond the Jenkins pipeline, and an email will be sent to the owner of the ISPW set - notifying them about the success of the promote
+11. If the quality gate passes an XL Release template will be triggered - using `trggerRelease` method of the `XlrHelper` class. 
 
 ```groovy
         stage("Start release in XL Release")
         {
-            xlrCreateRelease(
-                releaseTitle:       'A Release for $BUILD_TAG',
-                serverCredentials:  "${pConfig.xlrUser}",
-                startRelease:       true,
-                template:           "${pConfig.xlrTemplate}",
-                variables:          [
-                                        [propertyName:  'ISPW_Dev_level',   propertyValue: "${pConfig.ispwTargetLevel}"],
-                                        [propertyName:  'ISPW_RELEASE_ID',  propertyValue: "${pConfig.ispwRelease}"],
-                                        [propertyName:  'CES_Token',        propertyValue: "${pConfig.cesTokenId}"]
-                                    ]
-            )
+            xlrHelper.triggerRelease()            
+        }
+```
 
+12. An email will be sent to the owner of the ISPW set - notifying them about the success of the promote
+```groovy
+        stage("Send Mail")
+        {
+            // Send Standard Email
             emailext subject:       '$DEFAULT_SUBJECT',
-                        body:       '$DEFAULT_CONTENT \n' + 'Promote passed the Quality gate and a new XL Release was started.',
+                        body:       '$DEFAULT_CONTENT \n' + mailMessageExtension,
                         replyTo:    '$DEFAULT_REPLYTO',
                         to:         "${pConfig.mailRecipient}"
-        }
+
+        } 
     }
 }
 ```
