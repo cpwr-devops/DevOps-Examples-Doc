@@ -3,7 +3,7 @@ title: Basic Pipeline Example
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Basic CI Pipeline
-This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipeline_scenario/pipelines.md):
+This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipelines/basic_scenario.md):
 - Retrieve the mainframe code from ISPW for later analysis by SonarQube
 - Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
 - Execute those test scenarios that belong to the COBOL programs that have been promoted
@@ -36,7 +36,7 @@ ISPW_Container |  | ISPW Set ID
 ISPW_Container_Type | 2 | ISPW Container Type (0. - assignment, 1. - release, 2. - set)
 ISPW_Owner | | ISPW Owner User ID
 
-The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](../shared_library/pipeline_parameters.md).
+The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](../advanced_pipelines/parameters.md).
 
 Name | Description
 ---- | -----------

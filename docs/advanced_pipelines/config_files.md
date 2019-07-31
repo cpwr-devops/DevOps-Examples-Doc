@@ -1,10 +1,10 @@
 ---
-title: Shared Library Configuration Files
+title: Configuration Files
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Configuration Files
 
-The [Mainframe_CI_Pipeline_from_Shared_Lib](./Mainframe_CI_Pipeline_from_Shared_Lib.md) uses two external files, storing configuration on the environment it is running in. Using Shared Library conventions, they reside in the `resources` folder of the Shared Library folder structure. There are two files stored in the subfolder `pipeline`. These two files will get read during initialization of the `PipelineConfig` class. For a detailed description of the parameters refer to [the pipeline parameters](./pipeline_parameters.md).
+The [Mainframe_CI_Pipeline_from_Shared_Lib](./readme.md#mainframe-ci-pipeline-from-shared-lib) uses two external files, storing configuration on the environment it is running in. Using Shared Library conventions, they reside in the `resources` folder of the Shared Library folder structure. There are two files stored in the subfolder `pipeline`. These two files will get read during initialization of the `PipelineConfig` class. For a detailed description of the parameters refer to [the pipeline parameters](./parameters.md).
 
 The values are stored as `parameter=value` pairs in records. Each record contains one pair. The parameter names must remain as they are. The values are processed a entered (trailing blanks will be ignored).
 

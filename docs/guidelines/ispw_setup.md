@@ -13,9 +13,9 @@ Both scenarios handled by the two primary pipelines work on Compuware's demonstr
 
 In ISPW the developer checks out a few components to a new or existing assignment. Depending on the pipeline being used:
 
-- [Mainframe-CI-Example-pipeline](../pipelines/Mainframe-CI-Example-pipeline.md)
+- [Mainframe-CI-Example-pipeline](../pipelines/basic_example_pipeline.md)
 The developer has to check out all related copybooks for the final analysis in SonarQube to work. This is issue will be handled differently by the second pipeline
-- [Mainframe_CI_Pipeline_from_Shared_Lib](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md)
+- [Mainframe_CI_Pipeline_from_Shared_Lib](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib)
 The developer may check out any component. Missing copybooks will be determined and gathered in one of the pipeline steps.
 
 They check out the following components

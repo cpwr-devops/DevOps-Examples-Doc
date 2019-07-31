@@ -5,88 +5,163 @@ module.exports = {
   themeConfig: {
     logo: 'compuware_logo.png',
     //displayAllHeaders: true,
-    sidebarDepth: 2,
-    nav: [
-      { text: 'Pipelines',
-        items: [
-          { text: 'Getting started',
-          link: '/pipelines/'
+    sidebarDepth: 1,
+    nav: 
+    [
+      { 
+        text: 'Pipelines',
+        items: 
+        [
+          { 
+            text: 'Getting Started',
+            items: 
+            [
+              { 
+                text: 'Getting started',
+                link: '/pipelines/'
+              },
+              { 
+                text: 'Basic Pipeline Scenario',
+                link: '/pipelines/basic_scenario'
+              },
+              { 
+                text: 'Basic Pipeline Example',
+                link: '/pipelines/basic_example_pipeline'
+              }
+            ]
           },
-          { text: 'Basic Pipeline Example',
-          link: '/pipelines/Mainframe-CI-Example-pipeline'
+          { 
+            text: 'Pipeline Snippets',
+            items: 
+            [
+              { 
+                text: 'All Snippets',
+                link: '/pipeline_snippets/'
+              },
+              { 
+                text: 'Pushing test results to GitHub',
+                link: '/pipeline_snippets/push_ttt_results_to_git'
+              }
+            ]
           },
-          { text: 'Groovy Tips',
-          link: '/pipelines/Jenkins_Groovy'
-          },
-          { text: '----------------------',
-            link: ''
-          },
-          { text: 'Shared Library Example',
-            link: '/shared_library/Mainframe_CI_Pipeline_from_Shared_Lib'
+          { 
+            text: 'Advanced Pipelines',
+            items: 
+            [
+              { 
+                text: 'Elaborate Scenario',
+                link: '/advanced_pipelines/elaborate_scenario'
+              },
+              { 
+                text: 'Shared Library Examples',
+                link: '/advanced_pipelines/'
+              }
+            ]
           }
         ]
       },
-      { text: 'Scenarios',
-        items: [
-          { text: 'Basic Scenario',
-          link: '/pipeline_scenario/'
+      { 
+        text: 'Configuration',
+        items: 
+        [
+          {
+            text: 'Jenkins',
+            items:
+            [
+              { 
+                text: 'Introduction to Jenkins Plugins',
+                link: '/tool_configuration/plugins'
+              },
+              { 
+                text: 'Jenkins Configuration',
+                link: '/tool_configuration/Jenkins_config'
+              },
+              { 
+                text: 'Using Jenkins Plugins',
+                link: '/tool_configuration/jenkins_usage'
+              },
+              { 
+                text: 'Tool Configurations',
+                link: '/tool_configuration/'
+              }
+            ]
           },
-          { text: 'Elaborate Scenarios',
-          link: '/pipeline_scenario/Elaborate_scenario'
-          },
-          { text: 'ISPW Setup',
-          link: '/pipeline_scenario/ISPW_setup'
-          },
-          { text: 'Unit Test Setup',
-          link: '/pipeline_scenario/TTT_scenario'
-          },
-          { text: 'Functional Test Setup',
-          link: '/pipeline_scenario/TTT_FT_scenario'
-          },
-          { text: 'Advanced Scenarios',
-          link: '/pipeline_scenario/push_ttt_results_to_git'
-          },            
-        ]
-      },  
-      { text: 'Configuration',
-        items: [
-          { text: 'Introduction to Jenkins Plugins',
-            link: '/tool_configuration/plugins'
-          },
-          { text: 'Jenkins Configuration',
-            link: '/tool_configuration/Jenkins_config'
-          },
-          { text: 'Using Jenkins Plugins',
-            link: '/tool_configuration/jenkins_usage'
-          },
-          { text: 'Tool Configurations',
-            link: '/tool_configuration/'
-          },
-          { text: 'CES Webhook Configuration',
-            link: '/tool_configuration/webhook_setup'
-          },
-          { text: 'CES Access Token Configuration',
-            link: '/tool_configuration/CES_credentials_token'
+          { 
+            text: 'Compuware',
+            items:
+            [
+              { 
+                text: 'CES Webhook Configuration',
+                link: '/tool_configuration/webhook_setup'
+              },
+              { 
+                text: 'CES Access Token Configuration',
+                link: '/tool_configuration/CES_credentials_token'
+              }
+            ]
           }
         ] 
       },
-      { text: 'APIs',
-        items: [
+      { 
+        text: 'Guidelines',
+        items: 
+        [
+          { 
+            text: 'ISPW Setup',
+            link: '/guidelines/ispw_setup'
+          },
+          { 
+            text: 'Unit Test Setup',
+            link: '/guidelines/ttt_scenario'
+          },
+          { 
+            text: 'Functional Test Setup',
+            link: '/guidelines/ttt_ft_scenario'
+          },
+          { 
+            text: 'SonarLint and ISPW',
+            link: '/guidelines/ispw_projects' 
+          },
+          { 
+            text: 'Groovy Tipps',
+            link: '/guidelines/jenkins_groovy' 
+          }
+        ]
+      },  
+      { 
+        text: 'APIs',
+        items: 
+        [
           {
-          text: 'Rest API',
-          link: '/code_examples/Rest_api'
+            text: 'APIs',
+            items: 
+            [
+              {
+                text: 'Rest API',
+                link: '/apis/rest_api'
+              },
+              { 
+                text: 'Topaz CLI',
+                link: '/apis/topaz_cli'
+              },
+              { 
+                text: 'Topaz Workbench SDK',
+                link: '/apis/topaz_workbench_sdk'
+              },
+              { 
+                text: 'Topaz Java API',
+                link: '/apis/topaz_api'
+              },
+            ]
           },
-          { text: 'Topaz CLI',
-            link: '/code_examples/Topaz_cli'
-          },
-          { text: 'Topaz Workbench SDK',
-          link: '/code_examples/Topaz_Workbench_SDK'
-          },
-          { text: 'Topaz Java API',
-            link: '/code_examples/Topaz_API'
-          },
-          { text: 'Developing a Topaz Workbench PassTicket Extension',
-          link: '/code_examples/Passticket'
+          {
+            text: 'Use cases',
+            items: [
+              { 
+                text: 'Developing a Topaz Workbench Passticket Extension',            
+                link: '/apis/passticket'
+              }
+            ]
           }
         ] 
       }
@@ -94,21 +169,28 @@ module.exports = {
     sidebar: {
       '/pipelines/': [
         '',  
-        'Mainframe-CI-Example-pipeline',
-        'Jenkins_Groovy'
+        'basic_scenario',
+        'basic_example_pipeline'
       ],
-      '/pipeline_scenario/': [ 
-        '',
-        'Elaborate_scenario',
-        'ISPW_setup',
-        'TTT_scenario',
-        'TTT_FT_scenario',
-        'push_ttt_results_to_git'              
+      '/guidelines/': [ 
+        'ispw_setup',
+        'ttt_scenario',
+        'ttt_ft_scenario',
+        'ispw_projects',
+        'jenkins_groovy'
       ],            
-      '/shared_library/': [ 
-        'Mainframe_CI_Pipeline_from_Shared_Lib',
+      '/advanced_pipelines/': [ 
+        '',
+        'setup',
+        'steps',
         'config_files',
+        'parameters',
+        'elaborate_scenario',        
         'helper_classes/'
+      ],
+      '/pipeline_snippets/': [ 
+        '',
+        'push_ttt_results_to_git'
       ],
       '/tool_configuration/': [
         'plugins',
@@ -118,13 +200,13 @@ module.exports = {
         'webhook_setup',
         'CES_credentials_token'
       ],
-      '/code_examples/': [
-          'Rest_api',
-          'Topaz_cli',
-          'Topaz_Workbench_SDK',
-          'Topaz_API',
-          'Topaz_Workbench_API_Code_snippets',
-          'Passticket'
+      '/apis/': [
+          'rest_api',
+          'topaz_cli',
+          'topaz_workbench_sdk',
+          'topaz_api',
+          'topaz_workbench_api_code_snippets',
+          'passticket'
       ]
     }
   }

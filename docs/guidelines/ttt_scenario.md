@@ -39,7 +39,7 @@ In order to map Topaz for Total Test project assets, stored in Git, to program c
     - `.testscenario` for test scenarios
     - `.testsuite` for test suites
 
-The [Git repository](./TTT_in_Git) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
+The [Git repository](./ttt_in_git) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
 
 ## The Topaz for Total Test project structure
 
@@ -92,10 +92,6 @@ New test cases may be added to an existing test scenario by duplicating existing
 
 ## Storing the Topaz for Total Test project in Git/GitHub
 
-The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is [storing these projects in Git/GitHub repositories.](./TTT_in_Git.html)
+The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is [storing these projects in Git/GitHub repositories.](./ttt_in_git.md)
 
 ![TTT in Git](./images/TTT_in_Git_and_GitHub.png)
-
-## Next Steps
-
-- [Building a Pipeline](../pipelines/readme.md) for a list and description of plugins that are used within the examples

@@ -37,7 +37,7 @@ downloads all COBOL sources and copybooks for the ISPW stream, application and l
 
 ### [`downloadSources()`](./IspwHelper.md#downloadsources) 
 
-downloads all sources (COBOL programs and copybooks) contained in the [ISPW set](../../pipeline_scenario/readme.md) triggering the pipeline.
+downloads all sources (COBOL programs and copybooks) contained in the [ISPW set](../../pipelines/basic_scenario.md) triggering the pipeline.
 
 ### [`downloadCopyBooks(String workspace)`](./IspwHelper.md#downloadcopybooks) 
 
@@ -76,7 +76,7 @@ The [JclSkeleton](./JclSkeleton.md) class allows the pipelines to customize piec
 
 ### [`JclSkeleton(steps, String workspace, String ispwApplication, String ispwPathNum)`](./JclSkeleton.md#jclskeleton)
 
-The constructor  receives the `steps` from the pipeline to allow use of pipeline step within the class code, the path to the pipeline `workpace`, the name of the ISPW application in `ispwApplication` and the [number of the development path](../../pipeline_scenario/TTT_scenario.md) in `pathNum`.
+The constructor  receives the `steps` from the pipeline to allow use of pipeline step within the class code, the path to the pipeline `workpace`, the name of the ISPW application in `ispwApplication` and the [number of the development path](../../guidelines/ttt_scenario.md) in `pathNum`.
 
 
 ### [`initialize()`](./JclSkeleton.md#initialize) 
@@ -137,11 +137,11 @@ Receives a `fileName` and
 
 ## PipelineConfig
 
-The [PipelineConfig](./PipelineConfig.md) class stores and allows retrieval of any pipeline [configuration and runtime specific parameters](../pipeline_parameters.md).
+The [PipelineConfig](./PipelineConfig.md) class stores and allows retrieval of any pipeline [configuration and runtime specific parameters](../parameters.md).
 
 ### [`PipelineConfig(steps, workspace, params, mailListLines)`](./PipelineConfig.md#pipelineconfig)
 
-The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code, the path of the pipeline `workspace` the `Map` `params` containing the `key:value` parameter pairs from the [pipeline call](../Mainframe_CI_Pipeline_from_Shared_Lib.md), and a the list of records from the [`mailList.config` file](../../tool_configuration/readme.md) and initializes all parameters that can be initialized immediately.
+The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code, the path of the pipeline `workspace` the `Map` `params` containing the `key:value` parameter pairs from the [pipeline call](../readme.md#mainframe-ci-pipeline-from-shared-lib), and a the list of records from the [`mailList.config` file](../../tool_configuration/readme.md) and initializes all parameters that can be initialized immediately.
 
 ### [`initialize()`](.PipelineConfig#initialize) 
 

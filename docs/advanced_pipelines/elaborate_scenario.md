@@ -10,10 +10,10 @@ In a more elaborate scenario the there are several stages at which Jenkins jobs 
 In Topaz a developer [checks out a set of sources, copybooks and other components](./) required to fulfill a specific requirement.
 
 ## Step 2 -  Creating/Maintaining Unit Tests
-In Topaz [Topaz for Total Test](./TTT_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
+In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
 
 ## Step 2a - Creating/Maintaining Functional Tests
-In Topaz [Topaz for Total Test](./TTT_scenario.md) the developer or a QA person creates or modifies a set of functional tests for the application. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are also stored and administered using Git/GitHub.
+In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer or a QA person creates or modifies a set of functional tests for the application. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are also stored and administered using Git/GitHub.
 
 ## Step 3 - Mainframe Generate
 Once the code has been changed, the developer generates (compile, link, etc.) their code within ISPW. This generate (the corresponding *set container* in ISPW) will trigger the first Jenkins job via an ISPW webhhook [Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy)) which runs the following process of 
@@ -45,4 +45,4 @@ Once the developer thinks they are done with development and unit testing they p
     - sending mail messages informing the developer about the status of the quality gate
 
 ## The two Jenkins jobs
-The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md). They require the [same parameters](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.html#loading-the-script-from-a-shared-library) to be defined and passed into the job as this jobs.
+The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](./readme.md#mainframe-ci-pipeline-from-shared-lib). They require the [same parameters](../advanced_pipelines/setup.md#loading-the-script-from-a-shared-library) to be defined and passed into the job as this jobs.
