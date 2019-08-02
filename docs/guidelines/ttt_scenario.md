@@ -92,6 +92,6 @@ New test cases may be added to an existing test scenario by duplicating existing
 
 ## Storing the Topaz for Total Test project in Git/GitHub
 
-The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is [storing these projects in Git/GitHub repositories.](./ttt_in_git.md)
+The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is storing these projects in Git/GitHub repositories.
 
 ![TTT in Git](./images/TTT_in_Git_and_GitHub.png)
