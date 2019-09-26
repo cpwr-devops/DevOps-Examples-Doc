@@ -100,5 +100,51 @@ module.exports = {
                 'Passticket'
             ]
           }
+        ] 
+      }
+    ],
+    sidebar: {
+      '/pipelines/': [
+        '',  
+        'basic_scenario',
+        'basic_example_pipeline'
+      ],
+      '/guidelines/': [ 
+        'ispw_setup',
+        'ttt_scenario',
+        'ttt_ft_scenario',
+        'ispw_projects',
+        'jenkins_groovy'
+      ],            
+      '/advanced_pipelines/': [ 
+        '',
+        'setup',
+        'steps',
+        'config_files',
+        'parameters',
+        'elaborate_scenario',        
+        'helper_classes/'
+      ],
+      '/pipeline_snippets/': [ 
+        '',
+        'push_ttt_results_to_git'
+      ],
+      '/tool_configuration/': [
+        'plugins',
+        'Jenkins_config',
+        'jenkins_usage',
+        '',      //configurations
+        'webhook_setup',
+        'CES_credentials_token'
+      ],
+      '/apis/': [
+          'rest_api',
+          'topaz_cli',
+          'topaz_workbench_sdk',
+          'topaz_api',
+          'topaz_workbench_api_code_snippets',
+          'passticket'
+      ]
     }
   }
+}

@@ -17,17 +17,18 @@ The pages contains example code and documentation on:
 - code snippets for specific tasks and purposes outside the general purpose
 
 ::: warning
-The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements.
+The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements. 
 :::
 
 ## Pipeline examples
 
 We have published several examples of "complete" pipelines which show partly different process steps and different techniques in Jenkins.
 
-- [Mainframe-CI-Example-pipeline](./Mainframe-CI-Example-pipeline.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - is a scripted pipeline using parameters.  This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best approach to scale a pipelines across your enterprise.
-- [Mainframe_CI_Pipeline_from_Shared_Lib](../shared_library/Mainframe_CI_Pipeline_from_Shared_Lib.md) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference a steps.  This allows organizations to develop pipelines in a more standard way.
-- [Mainframe_Generate_Pipeline](./Mainframe_Generate_Pipeline.md) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy)) - is a pipeline that gets triggered by an ISPW Generate, and executes unit tests against those components that have been generated.
-- [Mainframe_Integration_Pipeline.groovy](./Mainframe_Integration_Pipeline.md) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy)) - is a pipeline that gets triggered by an ISPW Promote, and executes functional/integration tests against the project/assignment.
+- [Mainframe-CI-Example-pipeline](./basic_scenario.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - is a scripted pipeline using parameters.  This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best approach to scale a pipelines across your enterprise. The job is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
+- [Mainframe_CI_Pipeline_from_Shared_Lib](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference a steps.  This allows organizations to develop pipelines in a more standard way.  The job is also intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
+- The two following pipelines are supposed to be part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md) and get triggered at different stages of that process
+    - [Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Generate, and executes unit tests against those components that have been generated.
+    - [Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Promote, and executes functional/integration tests against the project/assignment.
 
 ## Tools Used
 
@@ -48,9 +49,13 @@ Any code examples are stored in a GitHub repository located at  [https://github.
 
 - The **example pipelines using Shared Library technology** will be stored in the *vars* folder.
 - **Code related to these pipelines** (class definitions) will be stored in the *src* folder.
-- Example code not directly related, but **defining Jenkins jobs**, will be stored in the *Jenkinsfile* sub folder of the *src* folder. Currently these are:
+- Example code not directly related, but **defining Jenkins jobs**, will be stored in the `src/Jenkinsfile` folder. Currently these are:
     - [JCL_Pipeline_Example](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/JCL_Pipeline_Example.jenkinsfile) containing a simple example of mainframe jobs being submitted from Jenkins - both, with the JCL residing on the mainframe and the JCL stored/generated in the pipeline code itself.
-    - [Push_TTT_results_to_Git](./Push_TTT_results_to_Git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - showing how to push results of unit test execution back to GitHub for a developer to consume locally.
+    - Three examples of downloading sources (COBOL programs and copybooks) from the mainframe, using different download stores for the code and methods to download, pushing the sources to SonarQube using the Sonar scanner and querying the resulting Sonar Quality Gate
+        - [Scan_Sources_from_ISPW_Container_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Container_with_Sonar.jenkinsfile) - using the *container* downloader for sources stored in ISPW
+        - [Scan_Sources_from_ISPW_Repository_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Repository_with_Sonar.jenkinsfile) - using the *repository* downloader for sources stored in ISPW
+        - [Scan_Sources_from_PDS_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_PDS_with_Sonar.jenkinsfile) - using the *PDS* downloader for sources stored in PDS's (inside or outside a mainframe SCM tool)
+    - [Push_TTT_results_to_Git](../pipeline_snippets/push_ttt_results_to_git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - showing how to push results of unit test execution back to GitHub for a developer to consume locally.
 - **Code snippets and examples not directly related** are stored in the *misc-examples* folder in the *src* directory of the repository. Currently these are:
     - [ISPW-REST-API-Examples](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/misc-examples) containing a Windows powershell script that demonstrates the use of ISPW's REST APIs. This code may be used a starting point if Jenkins is not the CI server of choice.
 
@@ -60,30 +65,24 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 ```
     (root)
-    +- src                                                  # Groovy source files
+    +- src                                                  # (Groovy) source files
     |   +- com
-    |       +- compuware
-    |           +- devops
-    |               +- util                                 # Classes used by the pipelines
+    |   |   +- compuware
+    |   |       +- devops
+    |   |           +- util                                 # Classes used by the pipelines
+    |   |
+    |   +- Jenkinsfile                                      # "simple" example job scripts
+    |   |
+    |   +- misc-examples                                    # non Jenkins related (non Groovy) code examples
     |
     +- vars                                                 # Shared Library Pipeline Examples
     |
     +- resources                                            # Files used by the pipelines
-    |   +- pipeline                                         # Configuration files for pipeline variables
-    |   +- skels                                            # Mainframe JCL "skeleton" files
-    |
-    +- Jenkinsfile                                          # Basic pipeline examples
-    |   +- Mainframe-CI-Example-pipeline.jenkinsfile        # Primary example pipeline (Scripted Pipeline)
-    |   +- JCL_Pipeline_Example.jenkinsfile                 # Example of execution JCL from a pipeline
-    |
-    Other_Examples
-    |   +- ISPW_Operations.ps1                              # Windows powershell script that drives ISPW
+        +- pipeline                                         # Configuration files for pipeline variables
+        |
+        +- skels                                            # Mainframe JCL "skeleton" files
 ```
 
 ## People wanting to contribute
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
-
-## Next Steps
-
-- [Required Plugins](../tool_configuration/plugins.md) for a list and description of plugins that are used within the examples
