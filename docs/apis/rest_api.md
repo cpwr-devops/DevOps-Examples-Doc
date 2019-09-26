@@ -2,15 +2,17 @@
 title: REST APIs
 footer: MIT Licensed | Copyright Â© 2018 - Compuware
 ---
-# Rest API
+# Compuware Rest APIs
 
-Compuware's Rest APIs are documented in [Swagger](https://swagger.io/solutions/api-documentation/), a commonly used format.  The Rest APIs are hosted in Compuware Enterprise Services (CES), which connects to the underlying mainframe products to perform various actions on the mainframe.  
+## ISPW Rest API
+
+ISPW's Rest API is documented in [Swagger](https://swagger.io/solutions/api-documentation/), a commonly used format.  The Rest API is hosted in Compuware Enterprise Services (CES), which connects to the underlying mainframe products to perform various actions on the mainframe.  
 
 ![Swagger Doc](./images/Swagger.png)
 
 The APIs use a token based authentication for securely accessing the mainframe.  Please visit the [CES Credentials](../tool_configuration/CES_credentials_token.md) for more information about setting up a Personal Access Token for the APIs.
 
-## Accessing the API Documentation
+### Accessing the API Documentation
 
 To see the API Documentation on the internet, please visit our [Swagger REST API documentation](https://ispw.api.compuware.com/) for more details on the various APIs.
 
@@ -18,7 +20,7 @@ To access the APIs within your environment, go to the CES URL and select the `AP
 
 ![CES Doc](./images/CES_api.png)
 
-## Example of REST API usage
+### Example of REST API usage
 
 For an example of how to call the Rest API from a scripting language, please see this [Powershell script](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src/misc-examples/ISPW_Operations.ps1) that calls ISPW's API to perform various ISPW Operations from a command line.
 
@@ -76,7 +78,7 @@ The Read operation returns a JSON based object while the Create and Update opera
 present
 
 ### List Operation
-All list operations on artifacts in the repository accepts parameters for filtering, sorting and pagination. This makes it efficient to do server-side filtering, sorting and pagination—which is required when the number of artifacts grow large. A list of artifacts is received from the URL.
+All list operations on artifacts in the repository accepts parameters for filtering, sorting and pagination. This makes it efficient to do server-side filtering, sorting and paginationï¿½which is required when the number of artifacts grow large. A list of artifacts is received from the URL.
 - GET `/<resourceName>`
 The following URL parameters can be used
 - **pageNumber**: The page number starting from 0
