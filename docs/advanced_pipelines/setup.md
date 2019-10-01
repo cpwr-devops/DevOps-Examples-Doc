@@ -75,7 +75,7 @@ ISPW_Container_Type | "${ISPW_Container_Type}" | The ISPW_Container_Type paramet
 ISPW_Src_Level | "${ISPW_Src_Level}" | The ISPW_Src_Level parameter from the pipeline configuration above
 ISPW_Owner | "${ISPW_Owner}" | The ISPW_Owner parameter from the pipeline configuration above
 
-The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](./pipeline_parameters.md).
+The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](./parameters.md).
 
 Usually, these parameters will be installation specific rather than pipeline job or execution specific. Future versions of the example will take care of this, and move these parameters to configuration files.
 
