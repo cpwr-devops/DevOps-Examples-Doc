@@ -5,7 +5,7 @@ sidebarDepth: 2
 ---
 # Overview
 
-This page walks through how to configure an Jenkins Pipeline that takes source from an Enterprise git repository and syncs it with ISPW.
+This page walks you through how to configure an Jenkins Pipeline that takes source from an Enterprise git repository and syncs it with ISPW.
 
 ## Quick overview of Git to ISPW integration flow
 
