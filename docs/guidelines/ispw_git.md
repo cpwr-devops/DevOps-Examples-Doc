@@ -26,7 +26,7 @@ This page walks you through how to configure an Jenkins Pipeline that takes sour
 ## System Requirements
 
 - ISPW version 18.02 with July cumulative maintenance applied
-- Topaz Workbench CLI version 19.06.01 [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli)
+- Topaz Workbench CLI version 19.06.03 [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli)
 - Jenkins
 - Git Jenkins plugin
 - [Compuware Common Configuration](https://wiki.jenkins.io/display/JENKINS/Compuware+Common+Configuration+Plugin)
@@ -127,7 +127,7 @@ The following shows an install of the Compuware Common Configuration and the Com
 
 Go to Jenkins > Manage Jenkins > Configure System and set up the [Topaz Workbench CLI location](../tool_configuration/Jenkins_config.html#compuware-configurations) and a host connection.
 
-### Configure the Jenkins
+### Configure a Jenkins Pipeline Project
 
 Within the Jenkins Pipeline project in the Pipeline section, add the below pipeline script
 
@@ -145,8 +145,12 @@ node
                     value: '$.changes[0].ref.displayId', 
                     expressionType: 'JSONPath', 
                     regexpFilter: '^(refs/heads/\\|refs/remotes/origin/)'],
-                    [ key: 'hash', 
+                    [ key: 'toHash', 
                     value: '$.changes[0].toHash', 
+                    expressionType: 'JSONPath', 
+                    regexpFilter: '^(refs/heads/\\|refs/remotes/origin/)'],
+                    [ key: 'fromHash', 
+                    value: '$.changes[0].fromHash', 
                     expressionType: 'JSONPath', 
                     regexpFilter: '^(refs/heads/\\|refs/remotes/origin/)'],
                     [key: 'refId', 
