@@ -131,6 +131,8 @@ and then use this token to initiate the test. Or it can use another API that wil
 #### Scenario
 The diagram below illustrates the interaction between Functional Test and e.g. a build system.
 
+![Scenario interaction](./images/ttt_api.png)
+
 #### Resource URL
 The following three URLs can be used to execute a test scenario and a test suite. All URLs require a security header token. The first executes a test scenario and the second a test suite. Use the third for both a test scenario and a test suite:
 - POST: /testcase/{id}/execute
