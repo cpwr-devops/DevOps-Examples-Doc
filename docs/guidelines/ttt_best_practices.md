@@ -15,6 +15,8 @@ Total Test supports developers to create, execute and automate unit, functional 
 * **Functional test** – executing a test case of a program in a live environment with live data.
 * **Integration test** – executing a test case that tests collaboration between two or more programs in a live environment with live data.
 
+The test types are illustrated in the pyramid below. The pyramid illustrates that unit tests should be the major part of test cases. On top of unit tests we then have functional tests and integration tests, and in the end, we have the User Acceptance Testing (UAT), which should be a minor part compared to unit, functional and integration testing.
+
 ![Testing Pyramid](./images/ttt_intro1.png)
 
 There are no officially agreed upon clear definitions of different test types and each vendor and customer seems to have their own definitions. As a start let us define what these test types means in relation to Total Test and elaborate a bit more on the differences compared to the technical difference above.
@@ -23,7 +25,6 @@ There are no officially agreed upon clear definitions of different test types an
 * **Functional Test**. A functional test tests a function of an application. A function is typically implemented as a COBOL program. The functional test tests that the program implements its specification correctly and is typically created by a developer or tester/QA role. The tester understands what the program is supposed to do and sets up the functional test case by providing input to the program and defining expected output. The functional test is a black box test where the tester does not need to know about the internal source code of the program, and the program is executed in a live environment with live data and live systems.
 * **Integration Test**. An integration test tests the collaboration between two or more functions/programs and the data they use. This could e.g. be one program creating an entry in a table and another program reading the entry. The integration test will verify that the collaboration between the programs and their data works as expected. It can be made by a tester or developer. Like for functional testing, integration tests are executed at a live environment with live data and systems.
 
-The test types are illustrated in the pyramid below. The pyramid illustrates that unit tests should be the major part of test cases. On top of unit tests we then have functional tests and integration tests, and in the end, we have the User Acceptance Testing (UAT), which should be a minor part compared to unit, functional and integration testing.
 
 
 ### Shifting left
