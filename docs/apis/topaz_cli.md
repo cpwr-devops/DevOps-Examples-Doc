@@ -577,7 +577,7 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.&nb
 -port | -pt | The port the host is listening on.
 -user | -u | The name of the user (userID) to connect to the host with.
 -password | -pw | The password associated with the userID.
--targetencoding | -te | The character encoding (charset) used on the target platform. The default is ‘1047’.
+-targetencoding | -te | The character encoding (charset) used on the target platform. The default is ï¿½1047ï¿½.
 -bininpdsn | -bindsn | The BININP dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
 -binrefdsn | -brfdsn | The BINREF dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
 -binresdsn | -brsdsn | The BINRES dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
@@ -661,8 +661,8 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 
 With the Functional Test CLI interface you can specify a folder path and an environment ID, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Functional Test server. This will typically be used from a Continuous Integration server like Jenkins, where source files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface. 
 
-### Test using 'SLQ Select' or 'SLQUpdate'
-These components reference the DB2 jar files needed for using JDBC to access DB2 on the mainframe, and these jar files must be available. By default the Functional Test CLI looks for these jar files in \<install directory\>/dbDrivers. The user must create the directory and copy the user specific DB2 jar files to this directory.
+### Test using 'SQL Select' or 'SQL Update'
+These palette elements require DB2 jar files on the classpath for using JDBC to access DB2 on the mainframe, and these jar files must be available. By default the Functional Test CLI looks for these jar files in \<install directory\>/dbDrivers. The user must create the directory and copy the user specific DB2 jar files to this directory. Typically there are two jar files, one with the DB2 driver and one with the DB2 license. They are typically named db2jcc.jar and db2jcc_license_cisuz.jar.
 
 Optionally the user can specify the environment variable TTT\_DB\_DRIVERS_PATH. The variable must be set to the directory containing the user specific DB2 jar files.
 
