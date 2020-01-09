@@ -9,13 +9,13 @@ tagline: Building CI / CD pipelines using Compuware products
 actionText: Getting Started →
 actionLink: ./pipelines/
 features:
-- title: Guidelines
-  details: General guidelines on using Compuware tools in Mainframe DevOps processes
-- title: Configuration
-  details: Guides for configuring various tools used in the example Pipelines
 - title: Pipelines
   details: Detailed pipeline example guides to create CI /CD Mainframe pipelines 
+- title: Configuration
+  details: Guides for configuring various tools used in the example Pipelines
+- title: Guides
+  details: General guides on using Compuware tools in Mainframe DevOps processes
 - title: APIs
   details: APIs, CLIs and SDK that can be used to integrate Mainframe processes into DevOps tools
-footer: MIT Licensed | Copyright © 2019 - Compuware
+footer: MIT Licensed | Copyright © 2020 - Compuware
 ---

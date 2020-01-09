@@ -103,7 +103,7 @@ module.exports = {
         ] 
       },
       { 
-        text: 'Guidelines',
+        text: 'Guides',
         items: 
         [
           { 
@@ -118,16 +118,16 @@ module.exports = {
             link: '/guidelines/ispw_setup'
           },
           { 
-            text: 'SonarLint and ISPW',
+            text: 'SonarLint and ISPW Setup',
             link: '/guidelines/ispw_projects' 
           },
           { 
-            text: 'Groovy Tipps',
-            link: '/guidelines/jenkins_groovy' 
+            text: 'Git ISPW Setup',
+            link: '/guidelines/ispw_git' 
           },
           { 
-            text: 'Git ISPW Pipeline',
-            link: '/guidelines/ispw_git' 
+            text: 'Groovy Tips',
+            link: '/guidelines/jenkins_groovy'
           }
         ]
       },  
