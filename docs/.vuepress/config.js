@@ -128,6 +128,14 @@ module.exports = {
           { 
             text: 'Groovy Tips',
             link: '/guidelines/jenkins_groovy'
+	  },
+	  {
+            text: 'Git ISPW Pipeline',
+            link: '/guidelines/ispw_git' 
+          },
+          { 
+            text: 'Git to ISPW Integration - A Tutorial',
+            link: '/guidelines/GIT_to_ISPW_Integration_Tutorial' 
           }
         ]
       },  
@@ -180,7 +188,8 @@ module.exports = {
         'ttt_scenario',
         'ispw_setup',
         'ispw_projects',
-        'jenkins_groovy'
+        'jenkins_groovy',
+	'Git to ISPW Integration - A Tutorial'
       ],            
       '/advanced_pipelines/': [ 
         '',

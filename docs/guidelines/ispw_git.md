@@ -9,7 +9,7 @@ This page walks you through how to configure an Jenkins Pipeline that takes sour
 
 ## Quick overview of Git to ISPW integration flow
 
-1. A project is created that contains ISPW source.
+1. A project is created that contains ISPW sobkbk
 2. The project is stored in a Git repository.
 3. A yaml mapping file is created which contains the mapping data for file extensions to ISPW types.
 4. The yaml file is stored in the Git repository
