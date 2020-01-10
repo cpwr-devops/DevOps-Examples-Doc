@@ -442,6 +442,10 @@ The Test Runner component allows for the complete end to end run of a Topaz for 
 **Test Runner input parameters**
 | Parameter/Option | Abbr.&nbsp;&nbsp;&nbsp;&nbsp;| Description |
 --------- | -----------|---------------
+`-host` | -h | The host name or IP address of the target host.
+`-port` | -pt | The port the host is listening on.
+`-user` | -u | The name of the user (userID) to connect to the host with.
+`-password`| -pw | The password associated with the userID.
 `-project` | -p| The Total Test project folder.
 `-testsuite` | -ts | The name of a test suite from the Suites folder or the name of a test scenario from the Scenario folder.
 `-testsuitelist` | -tsl | Specifies a comma delimited list of test scenarios/suites names to be run. Test scenarios/suites names can contain the wildcard characters asterisk (*) to indicate any characters or a question (?) to indicate a single character. 'All_Scenarios' can be used to run all scenarios. 'All_Suites' can be used to run all test suites.
@@ -573,7 +577,7 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.&nb
 -port | -pt | The port the host is listening on.
 -user | -u | The name of the user (userID) to connect to the host with.
 -password | -pw | The password associated with the userID.
--targetencoding | -te | The character encoding (charset) used on the target platform. The default is ‘1047’.
+-targetencoding | -te | The character encoding (charset) used on the target platform. The default is ï¿½1047ï¿½.
 -bininpdsn | -bindsn | The BININP dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
 -binrefdsn | -brfdsn | The BINREF dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
 -binresdsn | -brsdsn | The BINRES dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
@@ -655,13 +659,14 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 
 ## Total Test Functional Test (TotalTestFTCLI.bat)
 
-Topaz for Total Test Functional Test is not built on Topaz CLI and comes with a separate command line interface that can be used to execute functional test scenarios from the file system. It does not apply to the above general settings for the Topaz CLIs. 
-
 With the Functional Test CLI interface you can specify a folder path and an environment ID, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Functional Test server. This will typically be used from a Continuous Integration server like Jenkins, where source files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface. 
 
-### Initial setup
-The `TotalTestFTCLI.bat` or `TotalTestFTCLI.sh` file is used to execute test scenarios. It references the DB2 jar files needed for using JDBC to access DB2 on the mainframe, and these jar files must be available in the same directory. The DB2 jar files are customer specific.
+### Test using 'SQL Select' or 'SQL Update'
+These palette elements require DB2 jar files on the classpath for using JDBC to access DB2 on the mainframe, and these jar files must be available. By default the Functional Test CLI looks for these jar files in \<install directory\>/dbDrivers. The user must create the directory and copy the user specific DB2 jar files to this directory. Typically there are two jar files, one with the DB2 driver and one with the DB2 license. They are typically named db2jcc.jar and db2jcc_license_cisuz.jar.
 
+Optionally the user can specify the environment variable TTT\_DB\_DRIVERS_PATH. The variable must be set to the directory containing the user specific DB2 jar files.
+
+### Usage
 The CLI interface is executed from a Windows or Linux terminal by writing:
 `./TotalTestFTCLI.sh` or `TotalTestFTCLI.bat`
 This will show the help for using the CLI as illustrated below.
@@ -730,6 +735,6 @@ command would look similar to:
 ```bat
 ./TotalTestFTCLI.sh -e simulator -f ./Project/Accounting -r /temp -s https://server.topaztotaltest.com/totaltestapi/ -u XATUSER -p 123456 --upload-result --recursive
 ```
-The CLI interface will generate a log file in the logs directory where the CLI files are installed. This log file can be used to track down and understand issues in an execution. 
+The CLI interface will generate a log file in the logs directory in the location specified by the workspace directory. This log file can be used to track down and understand issues in an execution. 
 
 

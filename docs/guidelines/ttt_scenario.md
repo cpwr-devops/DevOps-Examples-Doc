@@ -1,9 +1,9 @@
 ---
-title: Total Test Unit Test Pipeline Setup
+title: Using Total Test Unit Test
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
-## Best Practices for Topaz for Topaz Total Unit Tests
+## Using Total Test Unit Test
 
 Since most mainframe development is not green field development, the first step in working with Topaz for Total Test will be executing a program in question under control of the Xpediter debugger. During the debugging session Xpediter and Topaz for Total Test allow recording individual test cases. One such test case, in the sense of Topaz for Total Test, is one execution of a program (compile unit) from beginning (`PROCEDURE DIVISION` or `ENTRY` point) to end (e.g. `GOBACK`). It consists of:
 

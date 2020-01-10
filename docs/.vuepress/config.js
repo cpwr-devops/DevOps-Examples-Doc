@@ -107,16 +107,15 @@ module.exports = {
         items: 
         [
           { 
+            text: 'Total Test Best Practices',
+            link: '/guidelines/ttt_best_practices'
+          },{ 
+            text: 'Using Total Test Unit Test',
+            link: '/guidelines/ttt_scenario'
+          }
+          ,{ 
             text: 'ISPW Setup',
             link: '/guidelines/ispw_setup'
-          },
-          { 
-            text: 'Unit Test Setup',
-            link: '/guidelines/ttt_scenario'
-          },
-          { 
-            text: 'Functional Test Setup',
-            link: '/guidelines/ttt_ft_scenario'
           },
           { 
             text: 'SonarLint and ISPW Setup',
@@ -177,9 +176,9 @@ module.exports = {
         'basic_example_pipeline'
       ],
       '/guidelines/': [ 
-        'ispw_setup',
+        'ttt_best_practices',
         'ttt_scenario',
-        'ttt_ft_scenario',
+        'ispw_setup',
         'ispw_projects',
         'jenkins_groovy'
       ],            
