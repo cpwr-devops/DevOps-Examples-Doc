@@ -128,9 +128,10 @@ If you are unable to locate the PLAY application, refer to the *ISPW Installatio
 If you are not logged into a host connection where the ISPW PLAY application is installed, you will be prompted when you select any list in the **ISPW Repository Explorer** view. 
 
 :::
+<a id="_1-create-an-ispw-project-named-play-play"></a>
 
 ### Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline
-<a id="create-an-ispw-project-named-play-play"></a>
+
 
 #### **Create an ISPW project named PLAY PLAY**
 
@@ -424,14 +425,11 @@ node {
 
    ![screenshot with jenkinsFile](./images/screenshotwithjenkinsFile.png)
    
+   <a id="_11-commit-and-push-the-gitplay-project-to-the-master-branch-in-the-ispwgitplaytest-repository"></a>
    ::: tip
    It is important to ensure that the Jenkinsfile is located at the project root, where the multibranch pipeline project’s configuration **Script Path** field expects it to be.
-   
    :::
-   
-   
-   
-   <a id="_11-commit-and-push-the-gitplay-project-to-the-master-branch-in-the-ispwgitplaytest-repository"></a>
+
 #### **Commit and push the GitPlay project to the master branch in the IspwGitPlayTest repository**
 
 1. In Topaz Workbench, open the **Git** perspective. 
