@@ -122,10 +122,6 @@ module.exports = {
             link: '/guidelines/ispw_projects' 
           },
           { 
-            text: 'Git ISPW Setup',
-            link: '/guidelines/ispw_git' 
-          },
-          { 
             text: 'Groovy Tips',
             link: '/guidelines/jenkins_groovy'
 	  },
