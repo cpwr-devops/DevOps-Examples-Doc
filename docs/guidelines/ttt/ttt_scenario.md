@@ -3,7 +3,7 @@ title: Using Total Test Unit Test
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 
-## Using Total Test Unit Test
+# Using Total Test Unit Test
 
 Since most mainframe development is not green field development, the first step in working with Topaz for Total Test will be executing a program in question under control of the Xpediter debugger. During the debugging session Xpediter and Topaz for Total Test allow recording individual test cases. One such test case, in the sense of Topaz for Total Test, is one execution of a program (compile unit) from beginning (`PROCEDURE DIVISION` or `ENTRY` point) to end (e.g. `GOBACK`). It consists of:
 
@@ -23,13 +23,13 @@ Since most mainframe development is not green field development, the first step 
         - Segment data
 - Any write stub will also create assertions for the data written to the external data source
 
-![Record test case](./images/TTT_record_test_case.png)
+![Record test case](../images/TTT_record_test_case.png)
 
-## Structuring Tests
+# Structuring Tests
 
 Topaz for Total Test allows storing one or more test case for one or more programs. It is a recommended practice, though, to create one Topaz for Total Test project per program. These projects allow grouping test cases into different scenarios (e.g. by major program branch being executed) and to define and use test suites to execute all test scenarios in one run.
 
-## Naming conventions
+# Naming conventions
 
 In order to map Topaz for Total Test project assets, stored in Git, to program components, stored in ISPW, naming conventions are used. These should be followed already when recording the unit tests, but asset names may be changed later, after recording, to use the following naming conventions:
 
@@ -41,7 +41,7 @@ In order to map Topaz for Total Test project assets, stored in Git, to program c
 
 The [Git repository](./ttt_in_git) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
 
-## The Topaz for Total Test project structure
+# The Topaz for Total Test project structure
 
 A Topaz for Total Test project will use the following folder structure, which will be generated and populated automatically, when the first test case gets recorded by Xpediter/Topaz for Total Test:
 
@@ -54,9 +54,9 @@ A Topaz for Total Test project will use the following folder structure, which wi
         +- Stubs                                    # Simulation data for sub-programs and external I/O
         +- Suites                                   # test suite(s) executing one or more test scenarios
 
-![TTT_project](./images/TTT_project_structure.png)
+![TTT_project](../images/TTT_project_structure.png)
 
-## The runner.jcl
+# The runner.jcl
 
 When using Xpediter/Topaz for Total Test to record test cases, the `JCL` folder will contain sample `JCL` code which is required to execute the Topaz for Total Test driver program `TTTRUNNR`. As of now, Topaz for Total Test cannot create stub data for 100% of all  `SQL` statements or `DL/I` calls. Therefore, test execution of some programs will require a "mixed" mode - partly stubbed, partly using life data. For these situations the following sample `JCL`is generated:
 
@@ -72,7 +72,7 @@ Due to the design of the example application, there are three paths through the 
 - `Runner_PATH2.jcl` is used for the path from `DEV2` to `PRD`
 - `Runner_PATH3.jcl` is used for the path from `DEV3` to `PRD`
 
-![Life Cycle](../tool_configuration/images/Example_life_cycle.png)
+![Life Cycle](../../tool_configuration/images/Example_life_cycle.png)
 
 ```jcl
 //RUNNER EXEC PGM=TTTRUNNR
@@ -86,12 +86,12 @@ Due to the design of the example application, there are three paths through the 
 
 ```
 
-## Adding new test cases
+# Adding new test cases
 
 New test cases may be added to an existing test scenario by duplicating existing test cases and modifying the input and assertion data (based on any new requirements). Refer to the Topaz for Total Test online help for more details.
 
-## Storing the Topaz for Total Test project in Git/GitHub
+# Storing the Topaz for Total Test project in Git/GitHub
 
 The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is storing these projects in Git/GitHub repositories.
 
-![TTT in Git](./images/TTT_in_Git_and_GitHub.png)
+![TTT in Git](../images/TTT_in_Git_and_GitHub.png)

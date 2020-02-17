@@ -27,6 +27,10 @@ module.exports = {
               { 
                 text: 'Basic Pipeline Example',
                 link: '/pipelines/basic_example_pipeline'
+              },
+              { 
+                text: 'Alternatives to Jenkins',
+                link: '/pipelines/alternatives_to_jenkins'
               }
             ]
           },
@@ -49,12 +53,16 @@ module.exports = {
             items: 
             [
               { 
+                text: 'Shared Library Examples',
+                link: '/advanced_pipelines/'
+              },
+              { 
                 text: 'Elaborate Scenario',
                 link: '/advanced_pipelines/elaborate_scenario'
               },
               { 
-                text: 'Shared Library Examples',
-                link: '/advanced_pipelines/'
+                text: 'Helper Classes',
+                link: '/advanced_pipelines/helper_classes/'
               }
             ]
           }
@@ -64,6 +72,10 @@ module.exports = {
         text: 'Configuration',
         items: 
         [
+          {
+            text: 'Overview',
+            link: '/tool_configuration/'
+          },
           {
             text: 'Jenkins',
             items:
@@ -79,10 +91,6 @@ module.exports = {
               { 
                 text: 'Using Jenkins Plugins',
                 link: '/tool_configuration/jenkins_usage'
-              },
-              { 
-                text: 'Tool Configurations',
-                link: '/tool_configuration/'
               }
             ]
           },
@@ -106,32 +114,61 @@ module.exports = {
         text: 'Guides',
         items: 
         [
-          { 
-            text: 'Total Test Best Practices',
-            link: '/guidelines/ttt_best_practices'
-          },{ 
-            text: 'Using Total Test Unit Test',
-            link: '/guidelines/ttt_scenario'
-          }
-          ,{ 
-            text: 'ISPW Setup',
-            link: '/guidelines/ispw_setup'
+          {
+            text: 'Topaz for Total Test',
+            items:
+            [
+              { 
+                text: 'Total Test Best Practices',
+                link: '/guidelines/ttt/ttt_best_practices'
+              },
+              { 
+                text: 'Using Total Test Unit Test',
+                link: '/guidelines/ttt/ttt_scenario'
+              }
+            ]
           },
-          { 
-            text: 'SonarLint and ISPW Setup',
-            link: '/guidelines/ispw_projects' 
+          {
+            text: 'ISPW',
+            items:
+            [
+              { 
+                text: 'ISPW Setup',
+                link: '/guidelines/ispw/ispw_setup'
+              },
+              { 
+                text: 'SonarLint and ISPW Setup',
+                link: '/guidelines/ispw/ispw_projects' 
+              }
+            ]
           },
-          { 
-            text: 'Groovy Tips',
-            link: '/guidelines/jenkins_groovy'
-	  },
-          { 
-            text: 'Git to ISPW Integration - A Tutorial',
-            link: '/guidelines/GIT_to_ISPW_Integration_Tutorial' 
+          {
+            text: 'Git and ISPW',
+            items:
+            [
+              { 
+                text: 'Git to ISPW Integration - A Tutorial',
+                link: '/guidelines/ispw/GIT_to_ISPW_Integration_Tutorial' 
+              },
+              { 
+                text: 'Git to ISPW Integration - The ISPW YAML Configuration File',
+                link: '/guidelines/ispw/Git to ISPW Integration - The ISPW YAML Configuration File' 
+              }
+            ]
           },
-          { 
-            text: 'Git to ISPW Integration - The ISPW YAML Configuration File',
-            link: '/guidelines/Git to ISPW Integration - The ISPW YAML Configuration File' 
+          {
+            text: 'Pipelines',
+            items:
+            [
+              { 
+                text: 'Groovy Tips',
+                link: '/guidelines/jenkins_groovy'
+              },
+              {
+                text: 'Azure DevOps',
+                link: '/guidelines/azure_devops_pipeline'
+              }
+            ]
           }
         ]
       },  
@@ -177,16 +214,22 @@ module.exports = {
       '/pipelines/': [
         '',  
         'basic_scenario',
-        'basic_example_pipeline'
+        'basic_example_pipeline',
+        'alternatives_to_jenkins'
       ],
-      '/guidelines/': [ 
+      '/guidelines/ttt/': [
         'ttt_best_practices',
-        'ttt_scenario',
+        'ttt_scenario'
+      ],
+      '/guidelines/ispw/': [ 
         'ispw_setup',
-        'ispw_projects',
+        'ispw_projects',        
+	      'GIT_to_ISPW_Integration_Tutorial',
+        'Git to ISPW Integration - The ISPW YAML Configuration File',
+      ],
+      '/guidelines/': [
         'jenkins_groovy',
-	'GIT_to_ISPW_Integration_Tutorial',
-	'Git to ISPW Integration - The ISPW YAML Configuration File'
+        'azure_devops_pipeline'
       ],            
       '/advanced_pipelines/': [ 
         '',
@@ -202,10 +245,10 @@ module.exports = {
         'push_ttt_results_to_git'
       ],
       '/tool_configuration/': [
+        '',
         'plugins',
         'Jenkins_config',
         'jenkins_usage',
-        '',      //configurations
         'webhook_setup',
         'CES_credentials_token'
       ],

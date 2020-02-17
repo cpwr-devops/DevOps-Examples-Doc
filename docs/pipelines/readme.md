@@ -7,7 +7,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Getting Started
 
-To get started building your own mainframe DevOps pipeline, we have provided Jenkins pipeline examples and setup instructions.
+To get started building your own mainframe DevOps pipeline, we have provided Jenkins pipeline examples and setup instructions. Focussing on Jenkins does not mean, though, that implementing CI/CD pipelines for mainframe development is limited to the use of Jenkins. If the need arises to use alternatives to Jenkins to do the same things described here, refer to [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
 
 The pages contains example code and documentation on:
 
@@ -15,9 +15,14 @@ The pages contains example code and documentation on:
 - Compuware and 3rd party tools used in the pipelines
 - Instructions setting configuring Jenkins and SonarQube
 - code snippets for specific tasks and purposes outside the general purpose
+- code snippets and sample code making use of the [ISPW REST API](../apis/rest_api.md) and [Topaz CLI](../apis/topaz_cli.md), which may be [used in tools other than Jenkins](./alternatives_to_jenkins.md).
 
 ::: warning
-The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements. 
+The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements.
+:::
+
+::: tip Note
+The descriptions and tutorials assume a certain level of familiarity with using Jenkins, Topaz for Total Test and other Compuware tools. The required level of knowledge should is not expected too high, though. E.g. it helps to know, how to define a new job in Jenkins.
 :::
 
 ## Pipeline examples
@@ -56,8 +61,7 @@ Any code examples are stored in a GitHub repository located at  [https://github.
         - [Scan_Sources_from_ISPW_Repository_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Repository_with_Sonar.jenkinsfile) - using the *repository* downloader for sources stored in ISPW
         - [Scan_Sources_from_PDS_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_PDS_with_Sonar.jenkinsfile) - using the *PDS* downloader for sources stored in PDS's (inside or outside a mainframe SCM tool)
     - [Push_TTT_results_to_Git](../pipeline_snippets/push_ttt_results_to_git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - showing how to push results of unit test execution back to GitHub for a developer to consume locally.
-- **Code snippets and examples not directly related** are stored in the *misc-examples* folder in the *src* directory of the repository. Currently these are:
-    - [ISPW-REST-API-Examples](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/misc-examples) containing a Windows powershell script that demonstrates the use of ISPW's REST APIs. This code may be used a starting point if Jenkins is not the CI server of choice.
+- **Powershell scripts and examples for using alternatives to Jenkins or the Jenkins plugins** are stored in the *misc-examples/Powershell* sub-folder within the *src* directory of the repository. These scripts make use of the [ISPW REST API]() and the [Topaz CLI](), and we describe them in detail in [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
 
 ## The code repository folder structure
 
@@ -65,6 +69,11 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 ```
     (root)
+    +- resources                                            # Files used by the pipelines
+    |   +- pipeline                                         # Configuration files for pipeline variables
+    |   |
+    |   +- skels                                            # Mainframe JCL "skeleton" files
+    |
     +- src                                                  # (Groovy) source files
     |   +- com
     |   |   +- compuware
@@ -74,6 +83,10 @@ Based on the description above and due to the requirements for the use of [Pipel
     |   +- Jenkinsfile                                      # "simple" example job scripts
     |   |
     |   +- misc-examples                                    # non Jenkins related (non Groovy) code examples
+    |       +- AzureDevOps
+    |           +- PipelineYAML                             # YAML file(s) describing Azure DevOps pipelines (builds or releases)
+    |           |
+    |           +- Powershell                               # Powershell scripts being used by an Azure DevOps example pipeline
     |
     +- vars                                                 # Shared Library Pipeline Examples
     |

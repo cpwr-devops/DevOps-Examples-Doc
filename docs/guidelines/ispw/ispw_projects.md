@@ -30,7 +30,7 @@ Consequently, Eclipse projects correspond more naturally to ISPW applications, t
 
 The latter is based on the ISPW concept of a life cycle, which allows to define different, parallel ways a component can be promoted from development to production, thus allowing for parallel development on the same components. In the life cycle below there are 4 parallel paths, 3 standard paths, moving components through a complete QA process and one path for emergency fixes, which allows for some "shortcuts" to be taken.
 
-![ISPW Life Cylce](./images/ISPW_life_cycle.png)
+![ISPW Life Cylce](../images/ISPW_life_cycle.png)
 
 As a result the ISPW project's folder structure consists of 
 - The root that refercences the ISPW applciation, stream and path
@@ -39,7 +39,7 @@ As a result the ISPW project's folder structure consists of
 
 In addition, during creation of an ISPW project from an ISPW application you can specify which component types and components are being "tracked" by the ISPW project. This definition acts as a filter on the whole ISPW application.
 
-![ISPW application and ISPW project](./images/ISPW_repo_vs_ISPW_project.png)
+![ISPW application and ISPW project](../images/ISPW_repo_vs_ISPW_project.png)
 
 ::: tip
 An ISPW project only stores references to and meta data about components. The sources do not get downloaded to the workspace. Thus, no perfromance or disk space are wasted, and no sources are stored at two different places.
@@ -64,7 +64,7 @@ Even though there might be several different projects defined in SonarQube, serv
 
 From the technical standpoint the result can be viewed in the following way:
 
-![ISPW Projects and Sonar Technical View](./images/ISPW_Projects_Sonar_Technical.png)
+![ISPW Projects and Sonar Technical View](../images/ISPW_Projects_Sonar_Technical.png)
 
 - The component sources are stored and monitored in ISPW and grouped by ISPW application. 
 - In the Eclipse workspace there is an ISPW project fodler structure, consisting of links to the components and meta data about them.
@@ -75,17 +75,17 @@ From the technical standpoint the result can be viewed in the following way:
 
 Usually, for mainframe developers, their primary focal point for working is the ISPW assinment. The way ISPW projects are implemented, developers can continue they usual way of working, e.g. opening a program source from within an assignment task list, and still SonarLint will kick in, analyzing the source. 
 
-![Sonar from task list](./images/Sonar_for_Sources_from_task_list.png)
+![Sonar from task list](../images/Sonar_for_Sources_from_task_list.png)
 
 So, once an ISPW has been bound to SonarQube, developers can use SonarLint while editing their sources **without having to be aware** of the ISPW project. 
 
-![ISPW Projects Sonar Developer View](./images/ISPW_Projects_Sonar_Developer.png)
+![ISPW Projects Sonar Developer View](../images/ISPW_Projects_Sonar_Developer.png)
 
 ## Setup process
 
 In order to get this working properly for a whole development team, there is a one time setup process that could be used without every single developer on the team to define and bind each ISPW project step by step themselves. Instead the idea is to use Topaz Team Profile Sharing.
 
-![ISPW Projects Sonar Setup](./images/ISPW_Projects_Sonar_Setup.png)
+![ISPW Projects Sonar Setup](../images/ISPW_Projects_Sonar_Setup.png)
 
 The setup process consists of the **administrative task** of
 - defining the ISPW projects from the underlying ISPW applications
@@ -112,21 +112,21 @@ Once this developer specific setup has been performed, they can use SonarLint in
 
 - From the ISPW Repository Explorer define a filter on the stream, application and level you would like to create the ISPW project for. Once components are displayed in the application tree, right click the root of the application tree, and select "Create IPSW Project".
 
-![](./images/Define_new_ISPW_project.png)
+![](../images/Define_new_ISPW_project.png)
 
 - During the course of the dialog, based on the previous tip, filter by those component types that are required for SonarLint to work
 
-![](./images/Filter_Component_Types.png)
+![](../images/Filter_Component_Types.png)
 
 - The resulting project will appear in the Project Explorer. Note that no sources get downloaded.
 
-![](./images/Resulting_ISPW_Projects.png)
+![](../images/Resulting_ISPW_Projects.png)
 
 #### Binding ISPW project to SonarQube
 
 - Once an ISPW project has been created, right click the project root and select `SonarLint` -> `Bind to SonarQube or SonarCloud`
 
-![](./images/Bind_project_to_SonarQube.png)
+![](../images/Bind_project_to_SonarQube.png)
 
 - Follow the dialog to bind the ISPW project to the desired SonarQube project
 
@@ -146,7 +146,7 @@ This allows for creating **Team specific** profiles that **may overlap** in cont
 - Within the administrator's workspace there will be a `.sonarlint` folder. This folder contains the binding information for SonarLint. To be precise, there will be a folder for each SonarQube project, conatining references to the Eclipse/ISPW projects that are bound to one specific SonarQube project.
 - This folder needs to be shared with the developers
 
-![](./images/Sonarlint_folder_in_Admin_Workspace.png)
+![](../images/Sonarlint_folder_in_Admin_Workspace.png)
 
 
 ### Developers tasks
@@ -155,21 +155,21 @@ This allows for creating **Team specific** profiles that **may overlap** in cont
 
 - With their Topaz workbench closed down, the developers need to copy the `.sonarlint` folder into the root directory of their Topaz workspace.
 
-![](./images/Copy_Sonarlint_folder_into_Workspace.png)
+![](../images/Copy_Sonarlint_folder_into_Workspace.png)
 
 #### Define a connection to SonarQube server
 
 - After starting their Topaz workbench, define a connection to their SonarQube server, by opening the `SonarLint Bindings` view
 
-![](./images/Open_SonarLint_Bindings.png)
+![](../images/Open_SonarLint_Bindings.png)
 
 - Within the view click the "Connect to a SonarQube server" link
 
-![](./images/Connect_to_SonarQube_server.png)
+![](../images/Connect_to_SonarQube_server.png)
 
 - Follow the dialog to define the connection to the SonarQube server until reaching this step
 
-![](./images/Do_not_bind_projects.png)
+![](../images/Do_not_bind_projects.png)
 
 - And cancel the dialog here. The actual binding has been done by the administrator, and will be imported together with the project definition
 

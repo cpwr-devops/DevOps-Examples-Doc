@@ -106,4 +106,3 @@ Multiple types can exist under the same path within the YAML file. In the follow
   \- fileExtension: pli
    ispwType: PLI
 ```
-

@@ -138,14 +138,14 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 1. In Topaz Workbench’s **ISPW Repository Explorer** view, right-click the **Application: PLAY** node. 
 
 
-   ![IspwRepositoryExplorer](./images/IspwRepositoryExplorer.png)
+   ![IspwRepositoryExplorer](../images/IspwRepositoryExplorer.png)
 
 4. Select **Create ISPW Project**. The **New ISPW Project** wizard appears.
 
 5. In the **New ISPW Project** wizard, click **Finish** since the fields should be pre-populated (as shown below) based on the list selections in the **ISPW Repository Explorer** view. 
    
 
-   ![NewIspwProjectWizard](./images/NewIspwProjectWizard.png)
+   ![NewIspwProjectWizard](../images/NewIspwProjectWizard.png)
 
    The ISPW project **PLAY PLAY** appears in the **Project Explorer** view.
    <a id="_2-change-the-ispw-project-properties-to-keep-a-downloaded-copy-of-each-component"></a>
@@ -157,7 +157,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 3. Select the **Keep a downloaded copy of each component in project PLAY PLAY** check box.
 
-   ![IspwProjectProperties](./images/IspwProjectProperties.png)
+   ![IspwProjectProperties](../images/IspwProjectProperties.png)
 
 4. Click **Apply and Close**. **Synchronizing ISPW source** download progress displays in the lower right corner in Topaz Workbench.  Wait until the synchronization completes.
     <a id="_3-export-the-project"></a>
@@ -172,7 +172,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 5. Select the **Create directory structure for files** button.
 
-   ![ExportDialog](./images/ExportDialog.png)
+   ![ExportDialog](../images/ExportDialog.png)
 
 6. Select the **Resolve and export linked resources** check box.
 
@@ -195,7 +195,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 9. In the **From directory** field, browse to the **PLAY PLAY** folder within the export location in the previous step and select it.
 
-   ![ImportDialog](./images/ImportDialog.png)
+   ![ImportDialog](../images/ImportDialog.png)
 
 10. Expand the **PLAY PLAY** folder in the left pane.
 
@@ -205,7 +205,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 13. In the **Project Explorer** view, verify the GitPlay project contains files.
 
-![GitPlayProject](./images/GitPlayProject.png)
+![GitPlayProject](../images/GitPlayProject.png)
 <a id="_5-configure-the-ispw-and-git-mapping"></a>
 
 #### **Configure the ISPW and Git mapping** 
@@ -226,7 +226,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 8. Click **Finish**. The ispwconfig.yml file is created and added to the root of the GitPlay project in the **Project Explorer** view.
 
-    ![YAMLfile](./images/YAMLfile.png)
+    ![YAMLfile](../images/YAMLfile.png)
 
 9. To examine the contents of the ispwconfig.yml file, right-click the file and select **Open**.
 
@@ -266,7 +266,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 2. Select the project from the list.
 
-   ![ShareProject](./images/ShareProject.png)
+   ![ShareProject](../images/ShareProject.png)
 
 3. **Click** **Use or create repository in parent folder of project**.
 
@@ -282,7 +282,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 2. To create a personal repository, click your profile and select **View profile**, then select **Create repository**. 
    
 
-   ![BitbutcketProfile](./images/BitbutcketProfile.png)
+   ![BitbutcketProfile](../images/BitbutcketProfile.png)
 
 3. Enter **IspwGitPlayTest** as the name for the repository.
 
@@ -358,11 +358,11 @@ node {
 
 4. From the project’s left pane, select **Pipeline Syntax**. The Snippet Generator appears.
 
-   ![JenkinsPipelineSyntax](./images/JenkinsPipelineSyntax.png)
+   ![JenkinsPipelineSyntax](../images/JenkinsPipelineSyntax.png)
 
 5. To begin defining the syntax for the second stage, **Git to ISPW synchronization**, in the **Sample Step** field, select **gitToIspwIntegration: Git to ISPW Integration**.
 
-   ![JenkinsSnippetGenerator2-GitToIspw](./images/JenkinsSnippetGenerator2-GitToIspw.png)
+   ![JenkinsSnippetGenerator2-GitToIspw](../images/JenkinsSnippetGenerator2-GitToIspw.png)
 
 6. In the **Branch Mapping** field, enter ***Play\* => DEV1, per-branch**.
 
@@ -379,7 +379,7 @@ node {
 
 10. To begin defining the syntax for the third stage, **Build ISPW assignment**, in the Snippet Generator’s **Sample Step** field, select **ispwOperation: Perform a Compuware ISPW REST API Request and return a JSON object**.
 
-    ![JenkinsSnippetGenerator3-BuildAssignment](./images/JenkinsSnippetGenerator3-BuildAssignment.png)
+    ![JenkinsSnippetGenerator3-BuildAssignment](../images/JenkinsSnippetGenerator3-BuildAssignment.png)
 
 11. In the **Action** field, select **BuildAssignment**.
 
@@ -417,13 +417,13 @@ node {
 
 4. In the **From directory** field, browse to the folder location of the Jenkinsfile.
 
-   ![ImportDialogForJenkinsfile](./images/ImportDialogForJenkinsfile.png)
+   ![ImportDialogForJenkinsfile](../images/ImportDialogForJenkinsfile.png)
 
 5. Select the Jenkinsfile in the right pane.
 
 6. Click **Finish.** The Jenkinsfile appears at the root of the GitPlay project in the **Project Explorer** view. 
 
-   ![screenshot with jenkinsFile](./images/screenshotwithjenkinsFile.png)
+   ![screenshot with jenkinsFile](../images/screenshotwithjenkinsFile.png)
    
    <a id="_11-commit-and-push-the-gitplay-project-to-the-master-branch-in-the-ispwgitplaytest-repository"></a>
    ::: tip
@@ -436,11 +436,11 @@ node {
 
 2. If the **Git Staging** view is not visible, from the **Window** menu, select **Show View>Other**. The **Show View** dialog box appears. Select **Git>Git Staging**, and click **Open**. 
 
-3. If there is no repository selected in the **Git Staging** view, click ![SwitchToImage](./images/SwitchToImage.png) and select **GitPlay** to switch to the **GitPlay**  repository.
+3. If there is no repository selected in the **Git Staging** view, click ![SwitchToImage](../images/SwitchToImage.png) and select **GitPlay** to switch to the **GitPlay**  repository.
 
-4. In the **Unstaged Changes** box, select all of the components and click ![GitStagingAddAll](./images/GitStagingAddAll.png) to add them to the **Staged Changes** box.
+4. In the **Unstaged Changes** box, select all of the components and click ![GitStagingAddAll](../images/GitStagingAddAll.png) to add them to the **Staged Changes** box.
 
-   ![GitStagingMaster](./images/GitStagingMaster.png)
+   ![GitStagingMaster](../images/GitStagingMaster.png)
 
 5. In the **Commit Message** box, enter a commit message, such as **Commit to master.**
 
@@ -448,10 +448,10 @@ node {
 
 7. If the **Push Branch master** dialog box appears, in the **URI** field, specify the URL of the IspwGitPlayTest repository. The repository URL can be found in the Bitbucket Repository Settings of the IspwGitPlayTest repository under the **Name** field. Complete the rest of the fields if not automatically populated. Click **Next** to select the remote repository. The repository name should contain the branch name. Click **Next** again to confirm the expected push result, then click **Finish**.
 
-   ![PushBranchMaster](./images/PushBranchMaster.png)
+   ![PushBranchMaster](../images/PushBranchMaster.png)
 
 8. In the **Push Results** dialog, click **Close**
-    ![PushResults](./images/PushResults.png)
+    ![PushResults](../images/PushResults.png)
 
 <a id="_1-switch-to-a-new-branch-named-playbranch1"></a>
 ### **Make a change and build**
@@ -463,7 +463,7 @@ node {
 3. Click **Finish**.
 4. Verify that **GitPlay** project node in Project Explorer is now set to **PlayBranch1**.
 
-![VerifyMyBranch1](./images/VerifyMyBranch1.png)
+![VerifyMyBranch1](../images/VerifyMyBranch1.png)
 <a id="_2-make-a-change-to-a-cobol-component-tprog01-cob"></a>
 
 #### **Make a change to a Cobol component TPROG01.cob**
@@ -474,7 +474,7 @@ node {
 
 3. On line 3, change the **Author** from **BENCHMARK ISPW TRAINING** to **BENCHMARK ISPW TRAINING1.** 
 
-   ![ComponentChange](./images/ComponentChange.png)
+   ![ComponentChange](../images/ComponentChange.png)
 
 4. From the **File** menu, select **Save**.
 
@@ -493,7 +493,7 @@ node {
 
     **Note:** If an ISPW pop-up appears, click **YES** to continue.
 
-    ![ConsoleViewBuild](./images/ConsoleViewBuild.png)
+    ![ConsoleViewBuild](../images/ConsoleViewBuild.png)
 
 5. In the **Console** view, note the assignment where TPROG01 was loaded. This is the assignment number that will be specified for the build in the Jenkinsfile **Build ISPW** stage below. In the example above, TPROG01 was loaded into assignment PLAY003136 at the DEV1 level.
     <a id="_4-update-the-jenkinsfile-build-ispw-assignment-stage"></a>
@@ -504,7 +504,7 @@ node {
 
 3. In the **Build ISPW assignment** stage, change the **assignmentId** to the assignment where TPROG01 was loaded (the assignment ID that was shown in the **Console** view in the previous step). In the example in the previous step, the assignment is PLAY003136.
 
-   ![UpdateJenkinsFile1](./images/UpdateJenkinsFile1.png)
+   ![UpdateJenkinsFile1](../images/UpdateJenkinsFile1.png)
 
 4. From the **File** menu, select **Save.**
 5. From the **File** menu, select **Close.**
@@ -521,11 +521,11 @@ First commit and push only the Jenkinsfile so the updated assignmentId is used f
 
 1. In Topaz Workbench, open the **Git** perspective’s **Git Staging** view.
 
-3. If the **Git Staging** view is not set to the **GitPlay** repository, click ![SwitchToImage](./images/SwitchToImage.png) and select **GitPlay** to switch to the **GitPlay** repository.  
+3. If the **Git Staging** view is not set to the **GitPlay** repository, click ![SwitchToImage](../images/SwitchToImage.png) and select **GitPlay** to switch to the **GitPlay** repository.  
 
-4. In the **Unstaged Changes** box, select the Jenkinsfile file and click ![GitStagingAdd](./images/GitStagingAdd.png) to add it to the **Staged Changes** box.
+4. In the **Unstaged Changes** box, select the Jenkinsfile file and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
 
-   ![JenkinsfileCommit](./images/JenkinsfileCommit.png)
+   ![JenkinsfileCommit](../images/JenkinsfileCommit.png)
 
 5. In the **Commit Message** box, enter a commit message, such as **Jenkinsfile commit**.
 
@@ -535,9 +535,9 @@ First commit and push only the Jenkinsfile so the updated assignmentId is used f
 
  ###### <u>Commit and push TPROG01</u>
 
-1. In the **Unstaged Changes** box, select **TPROG01** and click ![GitStagingAdd](./images/GitStagingAdd.png) to add it to the **Staged Changes** box.
+1. In the **Unstaged Changes** box, select **TPROG01** and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
 
-   ![TPROG01Commit](./images/TPROG01Commit.png)
+   ![TPROG01Commit](../images/TPROG01Commit.png)
 
 2. In the **Commit Message** box, enter a commit message, such as **TPROG01 commit.**
 
@@ -582,4 +582,4 @@ The build process was successfully completed.
 
 3. Verify that line 3 shows BENCHMARK ISPW TRAINING1 for **Author**.
 
-![ComponentChange2](./images/ComponentChange2.png)
+![ComponentChange2](../images/ComponentChange2.png)
