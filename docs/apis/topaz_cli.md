@@ -2,9 +2,15 @@
 title: Topaz CLI
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
-# Topaz Workbench Command Line Interface (Version 20.01.xx)
+# Topaz CLI
 
-The Topaz Workbench Command Line Interface (CLI) is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. After [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli), the command line interface folder contains a set of `.bat` files that can be used to execute the required functions. These are
+The Topaz CLI (Command Line Interface) allows actions to be triggered on the mainframe without the need for the Topaz Eclipse Graphical User Interface (GUI).  The Topaz CLI can be used to automate various tasks from a variety of different methods such as from an integration server or within a build tool Jenkins or other CI servers.
+
+The Topaz CLI is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. A 64-bit Java Runtime Environment (JRE) is required for the Topaz CLI. Refer to the *Topaz&reg; Workbench Installation Guide* for full installation details.  
+
+After [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli), the command line interface folder contains a set of `.bat` files that can be used to execute the required functions.  
+
+These are
 
 `.bat` file | description
 ----------- | -----------
@@ -78,7 +84,9 @@ Parameter | Description
 
 In addition to the above parameters, the `.bat` files use parameters specific to each individual file.
 
-### CodeCoverageCLI.bat
+## Xpediter Code Coverage (CodeCoverageCLI.bat)
+
+The Xpediter Code Coverage CLI downloads code coverage results from from Xpediter and generates a code coverage file that SonarQube can consume. 
 
 Parameter | Description
 --------- | -----------
@@ -88,6 +96,8 @@ Parameter | Description
 `-cc.system <arg>` | the code coverage system name
 `-cc.test <arg>` | the code coverage test name
 `-targetFolder <arg>` | the target folder where the data will be downloaded to
+
+### Example using Code Coverage Results
 
 The following example will download the Code Coverage results from repository `'HDDRXM0.DEMO.COCO.REPOS'`, using the system `RXN3`, and test ID `646`. All resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the `Coverage` sub folder of the specified target folder. The sources to compare the Code Coverage results against are expected to reside in sub folder `RXN3\MF_Source`. (The latter requires that the sources of the programs in question have been downloaded already to the specified folder.)
 
@@ -126,7 +136,9 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"CodeCoverageCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %targetFolder% -data %workspace% -cc.repos %repo% -cc.test %test% -cc.system %system% -cc.sources %sources%
 ```
 
-### SCMDownloaderCLI.bat
+## SCM Downloader CLI (SCMDownloaderCLI.bat)
+
+The SCM Downloader CLI downloads source code from ISPW, PDS or Endevor.
 
 Parameter | Description
 --------- | -----------
@@ -147,7 +159,7 @@ Parameter | Description
 `-scm <arg>` | the source code management type (ispw - repository downloader, ispwc - container downloader, endevor - Endevor downloader)
 `-targetFolder <arg>` | the target folder where the source will be downloaded
 
-#### Example using the ISPW container downloader
+### Example using the ISPW container downloader
 
 The following example will download all COBOL components and copybooks from ISPW assignment (`-ispwContainerType "0"`) `RXN3000007`, using the container downloader (`-scm "ispwc"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`. 
@@ -188,7 +200,7 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %workspace% -data %workspace% -scm %scm% -ispwContainerName %container% -ispwContainerType %contType% -ispwDownloadAll %downloadAll%
 ```
 
-#### Example using the ISPW repository downloader
+### Example using the ISPW repository downloader
 
 The following example will download all COBOL components and copybooks from ISPW stream `FTSDEMO`, application `RXN3`, from level `DEV1` only (`-ispwLevelOption "0"`), using the repository downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`.
@@ -235,7 +247,7 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %targetFolder% -data %workspace% -scm %scm% -ispwServerStream %stream% -ispwServerApp %application% -ispwServerLevel %level% -ispwLevelOption %levelOption% -ispwFilterFiles %filterFiles% -ispwFilterFolders %filterFolders% -ispwComponentType %compType% -ispwDownloadAll %downloadAll%
 ```
 
-#### Example using the PDS downloader
+### Example using the PDS downloader
 
 The following example will download all members from PDS `'SALESSUP.RXN3.DEV1.COB'`, using the PDS downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the workspace. 
@@ -288,7 +300,9 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %targetFolder% -data %workspace% -scm %scm% -filter %filter% -ext %extension%
 ```
 
-### IspwCLI.bat
+## ISPW CLI (IspwCLI.bat)
+
+The ISPW CLI synchronizes source from Git to ISPW.
 
 Parameter | Description
 --------- | -----------
@@ -310,7 +324,9 @@ Parameter | Description
 
 For an example using the CLI (the plugin to be precise) refer to the [Git to ISPW Integration - A Tutorial](../guidelines/GIT_to_ISPW_Integration_Tutorial.md).
 
-### SubmitJclCLI.bat
+## Submit JCL (SubmitJclCLI.bat)
+
+The SubmitJcl CLI submits JCL jobs to the mainframe.
 
 Parameter | Description
 --------- | -----------
@@ -318,7 +334,7 @@ Parameter | Description
 `-jcldsns <arg>` | a comma separated list of sequential datasets or PDS(MEMBER) names to submit as JCL jobs.
 `-maxcc <arg>` | the maximum job condition code which will allow JCL submissions to continue.
 
-#### Submit JCL residing on the mainframe
+### Example of Submitting JCL residing on the mainframe
 
 This example will submit two jobs on host `my.mainframe.host`, communicating on port `16196`. If the return code of any of the jobs is greater than `4` the subsequent jobs will not be submitted and the pipeline will fail with an `error`.
 
@@ -355,7 +371,7 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SubmitJclCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -data %workspace% -maxcc %maxcc% -jcldsns %jclMems%
 ```
 
-#### Submit JCL residing locally in a file
+### Example Submitting JCL residing locally in a file
 
 The following example will submit a JCL that resides locally in file `C:\temp\JCL.txt` on host `my.mainframe.host`, communicating on port `16196`. If the return code of any of the jobs is greater than `4` the pipeline will fail with an `error`.
 
@@ -393,10 +409,8 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 ```
 
 ## Total Test Unit Test (TotalTestCLI.bat)
-The CLI tools allow you to run test suites in batch with no interactive client required and/or from an integration server or within a build tool (like Hudson or Jenkins).
-### Prerequisites
-The Topaz for Total Test CLI components are installed as part of the Topaz Workbench CLI installation. A 64-bit Java Runtime Environment (JRE) is required for the Topaz for Total Test CLI. Refer to the *Topaz&reg; Workbench Installation Guide* on how to install the Topaz Workbench CLI.
-The test suite must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
+
+The Total Test Unit Test CLI runs Total Test unit tests.  The test suite or scenario must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
 
 ### Usage
 Executing unit test scenarios is done with the `TotalTestCLI.bat` file. The general syntax for using the `TotalTestCLI.bat` is 
