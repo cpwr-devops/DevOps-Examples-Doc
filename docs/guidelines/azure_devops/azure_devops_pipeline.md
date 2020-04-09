@@ -1,10 +1,10 @@
 ---
-title: An example using Azure DevOps Pipelines
-footer: MIT Licensed | Copyright © 2018 - Compuware
+title: Setting up Azure DevOps Pipelines
+footer: MIT Licensed | Copyright &copy; 2018 - Compuware
 ---
-# An example using Azure DevOps Pipelines
+# Setting up Azure DevOps Pipelines
 
-As a proof of concept we describe and publish the code to implement a CI/CD process using Azure DevOps pipelines. The pipeline will implement the [general process steps](../pipelines/basic_scenario.md#ci-pipeline-job). In contrast to the Jenkins examples, the CI build pipeline will trigger an Azure DevOps release pipeline, which we will also describe here.
+As a proof of concept we describe and publish the code to implement a CI/CD process using Azure DevOps pipelines. The pipeline will implement the [general process steps](../../pipelines/basic_scenario.md#ci-pipeline-job). In contrast to the Jenkins examples, the CI build pipeline will trigger an Azure DevOps release pipeline, which we will also describe here.
 Azure DevOps pipelines use yaml as language to describe pipeline steps. Therefore, [Powershell scripts](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src/misc-examples/AzureDevOps/Powershell) will be used to code some of the logic required to implement the process. These scripts may also be used as bases to transfer the example to a different CI tool than Azure DevOps or Jenkins.
 
 ## Getting started with Azure DevOps Pipelines
@@ -20,19 +20,19 @@ Make sure that, after creating your organization account, you create a project f
 
 Once you have created your account, you have to generate a personal access token (PAT). This will be required, primarliy, during the configuration of the [local agent](#download-and-configure-local-agent) and to be able to trigger the pipeline builds from remote (via REST calls). Anywhere within your Azure DevOps account select your user profile in the upper right hand corner
 
-![Azure DevOps Profile](./images/Azure_DevOps_Profile.png)
+![Azure DevOps Profile](../images/Azure_DevOps_Profile.png)
 
 and select the *Personal access tokens* option.
 
-![Azure DevOps PAT Option](./images/Azure_DevOps_PAT.png)
+![Azure DevOps PAT Option](../images/Azure_DevOps_PAT.png)
 
 Add a new token, give it a new, define the duration it will be valid and define the access scope. For the latter, the *Full Acces* option will be okay to get started. In a reallife situation, you will, of course, make sure to limit the access to resources in your project as much as possible.
 
-![Azure DevOps PAT Definition](./images/Azure_DevOps_PAT_Define.png)
+![Azure DevOps PAT Definition](../images/Azure_DevOps_PAT_Define.png)
 
 And create the token.
 
-![Azure DevOps PAT created](./images/Azure_DevOps_PAT_created.png)
+![Azure DevOps PAT created](../images/Azure_DevOps_PAT_created.png)
 
 ::: warning
 Make sure to save a copy of the PAT generated for you. It will not be possible to retrieve the token at a later time. If you loose the token, you need to re-generate a new token.
@@ -42,7 +42,7 @@ Make sure to save a copy of the PAT generated for you. It will not be possible t
 
 Within a rest call, the PAT needs to be passed in encrypted form via the `authorization` header of the http request. While there are several ways, to get the encrypted version, one way is by using a REST request testing tool like Google's Advanced Rest Client (ARC). In the tool, create an `authorization` header for any request and use the *pencil* button to provide the credentials you would like to be encrypted. For you Azure DevOps PAT the user id and password to use are both the PAT.
 
-![Azure DevOps PAT Encyrption](./images/Azure_DevOps_PAT_Encrypt.png)
+![Azure DevOps PAT Encyrption](../images/Azure_DevOps_PAT_Encrypt.png)
 
 ## Download and configure local agent
 
@@ -56,15 +56,15 @@ During configuration of the agent you will need the PAT defined [previously](#pe
 
 During configuration of the agent you will add it to one of your Agent pools. Agent pools can be reviewed and maintained using the *Organization settings* or *Project settings* in the lower left hand corner.
 
-![Azure DevOps Settings](./images/Azure_DevOps_Project_Settings.png)
+![Azure DevOps Settings](../images/Azure_DevOps_Project_Settings.png)
 
 Once selected, you will find the entry *Agent pools" underneath the *Pipelines* heading. Selecting the *Agent pools* entry will display at least two lists of pools. *Azure pipelines* which contains definitions for agents executing in the Azure cloud, and a second entry for local *self hosted agents*. In the example the name of that pool is *Default*.
 
-![Azure DevOps Agent Pools](./images/Azure_DevOps_Agent_Pools.png)
+![Azure DevOps Agent Pools](../images/Azure_DevOps_Agent_Pools.png)
 
 Selecting this pool and selecting the option *Agents" will show the list of all agents defined to this pool and their current status. In the example the agent is *Offline*, meaning the the agent has not been started yet.
 
-![Azure DevOps Agent Statuts](./images/Azure_DevOps_Agent_Status.png)
+![Azure DevOps Agent Statuts](../images/Azure_DevOps_Agent_Status.png)
 
 To start a local agent you can use the `run.cmd` files located in the root folder of the agent's installation.
 
@@ -72,7 +72,7 @@ To start a local agent you can use the `run.cmd` files located in the root folde
 
 Variable groups allow defining and storing default values that can be used by more than one pipeline. Using variable groups saves from having to define the same variables over and over again. The example uses a variable group. Such a group can be defined by selecting your project, clicking the *Pipeline* selection on the left and selecting the *Library* option.
 
-![Azure DevOps Library](./images/Azure_DevOps_Library.png)
+![Azure DevOps Library](../images/Azure_DevOps_Library.png)
 
 The example uses a variable group named *mainframe-pipeline-parameters* and contains the following variables. Some of these variables are defined as *secret* making them invisible both in the interface as well as in the execution logs.
 
@@ -80,16 +80,16 @@ The example uses a variable group named *mainframe-pipeline-parameters* and cont
 Make sure to *Allow access to all pipelines* in order to be able to make use of the variables define in a group.
 :::
 
-![Azure DevOps Variable Group](./images/Azure_DevOps_Variable_Group.png)
+![Azure DevOps Variable Group](../images/Azure_DevOps_Variable_Group.png)
 
 Name | Description | secret
 ---- | ----------- | ------
-agentScriptsPath | Folder containing the [Powershell scripts](../pipelines/alternatives_to_jenkins.md#the-powershell-scripts) on the machine the agent executes on  | N
+agentScriptsPath | Folder containing the [Powershell scripts](./powershell_scripts.md) on the machine the agent executes on  | N
 azureOrganization | Azure DevOps organization this variable group belongs to
 azureRestAddress | Base URL for the use of the [Azure DevOps REST API](https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1&viewFallbackFrom=azure-devops) | N
 ccRepo | Xpediter Code Coverage repository to use | N
 ccTestId | Xpediter Code Coverage test id to use | N
-cesToken | CES token to be used for [ISPW REST API](../apis/rest_api.md) calls | Y
+cesToken | CES token to be used for [ISPW REST API](../../apis/rest_api.md) calls | Y
 cesUri | The URL for CES | N
 cliPath | Location of the Topaz CLI in the machine the local agent executes on | N
 gitProject | Git(Hub) project that the pipelines are connected to (storing the Topaz for Total Test projects) | N
@@ -111,25 +111,25 @@ workspaceRoot | Folder on the machine the local agent executes on, to be used as
 
 Open your project, select the *Pipelines* entry and create a *New pipeline*. Azure DevOps pipelines assume that they are connected to a source repository. Therefore, you will be asked to point to the repository storing your code. In a mainframe situation this is likely not a repository storing mainframe code, but still you can connect the pipeline to the repository storing Topaz for Total Test projects. The selection process will depend on the specific SCM you choose. For example, when using GitHub, the dialog will list all GitHub repositories you have been active recently as a contributor.
 
-![Azure Devops GitHub Repos](./images/Azure_DevOps_Pipeline_GitHub_Repos.png)
+![Azure Devops GitHub Repos](../images/Azure_DevOps_Pipeline_GitHub_Repos.png)
 
 Once connected to the repository (you may be asked for permission to use Azure DevOps for the GitHub repo) select the *Starter pipeline*, since we will build the `yaml` file (describing the pipeline) from scratch and not use an existing one.
 
-![Azure DevOps Pipelne Type](./images/Azure_DevOps_Pipeline_Type.png)
+![Azure DevOps Pipelne Type](../images/Azure_DevOps_Pipeline_Type.png)
 
 ### Define pipeline specific variables / parameters
 
 In addition to the variables from the group [*mainframe-pipeline-parameters*](#define-variable-group), the pipeline uses the following variables. Define them by clicking the *Variables* button in the pipeline definition. As with the variable group, you can and should define some variables a *secret*.
 
-![Azure DevOps Pipeline Variables](./images/Azure_DevOps_Pipeline_Variables.png)
+![Azure DevOps Pipeline Variables](../images/Azure_DevOps_Pipeline_Variables.png)
 
 Variable | Description | Secret Value
 -------- | ----------- | ------------
 `azureRestAuthorization` | `authorization` header for the http request (including the 'Basic ' part of the header), i.e. your [encrypted Azure DevOps PAT](#personal-access-token-pat) | Y
-`ispwApplication` |  ISPW application (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook)) | N
-`ispwContainerName` |  ISPW container name (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook)) | N
-`ispwContainerType` |  ISPW container type (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook)) | N
-`ispwLevel` |  ISPW level (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook)) | N
+`ispwApplication` |  ISPW application (passed into the process by the [ISPW webhook](#define-ispw-webhook)) | N
+`ispwContainerName` |  ISPW container name (passed into the process by the [ISPW webhook](#define-ispw-webhook)) | N
+`ispwContainerType` |  ISPW container type (passed into the process by the [ISPW webhook](#define-ispw-webhook)) | N
+`ispwLevel` |  ISPW level (passed into the process by the [ISPW webhook](#define-ispw-webhook)) | N
 
 :::tip Note
 The `ispwLevel` being passed into the pipeline will be the level the components originated from when triggering a promote, i.e. it will be a `DEV` level. After the promote, components will reside at a `QA` level, though. This means, we will have to determine the tight `QA` level during the execution based on the `DEV` level. 
@@ -213,7 +213,7 @@ Execute an inline Powershell script. This script will take the `ispwLevel` passe
           echo "##vso[task.setvariable variable=ispwTargetLevel]$ispwTargetLevel"
 ```
 
-Execute Powershell script [`Clear_Workspace.ps1`](../pipelines/alternatives_to_jenkins.html#clear-workspace-ps1) to clear the designated workspace on the agent.
+Execute Powershell script [`Clear_Workspace.ps1`](./powershell_scripts.md#clear-workspace-ps1) to clear the designated workspace on the agent.
 
 ```yml{4}
     - task: PowerShell@2
@@ -223,7 +223,7 @@ Execute Powershell script [`Clear_Workspace.ps1`](../pipelines/alternatives_to_j
         arguments: '$(workspaceRoot)'
 ```
 
-Execute Powershell script [`ISPW_Download_Container.ps1`](../pipelines/alternatives_to_jenkins.html#ispw-download-container-ps1) to download the components in the ISPW container passed by the webhook.
+Execute Powershell script [`ISPW_Download_Container.ps1`](./powershell_scripts.md#ispw-download-container-ps1) to download the components in the ISPW container passed by the webhook.
 
 ```yml{4}
     - task: PowerShell@2
@@ -233,7 +233,7 @@ Execute Powershell script [`ISPW_Download_Container.ps1`](../pipelines/alternati
         arguments: '$(workspaceRoot) $(hostUri) $(hostPort) $(hostUser) $(hostPassword) $(hostCodePage) $(ispwConfig) $(ispwContainerName) $(ispwContainerType) $(ispwTargetLevel) $(cliPath)'
 ```
 
-Execute Powershell script [`Git_Clone_TTT_Repo.ps1`](../pipelines/alternatives_to_jenkins.html#git-clone-ttt-repo-ps1) to clone the GitHub repository storing the Topaz for Total Test projects.
+Execute Powershell script [`Git_Clone_TTT_Repo.ps1`](./powershell_scripts.md#git-clone-ttt-repo-ps1) to clone the GitHub repository storing the Topaz for Total Test projects.
 
 ```yml{4}
     - task: PowerShell@2
@@ -261,7 +261,7 @@ This stage executes the downloaded tests and gets the Code Coverage results.
     steps:
 ```
 
-Execute Powershell script [`TTT_Run_Tests.ps1`](../pipelines/alternatives_to_jenkins.html#sonar-check-quality-gate-ps1) to execute the tests. The script will execute only tests for those components that have been downloaded for the container.
+Execute Powershell script [`TTT_Run_Tests.ps1`](./powershell_scripts.md#sonar-check-quality-gate-ps1) to execute the tests. The script will execute only tests for those components that have been downloaded for the container.
 
 ```yml{4}
     - task: PowerShell@2
@@ -271,7 +271,7 @@ Execute Powershell script [`TTT_Run_Tests.ps1`](../pipelines/alternatives_to_jen
         arguments: '$(workspaceRoot) $(hostUri) $(hostPort) $(hostUser) $(hostPassword) $(hostCodePage) $(ispwApplication) $(ispwLevel) $(ccRepo) $(ccSystem) $(ccTestId) $(cliPath)'
 ```
 
-Execute Powershell script ['Code_Coverage_Download_Metrics.ps1'](../pipelines/alternatives_to_jenkins.html#code-coverage-download-metrics-ps1) to download the Code COverage results from the mainframe repository to the workspace.
+Execute Powershell script ['Code_Coverage_Download_Metrics.ps1'](./powershell_scripts.md#code-coverage-download-metrics-ps1) to download the Code COverage results from the mainframe repository to the workspace.
 
 ```yml{4}
     - task: PowerShell@2
@@ -300,7 +300,7 @@ The job will execute the Sonar scanner and query the quality gate.
     steps:
 ```
 
-Execute Powershell script [`Sonar_Scan.ps1`](../pipelines/alternatives_to_jenkins.html#sonar-check-quality-gate-ps1) to pass sources, test results and code coverage data to SonarQube, using the sonar scanner.
+Execute Powershell script [`Sonar_Scan.ps1`](./powershell_scripts.md#sonar-check-quality-gate-ps1) to pass sources, test results and code coverage data to SonarQube, using the sonar scanner.
 
 ```yml{4}
     - task: PowerShell@2
@@ -321,7 +321,7 @@ This job is executed based on the condition, that the job `sonar` ran successful
     steps:
 ```
 
-Execute Powershell script [`Sonar_Check_Quality_Gate.ps1`](../pipelines/alternatives_to_jenkins.html#sonar-check-quality-gate-ps1) to query the status of the Sonar quality gate.
+Execute Powershell script [`Sonar_Check_Quality_Gate.ps1`](./powershell_scripts.md#sonar-check-quality-gate-ps1) to query the status of the Sonar quality gate.
 
 ```yml{4}
     - task: PowerShell@2
@@ -362,7 +362,7 @@ Per default variables are not 'visible' across job boundaries. Therefore, we nee
           echo "##vso[task.setvariable variable=ispwTargetLevel]$ispwTargetLevel"
 ```
 
-Execute Powershell script [`Azure_Trigger_Release.ps1`](../pipelines/alternatives_to_jenkins.html#azure-trigger-release-ps1) to trigger an Azure DevOps release pipeline(##create-a-release-pipeline).
+Execute Powershell script [`Azure_Trigger_Release.ps1`](./powershell_scripts.md#azure-trigger-release-ps1) to trigger an Azure DevOps release pipeline(##create-a-release-pipeline).
 
 ```yml{4}
     - task: PowerShell@2
@@ -402,7 +402,7 @@ Per default variables are not 'visible' across job boundaries. Therefore, we nee
           echo "##vso[task.setvariable variable=ispwTargetLevel]$ispwTargetLevel"
 ```
 
-Execute Powershell script [`ISPW_Operations.ps1`](../pipelines/alternatives_to_jenkins.html#ispw-operations-ps1) to regress the ISPW assigment
+Execute Powershell script [`ISPW_Operations.ps1`](./powershell_scripts.md#ispw-operations-ps1) to regress the ISPW assigment
 
 ```yml{4}
     - task: PowerShell@2
@@ -416,48 +416,48 @@ Execute Powershell script [`ISPW_Operations.ps1`](../pipelines/alternatives_to_j
 
 Open your project, select the *Releases* entry and create a *New* pipeline.
 
-![Azure DevOps New Release Pipeline](./images/Azure_DevOps_Release_New.png)
+![Azure DevOps New Release Pipeline](../images/Azure_DevOps_Release_New.png)
 
 In the dialog do not select a template and start with any *Empty job*.
 
-![Azure Devops Release Empty](./images/Azure_DevOps_Release_Empty.png)
+![Azure Devops Release Empty](../images/Azure_DevOps_Release_Empty.png)
 
 Like build pipelines, release pipelines consist of stages, jobs and tasks. Other than build pipelines, they are usually defined using the UI instead of coding the `yaml` file directly. (Even though the same `yaml` syntax is being generated and used in the background).
 Give the first stage a name, e.g. `QA environment.
 
-![Azure Devops Release stage 1](./images/Azure_DevOps_Release_QA_Environment_Stage.png)
+![Azure Devops Release stage 1](../images/Azure_DevOps_Release_QA_Environment_Stage.png)
 
 The stage will be generated containing one empty job. Select job to edit it and add tasks to it.
 
-![Azure DevOps Release edit stage 1](./images/Azure_DevOps_Release_QA_Environment_Stage_edit_job.png)
+![Azure DevOps Release edit stage 1](../images/Azure_DevOps_Release_QA_Environment_Stage_edit_job.png)
 
 For demonstration purposes (in order to be able to intervene), we would like to add a manual task, that allows to decide if the release is to be resumed or cancelled once it has been triggered. Manual tasks require to be executed on the server in an agentless job, while the job created initially is a agent job. Therefore, we need to add a new, agentless job.
 
-![Azure DevOps Release Agentless](./images/Azure_DevOps_Release_Agentless_Job.png)
+![Azure DevOps Release Agentless](../images/Azure_DevOps_Release_Agentless_Job.png)
 
 Move the job to the top location (making it the first job in the pipeline), give it a name, e.g. 'Prepare' and use the 'plus' sign to add a task to this job.
 
-![Azure DevOps Release Agentless2](./images/Azure_DevOps_Release_Agentless_Job2.png)
+![Azure DevOps Release Agentless2](../images/Azure_DevOps_Release_Agentless_Job2.png)
 
 From the list of tasks, select *Manual intervention* and add it
 
-![Azure DevOps Release Manual Task](./images/Azure_DevOps_Release_Manual_Task.png)
+![Azure DevOps Release Manual Task](../images/Azure_DevOps_Release_Manual_Task.png)
 
 Select the task, give it a name, and add yourself as user to notify.
 
-![Azure DevOps Release Notify](./images/Azure_DevOps_Release_Notify.png)
+![Azure DevOps Release Notify](../images/Azure_DevOps_Release_Notify.png)
 
 Select the Agent job to modify its settings and to add tasks to it. Especially, in the settings make sure to run it on the local agent pool, using the *Agent pool* dropdown.
 
-![Azure DevOps Release Agent Pool](./images/Azure_DevOps_Release_Agent_Pool.png)
+![Azure DevOps Release Agent Pool](../images/Azure_DevOps_Release_Agent_Pool.png)
 
 As with the agentless job before, use the 'plus' sign to add the following tasks. All tasks are going to be "Powershell" tasks, meaning the process to define will be the same for each task. First search for 'powershell' in the task list, select the 'PowerShell' entry and use the 'Add' button.
 
-![Azure DevOps Release Powershell Task](./images/Azure_DevOps_Release_Poweshell_Task.png)
+![Azure DevOps Release Powershell Task](../images/Azure_DevOps_Release_Poweshell_Task.png)
 
 For all tasks to define, set the *Script path* to `$(agentScriptsPath)` followed by the name of the Powershell script to use, e.g. `$(agentScriptsPath)\Clear_Workspace.ps1` and the *Arguments* to the values defined shown below. 
 
-![Azure DevOps Release Task Settings](./images/Azure_DevOps_Release_Poweshell_Task_Settings.png)
+![Azure DevOps Release Task Settings](../images/Azure_DevOps_Release_Poweshell_Task_Settings.png)
 
 :::tip Note
 Ultimately, the use of variables in the definitions, requires [defining the corresponding variables for the release pipeline](#define-release-pipeline-specific-variables-parameters).
@@ -465,32 +465,32 @@ Ultimately, the use of variables in the definitions, requires [defining the corr
 
 Task | Script | Arguments | Description
 ---- | ------ | --------- | -----------
-Clear Workspace | [`Clear_Workspace.ps1`](../pipelines/alternatives_to_jenkins.html#clear-workspace-ps1) | `$(workspaceRoot)` | clear the designated workspace on the agent
-Get Sources | [`ISPW_Download_Container.ps1`](../pipelines/alternatives_to_jenkins.html#ispw-download-container-ps1) | `$(workspaceRoot) $(hostUri) $(hostPort) $(hostUser) $(hostPassword) $(hostCodePage) $(ispwConfig) $(ispwContainerName) $(ispwContainerType) $(ispwLevel) $(cliPath)`| Download the sources for the components from ISPW
-Get Functional Tests | [`Git_Clone_TTT_Repo.ps1`](../pipelines/alternatives_to_jenkins.html#git-clone-ttt-repo-ps1) | `$(workspaceRoot) ralphnuessecpwr/FTSDEMO_$(ispwApplication)_Functional_Tests` | Clone a Git repository containing Topaz for Total Test Functional Test scenarios (the second parameter points to the GitHub project and repository and will require modification)
-Run Functional Tests | [`TTT_Run_Functional_Tests.ps1`](../pipelines/alternatives_to_jenkins.html#ttt-run-functional-tests-ps1) | `$(workspaceRoot) $(cesUri) $(hostUser) $(hostPassword) $(ispwApplication) $(tttEnvironment) $(cliPath)` | Execute the Functional Test scenarios
-Promote code to STG | [`ISPW_Operations.ps1`](../pipelines/alternatives_to_jenkins.html#ispw-operations-ps1) | `ContainerOperation $(cesUrl) $(ispwConfig) assignments promote $(ispwContainerName) $(ispwLevel) $(cesToken) FTSDEMO $(ispwApplication) $(ispwServer)` | Promote the code to the next level in ISPW
+Clear Workspace | [`Clear_Workspace.ps1`](./powershell_scripts.md#clear-workspace-ps1) | `$(workspaceRoot)` | clear the designated workspace on the agent
+Get Sources | [`ISPW_Download_Container.ps1`](./powershell_scripts.md#ispw-download-container-ps1) | `$(workspaceRoot) $(hostUri) $(hostPort) $(hostUser) $(hostPassword) $(hostCodePage) $(ispwConfig) $(ispwContainerName) $(ispwContainerType) $(ispwLevel) $(cliPath)`| Download the sources for the components from ISPW
+Get Functional Tests | [`Git_Clone_TTT_Repo.ps1`](./powershell_scripts.md#git-clone-ttt-repo-ps1) | `$(workspaceRoot) ralphnuessecpwr/FTSDEMO_$(ispwApplication)_Functional_Tests` | Clone a Git repository containing Topaz for Total Test Functional Test scenarios (the second parameter points to the GitHub project and repository and will require modification)
+Run Functional Tests | [`TTT_Run_Functional_Tests.ps1`](./powershell_scripts.md#ttt-run-functional-tests-ps1) | `$(workspaceRoot) $(cesUri) $(hostUser) $(hostPassword) $(ispwApplication) $(tttEnvironment) $(cliPath)` | Execute the Functional Test scenarios
+Promote code to STG | [`ISPW_Operations.ps1`](./powershell_scripts.md#ispw-operations-ps1) | `ContainerOperation $(cesUrl) $(ispwConfig) assignments promote $(ispwContainerName) $(ispwLevel) $(cesToken) FTSDEMO $(ispwApplication) $(ispwServer)` | Promote the code to the next level in ISPW
 
 ### Define release pipeline specific variables / parameters
 
 To make use of the variables in the [variable group `mainframe-pipeline-parameters`](#define-variable-group) and to define 'parameters', select *Variables* on the pipeline definition. Select *Variable groups*, click *Link variable group* and add the *mainframe-pipeline-parameters*.
 
-![Azure DevOps Release Pipeline Group Variables](./images/Azure_DevOps_Release_Pipeline_Group_Variables.png)
+![Azure DevOps Release Pipeline Group Variables](../images/Azure_DevOps_Release_Pipeline_Group_Variables.png)
 
 Next select *Pipeline variable* and add the following variables, making them all *Settable at release time*.
 
-![Azure DevOps Release Pipeline Variables](./images/Azure_DevOps_Release_Pipeline_Group_Variables.png)
+![Azure DevOps Release Pipeline Variables](../images/Azure_DevOps_Release_Pipeline_Group_Variables.png)
 
 Variable | Description
 -------- | -----------
-`ispwApplication` |  ISPW application (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook))
-`ispwContainerName` |  ISPW container name (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook))
-`ispwContainerType` |  ISPW container type (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook))
-`ispwLevel` |  ISPW level (passed into the process by the [ISPW webhook](../guidelines/azure_devops_pipeline.md#define-ispw-webhook))
+`ispwApplication` |  ISPW application (passed into the process by the [ISPW webhook](#define-ispw-webhook))
+`ispwContainerName` |  ISPW container name (passed into the process by the [ISPW webhook](#define-ispw-webhook))
+`ispwContainerType` |  ISPW container type (passed into the process by the [ISPW webhook](#define-ispw-webhook))
+`ispwLevel` |  ISPW level (passed into the process by the [ISPW webhook](#define-ispw-webhook))
 
 ## Define ISPW Webhook
 
-Last we need to define the [ISPW webhook in CES](../tool_configuration/webhook_setup.md) to be able to trigger the build pipeline based on a promote in an ISPW application. The principles and triggering conditions are the same as for the Jenkins examples. The URL for the http request, the headers to use and the body will be different, though.
+Last we need to define the [ISPW webhook in CES](../../tool_configuration/webhook_setup.md) to be able to trigger the build pipeline based on a promote in an ISPW application. The principles and triggering conditions are the same as for the Jenkins examples. The URL for the http request, the headers to use and the body will be different, though.
 
 ### URL for the http request
 
@@ -540,7 +540,7 @@ https://dev.azure.com/ralphnuesse/ralphnuesse/_apis/build/definitions?api-versio
 
 The result will look similar to the following. The important information can be found at the highlighted rows:
 
-![Azure DevOps Build Id](./images/Azure_DevOps_Build_Id.png)
+![Azure DevOps Build Id](../images/Azure_DevOps_Build_Id.png)
 
 Following the [instructions](https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions?view=azure-devops-rest-5.1), for the example release pipeline in use here, using the `search-text` parameter to filter by name of the pipeline, the REST call will be a GET call:
 ```http
@@ -549,4 +549,4 @@ https://vsrm.dev.azure.com/ralphnuesse/ralphnuesse/_apis/release/definitions?api
 
 The result will look similar to the following. The important information can be found at the highlighted rows:
 
-![Azure DevOps Release Id](./images/Azure_DevOps_Release_Id.png)
+![Azure DevOps Release Id](../images/Azure_DevOps_Release_Id.png)

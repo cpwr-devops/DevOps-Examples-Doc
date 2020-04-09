@@ -63,6 +63,10 @@ module.exports = {
               { 
                 text: 'Helper Classes',
                 link: '/advanced_pipelines/helper_classes/'
+              },
+              { 
+                text: 'Groovy Tips',
+                link: '/advanced_pipelines/jenkins_groovy'
               }
             ]
           }
@@ -157,16 +161,16 @@ module.exports = {
             ]
           },
           {
-            text: 'Pipelines',
+            text: 'Azure DevOps',
             items:
             [
               { 
-                text: 'Groovy Tips',
-                link: '/guidelines/jenkins_groovy'
+                text: 'Setting up Azure DevOps Pipelines',
+                link: '/guidelines/azure_devops/azure_devops_pipeline'
               },
               {
-                text: 'Azure DevOps',
-                link: '/guidelines/azure_devops_pipeline'
+                text: 'Powershell scripts',
+                link: '/guidelines/azure_devops/powershell_scripts'
               }
             ]
           }
@@ -227,9 +231,9 @@ module.exports = {
 	      'GIT_to_ISPW_Integration_Tutorial',
         'Git to ISPW Integration - The ISPW YAML Configuration File',
       ],
-      '/guidelines/': [
-        'jenkins_groovy',
-        'azure_devops_pipeline'
+      '/guidelines/azure_devops/': [
+        'azure_devops_pipeline',
+        'powershell_scripts'
       ],            
       '/advanced_pipelines/': [ 
         '',
@@ -238,7 +242,8 @@ module.exports = {
         'config_files',
         'parameters',
         'elaborate_scenario',        
-        'helper_classes/'
+        'helper_classes/',
+        'jenkins_groovy'
       ],
       '/pipeline_snippets/': [ 
         '',
