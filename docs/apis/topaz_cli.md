@@ -2,13 +2,20 @@
 title: Topaz CLI
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
-# Topaz Workbench Command Line Interface
+# Topaz CLI
 
-The Topaz Workbench Command Line Interface (CLI) is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. After [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli), the command line interface folder contains a set of `.bat` files that can be used to execute the required functions. These are
+The Topaz CLI (Command Line Interface) allows actions to be triggered on the mainframe without the need for the Topaz Eclipse Graphical User Interface (GUI).  The Topaz CLI can be used to automate various tasks from a variety of different methods such as from an integration server or within a build tool Jenkins or other CI servers.
+
+The Topaz CLI is distributed via the full Topaz Workbench installation media and may be used to execute a set of Topaz and ISPW related functions from a batch/shell interface. A 64-bit Java Runtime Environment (JRE) is required for the Topaz CLI. Refer to the *Topaz&reg; Workbench Installation Guide* for full installation details.  
+
+After [installation](../tool_configuration/plugins.md#installing-the-topaz-workbench-cli), the command line interface folder contains a set of `.bat` files that can be used to execute the required functions.  
+
+These are
 
 `.bat` file | description
 ----------- | -----------
 `CodeCoverageCLI.bat` | Allows downloading results from a Xpediter Code Coverage repository by specifying the repository name, system name and test ID.
+`IspwCLI.bat` | Used for the Git to ISPW integration
 `SCMDownloaderCLI.bat` | Allows interaction with the ISPW downloader to download sources from ISPW repositories, Endevor repositories or PDS 
 `SubmitJclCLI.bat` | Allows submitting JCL on the mainframe and retrieving the return code
 `TotalTestCLI.bat` | Allows execution of Topaz for Total Test unit test scenarios and suites.
@@ -70,13 +77,16 @@ Parameter | Description
 `-id <arg>` | the user name
 `-pass <arg>` | the user password (in clear text)
 `-port <arg>` | the port to be connected
+`-protocol <arg>` | the encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2)
 `-timeout <arg>` | the timeout (in minutes) for the connection
 
 ## Specific parameters
 
 In addition to the above parameters, the `.bat` files use parameters specific to each individual file.
 
-### CodeCoverageCLI.bat
+## Xpediter Code Coverage (CodeCoverageCLI.bat)
+
+The Xpediter Code Coverage CLI downloads code coverage results from from Xpediter and generates a code coverage file that SonarQube can consume. 
 
 Parameter | Description
 --------- | -----------
@@ -87,9 +97,11 @@ Parameter | Description
 `-cc.test <arg>` | the code coverage test name
 `-targetFolder <arg>` | the target folder where the data will be downloaded to
 
+### Example using Code Coverage Results
+
 The following example will download the Code Coverage results from repository `'HDDRXM0.DEMO.COCO.REPOS'`, using the system `RXN3`, and test ID `646`. All resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the `Coverage` sub folder of the specified target folder. The sources to compare the Code Coverage results against are expected to reside in sub folder `RXN3\MF_Source`. (The latter requires that the sources of the programs in question have been downloaded already to the specified folder.)
 
-```bat
+```
 @echo off
 
 REM
@@ -124,7 +136,9 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"CodeCoverageCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %targetFolder% -data %workspace% -cc.repos %repo% -cc.test %test% -cc.system %system% -cc.sources %sources%
 ```
 
-### SCMDownloaderCLI.bat
+## SCM Downloader CLI (SCMDownloaderCLI.bat)
+
+The SCM Downloader CLI downloads source code from ISPW, PDS or Endevor.
 
 Parameter | Description
 --------- | -----------
@@ -143,14 +157,15 @@ Parameter | Description
 `-ispwServerLevel <arg>` | the ISPW server level
 `-ispwServerStream <arg>` | the ISPW server stream
 `-scm <arg>` | the source code management type (ispw - repository downloader, ispwc - container downloader, endevor - Endevor downloader)
+`-targetFolder <arg>` | the target folder where the source will be downloaded
 
-#### Example using the ISPW container downloader
+### Example using the ISPW container downloader
 
 The following example will download all COBOL components and copybooks from ISPW assignment (`-ispwContainerType "0"`) `RXN3000007`, using the container downloader (`-scm "ispwc"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`. 
 The downloaded sources will end up in the sub folder `<application>/MF_Source` (in the example `RXN3\MF_Source`) of the specified target folder name.
 
-```bat
+```
 @echo off
 
 REM
@@ -185,13 +200,13 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %workspace% -data %workspace% -scm %scm% -ispwContainerName %container% -ispwContainerType %contType% -ispwDownloadAll %downloadAll%
 ```
 
-#### Example using the ISPW repository downloader
+### Example using the ISPW repository downloader
 
 The following example will download all COBOL components and copybooks from ISPW stream `FTSDEMO`, application `RXN3`, from level `DEV1` only (`-ispwLevelOption "0"`), using the repository downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`.
 The downloaded sources will end up in the sub folder `<application>/MF_Source` (in the example `RXN3\MF_Source`) of the specified target folder name.
 
-```bat
+```
 @echo off
 
 REM
@@ -232,7 +247,7 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %targetFolder% -data %workspace% -scm %scm% -ispwServerStream %stream% -ispwServerApp %application% -ispwServerLevel %level% -ispwLevelOption %levelOption% -ispwFilterFiles %filterFiles% -ispwFilterFolders %filterFolders% -ispwComponentType %compType% -ispwDownloadAll %downloadAll%
 ```
 
-#### Example using the PDS downloader
+### Example using the PDS downloader
 
 The following example will download all members from PDS `'SALESSUP.RXN3.DEV1.COB'`, using the PDS downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
 The resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the workspace. 
@@ -250,7 +265,7 @@ For example:
 
 if there are no members in the `QA1` or `STG` PDS.
 
-```bat
+```
 @echo off
 
 REM
@@ -285,7 +300,33 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SCMDownloaderCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -targetFolder %targetFolder% -data %workspace% -scm %scm% -filter %filter% -ext %extension%
 ```
 
-### SubmitJclCLI.bat
+## ISPW CLI (IspwCLI.bat)
+
+The ISPW CLI synchronizes source from Git to ISPW.
+
+Parameter | Description
+--------- | -----------
+`-gitBranch <arg>` | The target Git branch name
+`-gitCommit <arg>` | The Git commit hash (long or short) or a colon-delimited list of file paths in the workspace
+`-gitFromHash <arg>` | A Git hash to start syncing a list of commits which is not included in the sync, or -1 for multibranch project support
+`-gitLocalPath <arg>` | The location of the local Git repository
+`-gitPassword <arg>` | Git password
+`-gitRepoUrl <arg>` | Git Repository URL
+`-gitUsername <arg>` | Git user name
+`-ispwCheckoutLevel <arg>` | The test level to check components out to
+`-ispwContainerCreation <arg>` | The option to indicate how often to create a new ISPW container
+`-ispwContainerDescription <arg>` | The custom description to be used for the ISPW container
+`-ispwServerApp <arg>` | The ISPW application
+`-ispwServerConfig <arg>` | the ISPW server config
+`-ispwServerStream <arg>` | The ISPW stream name
+`-operation <arg>` | the ISPW operation to perform
+`-targetFolder <arg>` | the target folder where the output of the operation will be saved.
+
+For an example using the CLI (the plugin to be precise) refer to the [Git to ISPW Integration - A Tutorial](../guidelines/GIT_to_ISPW_Integration_Tutorial.md).
+
+## Submit JCL (SubmitJclCLI.bat)
+
+The SubmitJcl CLI submits JCL jobs to the mainframe.
 
 Parameter | Description
 --------- | -----------
@@ -293,11 +334,11 @@ Parameter | Description
 `-jcldsns <arg>` | a comma separated list of sequential datasets or PDS(MEMBER) names to submit as JCL jobs.
 `-maxcc <arg>` | the maximum job condition code which will allow JCL submissions to continue.
 
-#### Submit JCL residing on the mainframe
+### Example of Submitting JCL residing on the mainframe
 
 This example will submit two jobs on host `my.mainframe.host`, communicating on port `16196`. If the return code of any of the jobs is greater than `4` the subsequent jobs will not be submitted and the pipeline will fail with an `error`.
 
-```bat
+```
 @echo off
 
 REM
@@ -330,11 +371,11 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SubmitJclCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -data %workspace% -maxcc %maxcc% -jcldsns %jclMems%
 ```
 
-#### Submit JCL residing locally in a file
+### Example Submitting JCL residing locally in a file
 
 The following example will submit a JCL that resides locally in file `C:\temp\JCL.txt` on host `my.mainframe.host`, communicating on port `16196`. If the return code of any of the jobs is greater than `4` the pipeline will fail with an `error`.
 
-```bat
+```
 @echo off
 
 REM
@@ -368,10 +409,8 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 ```
 
 ## Total Test Unit Test (TotalTestCLI.bat)
-The CLI tools allow you to run test suites in batch with no interactive client required and/or from an integration server or within a build tool (like Hudson or Jenkins).
-### Prerequisites
-The Topaz for Total Test CLI components are installed as part of the Topaz Workbench CLI installation. A 64-bit Java Runtime Environment (JRE) is required for the Topaz for Total Test CLI. Refer to the *Topaz&reg; Workbench Installation Guide* on how to install the Topaz Workbench CLI.
-The test suite must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
+
+The Total Test Unit Test CLI runs Total Test unit tests.  The test suite or scenario must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
 
 ### Usage
 Executing unit test scenarios is done with the `TotalTestCLI.bat` file. The general syntax for using the `TotalTestCLI.bat` is 
@@ -395,7 +434,6 @@ If you want to execute the individual steps, one at a time, to run a test, execu
 4. Use the download command to retrieve the result from the mainframe Topaz for Total Test Test Runner execution. See  [File Transfer](#file-transfer-parameters-options) for more information.
 5. Use the parse command to unpack the binary test results file created by the Topaz for Total Test Runner. See [Binary Parser](#binary-parser-parameters-options) for more information.
 6. Use the resultcheck command to analyze the test results against the test check conditions. The result checker will output test archive files containing the test results. See Result Checker](#result-checker-parameters-options) for more information.
-
 
 The batch script is in the directory where the Topaz Workbench CLI was installed. To execute the script, the configuration directory must be writable.
 
@@ -431,7 +469,7 @@ To set the logging level of the CLI tools logging output, see [Debug Options](#d
 ### Debug Options
 The following table lists the debug parameters that can be used for all commands.
 
-Parameter&nbsp;&nbsp;&nbsp;&nbsp; | Abbr. | Description
+Parameter | Abbr. | Description
 ---------|---------|-----------
 `-loglevel` | -log | The logging level. Must be INFO, WARN, DEBUG or ERROR. The default is INFO.
 `-logparms` | -lp | Indicates if the various components run parameters should be logged before the run. Must be TRUE or FALSE. The default is TRUE.
@@ -480,11 +518,10 @@ Parameter/Option | Abbr. |	Description
 `-backuparchive` | -ba | Indicates if the archive file should be backed up. The file will be time stamped and placed in the History project folder. Must be TRUE or FALSE. The default is TRUE.
 `-deletetemp` | -dt | Indicates if temporary files are to be deleted. Must be TRUE or FALSE. The default is TRUE.
 
-
 #### Example of using `runtest`
 The followwing example will execute the suite `CWXTSUBC.testsuite` residing in Topaz for Total Test project `project=C:\Users\cwde-rnuesse\Compuware\Topaz\Workspace\Unit CWXTSUBC 1.0`, on host `my.mainframe.host`, communicating on port `16196`, using the `Runner.jcl` file for the job to submit.
 
-```bat
+```
 @echo off
 
 REM
@@ -523,49 +560,49 @@ The following tables lists the input, output and optional parameters that must b
 **Input parameters**
 Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 ------- | --------- | ---------
--testsuite  | -t  | Test suite or test scenario name, if project is specified. Otherwise must be the full path name to the test suite or test scenario.
--targetencoding  | -te  | The character encoding (charset) used on the target platform. Default is '1047'.
+`-testsuite` | -t  | Test suite or test scenario name, if project is specified. Otherwise must be the full path name to the test suite or test scenario.
+`-targetencoding` | -te  | The character encoding (charset) used on the target platform. Default is '1047'.
 
 **Output parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--archive | -a | The archive created containing all test data. See Optional Parameters for more information.
--binput |-bin | The binary input data file. See Optional Parameters for more information.
--binref |-brf | The binary reference file. See Optional Parameters for more information.
+`-archive` | -a | The archive created containing all test data. See Optional Parameters for more information.
+`-binput` |-bin | The binary input data file. See Optional Parameters for more information.
+`-binref` |-brf | The binary reference file. See Optional Parameters for more information.
 
 **Optional output parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--project | -p | The Topaz for Total Test project folder. If specified, the archive, binary input file and reference file do not need to be specified. The files will be placed on the associated project folders.
+`-project` | -p | The Topaz for Total Test project folder. If specified, the archive, binary input file and reference file do not need to be specified. The files will be placed on the associated project folders.
 
 ### File Transfer - parameters/options
 File Transfer transfers binary files to and from the target host. The following tables lists the input, common and upload parameters that must be provided:
 **File Transfer Input Parameter**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--command | -cmd | The command to be executed. Must be either 'upload' or 'download'.
+`-command` | -cmd | The command to be executed. Must be either 'upload' or 'download'.
 
 **File Transfer Common Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--host | -h | The host name or IP address of the target host.
--port | -pt | The port the host is listening on.
--user | -u | The name of the user (userID) to connect to the host with.
--password | -pw | The password associated with the userID.
--targetencoding | -te | The character encoding (charset) used on the target platform. Default is '1047'.
+`-host` | -h | The host name or IP address of the target host.
+`-port` | -pt | The port the host is listening on.
+`-user` | -u | The name of the user (userID) to connect to the host with.
+`-password` | -pw | The password associated with the userID.
+`-targetencoding` | -te | The character encoding (charset) used on the target platform. Default is '1047'.
 
 **File Transfer Upload Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--bininp | -bin | The binary input data file produced by the builder.
--binref | -brf | The binary reference file produced by the builder.
--dsnhlq | -hlq | Optional high level qualifier to be used when allocating datasets.
+`-bininp` | -bin | The binary input data file produced by the builder.
+`-binref` | -brf | The binary reference file produced by the builder.
+`-dsnhlq` | -hlq | Optional high level qualifier to be used when allocating datasets.
 
 **File Transfer Download Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--binres | -brs | The binary result file to be written to.
--binresdsn | -brsdsn | The BINRES dataset name on the target host to be downloaded.
+`-binres` | -brs | The binary result file to be written to.
+`-binresdsn` | -brsdsn | The BINRES dataset name on the target host to be downloaded.
 
 ### JCL Submit - parameters/options
 The JCL submit component submits JCL to run the test(s) on the target host. The JCL can reside on the local files system (use parameter -j) or as a dataset on the target host (use parameter -jdsn) .
@@ -573,40 +610,40 @@ The following tables list the submit, and optional parameters that must be provi
 **JCL Submit Parameters**
 Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.&nbsp;&nbsp;&nbsp;&nbsp;  | Description
 ------- | --------- | ---------
--host | -h | The host name or IP address of the target host.
--port | -pt | The port the host is listening on.
--user | -u | The name of the user (userID) to connect to the host with.
--password | -pw | The password associated with the userID.
--targetencoding | -te | The character encoding (charset) used on the target platform. The default is �1047�.
--bininpdsn | -bindsn | The BININP dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
--binrefdsn | -brfdsn | The BINREF dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
--binresdsn | -brsdsn | The BINRES dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
--ccrepository | -ccrepo | The name of the Code Coverage repository dataset. Must be specified to enable Code Coverage.
--ccsystem | -ccsys | Code Coverage system. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
--cctestid | -cctid | Code Coverage test id. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
--ccstepname | -ccstep | Specifies the Topaz for Total Test step name. Should be used if the Topaz for Total Test step is contained in a cataloged procedure.
--ccprogramtype | -cctype | Specifies the main executable program (this is the program specified on the 'EXEC PGM=' JCL statement in runner*.JCL) for Code Coverage. Specify: `-cctype=DB2` when the main program is IKJEFT01 or IKJEFT1B for live Db2 `-cctype=TOTALTEST` when the main program is TTTRUNNR `-cctype=IMS` when the main program is DFSRRC00 for live IMS
--ccclearstats | -ccclear | Specifies whether the Code Coverage repository statistics should be cleared before running the test. Valid values are 'true' or 'false'. The default value is 'true'.
+`-host` | -h | The host name or IP address of the target host.
+`-port` | -pt | The port the host is listening on.
+`-user` | -u | The name of the user (userID) to connect to the host with.
+`-password` | -pw | The password associated with the userID.
+`-targetencoding` | -te | The character encoding (charset) used on the target platform. The default is �1047�.
+`-bininpdsn` | -bindsn | The BININP dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
+`-binrefdsn` | -brfdsn | The BINREF dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
+`-binresdsn` | -brsdsn | The BINRES dataset name on the target host, to use for the test run. This is only required if the JCL requires substitution.
+`-ccrepository` | -ccrepo | The name of the Code Coverage repository dataset. Must be specified to enable Code Coverage.
+`-ccsystem` | -ccsys | Code Coverage system. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
+`-cctestid` | -cctid | Code Coverage test id. If not specified with '-ccrepo', defaults to the test suite or test scenario name.
+`-ccstepname` | -ccstep | Specifies the Topaz for Total Test step name. Should be used if the Topaz for Total Test step is contained in a cataloged procedure.
+`-ccprogramtype` | -cctype | Specifies the main executable program (this is the program specified on the 'EXEC PGM=' JCL statement in runner*.JCL) for Code Coverage. Specify: `-cctype=DB2` when the main program is IKJEFT01 or IKJEFT1B for live Db2 `-cctype=TOTALTEST` when the main program is TTTRUNNR `-cctype=IMS` when the main program is DFSRRC00 for live IMS
+`-ccclearstats` | -ccclear | Specifies whether the Code Coverage repository statistics should be cleared before running the test. Valid values are 'true' or 'false'. The default value is 'true'.
 
 **JCL Submit Parameter from Local Host**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--jcl | -j | The file name containing the JCL to submit.
+`-jcl` | -j | The file name containing the JCL to submit.
 
 **JCL Submit Parameter from z/OS Dataset**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--jcldsn | -jdsn | The name of a dataset containing the JCL to submit.
+`-jcldsn` | -jdsn | The name of a dataset containing the JCL to submit.
 
 ::: tip
--jcl and -jcldsn cannot both be used in the same statement. Specify either -jcl or -jcldsn.
+`-jcl` and `-jcldsn` cannot both be used in the same statement. Specify either -jcl or -jcldsn.
 :::
 
 **JCL Submit Optional Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--wait | -w | Indicates if component waits for test completion. Must be true or false. Defaults to true.
--maxwait | -mw | The number of minutes to wait for the test to complete, The default is 20 minutes.
+`-wait` | -w | Indicates if component waits for test completion. Must be true or false. Defaults to true.
+`-maxwait` | -mw | The number of minutes to wait for the test to complete, The default is 20 minutes.
 
 ### Binary Parser - parameters/options
 The Binary Parser component parses the binary result file from an executed test and updates the archive file.
@@ -615,9 +652,9 @@ The following table lists the input parameters that must be provided.
 **Binary Parser Input Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--binres | -brs | The binary result data file which was the output of the test execution on the target platform.
--targetencoding | -te | The character encoding (charset) used on the target platform. Default is '1047'.
--archive | -a | The archive (history) created by the Builder which will be updated.
+`-binres` | -brs | The binary result data file which was the output of the test execution on the target platform.
+`-targetencoding` | -te | The character encoding (charset) used on the target platform. Default is '1047'.
+`-archive` | -a | The archive (history) created by the Builder which will be updated.
 
 There are no explicit output parameters. The Parser output data will be saved in the updated archive file.
 
@@ -628,34 +665,34 @@ The following tables list the input, output and optional parameters that must be
 **Result Checker Input Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--archive | -a | The archive from the Parser which will be updated (unless the output parameter is used, see below).
+`-archive` | -a | The archive from the Parser which will be updated (unless the output parameter is used, see below).
 
 **Result Checker Optional Input Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--targetencoding | -te | The character encoding (charset) used on the target platform. Defaults to the encoding stored in the archive.
+`-targetencoding` | -te | The character encoding (charset) used on the target platform. Defaults to the encoding stored in the archive.
 
 **Result Checker Output Parameters**
 Parameter | Abbr.  | Description
 ------- | --------- | ---------
--result | -rs | The name of the XML result fle to be created. (Not required when project parameter is provided.)
--noresult |  | If specified with the -p option, no result file will be created.
--report | -rp | The name of the HTML result report to be created. (Not required when project parameter is provided.)
--junit | -ju | The full path name of the file to write the JUnit information to. It is a XML document describing the results, intended for JUnit displays.
--sonar | -so | The full path name of the file to write the Sonar information to. It is a XML document describing the results, intended for Sonar displays.
--noreport |  | If specified with the -p option, no report file will be created.
--nojunit |  | If specified with the -p option, no JUnit file will be created.
--nosonar |  | If specified with the -p option, no Sonar file will be created.
--externaltoolsworkspace | -etws | Specifies the workspace of an external tool. This argument requires the 'postruncommands' argument be specified.
--postruncommands | -prc | Specifies the commands to be run after test completion. Currently only 'CopyJUnit' and 'CopySonar' are supported. If both are specified, they should be separated by a comma. This command requires the 'externaltoolsworkspace' argument be specified. <br><br>'CopyJUnit' will copy the JUnit results to the directory TTTJUnit, in the location specified by the external tools workspace argument. <br><br>'CopySonar' will copy the Sonar results to the directory TTTSonar, in the location specified by the external tools workspace argument.
+`-result` | -rs | The name of the XML result fle to be created. (Not required when project parameter is provided.)
+`-noresult` |  | If specified with the -p option, no result file will be created.
+`-report` | -rp | The name of the HTML result report to be created. (Not required when project parameter is provided.)
+`-junit` | -ju | The full path name of the file to write the JUnit information to. It is a XML document describing the results, intended for JUnit displays.
+`-sonar` | -so | The full path name of the file to write the Sonar information to. It is a XML document describing the results, intended for Sonar displays.
+`-noreport` |  | If specified with the -p option, no report file will be created.
+`-nojunit` |  | If specified with the -p option, no JUnit file will be created.
+`-nosonar` |  | If specified with the -p option, no Sonar file will be created.
+`-externaltoolsworkspace` | -etws | Specifies the workspace of an external tool. This argument requires the 'postruncommands' argument be specified.
+`-postruncommands` | -prc | Specifies the commands to be run after test completion. Currently only 'CopyJUnit' and 'CopySonar' are supported. If both are specified, they should be separated by a comma. This command requires the 'externaltoolsworkspace' argument be specified. <br><br>'CopyJUnit' will copy the JUnit results to the directory TTTJUnit, in the location specified by the external tools workspace argument. <br><br>'CopySonar' will copy the Sonar results to the directory TTTSonar, in the location specified by the external tools workspace argument.
 
 **Binary Parser Optional Output Parameters**
 Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 ------- | --------- | ---------
--outputarchive | -oar | A new archive to be created instead of updating the input archive. Default is to update the input archive.
--project | -p | Path to the project folder. If provided, the result and report parameters can be omitted, and their file names will be automatically derived. This parameter has no default.
--fileencoding | -fe | The character encoding to be used for output files. Defaults to UTF-8.
--save | -s | Save output or not. Set to TRUE to write output, or FALSE for no output. When set to FALSE, no files will be created and the archive will not be updated. Defaults to TRUE.
+`-outputarchive` | -oar | A new archive to be created instead of updating the input archive. Default is to update the input archive.
+`-project` | -p | Path to the project folder. If provided, the result and report parameters can be omitted, and their file names will be automatically derived. This parameter has no default.
+`-fileencoding` | -fe | The character encoding to be used for output files. Defaults to UTF-8.
+`-save` | -s | Save output or not. Set to TRUE to write output, or FALSE for no output. When set to FALSE, no files will be created and the archive will not be updated. Defaults to TRUE.
 
 ## Total Test Functional Test (TotalTestFTCLI.bat)
 
@@ -671,18 +708,18 @@ The CLI interface is executed from a Windows or Linux terminal by writing:
 `./TotalTestFTCLI.sh` or `TotalTestFTCLI.bat`
 This will show the help for using the CLI as illustrated below.
 
-```bat
+```
 usage: TotalTestFTCLI
- -a,--accounting-info <arg>            Optional job accounting information.
+ -a,--accounting-info <arg>           Optional job accounting information.
                                       Use the accounting information
                                       parameter to enter an account number
                                       and any other accounting information
                                       that your installation requires.
  -e,--environment <arg>               Environment in which to execute test
                                       scenarios
- -f,--file <arg>                      File or folder path to the TotalTest
-                                      .xactx file(s) to execute. Can be
-                                      absolute or relative to the
+ -f,--file <arg>                      File or folder path to the Total
+                                      Test .xactx file(s) to execute. Can
+                                      be absolute or relative to the
                                       root-folder
  -g,--report-folder <arg>             Optional file path to a folder that
                                       will contain produced test results.
@@ -690,12 +727,16 @@ usage: TotalTestFTCLI
                                       in same folders as test scenarios.
                                       Can be absolute or relative to the
                                       root folder
- -G,--copy-reports-to-report-folder   Copy sonar qube reports to the
+ -G,--copy-reports-to-report-folder   Copy sonar qSbe reports to the
                                       report folder root. Requires the
                                       reportFolder to be set
  -h,--halt-at-failure                 Halt the execution when first test
                                       scenario fails
  -help                                print this message
+ -l,--launcher <arg>                  Optional Launcher where the CLI is
+                                      called from. Used for creating
+                                      corrrect zAdviser events. C=CLI
+                                      (Default), J=Jenkins, X=XebiaLabs
  -p,--password <arg>                  tso password
  -r,--root-folder <arg>               Optional path to the folder
                                       containing the root of all source.
@@ -712,7 +753,8 @@ usage: TotalTestFTCLI
                                       Is only used to set the source path
                                       in code coverage reports.
  -s,--server <arg>                    Address to the CES Server, e.g.
-                                      https://server.topaztotaltest.com/totaltestapi/
+                                      https://server.topaztotaltest.com/to
+                                      taltestapi/
  -u,--userid <arg>                    tso userid
  -U,--use-xaunit-files                Find XaUnit files instead of context
                                       files and auto generate a context
@@ -732,9 +774,7 @@ The root folder is optional. It is used to calculate the relative path to the fo
 For instance, if source files have been checked out to the path /temp and test scenarios in the folder /temp/Project/Acccounting must be executed for the environment with ID simulator, the
 command would look similar to:
 
-```bat
+```
 ./TotalTestFTCLI.sh -e simulator -f ./Project/Accounting -r /temp -s https://server.topaztotaltest.com/totaltestapi/ -u XATUSER -p 123456 --upload-result --recursive
 ```
-The CLI interface will generate a log file in the logs directory in the location specified by the workspace directory. This log file can be used to track down and understand issues in an execution. 
-
-
+The CLI interface will generate a log file in the logs directory in the location specified by the workspace directory. This log file can be used to track down and understand issues in an execution.

@@ -4,7 +4,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Tool Configurations
 
-The scenarios covered by the [primary pipelines](../pipelines/readme.md), the [other pipeline examples](../advanced_pipelines/readme.md), and more generally the use of the Compuware and third party [plugins](./plugins.md), require certain configurations and settings, both within Jenkins and within other tools provided by Compuware.
+The scenarios covered by the [primary pipelines](../pipelines/readme.md), the [other pipeline examples](../advanced_pipelines/readme.md), and more generally the use of the [Compuware and third party plugins](./plugins.md), require certain configurations and settings, both within Jenkins and within other tools provided by Compuware.
 
 ## Compuware Enterprise Services
 
