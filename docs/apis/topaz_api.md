@@ -25,6 +25,10 @@ The following actions are provided regarding datasets:
 * Obtain the characteristics of a dataset or the statistics of a PDS member
 * Recall a migrated dataset
 
+Changes in version 2.2.0:
+
+* Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
+
 ## JES API
 
 The Compuware Topaz API provides users with methods to programmatically perform JES actions. The following actions are provided regarding JES:
