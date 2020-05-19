@@ -25,7 +25,7 @@ The following actions are provided regarding datasets:
 * Obtain the characteristics of a dataset or the statistics of a PDS member
 * Recall a migrated dataset
 
-Changes in version 2.2.0:
+Changes in version 2.0.2:
 
 * Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 
