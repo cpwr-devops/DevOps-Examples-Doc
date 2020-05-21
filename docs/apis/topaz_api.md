@@ -11,6 +11,15 @@ If you are using the Topaz API for plug-ins meant to be run in a Topaz Workbench
 
 The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
 
+## Version History
+
+Version | Release Date | Description
+---- | -------------- | -----------
+`1.0.0` | 7/29/2014 | Initial Release of Host Services API.
+`1.0.1` | 4/1/2019 | Added following additional functionality to  allocate PDS or sequential dataset, create and delete members in a PDS and write to a sequential dataset or a member in a PDS.
+`2.0.1` | 6/27/2019 | Renamed to Topaz API and removed Eclipse dependencies.  See the [migration guide](topaz_workbench_sdk.md#migrating-from-host-services-api-to-topaz-apis) for guidance on upgrading to the new API.
+`2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
+
 ## Dataset API
 
 The Compuware Topaz API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI. `Sequential`, `Partitioned` and `VSAM` are supported.
@@ -24,10 +33,6 @@ The following actions are provided regarding datasets:
 * Write content to a sequential dataset or a PDS member
 * Obtain the characteristics of a dataset or the statistics of a PDS member
 * Recall a migrated dataset
-
-Changes in version 2.0.2:
-
-* Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 
 ## JES API
 
