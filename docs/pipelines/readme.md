@@ -17,7 +17,7 @@ The pages contains example code and documentation on:
 - code snippets for specific tasks and purposes outside the general purpose
 - code snippets and sample code making use of the [ISPW REST API](../apis/rest_api.md) and [Topaz CLI](../apis/topaz_cli.md), which may be [used in tools other than Jenkins](./alternatives_to_jenkins.md).
 
-::: warning
+>warning
 The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements.
 :::
 
@@ -99,3 +99,6 @@ Based on the description above and due to the requirements for the use of [Pipel
 ## People wanting to contribute
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIwMjY0MjE0NzVdfQ==
+-->
