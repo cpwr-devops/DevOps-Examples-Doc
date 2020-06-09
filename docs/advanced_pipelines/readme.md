@@ -62,3 +62,6 @@ This pipeline is supposed to be triggered via ISPW Webhook every time (COBOL) co
 - query the results of the correpsonding SonarQube quality gate
 - if the quality gate was passed, will trigger an XLRelease release template, to orchestrate the following CD process
 - send a mail message to the owner of the set informing them of the status of the quality gate
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTY3NDkzNDQwMV19
+-->
