@@ -46,3 +46,6 @@ Once the developer thinks they are done with development and unit testing they p
 
 ## The two Jenkins jobs
 The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](./readme.md#mainframe-ci-pipeline-from-shared-lib). They require the [same parameters](../advanced_pipelines/setup.md#loading-the-script-from-a-shared-library) to be defined and passed into the job as this jobs.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTQ5NjEzODU0XX0=
+-->
