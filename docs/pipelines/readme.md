@@ -13,15 +13,15 @@ Example code and documentation are provided for:
 -   A suggested starting point for Jenkins CI pipelines
 -   Compuware and 3rd party tools used in the pipelines
 -   Instructions setting up and configuring Jenkins and SonarQube
--   Code snippets or sample code to:
-	- 
-	- make use of the  [ISPW REST API](https://devops.api.compuware.com/apis/rest_api.html)  and  [Topaz CLI](https://devops.api.compuware.com/apis/topaz_cli.html), which may be  [used in tools other than Jenkins](https://devops.api.compuware.com/pipelines/alternatives_to_jenkins.html).
+-   Code snippets or sample code for:
+	- general purpose use
+	- making use of the  [ISPW REST API](https://devops.api.compuware.com/apis/rest_api.html)  and  [Topaz CLI](https://devops.api.compuware.com/apis/topaz_cli.html), which may be  [used in tools other than Jenkins](https://devops.api.compuware.com/pipelines/alternatives_to_jenkins.html).
 
 ::: warning
 The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements.
 :::
 
-> tip Note
+::: tip Note
 The descriptions and tutorials assume a certain level of familiarity with using Jenkins, Topaz for Total Test and other Compuware tools. The required level of knowledge should is not expected too high, though. E.g. it helps to know, how to define a new job in Jenkins.
 :::
 
@@ -100,6 +100,6 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjY0MjU0NTkzLDIwNjAyNzM3MywtMTU3OD
-c4ODgyMywtMTAyNzQ2MzE5LC0yMDI2NDIxNDc1XX0=
+eyJoaXN0b3J5IjpbLTIwNzI0OTgzOTUsMjA2MDI3MzczLC0xNT
+c4Nzg4ODIzLC0xMDI3NDYzMTksLTIwMjY0MjE0NzVdfQ==
 -->
