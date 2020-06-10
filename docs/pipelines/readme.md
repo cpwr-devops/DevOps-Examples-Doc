@@ -29,8 +29,8 @@ The descriptions and tutorials assume a certain level of familiarity with using 
 
 We have published several examples of "complete" pipelines which show different process steps and techniques in Jenkins.
 
-- [Mainframe-CI-Example-pipeline](./basic_scenario.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - is a scripted pipeline using parameters.  This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best approach to scale a pipelines across your enterprise. The job is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
-- [Mainframe_CI_Pipeline_from_Shared_Lib](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference a steps.  This allows organizations to develop pipelines in a more standard way.  The job is also intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
+- **[Mainframe-CI-Example-pipeline](./basic_scenario.md)** - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - a scripted pipeline using parameters. This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best when scaling pipelines across your enterprise. The job is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
+- **[Mainframe_CI_Pipeline_from_Shared_Lib](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib)** - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference as steps.  This allows organizations to develop pipelines in a more standard way.  The job is also intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
 - The two following pipelines are supposed to be part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md) and get triggered at different stages of that process
     - [Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Generate, and executes unit tests against those components that have been generated.
     - [Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Promote, and executes functional/integration tests against the project/assignment.
@@ -100,7 +100,7 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODE0MzgxNzIsLTIwNzI0OTgzOTUsMj
-A2MDI3MzczLC0xNTc4Nzg4ODIzLC0xMDI3NDYzMTksLTIwMjY0
-MjE0NzVdfQ==
+eyJoaXN0b3J5IjpbMTI2MTYzNDAzMCwtMTY4MTQzODE3MiwtMj
+A3MjQ5ODM5NSwyMDYwMjczNzMsLTE1Nzg3ODg4MjMsLTEwMjc0
+NjMxOSwtMjAyNjQyMTQ3NV19
 -->
