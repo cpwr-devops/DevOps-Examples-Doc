@@ -65,7 +65,7 @@ The library is organized as follows:
 
 ## The code repository folder structure
 
-Based on the description above and due to the requirements for the use of [Pipeline Shared Libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/) in Jenkins the folder structure of the DevOps-Examples repository is as follows:
+Based on the description above and due to the requirements for the use of [Pipeline Shared Libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/) in Jenkins, the folder structure of the DevOps-Examples repository is as follows:
 
 ```
     (root)
@@ -100,9 +100,9 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc3OTg1NDIwLC0xOTk4NzcxMjcxLDg2Mj
-Q1MDkyNCwtMTQ2MDc0NDkwMiwtMTEzNTY1MTM3Miw2MTU4MDkw
-MywxMjYxNjM0MDMwLC0xNjgxNDM4MTcyLC0yMDcyNDk4Mzk1LD
-IwNjAyNzM3MywtMTU3ODc4ODgyMywtMTAyNzQ2MzE5LC0yMDI2
-NDIxNDc1XX0=
+eyJoaXN0b3J5IjpbNDcwMzc4ODc0LC03Nzk4NTQyMCwtMTk5OD
+c3MTI3MSw4NjI0NTA5MjQsLTE0NjA3NDQ5MDIsLTExMzU2NTEz
+NzIsNjE1ODA5MDMsMTI2MTYzNDAzMCwtMTY4MTQzODE3MiwtMj
+A3MjQ5ODM5NSwyMDYwMjczNzMsLTE1Nzg3ODg4MjMsLTEwMjc0
+NjMxOSwtMjAyNjQyMTQ3NV19
 -->
