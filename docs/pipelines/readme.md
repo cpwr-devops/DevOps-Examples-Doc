@@ -49,7 +49,7 @@ Instructions for configuring the various tools can be found in the [Configuratio
 
 ## Other Code examples
 
-Any code examples are stored in a GitHub repository located at  [https://github.com/cpwr-devops/DevOps-Examples/](https://github.com/cpwr-devops/DevOps-Examples/).
+Code examples are stored in this GitHub repository [https://github.com/cpwr-devops/DevOps-Examples/](https://github.com/cpwr-devops/DevOps-Examples/).
 
 - The **example pipelines using Shared Library technology** will be stored in the *vars* folder.
 - **Code related to these pipelines** (class definitions) will be stored in the *src* folder.
@@ -99,8 +99,8 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0NjA3NDQ5MDIsLTExMzU2NTEzNzIsNj
-E1ODA5MDMsMTI2MTYzNDAzMCwtMTY4MTQzODE3MiwtMjA3MjQ5
-ODM5NSwyMDYwMjczNzMsLTE1Nzg3ODg4MjMsLTEwMjc0NjMxOS
-wtMjAyNjQyMTQ3NV19
+eyJoaXN0b3J5IjpbODYyNDUwOTI0LC0xNDYwNzQ0OTAyLC0xMT
+M1NjUxMzcyLDYxNTgwOTAzLDEyNjE2MzQwMzAsLTE2ODE0Mzgx
+NzIsLTIwNzI0OTgzOTUsMjA2MDI3MzczLC0xNTc4Nzg4ODIzLC
+0xMDI3NDYzMTksLTIwMjY0MjE0NzVdfQ==
 -->
