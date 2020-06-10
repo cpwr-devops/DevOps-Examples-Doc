@@ -36,15 +36,14 @@ We have published several examples of "complete" pipelines which show different 
     - **[Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy)** - a pipeline that is triggered by an ISPW Promote that executes functional/integration tests against the project/assignment.
 
 ## Tools Used
-
 The example pipelines use a development scenario based on:
 
-- [ISPW](https://compuware.com/ispw-source-code-management/) as SCM to store and govern mainframe sources
-- [Git (GitHub)](https://github.com/) as SCM to store unit test assets
-- [Topaz for Total Test](https://compuware.com/topaz-for-total-test-automation/) as mainframe unit, functional and integration testing tool to create and maintain test assets
-- [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) as tool to gather code coverage data during execution of the unit tests
-- [SonarQube](https://www.sonarsource.com/) as server for code analysis and setting up quality gates
-- [XLRelease](https://xebialabs.com/) as CD server for release steps following the initial CI process Jenkins
+- [ISPW](https://compuware.com/ispw-source-code-management/) as the SCM to store and govern mainframe sources
+- [Git (GitHub)](https://github.com/) as the SCM to store unit test assets.
+- [Topaz for Total Test](https://compuware.com/topaz-for-total-test-automation/) as the mainframe unit, functional, and integration testing tool to create and maintain test assets.
+- [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) as the tool to gather code coverage data during execution of the unit tests.
+- [SonarQube](https://www.sonarsource.com/) as the server for code analysis and setting up quality gates.
+- [XLRelease](https://xebialabs.com/) as the CD server for release steps following the initial CI process Jenkins.
 
 Instructions on configuring the various tools can be found in the [Configuration](../tool_configuration/readme.md) of this site.
 
@@ -100,7 +99,8 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjE1ODA5MDMsMTI2MTYzNDAzMCwtMTY4MT
-QzODE3MiwtMjA3MjQ5ODM5NSwyMDYwMjczNzMsLTE1Nzg3ODg4
-MjMsLTEwMjc0NjMxOSwtMjAyNjQyMTQ3NV19
+eyJoaXN0b3J5IjpbMTQxNDEwOTcwMyw2MTU4MDkwMywxMjYxNj
+M0MDMwLC0xNjgxNDM4MTcyLC0yMDcyNDk4Mzk1LDIwNjAyNzM3
+MywtMTU3ODc4ODgyMywtMTAyNzQ2MzE5LC0yMDI2NDIxNDc1XX
+0=
 -->
