@@ -44,7 +44,7 @@ The example pipelines use a development scenario based on:
 - [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) as the tool to gather code coverage data during execution of the unit tests.
 - [SonarQube](https://www.sonarsource.com/) as the server for code analysis and setting up quality gates.
 - [XLRelease](https://xebialabs.com/) as the CD server for release steps following the initial CI process Jenkins.
-
+ 
 Instructions for configuring the various tools can be found in the [Configuration](../tool_configuration/readme.md) section of this site.
 
 ## Other Code examples
@@ -99,8 +99,8 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExMzU2NTEzNzIsNjE1ODA5MDMsMTI2MT
-YzNDAzMCwtMTY4MTQzODE3MiwtMjA3MjQ5ODM5NSwyMDYwMjcz
-NzMsLTE1Nzg3ODg4MjMsLTEwMjc0NjMxOSwtMjAyNjQyMTQ3NV
-19
+eyJoaXN0b3J5IjpbLTE0NjA3NDQ5MDIsLTExMzU2NTEzNzIsNj
+E1ODA5MDMsMTI2MTYzNDAzMCwtMTY4MTQzODE3MiwtMjA3MjQ5
+ODM5NSwyMDYwMjczNzMsLTE1Nzg3ODg4MjMsLTEwMjc0NjMxOS
+wtMjAyNjQyMTQ3NV19
 -->
