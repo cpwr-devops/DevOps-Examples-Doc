@@ -27,7 +27,7 @@ The descriptions and tutorials assume a certain level of familiarity with using 
 
 ## Pipeline examples
 
-We have published several examples of "complete" pipelines which show partly different process steps and different techniques in Jenkins.
+We have published several examples of "complete" pipelines which show different process steps and techniques in Jenkins.
 
 - [Mainframe-CI-Example-pipeline](./basic_scenario.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - is a scripted pipeline using parameters.  This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best approach to scale a pipelines across your enterprise. The job is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
 - [Mainframe_CI_Pipeline_from_Shared_Lib](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib) - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference a steps.  This allows organizations to develop pipelines in a more standard way.  The job is also intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
@@ -100,7 +100,7 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODUxMTY0Nzg5LC0yMDcyNDk4Mzk1LDIwNj
-AyNzM3MywtMTU3ODc4ODgyMywtMTAyNzQ2MzE5LC0yMDI2NDIx
-NDc1XX0=
+eyJoaXN0b3J5IjpbLTE2ODE0MzgxNzIsLTIwNzI0OTgzOTUsMj
+A2MDI3MzczLC0xNTc4Nzg4ODIzLC0xMDI3NDYzMTksLTIwMjY0
+MjE0NzVdfQ==
 -->
