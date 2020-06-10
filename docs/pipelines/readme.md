@@ -22,7 +22,7 @@ The code published serves as example code, using Compuware example applications 
 :::
 
 ::: tip Note
-The descriptions and tutorials assume a certain level of familiarity with using Jenkins, Topaz for Total Test and other Compuware tools. The required level of knowledge should is not expected too high, though. E.g. it helps to know, how to define a new job in Jenkins.
+The descriptions and tutorials assume a certain level of familiarity with using Jenkins, Topaz for Total Test and other Compuware tools. The required level of knowledge expected, is not too high. E.g. it helps to know, how to define a new job in Jenkins.
 :::
 
 ## Pipeline examples
@@ -100,7 +100,7 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDA2NzAxMTMsLTIwNzI0OTgzOTUsMj
-A2MDI3MzczLC0xNTc4Nzg4ODIzLC0xMDI3NDYzMTksLTIwMjY0
-MjE0NzVdfQ==
+eyJoaXN0b3J5IjpbODUxMTY0Nzg5LC0yMDcyNDk4Mzk1LDIwNj
+AyNzM3MywtMTU3ODc4ODgyMywtMTAyNzQ2MzE5LC0yMDI2NDIx
+NDc1XX0=
 -->
