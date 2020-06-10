@@ -51,15 +51,16 @@ Instructions for configuring the various tools can be found in the [Configuratio
 
 Code examples are stored in this GitHub repository [https://github.com/cpwr-devops/DevOps-Examples/](https://github.com/cpwr-devops/DevOps-Examples/).
 
-- The **example pipelines using Shared Library technology** will be stored in the *vars* folder.
-- **Code related to these pipelines** (class definitions) will be stored in the *src* folder.
-- Example code not directly related, but **defining Jenkins jobs**, will be stored in the `src/Jenkinsfile` folder. Currently these are:
-    - [JCL_Pipeline_Example](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/JCL_Pipeline_Example.jenkinsfile) containing a simple example of mainframe jobs being submitted from Jenkins - both, with the JCL residing on the mainframe and the JCL stored/generated in the pipeline code itself.
-    - Three examples of downloading sources (COBOL programs and copybooks) from the mainframe, using different download stores for the code and methods to download, pushing the sources to SonarQube using the Sonar scanner and querying the resulting Sonar Quality Gate
+The library is organized as follows:
+- ***vars* folder**: example pipelines using Shared Library technology
+- ***src* folder**: class definitions for code related to these pipelines.
+-  `src/Jenkinsfile` folder: example code not directly related, but that **define Jenkins jobs**. Currently these are:
+    - [JCL_Pipeline_Example](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/JCL_Pipeline_Example.jenkinsfile) contains a simple example of mainframe jobs being submitted from Jenkins — both with the JCL residing on the mainframe and the JCL stored/generated in the pipeline code itself.
+    - Three examples of downloading sources (COBOL programs and copybooks) from the mainframe using different download stores for the code and methods to download, pushing the sources to SonarQube using the Sonar scanner and querying the resulting Sonar Quality Gate.
         - [Scan_Sources_from_ISPW_Container_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Container_with_Sonar.jenkinsfile) - using the *container* downloader for sources stored in ISPW
         - [Scan_Sources_from_ISPW_Repository_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Repository_with_Sonar.jenkinsfile) - using the *repository* downloader for sources stored in ISPW
-        - [Scan_Sources_from_PDS_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_PDS_with_Sonar.jenkinsfile) - using the *PDS* downloader for sources stored in PDS's (inside or outside a mainframe SCM tool)
-    - [Push_TTT_results_to_Git](../pipeline_snippets/push_ttt_results_to_git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - showing how to push results of unit test execution back to GitHub for a developer to consume locally.
+        - [Scan_Sources_from_PDS_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_PDS_with_Sonar.jenkinsfile) - uses the *PDS* downloader for sources stored in PDS's (inside or outside a mainframe SCM tool)
+    - [Push_TTT_results_to_Git](../pipeline_snippets/push_ttt_results_to_git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - shows how to push results of unit test execution back to GitHub for a developer to consume locally.
 - **Powershell scripts and examples for using alternatives to Jenkins or the Jenkins plugins** are stored in the *misc-examples/Powershell* sub-folder within the *src* directory of the repository. These scripts make use of the [ISPW REST API]() and the [Topaz CLI](), and we describe them in detail in [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
 
 ## The code repository folder structure
@@ -99,8 +100,8 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODYyNDUwOTI0LC0xNDYwNzQ0OTAyLC0xMT
-M1NjUxMzcyLDYxNTgwOTAzLDEyNjE2MzQwMzAsLTE2ODE0Mzgx
-NzIsLTIwNzI0OTgzOTUsMjA2MDI3MzczLC0xNTc4Nzg4ODIzLC
-0xMDI3NDYzMTksLTIwMjY0MjE0NzVdfQ==
+eyJoaXN0b3J5IjpbLTM5OTk1MjIyNSw4NjI0NTA5MjQsLTE0Nj
+A3NDQ5MDIsLTExMzU2NTEzNzIsNjE1ODA5MDMsMTI2MTYzNDAz
+MCwtMTY4MTQzODE3MiwtMjA3MjQ5ODM5NSwyMDYwMjczNzMsLT
+E1Nzg3ODg4MjMsLTEwMjc0NjMxOSwtMjAyNjQyMTQ3NV19
 -->
