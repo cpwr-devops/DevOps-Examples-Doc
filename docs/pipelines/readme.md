@@ -61,7 +61,7 @@ The library is organized as follows:
         - [Scan_Sources_from_ISPW_Repository_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Repository_with_Sonar.jenkinsfile) - using the *repository* downloader for sources stored in ISPW.
         - [Scan_Sources_from_PDS_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_PDS_with_Sonar.jenkinsfile) - uses the *PDS* downloader for sources stored in PDS's (inside or outside a mainframe SCM tool).
     - [Push_TTT_results_to_Git](../pipeline_snippets/push_ttt_results_to_git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - shows how to push results of unit test execution back to GitHub for a developer to consume locally.
-- **Powershell scripts and examples for using alternatives to Jenkins or the Jenkins plugins** are stored in the *misc-examples/Powershell* sub-folder within the *src* directory of the repository. These scripts make use of the [ISPW REST API]() and the [Topaz CLI](), and we describe them in detail in [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
+- ***misc-examples/Powershell* sub-folder**: that resides within the *src* directory of the repository, Powershell scripts and examples for using alternatives to Jenkins or the Jenkins plugins**. These scripts make use of the [ISPW REST API]() and the [Topaz CLI](), and we describe them in detail in [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
 
 ## The code repository folder structure
 
@@ -100,9 +100,9 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5OTg3NzEyNzEsODYyNDUwOTI0LC0xND
-YwNzQ0OTAyLC0xMTM1NjUxMzcyLDYxNTgwOTAzLDEyNjE2MzQw
-MzAsLTE2ODE0MzgxNzIsLTIwNzI0OTgzOTUsMjA2MDI3MzczLC
-0xNTc4Nzg4ODIzLC0xMDI3NDYzMTksLTIwMjY0MjE0NzVdfQ==
-
+eyJoaXN0b3J5IjpbLTc3OTg1NDIwLC0xOTk4NzcxMjcxLDg2Mj
+Q1MDkyNCwtMTQ2MDc0NDkwMiwtMTEzNTY1MTM3Miw2MTU4MDkw
+MywxMjYxNjM0MDMwLC0xNjgxNDM4MTcyLC0yMDcyNDk4Mzk1LD
+IwNjAyNzM3MywtMTU3ODc4ODgyMywtMTAyNzQ2MzE5LC0yMDI2
+NDIxNDc1XX0=
 -->
