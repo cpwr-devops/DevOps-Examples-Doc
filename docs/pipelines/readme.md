@@ -7,15 +7,16 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Getting Started
 
-To get started building your own mainframe DevOps pipeline, we have provided Jenkins pipeline examples and setup instructions. Focussing on Jenkins does not mean, though, that implementing CI/CD pipelines for mainframe development is limited to the use of Jenkins. If the need arises to use alternatives to Jenkins to do the same things described here, refer to [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
+To get started building your own mainframe DevOps pipeline, we have provided pipeline examples and setup instructions using Jenkins. To implement a pipeline using other tools, refer to  [Mainframe CI using alternatives Jenkins](https://devops.api.compuware.com/pipelines/alternatives_to_jenkins.html).
 
-The pages contains example code and documentation on:
-
-- Jenkins CI pipelines as we would suggest as starting point
-- Compuware and 3rd party tools used in the pipelines
-- Instructions setting configuring Jenkins and SonarQube
-- code snippets for specific tasks and purposes outside the general purpose
-- code snippets and sample code making use of the [ISPW REST API](../apis/rest_api.md) and [Topaz CLI](../apis/topaz_cli.md), which may be [used in tools other than Jenkins](./alternatives_to_jenkins.md).
+Example code and documentation are provided for:
+-   A suggested starting point for Jenkins CI pipelines
+-   Compuware and 3rd party tools used in the pipelines
+-   Instructions setting up and configuring Jenkins and SonarQube
+-   Code snippets or sample code for:
+	- specific tasks
+	- ???purposes outside the general purpose
+	- making use of the  [ISPW REST API](https://devops.api.compuware.com/apis/rest_api.html)  and  [Topaz CLI](https://devops.api.compuware.com/apis/topaz_cli.html), which may be  [used in tools other than Jenkins](https://devops.api.compuware.com/pipelines/alternatives_to_jenkins.html).
 
 ::: warning
 The code published serves as example code, using Compuware’s example applications and environments. It needs to be adjusted to site specific needs and requirements.
@@ -100,6 +101,6 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjA2MDI3MzczLC0xNTc4Nzg4ODIzLC0xMD
-I3NDYzMTksLTIwMjY0MjE0NzVdfQ==
+eyJoaXN0b3J5IjpbLTk0OTMzMjAwNSwyMDYwMjczNzMsLTE1Nz
+g3ODg4MjMsLTEwMjc0NjMxOSwtMjAyNjQyMTQ3NV19
 -->
