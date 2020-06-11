@@ -44,10 +44,8 @@ While there might be differences in details when it comes to the individual impl
   - **Enterprise grade pipeline**: For a more realistic enterprise grade example [using Jenkins shared libraries](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib) use the code in [`Mainframe_CI_Pipeline_from_Shared_Lib`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars\Mainframe_CI_Pipeline_from_Shared_Lib.groovy).
   - **Non-Jenkins pipeline**: For an example using [Azure DevOps Pipelines](./alternatives_to_jenkins.md#an-example-using-azure-devops-pipelines) - the [Compuware Command Line Interface](../apis/topaz_cli.md) and [REST APIs](../apis/rest_api.md) maybe used. [`mainframe_ispw`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src\misc-examples\AzureDevOps\PipelineYAML\mainframe_ispw.yaml) makes use of the CLI and REST API, using Powershell scripts "wrapped" around these calls.
 
-??? 
-
 ### Step 1 - Retrieve mainframe sources
-The ultimate goal of this process is to use SonarQube quality gates to determine if the promoted code is good to be released. For Sonar Qube to work, it needs the sources of the programs. These will be downloaded in one of the early steps (often the first step) of the pipeline. 
+The ultimate goal of this process is to use SonarQube quality gates to determine if the promoted code is ready to be released. For SonarQube to work, it needs the sources of the programs. These will be downloaded in one of the early steps (often the first step) of the pipeline. 
 
 ### Step 2 - Retrieve Topaz for Total Test Unit Tests
 As the Topaz for Total Test Unit Test assets are stored in a Git server repository, they need to be downloaded to the Jenkins workspace.
@@ -70,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExODI2NTc2NSwxNDQ2Nzg0MDE4LC0yMD
+eyJoaXN0b3J5IjpbMTE1MjIxMTIxMCwxNDQ2Nzg0MDE4LC0yMD
 k2MTI1Nzg2LC00OTc4ODMzODVdfQ==
 -->
