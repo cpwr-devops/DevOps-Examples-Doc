@@ -171,6 +171,7 @@ This stage use a Git clone to download the Topaz for for Total Test assets for t
 ### Build list of scenarios to execute
 
 For the following, we need to determine the list of test scenarios to be executed. This example will execute only those scenarios that apply to one of the COBOL components that have been downloaded.
+
 The list of downloaded component files gets determined by the `findFiles` method provided by the [Pipeline Utility Steps Plugin](). The result is a list of `file` objects. Using the `name` property of each of the files, the program names can be determined and placed in a list of program names.
 
 ```groovy
@@ -183,7 +184,7 @@ The list of downloaded component files gets determined by the `findFiles` method
     }
 ```
 
-Second the `findFiles`method is being used to determine the list of all `.testscenario` files.
+Second the `findFiles`method is used to determine the list of all `.testscenario` files.
 
 ```groovy
     def TTTListOfScenarios = findFiles(glob: '**/*.testscenario')
@@ -368,6 +369,6 @@ If the quality gate passes, i.e. the pipeline does not get aborted, an XL Releas
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcwNjk1ODU2MywtMjA2NTc0NzI3NiwtMT
+eyJoaXN0b3J5IjpbMTcxNzgwMDc5MCwtMjA2NTc0NzI3NiwtMT
 cwNjM2NzY3MiwtMTY2NTE4NTk2Nl19
 -->
