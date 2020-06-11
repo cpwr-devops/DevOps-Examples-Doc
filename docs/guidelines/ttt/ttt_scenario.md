@@ -31,7 +31,7 @@ Topaz for Total Test allows storing one or more test case for one or more progra
 
 # Naming conventions
 
-In order to map Topaz for Total Test project assets, stored in Git, to program components, stored in ISPW, naming conventions are used. These should be followed already when recording the unit tests, but asset names may be changed later, after recording, to use the following naming conventions:
+In order to map Topaz for Total Test project assets, stored in Git, to program components, stored in ISPW, naming conventions are used. These should be followed when recording the unit tests, but asset names may be changed later (after recording) to use the following naming conventions:
 
 - The Topaz for Total Test project name uses `<Target_Program_Name>_Unit_Tests` as project name
 - The test scenario files or test suite files contain the `<Target_Program_Name>` as first part of their file name, followed by an underscore `_`, follwowed by any trailing name.
@@ -96,5 +96,5 @@ The recommended procedure to share Topaz for Total Test projects across teams an
 
 ![TTT in Git](../images/TTT_in_Git_and_GitHub.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDA4OTI0MjQ1XX0=
+eyJoaXN0b3J5IjpbLTE1NDAzMTM0OTBdfQ==
 -->
