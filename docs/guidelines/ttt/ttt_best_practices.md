@@ -27,15 +27,15 @@ There are no officially agreed upon clear definitions of different test types an
 
 ## Shifting left
 
-In DevOps we often talk about shifting left. This means that testing should be done earlier in the development process. Traditionally, testing on the mainframe is done in the later stages of a project, typically as part of end user acceptance testing. This is very late in the process for finding issues. Shifting left means that bugs should be found as early as possible. The earliest they can be found is at the same time that they are introduced into the source code by the developer. This is where unit testing comes in. A developer should write unit tests that test the changed code and in this way the bug is found as soon as it is introduced into the code. This is the fastest way to detect and correct bugs and has the largest benefit for increasing velocity, quality and efficiency. Functional test is typically done in a test environment with live data and is performed later in a sprint where a developer has moved the compiled load modules from a development environment to a test environment. This means that functional tests find bugs later, and hence the feedback to development is slower and more costly. Integration testing typically comes after functional testing which mean that it is more expensive to detect bugs compared to both unit and functional testing.
-The below illustration shows how unit, functional and integration tests can be used by developers and testers in different environments during an agile sprint.
+In DevOps we often talk about shifting left. This means that testing should be done earlier in the development process. Traditionally, testing on the mainframe is done in the later stages of a project, typically as part of end user acceptance testing. This is very late in the process for finding issues. Shifting left means that bugs should be found as early as possible. The earliest they can be found is at the same time that they are introduced into the source code by the developer. This is where unit testing comes in. A developer should write unit tests that test the changed code and in this way the bug is found as soon as it is introduced into the code. This is the fastest way to detect and correct bugs and has the largest benefit for increasing velocity, quality, and efficiency. Functional test is typically done in a test environment with live data and is performed later in a sprint where a developer has moved the compiled load modules from a development environment to a test environment. This means that functional tests find bugs later, and hence the feedback to development is slower and more costly. Integration testing typically comes after functional testing which means that it is more expensive to detect bugs compared to both unit and functional testing.
+The illustration below shows how unit, functional and integration tests can be used by developers and testers in different environments during an agile sprint.
 
 ![Testing swimlanes](../images/ttt_intro2.png)
 
 
 ## Structure of this document
 
-We will in the first two chapters start by explaining from a high level how to best get started to use Total Test as a user, and how to best adopt the use of Total Test and test automation in an organization. Following these initial chapters, we will then discuss general best practices that are valid for both unit, functional and integration testing. This covers areas like use of SCM to version test cases, how to relate tests to source code versions, how to automate test case executions etc. Finally, we will delve into detailed best practices related to unit, functional and integration testing in Total Test.
+We will, in the first two chapters, start by explaining from a high level how to best get started to use Total Test as a user, and how to best adopt the use of Total Test and test automation in an organization. Following these initial chapters, we will then discuss general best practices that are valid for both unit, functional and integration testing. This covers areas like use of SCM to version test cases, how to relate tests to source code versions, how to automate test case executions etc. Finally, we will delve into detailed best practices related to unit, functional and integration testing in Total Test.
 
 [//]: #
 [//]: #
@@ -677,5 +677,5 @@ We welcome your feedback as we continue to update this document alongside the co
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY4NDg4ODA1Ml19
+eyJoaXN0b3J5IjpbMTM0OTI0MjgwNV19
 -->
