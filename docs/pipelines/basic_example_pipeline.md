@@ -11,8 +11,7 @@ The pipeline (???) job itself is defined within Jenkins by creating a new pipeli
 ![Parameterized Pipeline](./images/parametertized_pipeline.png)
 
 ### The pipeline parameters
-
-Successively add the following string parameters (the default values are the ones used for the examples).
+Successively add the following string parameters (default values are used in the examples).
 
 ![Adding parameters](./images/Adding_parameters.png)
 
@@ -29,7 +28,7 @@ Name | Default Value | Description
 `ISPW_Container_Type` | 0 | ISPW Container Type (0. - assignment, 1. - release, 2. - set)
 `ISPW_Owner` | | ISPW Owner User ID
 
-The second set of parameters are installation specific settings, reference tokens and other IDs that have been defined during the configuration phase of Jenkins. To determine the appropriate values to use refer to the [description of the pipeline parameters](../advanced_pipelines/parameters.md).
+The second set of parameters are installation specific settings, reference tokens, and other IDs that have been defined during the configuration phase of Jenkins. To determine the appropriate values to use refer to the [description of the pipeline parameters](../advanced_pipelines/parameters.md).
 
 Name | Description
 ---- | -----------
@@ -365,5 +364,5 @@ If the quality gate passes, i.e. the pipeline does not get aborted, an XL Releas
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3MjI2NzA1OV19
+eyJoaXN0b3J5IjpbLTIxMzMyMjQ3MTZdfQ==
 -->
