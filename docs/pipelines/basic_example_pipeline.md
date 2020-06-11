@@ -53,7 +53,7 @@ Once this pipeline has been triggered, the pipeline will execute the following c
 
 ### Global Variables
 
-The first part initializes globally used variables that are specific to the environment the pipeline executes in:
+The first part initializes global variables that are specific to the environment the pipeline executes in:
 
 Name | Description
 ---- | -----------
@@ -92,7 +92,7 @@ Map    mailRecipientMap     = ["HDDRXM0":"ralph.nuesse@compuware.com"]
 
 ### Node and Stages
 
-The node statement tells Jenkins which node (agents in a Jenkins network) to use. It may be used to distribute work, run jobs in parallel or run steps of a job in parallel.This pipeline will use one node with several stages. All variables defined within the node are local to the node and available to all stages therein.
+The node statement tells Jenkins which node (agents in a Jenkins network) to use. It may be used to distribute work, run jobs in parallel, or run steps in a job in parallel. This pipeline will use one node with several stages. All variables defined within the node are local to the node and available to all stages therein.
 
 ```groovy
 node{
@@ -367,6 +367,5 @@ If the quality gate passes, i.e. the pipeline does not get aborted, an XL Releas
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMzMyMDk2NjUsLTE2NjUxODU5NjZdfQ
-==
+eyJoaXN0b3J5IjpbMTU4NjkwNjU0OSwtMTY2NTE4NTk2Nl19
 -->
