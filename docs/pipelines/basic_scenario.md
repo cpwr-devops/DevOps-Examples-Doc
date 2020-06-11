@@ -63,11 +63,11 @@ The sources, test execution results, and code coverage data will be passed to So
 The analysis will be checked against a SonarQube quality gate definition. Based on the result of the quality gate check (`pass` or `fail`) further actions will be taken.
 
 ### Step 6a - On Failure - Regress code in ISPW
-If the quality gates `failed`, usually the code that has been promoted will be regressed (and the responsible personnel will be informed about the failure)-
+If the quality gates `fail`, usually the code that has been promoted will be regressed (and the responsible personnel will be informed about the failure)-
 
 ### Step 6b - On success - Trigger a CD release
-If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
+If the quality gate `pass` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0ODEyODE0MSwxNDQ2Nzg0MDE4LC0yMD
+eyJoaXN0b3J5IjpbLTYxMDc1NjIwOSwxNDQ2Nzg0MDE4LC0yMD
 k2MTI1Nzg2LC00OTc4ODMzODVdfQ==
 -->
