@@ -48,10 +48,10 @@ While there might be differences in details when it comes to the individual impl
 The ultimate goal of this process is to use SonarQube quality gates to determine if the promoted code is ready to be released. For SonarQube to work, it needs the source code. The source code will be downloaded in one of the early steps (often the first step) of the pipeline. 
 
 ### Step 2 - Retrieve Topaz for Total Test Unit Tests
-As the Topaz for Total Test Unit Test assets are stored in a Git server repository, they need to be downloaded to the Jenkins workspace.
+Topaz for Total Test Unit Test assets are stored in a Git server repository and need to be downloaded to the Jenkins workspace.
 
 ### Step 3 - Execute Unit Tests
-This step will execute the downloaded unit tests. Determining which tests to download or which tests to execute may vary based on the requirements of the indivual implementation. The examples show how to download every Topaz for Total Test project and execute only those test scenarios that belong to those programs that have been promoted by the developer.
+This step will execute the downloaded unit tests. Determining which tests to download or which tests to execute may vary based on the requirements of the individual implementation. The examples show how to download every Topaz for Total Test project and execute only those test scenarios that belong to those programs that have been promoted by the developer.
 
 ### Step 4 - Retrieve Code Coverage statistics from the mainframe
 The unit tests will collect code coverage data and store the results in a Xpediter Code Coverage repository dataset on the mainframe. To be able to pass the results to Sonar they need to be extracted from the mainframe repository and downloaded to the mainframe.
@@ -68,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3MjY0MTQ3NSwxNDQ2Nzg0MDE4LC0yMD
+eyJoaXN0b3J5IjpbMTE1NDg5OTEyMCwxNDQ2Nzg0MDE4LC0yMD
 k2MTI1Nzg2LC00OTc4ODMzODVdfQ==
 -->
