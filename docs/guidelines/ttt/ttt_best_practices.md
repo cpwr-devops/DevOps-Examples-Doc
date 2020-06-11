@@ -63,7 +63,7 @@ When you have become familiar with recording and executing test cases with Total
 1. Setup or get access to a SCM and create a repository for test cases. If you don’t have an internal git server, you can always get started with free alternatives on Github, Bitbucket or Gitlab.
 1. In Topaz workbench, install the SCM plugin (e.g. eGit) and clone/checkout the repository
 1. Share your created test projects in the repository
-1. Take another machine and clone the repository and see that you have the shared testcases here as well
+1. Take another machine and clone the repository and see that you have the shared test cases here as well
 1. Start to experiment collaborating with the shared repository
 
 After getting yourself familiar with a SCM and Total Test you are ready to get the most benefit from test automation. You can now create and share automated test cases. With automated we mean, you manually execute the test case, but the test case automatically tests the program. This is the most important step in test automation – to have a suite of regression tests that you can execute after a program has changed.
@@ -677,5 +677,6 @@ We welcome your feedback as we continue to update this document alongside the co
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzk1MTc1NjgwLC0zMTYwNzk5MF19
+eyJoaXN0b3J5IjpbLTE0MTkwMzM3ODIsMzk1MTc1NjgwLC0zMT
+YwNzk5MF19
 -->
