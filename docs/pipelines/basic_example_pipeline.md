@@ -99,7 +99,8 @@ node{
 ```
 
 ### Initialization
-The example application uses three parallel paths (`DEV1`, `DEV2`, `DEV3`). In order to use the correct STEPLIB concatenation in the Topaz for Total Test `runner.jcl` there are three versions of the JCL file in each Topaz for Total Test project being used. To determine the correct JCL file to use, the script determines the current path from the ISPW level being passed to the pipeline. Using the path number, the name for the runner jcl to be used is being built and the next level in the path being determined.
+
+The example application uses three parallel paths (`DEV1`, `DEV2`, `DEV3`). In order to use the correct STEPLIB concatenation in the Topaz for Total Test `runner.jcl` there are three versions of the JCL file in each Topaz for Total Test project used. To determine the correct JCL file to use, the script determines the current path from the ISPW level being passed to the pipeline. Using the path number, the name for the runner JCL to be used is being built and the next level in the path being determined.
 
 ```groovy
     def PathNum              = ISPW_Src_Level.charAt(ISPW_Src_Level.length() - 1)
@@ -367,5 +368,6 @@ If the quality gate passes, i.e. the pipeline does not get aborted, an XL Releas
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU4NjkwNjU0OSwtMTY2NTE4NTk2Nl19
+eyJoaXN0b3J5IjpbLTE3MDYzNjc2NzIsLTE2NjUxODU5NjZdfQ
+==
 -->
