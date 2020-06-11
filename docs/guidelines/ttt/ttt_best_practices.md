@@ -9,7 +9,7 @@ Whether you’re a COBOL developer creating unit tests for code, or an applicati
 
 ## Unit, Functional and Integration Testing
 
-Total Test supports developers to create, execute and automate unit, functional and integration tests. To make it very simple and understandable, from a technical point of view, the difference between unit and functional test is that a unit test virtualizes all external calls while a functional test runs live
+Total Test supports developers to create, execute and automate unit, functional and integration tests. To make it very simple and understandable, from a technical point of view, the difference between unit and functional test is that a unit test virtualizes all external calls while a functional test runs using live data 
 
 *-* **Unit test** – executing a test case of a program in isolation where all external calls (Files, DB2, sub programs CICS/IMS apis) are virtualized / stubbed out by the test case.
 * **Functional test** – executing a test case of a program in a live environment with live data.
@@ -676,3 +676,6 @@ There’s a lot more to successfully automating unit testing on the mainframe th
 We welcome your feedback as we continue to update this document alongside the continuous improvement of Topaz for Total Test with quarterly enhancements. To share your feedback on or ask a question about a best practice, please contact your Compuware account manager.
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEzMzI2MTc1NTBdfQ==
+-->
