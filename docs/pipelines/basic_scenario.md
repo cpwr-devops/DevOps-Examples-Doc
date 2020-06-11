@@ -17,10 +17,10 @@ The Azure DevOps Pipeline example, and underlying Powersheel scripts, illustrate
 
 ## Developer's tasks
 
-### Step 1 - Checking out Code
+### Step 1 - Check out Code
 In Topaz, a developer [checks out a set of sources, copybooks and other components](../guidelines/ispw_setup.md) required to fulfill a specific requirement.
 
-### Step 2 -  Creating/Maintaining Unit Tests
+### Step 2 -  Create/Maintain Unit Tests
 In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
 
 ### Step 3 - Code Promotion
@@ -68,5 +68,5 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5Nzg4MzM4NV19
+eyJoaXN0b3J5IjpbLTIwOTYxMjU3ODYsLTQ5Nzg4MzM4NV19
 -->
