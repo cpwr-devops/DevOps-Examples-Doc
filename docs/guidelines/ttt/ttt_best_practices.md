@@ -35,7 +35,7 @@ The illustration below shows how unit, functional and integration tests can be u
 
 ## Structure of this document
 
-We will, in the first two chapters, start by explaining from a high level how to best get started to use Total Test as a user, and how to best adopt the use of Total Test and test automation in an organization. Following these initial chapters, we will then discuss general best practices that are valid for both unit, functional and integration testing. This covers areas like use of SCM to version test cases, how to relate tests to source code versions, how to automate test case executions etc. Finally, we will delve into detailed best practices related to unit, functional and integration testing in Total Test.
+We will, in the first two chapters, start by explaining from a high level how to best get started to use Total Test as a user, and how to best adopt the use of Total Test and test automation in an organization. Following these initial chapters, we will then discuss general best practices that are valid for both unit, functional and integration testing. This covers areas like use of an SCM to version test cases, how to relate tests to source code versions, how to automate test case executions, etc. Finally, we will delve into detailed best practices related to unit, functional and integration testing in Total Test.
 
 [//]: #
 [//]: #
@@ -677,5 +677,5 @@ We welcome your feedback as we continue to update this document alongside the co
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM0OTI0MjgwNV19
+eyJoaXN0b3J5IjpbLTMxNjA3OTkwXX0=
 -->
