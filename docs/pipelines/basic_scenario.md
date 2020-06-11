@@ -11,9 +11,9 @@ The pipeline examples make use of Compuware's and other plugins to implement the
 
 The code we share here to implement these process steps, shows Compuware's example approach to these requirements. It does not necessarily reflects actual customer implementations, and is - in parts considerably - different than those implementations.
 
-The Jenkins examples are supposed to help mainframe developers to familiarize themselves with [Groovy](http://groovy-lang.org/documentation.html) and its concepts, as well as demonstrate some of the [idiosyncrasies of the Jenkins Groovy dialect](../guidelines/jenkins_groovy) that we come across.
+The Jenkins examples will help mainframe developers to familiarize themselves with [Groovy](http://groovy-lang.org/documentation.html) and its concepts, as well as demonstrate some of the [idiosyncrasies of the Jenkins Groovy dialect](../guidelines/jenkins_groovy) that we come across.
 
-While the Azure DevOps Pipeline example and underlying Powersheel scripts we share are supposed to proof the concept, that you are not limited to Jenkins when wanting to implement a mainframe based CI process.  
+The Azure DevOps Pipeline example, and underlying Powersheel scripts, we share are supposed to proof the concept, that you are not limited to Jenkins when wanting to implement a mainframe-based CI process.  
 
 ## Developer's tasks
 
@@ -68,5 +68,5 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMjk0MjgxXX0=
+eyJoaXN0b3J5IjpbNjkwNzQ5Njk3XX0=
 -->
