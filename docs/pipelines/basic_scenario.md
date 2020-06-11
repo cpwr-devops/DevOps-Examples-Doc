@@ -27,13 +27,13 @@ In Topaz [Topaz for Total Test](../guidelines/ttt/ttt_scenario.md) the developer
 In Topaz, once the developer has finished working on the code, they promote their changes from the `DEV` level to `QA`, the next level in the application's life cycle.
 
 ::: tip Note
-The IPSW life cycle of the application used for these examples consists of three parallel development paths (`DEV1`, `DEV2`, and `DEV3`). At certain points in the implementation you will need to know the actual path of that life cycle, the developer is working in.
+The IPSW life cycle of the application used for these examples consists of three parallel development paths (`DEV1`, `DEV2`, and `DEV3`). At certain points in the implementation you will need to know the actual path of the life cycle that the developer is working in.
 :::
 
 ![ISPW Life Cylce](../guidelines/images/ISPW_life_cycle.png)
 
 ### Step 4 - ISPW Webhook trigger
-Automatically in ISPW the promotion of from the `DEV` level to the `QA` level in ISPW creates an ISPW a set containing all components that are part of this specific promotion.  Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via an [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../advanced_pipelines/parameters.md) to the Jenkins job to control the execution.
+Automatically in ISPW the promotion from the `DEV` level to the `QA` level in ISPW creates an ISPW a set containing all components that are part of this specific promotion.  Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via an [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../advanced_pipelines/parameters.md) to the Jenkins job to control the execution.
 
 ### Step 5 - Trigger CI pipeline job
 Automatically in Jenkins or similar a pipeline job or build gets triggered.  
@@ -68,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNjAwMjE2OCwtMjA5NjEyNTc4NiwtND
-k3ODgzMzg1XX0=
+eyJoaXN0b3J5IjpbLTE0OTcxNTExMzgsLTIwOTYxMjU3ODYsLT
+Q5Nzg4MzM4NV19
 -->
