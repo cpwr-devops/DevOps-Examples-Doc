@@ -42,7 +42,7 @@ In Jenkins or similar a pipeline job or build gets triggered automatically.
 While there might be differences in details when it comes to the individual implementation examples, certain "stages" are common, as depicted [at the top of this page](#basic-continuous-integration-ci-scenario).
   - **Self-contained pipeline**: For a simple self-contained pipeline example using Jenkins, follow the [description for implementing a basic pipeline](./basic_example_pipeline.md) using the code in [`Mainframe-CI-Example-pipeline`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile).
   - **Enterprise grade pipeline**: For a more realistic enterprise grade example [using Jenkins shared libraries](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib) use the code in [`Mainframe_CI_Pipeline_from_Shared_Lib`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars\Mainframe_CI_Pipeline_from_Shared_Lib.groovy).
-  - **For an example using a tool other than Jenkins - namely [Azure DevOps Pipelines](./alternatives_to_jenkins.md#an-example-using-azure-devops-pipelines) - the [Compuware Command Line Interface](../apis/topaz_cli.md) and [REST APIs](../apis/rest_api.md) maybe used. [`mainframe_ispw`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src\misc-examples\AzureDevOps\PipelineYAML\mainframe_ispw.yaml) makes use of the CLI and REST API, using Powershell scripts "wrapped" around these calls..
+  - **Non-Jenkins pipeline**: For an example using [Azure DevOps Pipelines](./alternatives_to_jenkins.md#an-example-using-azure-devops-pipelines) - the [Compuware Command Line Interface](../apis/topaz_cli.md) and [REST APIs](../apis/rest_api.md) maybe used. [`mainframe_ispw`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src\misc-examples\AzureDevOps\PipelineYAML\mainframe_ispw.yaml) makes use of the CLI and REST API, using Powershell scripts "wrapped" around these calls.
 
 ### Step 1 - Retrieve mainframe sources
 The ultimate goal of this process is to use SonarQube quality gates to determine if the promoted code is good to be released. For Sonar Qube to work, it needs the sources of the programs. These will be downloaded in one of the early steps (often the first step) of the pipeline. 
@@ -68,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTMyNTI2MjQwMywtMjA5NjEyNTc4NiwtND
+eyJoaXN0b3J5IjpbMTQ0Njc4NDAxOCwtMjA5NjEyNTc4NiwtND
 k3ODgzMzg1XX0=
 -->
