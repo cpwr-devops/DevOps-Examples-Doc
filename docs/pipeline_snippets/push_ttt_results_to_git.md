@@ -23,7 +23,7 @@ This in part due to the way Topaz for Total Test stores and uses test and assert
 
 ## Idea
 
-The idea of this work around is to make use of the reporting capability in Topaz for Total Test itself and of the fact that Compuware and most of our customers use GitHub (or any other server edition of Git) to store, share and make Topaz for Total Test unit tests available to Jenkins. Whenever I refer to “GitHub” in the following description, read “GitHub or suchlike”. Since, prior to executing the tests, they need to be downloaded from GitHub. This means cloning the underlying Git repository (completely or partly using a sparse checkout), which in turn means, the resulting project in the Jenkins workspace is a fully functional Git repository. Any changes to the project appearing on the Jenkins server can be pushed back to GitHub.
+The idea of this work around is to make use of the reporting capability in Topaz for Total Test itself and of the fact that Compuware and most of our customers use GitHub (or any other server edition of Git) to store, share, and make Topaz for Total Test unit tests available to Jenkins. Whenever I refer to “GitHub” in the following description, read “GitHub or similar”. Since, prior to executing the tests, they need to be downloaded from GitHub. This means cloning the underlying Git repository (completely or partly using a sparse checkout), which in turn means, the resulting project in the Jenkins workspace is a fully functional Git repository. Any changes to the project appearing on the Jenkins server can be pushed back to GitHub.
 
 ![Push_TTT_Results_To_Git_Pipeline](./images/Push_TTT_Results_To_Git_Pipeline.png)
 
@@ -60,5 +60,5 @@ And review the results in their Eclipse UI.
 
 The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last `stage("Push TTT Results to GitHub")`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDMzNTk4MDNdfQ==
+eyJoaXN0b3J5IjpbMTg5MDUyNzA3MF19
 -->
