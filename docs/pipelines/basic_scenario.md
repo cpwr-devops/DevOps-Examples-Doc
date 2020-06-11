@@ -51,10 +51,10 @@ The ultimate goal of this process is to use SonarQube quality gates to determine
 Topaz for Total Test Unit Test assets are stored in a Git server repository and need to be downloaded to the Jenkins workspace.
 
 ### Step 3 - Execute Unit Tests
-This step will execute the downloaded unit tests. Determining which tests to download or which tests to execute may vary based on the requirements of the individual implementation. The examples show how to download every Topaz for Total Test project and execute only those test scenarios that belong to those programs that have been promoted by the developer.
+This step will execute the downloaded unit tests. Determining which tests to download or which tests to execute may vary based on the requirements of the individual implementation. The examples show how to download every Topaz for Total Test project and execute only those test scenarios that belong to the programs that have been promoted by the developer.
 
 ### Step 4 - Retrieve Code Coverage statistics from the mainframe
-The unit tests will collect code coverage data and store the results in a Xpediter Code Coverage repository dataset on the mainframe. To be able to pass the results to Sonar they need to be extracted from the mainframe repository and downloaded to the mainframe.
+The unit tests will collect code coverage data and store the results in a Xpediter Code Coverage repository dataset on the mainframe. To be able to pass the results to SonarQube, they need to be extracted from the mainframe repository and downloaded to the mainframe.
 
 ### Step 5 - Pass results to SonarQube
 The sources, test execution results and code coverage data will be passed to Sonar Qube for analysis.
@@ -68,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1NDg5OTEyMCwxNDQ2Nzg0MDE4LC0yMD
-k2MTI1Nzg2LC00OTc4ODMzODVdfQ==
+eyJoaXN0b3J5IjpbODA2MjAwMDAxLDE0NDY3ODQwMTgsLTIwOT
+YxMjU3ODYsLTQ5Nzg4MzM4NV19
 -->
