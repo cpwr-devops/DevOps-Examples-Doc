@@ -9,7 +9,7 @@ Whether you’re a COBOL developer creating unit tests for code, or an applicati
 
 ## Unit, Functional and Integration Testing
 
-Total Test supports developers to create, execute and automate unit, functional and integration tests. To make it very simple and understandable, from a technical point of view, the difference between unit and functional test is that a unit test virtualizes all external calls while a functional test runs using live data 
+Total Test supports developers to create, execute and automate unit, functional and integration tests. To make it very simple and understandable, from a technical point of view, the difference between unit and functional test is that a unit test virtualizes all external calls while a functional test runs live.
 
 *-* **Unit test** – executing a test case of a program in isolation where all external calls (Files, DB2, sub programs CICS/IMS apis) are virtualized / stubbed out by the test case.
 * **Functional test** – executing a test case of a program in a live environment with live data.
@@ -19,7 +19,7 @@ The test types are illustrated in the pyramid below. The pyramid illustrates tha
 
 ![Testing Pyramid](../images/ttt_intro1.png)
 
-There are no officially agreed upon clear definitions of different test types and each vendor and customer seems to have their own definitions. As a start let us define what these test types means in relation to Total Test and elaborate a bit more on the differences compared to the technical difference above.
+There are no officially agreed upon clear definitions of different test types and each vendor and customer seems to have their own definitions. As a start let us define what each test type means in relation to Total Test and elaborate a bit more on the differences compared to the technical difference above.
 
 * **Unit Test**. A unit test tests the smallest piece of executable code in an application. For COBOL this is a program. It is created by a developer that understands the program code and logic and knows how to e.g. get into a specific if statement to test this part of the code. The developer is in control and can stub out all external calls from the program to other systems such as IO, DB2, sub programs and CICS/IMS. The developer can decide what an external call from the program should return in a specific test case. A unit test can be described as a whitebox test where the developer has deep knowledge about the source code, and the test is executed in an isolated environment without requirements for access to external systems and data.
 * **Functional Test**. A functional test tests a function of an application. A function is typically implemented as a COBOL program. The functional test tests that the program implements its specification correctly and is typically created by a developer or tester/QA role. The tester understands what the program is supposed to do and sets up the functional test case by providing input to the program and defining expected output. The functional test is a black box test where the tester does not need to know about the internal source code of the program, and the program is executed in a live environment with live data and live systems.
@@ -677,5 +677,5 @@ We welcome your feedback as we continue to update this document alongside the co
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMzI2MTc1NTBdfQ==
+eyJoaXN0b3J5IjpbLTEwMDc1NTgwMjFdfQ==
 -->
