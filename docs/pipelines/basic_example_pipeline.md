@@ -39,12 +39,11 @@ Name | Description
 `Git_Project` | Github (or other Git based repository) project used to store the Topaz for Total Test Projects
 
 ## Loading the script from GitHub
-Instead of using a Pipeline script and placing the pipeline code into the Script text box, the pipeline uses a Pipeline from SCM stored in GitHub. Make sure to use the proper GitHub (or other Git server version) branch, path and file name to point to the script file. The example uses the `master` branch and file `src\Jenkinsfile\Mainframe-CI-Example-pipeline.jenkinsfile`.
+Instead of using a Pipeline script and placing the pipeline code into the Script text box, the pipeline uses a Pipeline from SCM stored in GitHub. Make sure to use the proper GitHub (or other Git server version) branch, path, and file name to point to the script file. The example uses the `master` branch and file `src\Jenkinsfile\Mainframe-CI-Example-pipeline.jenkinsfile`.
 
 ![Pipeline from SCM](./images/Pipeline_from_SCM.png)
 
 ## Jenkins Pipeline Script
-
 Once this pipeline has been triggered, the pipeline will execute the following code implementing the steps described before.
 
 ### Global Variables
@@ -363,5 +362,5 @@ If the quality gate passes, i.e. the pipeline does not get aborted, an XL Releas
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNzIzMjAyOTJdfQ==
+eyJoaXN0b3J5IjpbLTE2NjUxODU5NjZdfQ==
 -->
