@@ -56,7 +56,7 @@ Are you new to Total Test and test automation, there will be a learning curve to
 1. Do the above with a more complex program
 1. Get experience with Code Coverage and use this actively when creating and executing test cases.
 
-When you have become familiar with recording and executing test cases with Total Test its time to move on in the learning journey of DevOps and test automation. Next step is to start using a SCM to share test cases. We recommend using a Git repository, but other repository technologies work fine as well.
+When you have become familiar with recording and executing test cases with Total Test it's time to move on in the learning journey of DevOps and test automation. Next step is to start using a SCM to share test cases. We recommend using a Git repository, but other repository technologies work fine as well.
 
 **Suggested list of activities to get started with Total Test and the use of a repository**
 
@@ -68,7 +68,7 @@ When you have become familiar with recording and executing test cases with Total
 
 After getting yourself familiar with a SCM and Total Test you are ready to get the most benefit from test automation. You can now create and share automated test cases. With automated we mean, you manually execute the test case, but the test case automatically tests the program. This is the most important step in test automation – to have a suite of regression tests that you can execute after a program has changed.
 
-When you have built a small suite of test cases you will soon find that its annoying to manually remember to execute and evaluate that test suite. Its actually easy to forget, and that means that it will take longer before you detect bugs. And this is where the last piece in test automation comes in – you want to automate the execution and evaluation of the test suite. This can be done with a number of commonly used pipeline technologies such as Jenkins, ElectricCloud, Urban Code Deploy, Xebialabs XLR etc. and you might even have your homegrown solution. No matter of technology used, these steps are recommended to get started to adopt an automated pipeline.
+When you have built a small suite of test cases you will soon find that its' annoying to manually remember to execute and evaluate that test suite. It's actually easy to forget, and that means that it will take longer before you detect bugs. And this is where the last piece in test automation comes in – you want to automate the execution and evaluation of the test suite. This can be done with a number of commonly used pipeline technologies such as Jenkins, ElectricCloud, Urban Code Deploy, Xebialabs XLR etc. and you might even have your own homegrown solution. No matter what technology used, these steps are recommended to get started to adopt an automated pipeline.
 
 **Suggested list of activities to get started with automated pipelines**
 
@@ -677,5 +677,5 @@ We welcome your feedback as we continue to update this document alongside the co
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTMxNjA3OTkwXX0=
+eyJoaXN0b3J5IjpbMzk1MTc1NjgwLC0zMTYwNzk5MF19
 -->
