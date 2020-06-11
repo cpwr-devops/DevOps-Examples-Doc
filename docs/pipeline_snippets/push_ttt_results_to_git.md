@@ -44,11 +44,11 @@ For the commit and push to pick up changes in the reports, you need to make sure
 
 ![Push_TTT_Results_To_Git_Pipeline](./images/Push_TTT_Results_To_Git_Pipeline.png)
 
-After execution of the job, the resulting reports are available on the GutHub repository. The example code uses commit message *Jenkins build xx* as can be seen for the Topaz for Total Test project *CWXTSUBC_Unit_Tests*:
+After execution of the job, the resulting reports are available on the GutHub repository. The example code uses the commit message *Jenkins build xx* as can be seen in the Topaz for Total Test project *CWXTSUBC_Unit_Tests*:
 
 ![TTT_Results_in_GitHub](./images/TTT_Results_in_GitHub.png)
 
-If a user needs to analyze the results of a test execution, since Sonar reported failures, they can pull the results of the execution back to their workspace.
+If a user needs to analyze the results of a test execution, since Sonar reported failures, they can pull the execution results back to their workspace.
 
 ![Pull_TTT_Results_from_Git](./images/Pull_TTT_Results_from_Git.png)
 
@@ -60,5 +60,5 @@ And review the results in their Eclipse UI.
 
 The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last `stage("Push TTT Results to GitHub")`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTkyNTA2MDU5XX0=
+eyJoaXN0b3J5IjpbNjg2MTAxOTk2XX0=
 -->
