@@ -68,5 +68,5 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ5Nzg4MzM4NV19
+eyJoaXN0b3J5IjpbLTIwOTYxMjU3ODYsLTQ5Nzg4MzM4NV19
 -->
