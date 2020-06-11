@@ -21,13 +21,13 @@ The Azure DevOps Pipeline example, and underlying Powersheel scripts, illustrate
 In Topaz, a developer [checks out a set of sources, copybooks and other components](../guidelines/ispw_setup.md) required to fulfill a specific requirement.
 
 ### Step 2 -  Create/Maintain Unit Tests
-In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
+In Topaz [Topaz for Total Test,](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
 
 ### Step 3 - Promote Code
-In Topaz once the developer has finished working on the code, they promote their changes from the `DEV` level to `QA`, the next level in the application's life cycle.
+In Topaz, once the developer has finished working on the code, they promote their changes from the `DEV` level to `QA`, the next level in the application's life cycle.
 
 ::: tip Note
-The IPSW life cycle of the application being used for these examples consists of three parallel development paths (`DEV1`, `DEV2`, and `DEV3`). At certain points in the implementation it will become necessary to know the actual path of that life cycle, the developer is working in.
+The IPSW life cycle of the application used for these examples consists of three parallel development paths (`DEV1`, `DEV2`, and `DEV3`). At certain points in the implementation you will need to know the actual path of that life cycle, the developer is working in.
 :::
 
 ![ISPW Life Cylce](../guidelines/images/ISPW_life_cycle.png)
@@ -68,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTk3NjMwNjksLTIwOTYxMjU3ODYsLT
-Q5Nzg4MzM4NV19
+eyJoaXN0b3J5IjpbMTMyNjAwMjE2OCwtMjA5NjEyNTc4NiwtND
+k3ODgzMzg1XX0=
 -->
