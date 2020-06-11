@@ -10,7 +10,7 @@ Since most mainframe development is not green field development, the first step 
 - Input values as recorded at program `ENTRY`
 - Output values as recorded at program exit (e.g. `GOBACK`)
 - Assertions for the recorded output values
-- Stubs (simulation data) for:
+- Stubs (simulated data) for:
     - Sub program calls
     - File I/O, i.e. `QSAM` or `VSAM` reads and writes
     - `DB2 SQL` statement execution
@@ -95,3 +95,6 @@ New test cases may be added to an existing test scenario by duplicating existing
 The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is storing these projects in Git/GitHub repositories.
 
 ![TTT in Git](../images/TTT_in_Git_and_GitHub.png)
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDA4OTI0MjQ1XX0=
+-->
