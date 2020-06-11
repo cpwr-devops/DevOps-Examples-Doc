@@ -11,7 +11,7 @@ When using Topaz for Total Test unit tests and SonarQube to analyze the results,
 
 ![SonarQubeDashboard](./images/SonarQubeDashboard.png)
 
-Drilling down into the test cases will also tell how many assertions have been passes and how many have been failed. This also allows defining and using SonarQube quality gates.
+Drilling down into the test cases will also tell how many assertions have passed and how many have been failed. This also allows defining and using SonarQube quality gates.
 
 ![SonarQubeTestResults](./images/SonarQubeTestResults.png)
 
@@ -59,3 +59,6 @@ And review the results in their Eclipse UI.
 ## Code
 
 The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last `stage("Push TTT Results to GitHub")`.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIwNDMzNTk4MDNdfQ==
+-->
