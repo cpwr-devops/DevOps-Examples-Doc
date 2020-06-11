@@ -23,7 +23,7 @@ In Topaz a developer [checks out a set of sources, copybooks and other component
 ### Step 2 -  Creating/Maintaining Unit Tests
 In Topaz [Topaz for Total Test](../guidelines/ttt/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
 
-### Step 3 - Code Promotion
+### Step 3 - Promote Code
 In Topaz once the developer has finished working on the code, they promote their changes from the `DEV` level to `QA`, the next level in the application's life cycle.
 
 ::: tip Note
@@ -68,5 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwOTYxMjU3ODYsLTQ5Nzg4MzM4NV19
+eyJoaXN0b3J5IjpbLTIwOTk3NjMwNjksLTIwOTYxMjU3ODYsLT
+Q5Nzg4MzM4NV19
 -->
