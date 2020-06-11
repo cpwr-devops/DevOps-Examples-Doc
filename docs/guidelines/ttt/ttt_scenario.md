@@ -58,7 +58,7 @@ A Topaz for Total Test project will use the following folder structure, which wi
 
 # The runner.jcl
 
-When using Xpediter/Topaz for Total Test to record test cases, the `JCL` folder will contain sample `JCL` code which is required to execute the Topaz for Total Test driver program `TTTRUNNR`. As of now, Topaz for Total Test cannot create stub data for 100% of all  `SQL` statements or `DL/I` calls. Therefore, test execution of some programs will require a "mixed" mode - partly stubbed, partly using life data. For these situations the following sample `JCL`is generated:
+When using Xpediter/Topaz for Total Test to record test cases, the `JCL` folder will contain sample `JCL` code which is required to execute the Topaz for Total Test driver program `TTTRUNNR`. As of now, Topaz for Total Test cannot create stub data for 100% of all  `SQL` statements or `DL/I` calls. Therefore, test execution of some programs will require a "mixed" mode – partly stubbed, partly using live data. For these situations the following sample `JCL`is generated:
 
 - `RunnerBmp.jcl` for tests of `IMS` programs in "mixed" mode
 - `RunnerBmpDB2.jcl` for tests of `DB2/IMS` programs in "mixed" mode
@@ -96,5 +96,5 @@ The recommended procedure to share Topaz for Total Test projects across teams an
 
 ![TTT in Git](../images/TTT_in_Git_and_GitHub.png)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NDAzMTM0OTBdfQ==
+eyJoaXN0b3J5IjpbLTExMTQ0NDQyMjBdfQ==
 -->
