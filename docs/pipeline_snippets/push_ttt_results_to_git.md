@@ -27,9 +27,9 @@ The idea of this work around is to make use of the reporting capability in Topaz
 
 ![Push_TTT_Results_To_Git_Pipeline](./images/Push_TTT_Results_To_Git_Pipeline.png)
 
-Every time a user executes a test scenario or suite, Topaz for Total Test generates a set of reports that can be used for analysis. These reports are stored in the Output in different sub folders using different formats, depending on further purposes. These are
+Every time a user executes a test scenario or suite, Topaz for Total Test generates a set of reports that can be used for analysis. These reports are stored in the Output in different sub folders using different formats, depending on their purposes. These are
 
-- As *.archive* files in the *Last Execution* folder. This is the format that Topaz for Total Test uses after execution of a scenario in the Eclipse UI.
+- **As *.archive* files in the *Last Execution* folder. This is the format that Topaz for Total Test uses after execution of a scenario in the Eclipse UI.
 - As *.xml* files in the *JUnit* folder. This is standard JUnit format.
 - As *.xml* files in the *Sonar* folder. This is the format passed to SonarQube.
 - As *.html* files in the *Reports* folder. This format can be used to publish reports on a web page using a web server.
@@ -60,5 +60,5 @@ And review the results in their Eclipse UI.
 
 The code is published as [jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile). The important part is the last `stage("Push TTT Results to GitHub")`.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk5MTA3NTc1XX0=
+eyJoaXN0b3J5IjpbLTEyMjU1MjA1MTFdfQ==
 -->
