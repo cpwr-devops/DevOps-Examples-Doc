@@ -32,13 +32,11 @@ The IPSW life cycle of the application used for these examples consists of three
 
 ![ISPW Life Cylce](../guidelines/images/ISPW_life_cycle.png)
 
-### Step 4 - ISPW Webhook trigger
-In ISPW, the promotion from the `DEV` level to the `QA` level in ISPW automatically creates an ISPW set containing all components that are part of this specific promotion. Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via a [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../advanced_pipelines/parameters.md) to the Jenkins job to control the execution.
+### Step 4 - Trigger an ISPW webhook
+In ISPW, the promotion from the `DEV` level to the `QA` level in ISPW automatically creates an ISPW set containing all components that are part of this specific promotion. Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via a [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes [Parameters](../advanced_pipelines/parameters.md) to the Jenkins job to control the execution.
 
-Automatically in ISPW the promotion from the `DEV` level to the `QA` level in ISPW creates an ISPW a set containing all components that are part of this specific promotion.  Once the promotion completes, ISPW triggers a Jenkins job that executes a series of automated steps.  The Jenkins job is triggered via an [Webhook](../tool_configuration/webhook_setup.md).  The webhook also passes the [Parameters](../advanced_pipelines/parameters.md) to the Jenkins job to control the execution.
-
-### Step 5 - Trigger CI pipeline job
-Automatically in Jenkins or similar a pipeline job or build gets triggered.  
+### Step 5 - Trigger a CI pipeline job
+In Jenkins or similar a pipeline job or build gets triggered.  
 
 ## CI pipeline job
 While there might be differences in details when it comes to the indivudual implementation examples, they all have certains "stages" in common, as depicted [at the top of this page](#basic-continuous-integration-ci-scenario).
@@ -70,6 +68,6 @@ If the quality gates `failed`, usually the code that has been promoted will be r
 ### Step 6b - On success - Trigger a CD release
 If the quality gate `passed` the code is ready to be passed onward in the application life cycle. The Jenkins example will trigger a release in XLRelease, while the Azure DevOps example will trigger an Azure DevOps release pipeline.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTA3MzcyMDEsLTIwOTYxMjU3ODYsLT
-Q5Nzg4MzM4NV19
+eyJoaXN0b3J5IjpbODAzODg5NDk5LC0yMDk2MTI1Nzg2LC00OT
+c4ODMzODVdfQ==
 -->
