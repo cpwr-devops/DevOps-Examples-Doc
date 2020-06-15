@@ -10,7 +10,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 The examples - especially the two [primary pipelines](../pipelines/basic_scenario.md) - use plugins that may not be part of a standard installation of Jenkins; this will likely be the case for the Compuware plugins. All plugins described here can be obtained from the Jenkins plugin marketplace using *Manage Jenkins* -> *Manage Plugins*.
 
 ::: tip
-Jenkins allows generating pipeline syntax based on plugins. Using the Compuware plugins, and probably other plugins as well, this often causes the challenge for users to find the correct entries in the selection boxes, to find the required plugin. For the Compuware plugin we point to the correct location in the corresponding description.
+Jenkins allows generating pipeline syntax based on plugins. For the Compuware plugin we point to the correct location in the corresponding description. . Using the Compuware plugins, and probably other plugins as well, this often causes the challenge for users to find the correct entries in the selection boxes, to find the required plugin.
 :::
 
 ## Compuware plugins
@@ -107,3 +107,6 @@ The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+P
 ### Credentials Binding Plugin
 
 Some plugins/methods like the `httpRequest` require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbOTU0MTU3NTc0XX0=
+-->
