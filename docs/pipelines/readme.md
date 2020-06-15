@@ -14,7 +14,7 @@ Example code and documentation are provided for:
 -   Compuware and 3rd party tools used in the pipelines
 -   Instructions setting up and configuring Jenkins and SonarQube
 -   Code snippets or sample code for:
-	- general purpose use
+	- general purpose for use in a Jenkins
 	- making use of the  [ISPW REST API](https://devops.api.compuware.com/apis/rest_api.html)  and  [Topaz CLI](https://devops.api.compuware.com/apis/topaz_cli.html), which may be  [used in tools other than Jenkins](https://devops.api.compuware.com/pipelines/alternatives_to_jenkins.html).
 
 ::: warning
@@ -100,9 +100,9 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 Everyone perusing these pages is welcome to provide feedback, input and suggestions for improvement; as well as asking for specific topics to be covered in the future.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDcwMzc4ODc0LC03Nzk4NTQyMCwtMTk5OD
-c3MTI3MSw4NjI0NTA5MjQsLTE0NjA3NDQ5MDIsLTExMzU2NTEz
-NzIsNjE1ODA5MDMsMTI2MTYzNDAzMCwtMTY4MTQzODE3MiwtMj
-A3MjQ5ODM5NSwyMDYwMjczNzMsLTE1Nzg3ODg4MjMsLTEwMjc0
-NjMxOSwtMjAyNjQyMTQ3NV19
+eyJoaXN0b3J5IjpbMTc3NzA3NzgxLDQ3MDM3ODg3NCwtNzc5OD
+U0MjAsLTE5OTg3NzEyNzEsODYyNDUwOTI0LC0xNDYwNzQ0OTAy
+LC0xMTM1NjUxMzcyLDYxNTgwOTAzLDEyNjE2MzQwMzAsLTE2OD
+E0MzgxNzIsLTIwNzI0OTgzOTUsMjA2MDI3MzczLC0xNTc4Nzg4
+ODIzLC0xMDI3NDYzMTksLTIwMjY0MjE0NzVdfQ==
 -->
