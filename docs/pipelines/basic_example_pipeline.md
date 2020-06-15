@@ -8,7 +8,7 @@ The pipeline described here will be triggered [after a developer has promoted th
 
 ## Setting up the pipeline job
 
-The pipeline (???) job itself is defined within Jenkins by creating a new pipeline job. It is important, to make sure that the resulting job uses parameters by checking the `This project is parameterized' box.
+The pipeline job itself is defined within Jenkins by creating a new pipeline job. It is important, to make sure that the resulting job uses parameters by checking the `This project is parameterized' box.
 
 ![Parameterized Pipeline](./images/parametertized_pipeline.png)
 
@@ -372,7 +372,7 @@ If the quality gate passes, i.e. the pipeline does not get aborted, an XL Releas
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3MDA2OTE0MSwtMTQyNDY4ODIxNywtOD
-Q2MzU3Njk3LC0yNDI3ODk5MjcsLTIwNjU3NDcyNzYsLTE3MDYz
-Njc2NzIsLTE2NjUxODU5NjZdfQ==
+eyJoaXN0b3J5IjpbLTM1MjgwMzY0MSwxNzcwMDY5MTQxLC0xND
+I0Njg4MjE3LC04NDYzNTc2OTcsLTI0Mjc4OTkyNywtMjA2NTc0
+NzI3NiwtMTcwNjM2NzY3MiwtMTY2NTE4NTk2Nl19
 -->
