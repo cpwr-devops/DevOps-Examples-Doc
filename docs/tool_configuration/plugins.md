@@ -44,7 +44,7 @@ The [Compuware Source Code Download for Endevor, PDS, and ISPW](https://wiki.jen
 - Plain PDS
 
 ::: tip
-In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **checkout**, followed by the *SCM* dropdown entries 
+In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **checkout**, followed by the *SCM* dropdown entries:
 
 - **ISPW Container**
 - **ISPW Repository** 
@@ -108,5 +108,5 @@ The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+P
 
 Some plugins/methods like the `httpRequest` require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTU2NTAxMDRdfQ==
+eyJoaXN0b3J5IjpbLTEzMDgzOTQ1MjZdfQ==
 -->
