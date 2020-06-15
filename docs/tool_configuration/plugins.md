@@ -102,11 +102,11 @@ The [Pipeline Utility Steps](https://wiki.jenkins.io/display/JENKINS/Pipeline+Ut
 
 ### Config File Provider
 
-The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins, thus allowing to define configuration files that do not have to be stored on disk within e.g. the Git repository storing the *jenkinsfile*.
+The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins, thus allowing you to define configuration files that do not have to be stored on disk within repository (e.g. the Git) storing the *jenkinsfile*.
 
 ### Credentials Binding Plugin
 
-Some plugins/methods like the `httpRequest` require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
+Some plugins/methods, like the `httpRequest`, require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE0ODQ4NTkxMl19
+eyJoaXN0b3J5IjpbNzIzNTc1ODI4XX0=
 -->
