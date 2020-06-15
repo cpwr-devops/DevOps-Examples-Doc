@@ -72,7 +72,7 @@ In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Ste
 
 ### Compuware Topaz Utilities
 
-The [Compuware Topaz Utilities](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin will provide a collection of utilities around interfacing to and using tools on mainframes. In its first version it allows execution and checking return codes of JCL. The JCL may be stored in PDS members on the mainframe or in string variables during execution.
+The [Compuware Topaz Utilities](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin will provide a collection of utilities around interfacing to and using tools on mainframes. In its first version it allows execution of and checking JCL return codes. The JCL may be stored in PDS members on the mainframe or in string variables during execution.
 
 ::: tip
 In the Pipeline Syntax generator, the plugin can be accessed 
@@ -102,11 +102,11 @@ The [Pipeline Utility Steps](https://wiki.jenkins.io/display/JENKINS/Pipeline+Ut
 
 ### Config File Provider
 
-The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins thus allowing to define configuration files that do not have to be stored on disk within e.g. the Git repository storing the *jenkinsfile*.
+The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins, thus allowing to define configuration files that do not have to be stored on disk within e.g. the Git repository storing the *jenkinsfile*.
 
 ### Credentials Binding Plugin
 
 Some plugins/methods like the `httpRequest` require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDgzOTQ1MjZdfQ==
+eyJoaXN0b3J5IjpbMTE0ODQ4NTkxMl19
 -->
