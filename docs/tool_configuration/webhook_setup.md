@@ -47,7 +47,7 @@ Will be `POST`.
 
 ### Request headers
 
-Depending on the configuration of the Jenkins server you may need addition request headers. Especially if [CSRF Protection](https://wiki.jenkins.io/display/JENKINS/CSRF+Protection) is activated, you will need an authorization header. Contact your Jenkins administrator for the required value.
+Depending on the configuration of the Jenkins server, you may need addition request headers. Especially if [CSRF Protection](https://wiki.jenkins.io/display/JENKINS/CSRF+Protection) is activated, you will need an authorization header. Contact your Jenkins administrator for the required value.
 
 ### Product
 
@@ -104,3 +104,6 @@ Which means in total, that the pipeline job `RNU_FTSDEMO_from_Shared_Lib` will g
 - The value `2` will be passed to the pipeline parameter `ISPW_Container_Type` to denote a set ID was passed in the previous parameter
 - The ISPW source level `$$level$$` (`DEV1`, `DEV2`, or `DEV3`) will be passed to the pipeline parameter `ISPW_Src_Level`
 - The ISPW user executing the promotion `$$owner$$` will be passed to the pipeline parameter `ISPW_Owner`
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE0MjEzNTczMjddfQ==
+-->
