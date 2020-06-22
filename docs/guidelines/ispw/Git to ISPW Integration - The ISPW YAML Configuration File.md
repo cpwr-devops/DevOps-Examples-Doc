@@ -10,7 +10,7 @@ An ISPW YAML configuration file is required for the Git to ISPW integration. A Y
 
 The YAML configuration file contains ISPW property settings and path mappings.
 
-##  ISPW property settings
+##  ISPW Property Settings
 
 The YAML configuration file **must** contain the following ISPW property settings:
 
@@ -23,7 +23,7 @@ The YAML configuration file may **optionally** contain the following ISPW proper
 
 - runtime configuration - The name of the runtime configuration. A runtime configuration represents a group of settings (dataset allocations, site customizations, skeleton JCLs, Clists) that can be applied to an ISPW server. No runtime configuration is required if a default runtime configuration was specified as part of the ISPW install and you want to use that instance.
 
-## Path mappings
+## Path Mappings
 
 The YAML configuration file **must** contain the following path mappings:
 
@@ -106,3 +106,4 @@ Multiple types can exist under the same path within the YAML file. In the follow
   \- fileExtension: pli
    ispwType: PLI
 ```
+

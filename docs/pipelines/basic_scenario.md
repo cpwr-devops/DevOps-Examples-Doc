@@ -17,10 +17,10 @@ While the Azure DevOps Pipeline example and underlying Powersheel scripts we sha
 ## Developer's tasks
 
 ### Step 1 - Checking out Code
-In Topaz a developer [checks out a set of sources, copybooks and other components](../guidelines/ispw_setup.md) required to fulfill a specific requirement.
+In Topaz a developer [checks out a set of sources, copybooks and other components](../guidelines/ispw/ispw_setup.md) required to fulfill a specific requirement.
 
 ### Step 2 -  Creating/Maintaining Unit Tests
-In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
+In Topaz [Topaz for Total Test](../guidelines/ttt/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
 
 ### Step 3 - Code Promotion
 In Topaz once the developer has finished working on the code, they promote their changes from the `DEV` level to `QA`, the next level in the application's life cycle.
