@@ -10,9 +10,9 @@ JCL skeletons in ISPF allow building mainframe jobs based on user input without 
 The skeleton JCL in our examples uses strings in brackets '<>' to identify placeholders which get substituted at runtime. Currently, these are fixed names and only these 'variables' can be used to substitute placeholders by concrete values.
 
 In total there are three pieces of JCL that get generated during runtime:
-Job card - JobCard.jcl
-Delete temporary Dataset: deleteDs.skel
-
+- Job card - JobCard.jcl
+- Delete temporary Dataset: deleteDs.skel
+- IEBCOPY job: iebcopy.skel
 
 ## A job card JobCard.jcl
 
@@ -92,5 +92,5 @@ The placeholders are:
 - `<cc_sysname>` will be replaced by a Code Coverage system name
 - `cc_test_id>` will be replaced Code Coverage Test ID
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjEzNjc2MTldfQ==
+eyJoaXN0b3J5IjpbNzkyODQ5NzUwXX0=
 -->
