@@ -234,7 +234,7 @@ The [TttHelper](./TttHelper.md) class serves as a wrapper around Topaz for Total
 
 ### [`TttHelper(script, steps, pConfig)`](./TttHelper.md#ttthelper) 
 
-The constructor receives the `script` object and the `steps` from the pipeline  and a [`PipelineConfig`](./PipelineConfig.md) to make use of pipeline execution specific parameters.
+The constructor receives the `script` object and the `steps` from the pipeline and a [`PipelineConfig`](./PipelineConfig.md) to make use of pipeline execution specific parameters.
 
 ### [`initialize()`](./TttHelper.md#initialize) 
 
@@ -268,7 +268,7 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI1MDE4NTk5NywtMjA0OTc5MDEwMSwxMz
-k5NzI0NzcyLC02NzM4MTY2MjUsMTY4MzgxOTA3NywtMjEwMDA3
-NjE4MiwtMTE1MzE5NDk0XX0=
+eyJoaXN0b3J5IjpbLTEyNjk5OTgzOTEsLTIwNDk3OTAxMDEsMT
+M5OTcyNDc3MiwtNjczODE2NjI1LDE2ODM4MTkwNzcsLTIxMDAw
+NzYxODIsLTExNTMxOTQ5NF19
 -->
