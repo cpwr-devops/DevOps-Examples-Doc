@@ -17,7 +17,7 @@ The constructor receives the `steps` from the pipeline to allow use of pipeline 
 
 ### [`checkout(String gitUrl, String gitBranch, String gitCredentials, String tttFolder)`](./GitHelper.md#checkout)  
 
-checks out the branch `gitBranch` in the Git(Hub) repository at `gitUrl`. It uses the `gitCredentials` to authenticate and places the cloned Git repository into the folder `tttFolder` (within the Jenkins workspace).
+checks out the branch `gitBranch` in the Git(Hub) repository at `gitUrl`. It uses the `gitCredentials` to authenticate and places the cloned Git repository into the folder `tttFolder` within the Jenkins workspace.
 
 ### [`checkoutPath(String gitUrl, String gitBranch, String path, String gitCredentials, String gitProject)`](./GitHelper.md#checkoutPath) 
 
@@ -25,11 +25,11 @@ performs a *sparse checkout*, and checks out path `path` in the branch `gitBranc
 
 ## IspwHelper
 
-The [IspwHelper](./IspwHelper.md) class serves as a wrapper around the Compuware ISPW plugin and provides the methods  
+The [IspwHelper](./IspwHelper.md) class serves as a wrapper around the Compuware ISPW plugin and provides these methods:  
 
 ### [`IspwHelper(steps, pConfig)`](./IspwHelper.md#ispwhelper) 
 
-The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code and a [`PipelineConfig`](./#PipelineConfig) to make use of pipeline execution specific parameters
+The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code and a [`PipelineConfig`](./#PipelineConfig) to make use of pipeline specific execution parameters.
 
 ### [`downloadAllSources(String ispwLevel)`](./IspwHelper.md#downloadallsources)
 
@@ -268,6 +268,6 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI3NTE4MTMwNCwtMjEwMDA3NjE4MiwtMT
+eyJoaXN0b3J5IjpbMTY4MzgxOTA3NywtMjEwMDA3NjE4MiwtMT
 E1MzE5NDk0XX0=
 -->
