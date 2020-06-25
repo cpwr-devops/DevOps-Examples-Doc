@@ -59,7 +59,7 @@ The placeholders are:
 
 ## List in IN DD statements iebcopyInDd.skel
 
-The purpose of this file is to provide a list of datasets to use a input datasets for the `iebcopy.skel` JCL. The skeleton looks like this and corresponds with the libraries used to story copybooks in the ISPW environment used for these examples
+The purpose of this file is to provide a list of datasets to use as input datasets for the `iebcopy.skel` JCL. The skeleton looks like this and corresponds with the libraries used to store copybooks in the ISPW environment used for these examples
 
 ```
 //IN1      DD DISP=SHR,DSN=SALESSUP.<ispw_application>.QA<ispw_path>.CPY
@@ -92,5 +92,6 @@ The placeholders are:
 - `<cc_sysname>` will be replaced by a Code Coverage system name
 - `cc_test_id>` will be replaced Code Coverage Test ID
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3OTUyMzcsLTE1MzQxMzg2NTZdfQ==
+eyJoaXN0b3J5IjpbLTExMzA2MzcwMTYsLTE1MzQxMzg2NTZdfQ
+==
 -->
