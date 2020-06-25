@@ -146,7 +146,7 @@ The constructor receives the `steps` from the pipeline to allow use of pipeline 
 ### [`initialize()`](.PipelineConfig#initialize) 
 
 Is used for additional initialization which cannot be executed in the constructor and it:
-- deletes any old content from the pipeline workspace
+- eletes any old content from the pipeline workspace
 - Uses the following methods to read configuration files and based on the content intitalize further parameters
   - [`setServerConfig`](#setserverconfig) to set server (Sonar, XLR, etc.) specific parameters
   - [`setTttGitConfig`](#settttgitconfig) to set parameters for the Git repository containing TTT assets
@@ -268,6 +268,6 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY3MzgxNjYyNSwxNjgzODE5MDc3LC0yMT
-AwMDc2MTgyLC0xMTUzMTk0OTRdfQ==
+eyJoaXN0b3J5IjpbLTYyMTc5ODA0NywtNjczODE2NjI1LDE2OD
+M4MTkwNzcsLTIxMDAwNzYxODIsLTExNTMxOTQ5NF19
 -->
