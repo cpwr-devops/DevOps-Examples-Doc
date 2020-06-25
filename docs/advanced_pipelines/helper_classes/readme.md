@@ -33,11 +33,11 @@ The constructor receives the `steps` from the pipeline to allow use of pipeline 
 
 ### [`downloadAllSources(String ispwLevel)`](./IspwHelper.md#downloadallsources)
 
-Thdownloads all COBOL sources and copybooks for the ISPW stream, application and level as stored in the `PipelineConfig`.
+Downloads all COBOL sources and copybooks for the ISPW stream, application and level as stored in the `PipelineConfig`.
 
 ### [`downloadSources()`](./IspwHelper.md#downloadsources) 
 
-downloads all sources (COBOL programs and copybooks) contained in the [ISPW set](../../pipelines/basic_scenario.md) triggering the pipeline.
+Downloads all sources (COBOL programs and copybooks) contained in the [ISPW set](../../pipelines/basic_scenario.md) triggering the pipeline.
 
 ### [`downloadCopyBooks(String workspace)`](./IspwHelper.md#downloadcopybooks) 
 
@@ -268,6 +268,6 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTg1NTIwNywxNjgzODE5MDc3LC0yMT
-AwMDc2MTgyLC0xMTUzMTk0OTRdfQ==
+eyJoaXN0b3J5IjpbNTgwODExMzk3LDE2ODM4MTkwNzcsLTIxMD
+AwNzYxODIsLTExNTMxOTQ5NF19
 -->
