@@ -5,7 +5,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Helper classes
 
-The helper classes primarily serve as wrapper classes for use by  different methods used by the plugins. Other serve purposes like provided configuration data `PipelineConfig` or preparing `JCL` for one specific execution of a pipeline `JclSkeleton`.
+The helper classes primarily serve as wrapper classes for use by  different methods used by the plugins. Other purposes include providing configuration data `PipelineConfig` or preparing `JCL` for one specific execution of a pipeline `JclSkeleton`.
 
 ## GitHelper
 
@@ -268,5 +268,5 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNTMxOTQ5NF19
+eyJoaXN0b3J5IjpbNzExMTYzNDkxLC0xMTUzMTk0OTRdfQ==
 -->
