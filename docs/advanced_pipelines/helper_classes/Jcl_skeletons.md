@@ -16,7 +16,7 @@ In total there are three pieces of JCL that get generated during runtime:
 
 ## A job card JobCard.jcl
 
-The file `JobCard.jcl` contains a job card that will be used for jobs that get submitted on the mainframe from the pipeline. This way job that get executed by pipeline automation can be distinguished (and executed under different rights) than the normal "user related" job JCL that gets stored with the Topaz for Total test projects.
+The file `JobCard.jcl` contains a job card that will be used for jobs that get submitted on the mainframe from the pipeline. This way jobs that are executed by pipeline automation can be distinguished (and executed under different rights) than the normal "user related" job JCL that gets stored with Topaz for Total test projects.
 The current version of the `JobCard.jcl` does not provide any pipeline specific variable substitution. Any valid JCL specific variable (e.g. `&SYSUID`) may still be used.
 
 ## Delete temporary Dataset deleteDs.skel
@@ -92,5 +92,5 @@ The placeholders are:
 - `<cc_sysname>` will be replaced by a Code Coverage system name
 - `cc_test_id>` will be replaced Code Coverage Test ID
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzkyODQ5NzUwXX0=
+eyJoaXN0b3J5IjpbMTA4NzYwNzk4Ml19
 -->
