@@ -42,7 +42,7 @@ Downloads all sources (COBOL programs and copybooks) contained in the [ISPW set]
 ### [`downloadCopyBooks(String workspace)`](./IspwHelper.md#downloadcopybooks) 
 
 Performs the following tasks:
-- receives the path to the `workspace` of the pipeline job
+- receives the path to the `workspace` for the pipeline job
 - uses the `referencedCopyBooks` method to determine all copybooks used by the download COBOL programs
 - uses a [`JclSkeleton`](./Jcl_skeletons.md) object's `createIebcopyCopyBooksJcl` method to create an `IEBCOPY` job `JCL` that copies all required copybooks in the list from the ISPW libraries into a temporary PDS
 - submits this `JCL` using the [Topaz Utilities](https://wiki.jenkins.io/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin
@@ -268,6 +268,6 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTgwODExMzk3LDE2ODM4MTkwNzcsLTIxMD
-AwNzYxODIsLTExNTMxOTQ5NF19
+eyJoaXN0b3J5IjpbLTY3MzgxNjYyNSwxNjgzODE5MDc3LC0yMT
+AwMDc2MTgyLC0xMTUzMTk0OTRdfQ==
 -->
