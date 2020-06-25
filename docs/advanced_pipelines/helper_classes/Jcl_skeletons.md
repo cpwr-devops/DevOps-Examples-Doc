@@ -89,9 +89,9 @@ The purpose of this JCL skeleton is to delete all System and Test ID statistics 
 
 The placeholders are:
 
-- `<cc_sysname>` will be replaced by a Code Coverage System name
+- `<cc_sysname>` will be replaced by a Code Coverage System Name
 - `cc_test_id>` will be replaced Code Coverage Test ID
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg5OTU2MDI2NCwtMTEzMDYzNzAxNiwtMT
+eyJoaXN0b3J5IjpbMTY0NTEwMDMyOCwtMTEzMDYzNzAxNiwtMT
 UzNDEzODY1Nl19
 -->
