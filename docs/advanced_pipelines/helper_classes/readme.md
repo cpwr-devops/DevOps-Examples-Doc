@@ -9,11 +9,11 @@ The helper classes primarily serve as wrapper classes for use by  different meth
 
 ## GitHelper
 
-The [GitHelper](./GitHelper.md) class serves as a wrapper around the Git SCM plugin and provides the methods 
+The [GitHelper](./GitHelper.md) class serves as a wrapper around the Git SCM plugin and provides these methods:
 
 ### [`GitHelper(steps)`](./GitHelper.md#GitHelper)
 
-The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code
+The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code.
 
 ### [`checkout(String gitUrl, String gitBranch, String gitCredentials, String tttFolder)`](./GitHelper.md#checkout)  
 
@@ -268,5 +268,5 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzMDA0NTM2NDAsLTExNTMxOTQ5NF19
+eyJoaXN0b3J5IjpbLTIxMDAwNzYxODIsLTExNTMxOTQ5NF19
 -->
