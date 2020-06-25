@@ -27,11 +27,11 @@ The purpose of this JCL is to submit a job that deletes a dataset. In the contex
 //DELETE DD DISP=(SHR,DELETE,DELETE),DSN=<clean_dsn>
 ```
 
-The placeholder `<clean_dsn>` will be replaced by a concrete dataset name during runtime.
+The placeholder `<clean_dsn>` will be replaced by a specified dataset name during runtime.
 
 ## IEBCOPY job iebcopy.skel
 
-The purpose of this JCL is to copy all members that have been identified a copybooks from the ISPW libraries to a temporary PDS. (These will then be downloaded by the ISPW PDS downloader.) The skeleton looks like this
+The purpose of this JCL is to copy all members that have been identified as copybooks from the ISPW libraries to a temporary PDS. (These will then be downloaded by the ISPW PDS downloader.) The skeleton looks like this
 
 ```
 //COPY    EXEC PGM=IEBCOPY
@@ -92,5 +92,5 @@ The placeholders are:
 - `<cc_sysname>` will be replaced by a Code Coverage system name
 - `cc_test_id>` will be replaced Code Coverage Test ID
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4NzYwNzk4Ml19
+eyJoaXN0b3J5IjpbLTE1MzQxMzg2NTZdfQ==
 -->
