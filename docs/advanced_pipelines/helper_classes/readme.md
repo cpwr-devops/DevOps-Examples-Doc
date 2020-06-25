@@ -191,7 +191,7 @@ Is used for additional initialization which cannot be executed in the constructo
 
 ### [`scan()`](./SonarHelper.md#scan) 
 
-Determines the test results locations based on the assumtion that the results have been created by Topaz for Total Unit Test. (If Functional Tests have been executed, us the [`scan(pipelineType)`](#scan-pipelinetype) method.) It then uses the [`runScan`](#runscan) method to execute the Sonar scanner.
+Determines the test results locations based on the assumption that the results have been created by Topaz for Total Unit Test. (If Functional Tests have been executed, us the [`scan(pipelineType)`](#scan-pipelinetype) method.) It then uses the [`runScan`](#runscan) method to execute the Sonar scanner.
 
 ### [`scan(pipelineType)`](./SonarHelper.md##scan-pipelinetype)
 
@@ -268,6 +268,7 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5OTcyNDc3MiwtNjczODE2NjI1LDE2OD
-M4MTkwNzcsLTIxMDAwNzYxODIsLTExNTMxOTQ5NF19
+eyJoaXN0b3J5IjpbNDA3NzI1MzgwLDEzOTk3MjQ3NzIsLTY3Mz
+gxNjYyNSwxNjgzODE5MDc3LC0yMTAwMDc2MTgyLC0xMTUzMTk0
+OTRdfQ==
 -->
