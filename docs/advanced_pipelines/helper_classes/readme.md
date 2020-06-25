@@ -266,9 +266,9 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 ### [`cleanUpCodeCoverageResults()`](./TttHelper.md#cleanupcodecoverageresults)
 
-Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
+Uses a JCL Skeleton and the resulting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjk5OTgzOTEsLTIwNDk3OTAxMDEsMT
-M5OTcyNDc3MiwtNjczODE2NjI1LDE2ODM4MTkwNzcsLTIxMDAw
-NzYxODIsLTExNTMxOTQ5NF19
+eyJoaXN0b3J5IjpbLTg4MDQwNDY1NywtMjA0OTc5MDEwMSwxMz
+k5NzI0NzcyLC02NzM4MTY2MjUsMTY4MzgxOTA3NywtMjEwMDA3
+NjE4MiwtMTE1MzE5NDk0XX0=
 -->
