@@ -203,11 +203,11 @@ Receives the results of the Sonar quality gate and returns its status.
 
 ### [`determineUtProjectName`](./SonarHelper.html#determineutprojectname)
 
-Builds the name for the SonarQube project, if Topaz for Total Test unit tests were executed, and the pipeline is a "Generate" pipeline.
+Builds the name for the SonarQube project, if Topaz for Total Test unit tests were executed and the pipeline is a "Generate" pipeline.
 
 ### [`determineFtProjectName`](./SonarHelper.html#determineftprojectname)
 
-Builds the name for the SonarQube project, if Topaz for Total Test functional tests were executed, and the pipeline is a "Integrate" pipeline.
+Builds the name for the SonarQube project, if Topaz for Total Test functional tests were executed and the pipeline is a "Integrate" pipeline.
 
 ### [`determineUtResultPath`](./SonarHelper.html#determineutresultpath)
 
@@ -268,7 +268,7 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwNDk3OTAxMDEsMTM5OTcyNDc3MiwtNj
-czODE2NjI1LDE2ODM4MTkwNzcsLTIxMDAwNzYxODIsLTExNTMx
-OTQ5NF19
+eyJoaXN0b3J5IjpbLTI1MDE4NTk5NywtMjA0OTc5MDEwMSwxMz
+k5NzI0NzcyLC02NzM4MTY2MjUsMTY4MzgxOTA3NywtMjEwMDA3
+NjE4MiwtMTE1MzE5NDk0XX0=
 -->
