@@ -7,16 +7,16 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 In a more elaborate scenario the there are several stages at which Jenkins jobs get triggered, performing different tasks for each corresponding stage. The principles are the same, but in addition, there is also a set of functional/integration tests, and the unit tests get triggered after each generate of the code:
 
 ## Step 1 - Check out Code
-In Topaz a developer [checks out a set of sources, copybooks and other components](./) required to fulfill a specific requirement.
+In Topaz, a developer [checks out a set of sources, copybooks and other components](./) that are required to fulfill a specific requirement.
 
 ## Step 2 -  Create/Maintain Unit Tests
-In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are stored and administered using Git/GitHub.
+In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer creates or modifies a set of unit tests for the modified programs. In order to share the unit tests between development teams and to use them in Jenkins,  these Topaz for Total Test projects are stored and administered using Git/GitHub.
 
 ## Step 2a - Create/Maintain Functional Tests
-In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer or a QA person creates or modifies a set of functional tests for the application. In order to share the unit tests between development teams and to use them in Jenkins, the Topaz for Total Test projects are also stored and administered using Git/GitHub.
+In Topaz [Topaz for Total Test](../guidelines/ttt_scenario.md) the developer or a QA person creates or modifies a set of functional tests for the application. In order to share the unit tests between development teams and to use them in Jenkins, these Topaz for Total Test projects are also stored and administered using Git/GitHub.
 
 ## Step 3 - Mainframe Generate
-Once the code has been changed, the developer generates (compile, link, etc.) their code within ISPW. This generate (the corresponding *set container* in ISPW) will trigger the first Jenkins job via an ISPW webhhook [Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy)) which runs the following process of 
+Once the code has been changed, the developer generates (compile, link, etc.) their code within ISPW. This generate (and the corresponding *set container* in ISPW) will trigger the first Jenkins job via an ISPW webhhook [Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy)) which runs the following process of 
 
 - downloading the sources of exactly those (COBOL) tasks that have been generated within the set
 - getting Topaz for Total Test **unit tests** for this ISPW application
@@ -47,5 +47,5 @@ Once the developer thinks they are done with development and unit testing they p
 ## The two Jenkins jobs
 The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](./readme.md#mainframe-ci-pipeline-from-shared-lib). They require the [same parameters](../advanced_pipelines/setup.md#loading-the-script-from-a-shared-library) to be defined and passed into the job as this jobs.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYxOTc2NDYyXX0=
+eyJoaXN0b3J5IjpbNTAyNjg1OTM0LC02MTk3NjQ2Ml19
 -->
