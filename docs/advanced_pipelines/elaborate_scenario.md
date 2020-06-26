@@ -32,20 +32,20 @@ Once the code has been changed, the developer generates (compile, link, etc.) th
 The developer either continues coding or comes to a point when they think their code can be promoted.
 
 ## Step 4 - Mainframe Promote
-Once the developer thinks they are done with development and unit testing they promote their code to the next level in the ISPW life cycle. This will trigger a second Jenkins job via a different ISPW webhook [Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy) which runs a functional/integration testing process of
+Once the developer thinks they are done with development and unit testing they promote their code to the next level in the ISPW life cycle. This will trigger a second Jenkins job via a different ISPW webhook [Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy) which runs a functional/integration testing process:
 
 - downloading the sources of all (COBOL) tasks that are at the target level of the promotion
 - getting Topaz for Total Test **functional tests** for this ISPW application
 - executing **all functional tests**
-- passing all results to SonarQube using a project name consisting of the
+- passing all results to SonarQube using a project name that consists of:
     - ISPW Stream name
     - ISPW Application name
 - querying the Sonar Quality Gate 
-    - in case the gate was passed, triggers an XL Release template to automate the next **release process** steps
+    - in case that the gate was passed, an XL Release template is triggered to automate the next **release process** steps
     - sending mail messages informing the developer about the status of the quality gate
 
 ## The two Jenkins jobs
 The two jobs use the same techniques (shared library) and classes that have been defined for the [Shared Library Example Pipeline](./readme.md#mainframe-ci-pipeline-from-shared-lib). They require the [same parameters](../advanced_pipelines/setup.md#loading-the-script-from-a-shared-library) to be defined and passed into the job as this jobs.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNTQ4NjQ4MCwtNjE5NzY0NjJdfQ==
+eyJoaXN0b3J5IjpbMTI3Njg5MTI0NywtNjE5NzY0NjJdfQ==
 -->
