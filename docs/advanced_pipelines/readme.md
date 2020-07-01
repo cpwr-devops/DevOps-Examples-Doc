@@ -25,7 +25,7 @@ This pipeline executes the following steps [after a developer has promoted their
 - Pass all information (sources, test results, code coverage metrics) to SonarQube
 - Receive a Sonar quality gate webhook callback and analyze the status of the quality gate
 - If the quality gate was passed, continue the process by triggering an XL Release release template
-- In either case (passed / dailed), send an email to the developer informing them of the status of the pipeline
+- In either case (passed/failed), send an email to the developer informing them of the status of the pipeline
 
 In these pages we describe in detail the way `Mainframe_CI_Pipeline_from_Shared_Lib` 
 - [is setup in Jenkins](./setup.md)
@@ -63,5 +63,5 @@ This pipeline is supposed to be triggered via ISPW Webhook every time (COBOL) co
 - if the quality gate was passed, will trigger an XLRelease release template, to orchestrate the following CD process
 - send a mail message to the owner of the set informing them of the status of the quality gate
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTQxOTM2MzY2LC0xMTEzNDEwNjM5XX0=
+eyJoaXN0b3J5IjpbLTg4NDAxMTM0MiwtMTExMzQxMDYzOV19
 -->
