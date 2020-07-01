@@ -7,12 +7,12 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 [Shared Libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/) are  getting the preferred method of providing code (primarily in the form of classes) that can can be re-used (**shared**) between pipeline definitions. 
 
-Three of the example pipelines shared on the [Compuware GitHub](https://github.com/cpwr-devops/DevOps-Examples/) are built based on shared library principles and use a set of common ["Helper Classes"](./helper_classes/). The pipelines are:
+Three of the example pipelines shared on the [Compuware GitHub](https://github.com/cpwr-devops/DevOps-Examples/) are built based on shared library principles and use a set of common ["Helper Classes"](./helper_classes/). The pipelines are as follows:
 
 - [`Mainframe_CI_Pipeline_from_Shared_Lib.groovy`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
-- The two follwoing pipelines are supposed to be part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md) and get triggered at different stages of that process
-    - [`Mainframe_Generate_Pipeline.groovy`](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Generate, and executes unit tests against those components that have been generated.
-    - [`Mainframe_Integration_Pipeline.groovy`](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Promote, and executes functional/integration tests against the project/assignment.
+- The two following pipelines are supposed to be part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md) and get triggered at different stages of that process:
+    - [`Mainframe_Generate_Pipeline.groovy`](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Generate and executes unit tests against those components that have been generated.
+    - [`Mainframe_Integration_Pipeline.groovy`](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy) - is a pipeline that gets triggered by an ISPW Promote and executes functional/integration tests against the project/assignment.
 
 ## Mainframe_CI_Pipeline_from_Shared_Lib
 
@@ -63,5 +63,5 @@ This pipeline is supposed to be triggered via ISPW Webhook every time (COBOL) co
 - if the quality gate was passed, will trigger an XLRelease release template, to orchestrate the following CD process
 - send a mail message to the owner of the set informing them of the status of the quality gate
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE1MDk4MjQ1NV19
+eyJoaXN0b3J5IjpbLTExMTM0MTA2MzldfQ==
 -->
