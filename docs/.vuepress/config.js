@@ -151,7 +151,7 @@ module.exports = {
             items:
             [
               { 
-                text: 'Git to ISPW Integration - A Tutorial',
+                text: 'Git to ISPW Integration Tutorial',
                 link: '/guidelines/ispw/GIT_to_ISPW_Integration_Tutorial' 
               },
               { 
