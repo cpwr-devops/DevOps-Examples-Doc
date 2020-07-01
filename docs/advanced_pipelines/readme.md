@@ -42,20 +42,20 @@ The other two pipelines follow the same principles, using the same configuration
 
 This pipeline is supposed to be triggered via ISPW Webhook every time (COBOL) components get `generated` within ISPW. Following the trigger it will
 - download those COBOL components that are part of the set resulting from the generate
-- determine copybboks that are used by the downloaded components, and download the required copybooks
+- determine copybooks that are used by the downloaded components, and download the required copybooks
 - retrieve Topaz for Total Test *unit tests* from a GitHub repository for the corresponding stream and application
 - remove the results of the previous execution of the pipeline from the Code Coverage repository
 - execute those unit test scenarios that correspond to the downloaded components
 - retrieve the Code Coverage results from the Code Coverage repository
 - send sources, test results and coverage metrics to SonarQube
-- query the results of the correpsonding SonarQube quality gate
-- send a mail message to the owner of the set informing them of the status of the quality gate
+- query the results of the corresponding SonarQube quality gate
+- send a mail message to the owner of the set, informing them of the status of the quality gate
 
 ### Mainframe_Integration_Pipeline
 
 This pipeline is supposed to be triggered via ISPW Webhook every time (COBOL) components get `generated` within ISPW. Following the trigger it will
 - download those COBOL components that are part of the assignment, for which the promote was executed
-- determine copybboks that are used by the downloaded components, and download the required copybooks
+- determine copybooks that are used by the downloaded components, and download the required copybooks
 - retrieve Topaz for Total Test *functional tests* from a GitHub repository for the corresponding stream and application
 - execute *all* functional test scenarios
 - send sources and test results SonarQube
@@ -63,5 +63,5 @@ This pipeline is supposed to be triggered via ISPW Webhook every time (COBOL) co
 - if the quality gate was passed, will trigger an XLRelease release template, to orchestrate the following CD process
 - send a mail message to the owner of the set informing them of the status of the quality gate
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg4NDAxMTM0MiwtMTExMzQxMDYzOV19
+eyJoaXN0b3J5IjpbMjE0NDMxODk2NCwtMTExMzQxMDYzOV19
 -->
