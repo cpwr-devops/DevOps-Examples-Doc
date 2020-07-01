@@ -87,7 +87,7 @@ In the example `response` receives the result of the `httpRequest`, `jsonSlurper
 
 ## Using methods in class constructors
 
-Simply put, class constructors in Groovy cannot use methods, be it own internal methods, or instantiating other classes and using their methods. Anything other than 'simple' variable initialization will result in
+Simply put, class constructors in Groovy cannot use methods, be it own internal methods, or instantiating other classes and using their methods. Anything other than 'simple' variable initialization will result in the following:
 ```
 hudson.remoting.ProxyException: com.cloudbees.groovy.cps.impl.CpsCallableInvocation
 ```
@@ -144,5 +144,5 @@ groovy.lang.MissingPropertyException: No such property: mailConfigPath for class
 
 This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` down not get read in the `PipelineConfig` class as one would expect, but in the main script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2NDMwODI5NTYsLTgyMjI2OTk4MF19
+eyJoaXN0b3J5IjpbLTEwOTA3NzUwMTgsLTgyMjI2OTk4MF19
 -->
