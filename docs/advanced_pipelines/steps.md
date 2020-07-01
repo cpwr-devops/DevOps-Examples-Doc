@@ -64,7 +64,7 @@ def call(Map pipelineParams)
         }
 ```
 
-6. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coveragre metrics from the Xpediter Code Coverage repository
+6. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coverage metrics from the Xpediter Code Coverage repository
 
 ```groovy
         stage("Collect Metrics")
@@ -87,7 +87,7 @@ def call(Map pipelineParams)
             sonarHelper.scan()
 ```
 
-9. And use the `sonarHelper.checkQualityGate` of the `sonarHelper.checkQualityGate` class to query the resulting Sonar quality gate. If the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote -, and the pipeline job will be aborted.
+9. And use the `sonarHelper.checkQualityGate` of the `sonarHelper.checkQualityGate` class to query the resulting Sonar quality gate. If the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote and the pipeline job will be aborted.
 
 ```groovy
             String sonarGateResult = sonarHelper.checkQualityGate()
@@ -143,5 +143,5 @@ def call(Map pipelineParams)
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU3NTIzOTYyNSwtNjY5NzQ3NDAxXX0=
+eyJoaXN0b3J5IjpbLTEyNjIyNjc0MzgsLTY2OTc0NzQwMV19
 -->
