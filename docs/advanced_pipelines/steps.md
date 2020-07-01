@@ -23,10 +23,10 @@ def call(Map pipelineParams)
         - passed by the job configuration/trigger and are pipeline/execution specific
         - not pipeline or execution specific, like server URLs. These parameters will be read from external configuration files
     - `GitHelper` serving as a wrapper for a set of interactions with Git/GitHub
-    - `IspwHelper` serving as a wrapper for use of the ISPW plugins' methods
-    - `TttHelper` serving as a wrapper for use of the TTT plugin's and Code Coverage plugin's methods
-    - `SonarHelper` serving as a wrapper for use of the Sonar plugins' methods
-    - `XlrHelper` serving as a wrapper for use of the XL Release plugin
+    - `IspwHelper` serving as a wrapper for use by the ISPW plugins' methods
+    - `TttHelper` serving as a wrapper for use by the TTT plugin's and Code Coverage plugin's methods
+    - `SonarHelper` serving as a wrapper for use by the Sonar plugins' methods
+    - `XlrHelper` serving as a wrapper for use by the XL Release plugin
 
 ```groovy
         initialize(pipelineParams)
@@ -143,5 +143,5 @@ def call(Map pipelineParams)
 }
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY2OTc0NzQwMV19
+eyJoaXN0b3J5IjpbLTU3NTIzOTYyNSwtNjY5NzQ3NDAxXX0=
 -->
