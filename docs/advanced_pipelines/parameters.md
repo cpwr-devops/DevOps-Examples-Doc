@@ -50,8 +50,8 @@ Name in PipelineConfig class | Alias | Parameter / Description
 `public String ispwRuntime` | `ISPW_RUNTIME` | The ISPW runtime being used by the ISPW installation.  The default is `ispw`
 `public String gitProject` | `Git_Project` | Name of the GitHub project, used to store Topaz for Total Test projects As parameter in the call of the pipeline. IF, for example,  the full URL for the git is: https://github.com/ralphnuessecpwr/FTSDEMO_RXN3_Unit_Tests.git "ralphnuessecpwr" would be the project name
 `public String gitCredentials` | `Git_Credentials` | Jenkins credentials token to use to authenticate with GitHub As parameter in the call of the pipeline | In `Manage Jenkins` --> `Credentials` | In the list at `Manage Jenkins` --> `Credentials` in column `ID`
-`public String cesTokenId` | `CES_Token` | The Jenkins credential token for the CES token as used by most Compuware plugins.  As parameter in the call of the pipeline.  This value can be found in `Manage Jenkins` --> `Credentials` in the list at `Manage Jenkins` --> `Credentials` in column `ID`
-`public String hciConnId` | `HCI_Conn_ID` | The connection configuration storing host name and port for the connection to the mainframe LPAR to connect to.  As parameter in the call of the pipeline.  This value can be found In `Manage Jenkins` --> `Configure System` --> `Compuware Configurations`. Use `Pipeline Syntax`, e.g. to define an ISPW container checkout and select the HCI connection from the `Host connection` dropdown ![Determine HCI connection](../pipelines/images/Determine_HCI_Conn.png)
+`public String cesTokenId` | `CES_Token` | The Jenkins credential token for the CES token as used by most Compuware plugins As parameter in the call of the pipeline. This value can be found in `Manage Jenkins` --> `Credentials` in the list at `Manage Jenkins` --> `Credentials` in column `ID`
+`public String hciConnId` | `HCI_Conn_ID` | The connection configuration storing host name and port for the connection to the mainframe LPAR to connect to As parameter in the call of the pipeline.  This value can be found In `Manage Jenkins` --> `Configure System` --> `Compuware Configurations`. Use `Pipeline Syntax`, e.g. to define an ISPW container checkout and select the HCI connection from the `Host connection` dropdown ![Determine HCI connection](../pipelines/images/Determine_HCI_Conn.png)
 `public String hciTokenId` | `HCI_Token` | The user ID / password token for a valid logon to the required mainframe LPAR used by plugins that do not use the CES credentials token.  As parameter in the call of the pipeline. This value can be found in In `Manage Jenkins` --> `Credentials` in the list at `Manage Jenkins` --> `Credentials` in column `ID`
 `public String ccRepository` | `CC_repository` | The Xpediter Code Coverage repository to use.  The Xpediter Code Coverage repository is defined using Xpediter Code Coverage or Topaz Workbench or defined by the administrator of Xpediter Code Coverage.  As parameter in the call of the pipeline
 `public String gitUrl` | N/A | The name of the GitHub project, storing the repository containing the Topaz for Total Test projects.  Built as "https://github.com/${gitProject}" from `gitProject`
@@ -65,6 +65,6 @@ Name in PipelineConfig class | Alias | Parameter / Description
 `private String workspace` | N/A | Name of current Jenkins workspace.
 `public String ispwTargetLevel` | N/A | The level in the ISPW life cycle, the sources were promoted to in ISPW.  The parameter is built as "QA${applicationPathNum}" from `applicationPathNum`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NTAxNDMzNiwyMDYyNjI2NCwxMTAyMD
+eyJoaXN0b3J5IjpbLTYzNTM0MzU2MCwyMDYyNjI2NCwxMTAyMD
 Q1Mjk4XX0=
 -->
