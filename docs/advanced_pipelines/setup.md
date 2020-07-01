@@ -62,7 +62,7 @@ refers to the name of a [Shared Library](./helper_classes/PipelineConfig.md), wi
 refers to the name of the `.groovy` file in the `vars` folder of the GitHub repository, containing the pipeline code
 - Within the brackets `(...)` parameters are passed to the pipeline script. `Mainframe_CI_Pipeline_from_Shared_Lib` expects a `groovy` [`Map`](http://groovy-lang.org/syntax.html#_maps), containing the following `key:value` pairs.
 
-The parameters in this first set are specific to the individual execution of the pipeline. The values are the parameters defined as pipeline parameters). The syntax `"${parameter}"` ensures that the value passed to this parameter is taken as value in the `Map`.
+The parameters in this first set are specific to the individual execution of the pipeline. The values are the parameters defined as pipeline parameters). The syntax `"${parameter}"` ensures that the value passed to this parameter is taken as a value in the `Map`.
 
 Key  | Default Value | Description
 ----- | ------------- | -----------
@@ -75,9 +75,9 @@ ISPW_Container_Type | "${ISPW_Container_Type}" | The ISPW_Container_Type paramet
 ISPW_Src_Level | "${ISPW_Src_Level}" | The ISPW_Src_Level parameter from the pipeline configuration above
 ISPW_Owner | "${ISPW_Owner}" | The ISPW_Owner parameter from the pipeline configuration above
 
-The second set of parameters is installation specific and reference tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use refer to the [description of the pipeline parameters](./parameters.md).
+The second set of parameters is installation specific and references tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use, refer to the [description of the pipeline parameters](./parameters.md).
 
-Usually, these parameters will be installation specific rather than pipeline job or execution specific. Future versions of the example will take care of this, and move these parameters to configuration files.
+Usually, these parameters will be installation specific rather than pipeline job or execution specific. Future versions of the example will take care of this and move these parameters to configuration files.
 
 Key  |  Description
 ----- | -----------
@@ -88,5 +88,5 @@ CC_repository | The Xpediter Code Coverage repository to use
 Git_Project | The name of the GitHub repository storing Topaz for Total Test assets
 Git_Credentials | Jenkins internal ID for credentials to use the GitHub repository
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzk0OTQ4NjE4XX0=
+eyJoaXN0b3J5IjpbNDgwNzU3MDIyLDc5NDk0ODYxOF19
 -->
