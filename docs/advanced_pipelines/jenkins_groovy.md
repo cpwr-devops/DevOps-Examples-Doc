@@ -53,7 +53,7 @@ This bears some implications when it comes to the use of third party classes tha
 java.io.NotSerializableException
 ```
 
-Example are the `JsonSlurper` class or the `responseBody` class. The latter is being returned by a native `httpRequest`, the former is used to digest the JSON `responseBody` from an `httpRequest`. The simplest way we have foundto use these classes without running into `java.io.NotSerializableException` , is to de-reference the objects as soon as possible in the code. That way there is no need to store their state across method boundaries:
+Example are the `JsonSlurper` class or the `responseBody` class. The latter is being returned by a native `httpRequest`, the former is used to digest the JSON `responseBody` from an `httpRequest`. The simplest way we have found, to use these classes without running into `java.io.NotSerializableException , is to de-reference the objects in the code as soon as possible. That way there is no need to store their state across method boundaries, like this:
 
 ```groovy
     def ArrayList getAssigmentList(String cesToken, String level)
@@ -79,7 +79,7 @@ Example are the `JsonSlurper` class or the `responseBody` class. The latter is b
         ...
 ```
 
-In the example `response` recieves the result of the `httpRequest`, `jsonSlurper` get instantiated and `resp` receives the content of `response` as list. Once the two objects are not needed they get de-referenced by
+In the example `response` receives the result of the `httpRequest`, `jsonSlurper` get instantiated and `resp` receives the content of `response` as a list. Once the two objects are not needed they get de-referenced by
 ```groovy
         response        = null
         jsonSlurper     = null
@@ -144,5 +144,5 @@ groovy.lang.MissingPropertyException: No such property: mailConfigPath for class
 
 This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` down not get read in the `PipelineConfig` class as one would expect, but in the main script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIwMzU0MDYwNjYsLTgyMjI2OTk4MF19
+eyJoaXN0b3J5IjpbLTE2NDMwODI5NTYsLTgyMjI2OTk4MF19
 -->
