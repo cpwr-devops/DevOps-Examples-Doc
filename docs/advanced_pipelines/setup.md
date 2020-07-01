@@ -28,7 +28,7 @@ ISPW_Owner | ISPW Owner User ID
 
 ## Loading the script from a shared library
 
-To tell Jenkins to execute a pipeline from a shared library, you need to add code like the following to the Pipeline script definition.
+To tell Jenkins to execute a pipeline from a shared library, you need to add code like the following to the Pipeline script definition:
 
 ![Pipeline from Shared Library](../pipelines/images/pipeline_from_shared_lib.png)
 
@@ -88,5 +88,5 @@ CC_repository | The Xpediter Code Coverage repository to use
 Git_Project | The name of the GitHub repository storing Topaz for Total Test assets
 Git_Credentials | Jenkins internal ID for credentials to use the GitHub repository
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNDMwODAwNDJdfQ==
+eyJoaXN0b3J5IjpbNzk0OTQ4NjE4XX0=
 -->
