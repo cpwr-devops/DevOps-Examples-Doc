@@ -4,7 +4,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # Things to consider when using Jenkins Groovy
 
-Having learned Groovy and pipeline scripting at the same time from ground up - without having any decent background in any of the underlying "*modern*" principles or languages - has been an interesting experience. This section is dedicated to listing and pointing out those pitfalls and learning experiences that we went through, to help people saving the same struggle and speed up their getting productive. And the same time it is supposed as a "reference" to explain why some things were done things way they are done in the showcased examples.
+Having learned Groovy and pipeline scripting at the same time from the ground up - without having any decent background in any of the underlying "*modern*" principles or languages - has been an interesting experience. This section is dedicated to listing and pointing out those pitfalls and learning experiences that we went through, to help people avoid the same struggles and speed up their productivity. At the same time it is  a reference to explain why some things were done things way they are done in the showcased examples.
 
 Any hints and suggestions to improve or circumnavigate the pitfalls in smarter ways are highly appreciated.
 
@@ -143,3 +143,6 @@ groovy.lang.MissingPropertyException: No such property: mailConfigPath for class
 ```
 
 This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` down not get read in the `PipelineConfig` class as one would expect, but in the main script.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTM0NzM3MTM5OF19
+-->
