@@ -10,7 +10,7 @@ The job itself is defined via the usual way of creating a new pipeline job. It i
 
 ## Defining parameters
 
-Successively add the following string parameters (the default values are the ones used for the examples).
+Successively add the following string parameters (note that default values are used in the examples).
 
 ![Adding parameters](../pipelines/images/Adding_parameters.png)
 
@@ -87,3 +87,6 @@ HCI_Token | Jenkins internal ID for HCI Token
 CC_repository | The Xpediter Code Coverage repository to use
 Git_Project | The name of the GitHub repository storing Topaz for Total Test assets
 Git_Credentials | Jenkins internal ID for credentials to use the GitHub repository
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyNDMwODAwNDJdfQ==
+-->
