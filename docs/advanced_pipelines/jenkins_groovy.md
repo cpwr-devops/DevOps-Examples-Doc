@@ -10,7 +10,7 @@ Any hints and suggestions to improve or circumnavigate the pitfalls in smarter w
 
 ## Using steps in classes
 
-Using pipeline steps, i.e. almost every execution of a plugin, within classes that are not the main script, require the script `steps` to be passed to the class and executin the corresponding methods of this `steps` class. Failure to do so will result in
+Using pipeline steps, i.e. almost every execution of a plugin, within classes that are not the main script, require the script `steps` to be passed to the class and execute the corresponding methods of the `steps` class. Failure to do so will result in a:
 ```
 groovy.lang.MissingPropertyException
 ```
@@ -144,5 +144,5 @@ groovy.lang.MissingPropertyException: No such property: mailConfigPath for class
 
 This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` down not get read in the `PipelineConfig` class as one would expect, but in the main script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTgyOTQ2NTMyMSwtODIyMjY5OTgwXX0=
+eyJoaXN0b3J5IjpbLTg4ODc1MzM3NywtODIyMjY5OTgwXX0=
 -->
