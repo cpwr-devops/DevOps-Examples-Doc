@@ -142,8 +142,8 @@ Unfortunately, while this works perfectly fine in the main script, trying to use
 groovy.lang.MissingPropertyException: No such property: mailConfigPath for class: com.compuware.devops.util.PipelineConfig
 ```
 
-This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` down not get read in the `PipelineConfig` class as one would expect, but in the main script.
+This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` may not get read in the `PipelineConfig` class as one would expect, but rather in the main script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg2MTQ4NDc2OSwtMTA5MDc3NTAxOCwtOD
+eyJoaXN0b3J5IjpbMjA4MDczODM0MCwtMTA5MDc3NTAxOCwtOD
 IyMjY5OTgwXX0=
 -->
