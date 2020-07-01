@@ -55,16 +55,16 @@ Name in PipelineConfig class | Alias | Parameter / Description
 `public String hciTokenId` | `HCI_Token` | The user ID / password token for a valid logon to the required mainframe LPAR used by plugins that do not use the CES credentials token As parameter in the call of the pipeline. This value can be found in In `Manage Jenkins` --> `Credentials` in the list at `Manage Jenkins` --> `Credentials` in column `ID`
 `public String ccRepository` | `CC_repository` | The Xpediter Code Coverage repository to use. The Xpediter Code Coverage repository is defined using Xpediter Code Coverage or Topaz Workbench or defined by the administrator of Xpediter Code Coverage As parameter in the call of the pipeline.
 `public String gitUrl` | N/A | The name of the GitHub project, storing the repository containing the Topaz for Total Test projects. Built as "https://github.com/${gitProject}" from `gitProject`
-`public String applicationPathNum` | N/A | The number of the path through the development life cycle which is in use by the set triggering the pipeline.  Determined from the name of the level `ispwSrcLevel` the sources have been promoted from; the number of the levels `DEV1`, `DEV2`, or `DEV3`
-`public String tttJcl` | N/A | Runner jcl to use for unit test execution.  It is built as "Runner_PATH${applicationPathNum}.jcl" using `applicationPathNum`
-`public String mailRecipient` | N/A | Recipient of emails sent by the pipeline informing the owner of the ISPW set about the results.  The email file contains TSO user : email address pairs. The owner of the ISPW set will be taken as lookup for the email address.  This value is defined in `Manage Jenkins` -> `Managed Files`.  Email List configuration file `mailList.config`
+`public String applicationPathNum` | N/A | The number of the path through the development life cycle which is in use by the set triggering the pipeline. Determined from the name of the level `ispwSrcLevel` the sources have been promoted from; the number of the levels `DEV1`, `DEV2`, or `DEV3`
+`public String tttJcl` | N/A | Runner jcl to use for unit test execution. It is built as "Runner_PATH${applicationPathNum}.jcl" using `applicationPathNum`
+`public String mailRecipient` | N/A | Recipient of emails sent by the pipeline informing the owner of the ISPW set about the results. The email file contains TSO user : email address pairs. The owner of the ISPW set will be taken as lookup for the email address.  This value is defined in `Manage Jenkins` -> `Managed Files`.  Email List configuration file `mailList.config`
 `private String configPath` | N/A | Path to the configuration files after downloading from GitHub to the Jenkins workspace.  The folder containing all configuration file is `(root)/config/pipeline`
 `private String pipelineConfigFile` | N/A | Name of the config file for pipeline and environment specific settings. The file name is `pipeline.config`
 `private String configGitPath` | N/A | Folder in the Git repository containing all configuration files. The folder containing all configuration file is `(root)/config`
-`private String configGitProject` | N/A | Git project name of repository storing configuration files.  The configuration files are stored in the same Git project which stores the pipeline code itself
+`private String configGitProject` | N/A | Git project name of repository storing configuration files. The configuration files are stored in the same Git project which stores the pipeline code itself
 `private String workspace` | N/A | Name of current Jenkins workspace.
-`public String ispwTargetLevel` | N/A | The level in the ISPW life cycle, the sources were promoted to in ISPW.  The parameter is built as "QA${applicationPathNum}" from `applicationPathNum`
+`public String ispwTargetLevel` | N/A | The level in the ISPW life cycle, the sources were promoted to in ISPW. The parameter is built as "QA${applicationPathNum}" from `applicationPathNum`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjExNTY4MDEsMjA2MjYyNjQsMTEwMj
-A0NTI5OF19
+eyJoaXN0b3J5IjpbNzEwODkwNjgxLDIwNjI2MjY0LDExMDIwND
+UyOThdfQ==
 -->
