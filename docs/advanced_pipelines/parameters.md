@@ -2,11 +2,10 @@
 title: Pipeline Parameters
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
-# The pipeline parameters
+# The pipeline parameter
+The two primary pipelines - and some of the other code examples - use a set of parameters where both names and values are taken from several sources.
 
-The two primary pipelines - and some of the other code examples - use a set of parameters that are taken from several sources - both names and values. 
-
-This table documents, the different names the parameters appear under, how and where to define them, where the parameters are read from, how to determine which value to specify as used in the `PipelineConfig` class and the [Mainframe_CI_Pipeline_from_Shared_Lib](./readme.md#mainframe-ci-pipeline-from-shared-lib).
+This table documents the different names the parameters appear under, how and where to define them, where the parameters are read from, how to determine which value to specify as used in the `PipelineConfig` class and the [Mainframe_CI_Pipeline_from_Shared_Lib](./readme.md#mainframe-ci-pipeline-from-shared-lib).
 
 ## Webhook Parameters
 
@@ -66,5 +65,5 @@ Name in PipelineConfig class | Alias | Parameter / Description
 `private String workspace` | N/A | Name of current Jenkins workspace.
 `public String ispwTargetLevel` | N/A | The level in the ISPW life cycle, the sources were promoted to in ISPW.  The parameter is built as "QA${applicationPathNum}" from `applicationPathNum`
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTEwMjA0NTI5OF19
+eyJoaXN0b3J5IjpbLTIxNDUzMzc2ODYsMTEwMjA0NTI5OF19
 -->
