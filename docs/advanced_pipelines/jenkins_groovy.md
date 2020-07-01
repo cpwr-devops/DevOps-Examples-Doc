@@ -98,7 +98,7 @@ Therefore, many of the classes in use here, have an `initialize` method that per
 
 There are certain plugins that within their execution set variables that are exposed to the rest of the script. Two of these plugins being used throughout the examples are [Config File Provider `configFileProvider`](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) and [Credentials Binding `withCredentials`](https://wiki.jenkins.io/display/JENKINS/Credentials+Binding+Plugin).
 
-The first one allows accessing a file that has been defined using the Config File Provider plugin like the [`mailList.config` file](../advanced_pipelines/config_files). You pass the `fileID` and retrieve a variable that contains the (temporary) path to the file. Inhe following snippet variable `mailListFilePath` will contain that path.
+The first one allows accessing a file that has been defined using the Config File Provider plugin like the [`mailList.config` file](../advanced_pipelines/config_files). You pass the `fileID` and retrieve a variable that contains the (temporary) path to the file. The following snippet variable `mailListFilePath` will contain that path.
 
 ```groovy
     configFileProvider(
@@ -121,7 +121,7 @@ The first one allows accessing a file that has been defined using the Config Fil
     }
 ```
 
-The second one allows retrieving the information stored in a Jenkins credentials token, in cases when certain plugins require the content in clear text. This is the case for example when using native `httpRequest` to interact with REST APIs. Some of the example code makes use of the `httpRequest` and the ISPW API requires the CES credentials to be passed. Other than the ISPW operations plugin the `httpRequest` cannot use the Jenkins secret text token storing the CES token. Using the `withCredentials`, one can use the Jenkins in `credentialsID` token to retrieve the 'clear text' CES token during runtime (stored in variable `cesToken` in the example below), without having to expose the token in the code:
+The second one allows retrieving the information stored in a Jenkins credentials token in those cases when certain plugins require the content in clear text. This is the case for example when using native `httpRequest` to interact with REST APIs. Some of the example code makes use of the `httpRequest` and the ISPW API requires the CES credentials to be passed. Other than the ISPW operations plugin the `httpRequest` cannot use the Jenkins secret text token that stores the CES token. Using the `withCredentials`, one can use the Jenkins in `credentialsID` token to retrieve the 'clear text' CES token during runtime (stored in variable `cesToken` in the example below), without having to expose the token in the code:
 
 ```groovy
     withCredentials(
@@ -144,6 +144,6 @@ groovy.lang.MissingPropertyException: No such property: mailConfigPath for class
 
 This seems to be [Groovy specific](https://groups.google.com/forum/#!topic/jenkinsci-users/8wd8Omvs74Y) and the only work around so far seems to be to execute these plugins in the main script. That is why the `mailList.config` down not get read in the `PipelineConfig` class as one would expect, but in the main script.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0MDQ1MjE4MiwtMTA5MDc3NTAxOCwtOD
+eyJoaXN0b3J5IjpbMTg2MTQ4NDc2OSwtMTA5MDc3NTAxOCwtOD
 IyMjY5OTgwXX0=
 -->
