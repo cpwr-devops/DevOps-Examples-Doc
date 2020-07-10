@@ -5,7 +5,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Developing a Topaz Workbench PassTicket Extension
 
-Topaz Workbench provides an Eclipse extension which can be used to authenticate users to z/OS via a passticket. A passticket is a single use token which can be used in place of a password when authenticating to z/OS. It order to use passtickets securely the user id must have been pre-authenticated. The implementation of the PassTicket extension is responsible for two items, first an authenticated user id and second a generated passticket which can be used in place of a password. These two responsibilities are satisfied by the implementation of two interfaces, IPassTicketUserProvider and IPassTicketGenerator. The [Topaz Workbench SDK](../docs/apis/topaz_workbench_api_code_snippets.md) provides a template project to assist the user in developing the implementations for these two interfaces.
+Topaz Workbench provides an Eclipse extension which can be used to authenticate users to z/OS via a passticket. A passticket is a single use token which can be used in place of a password when authenticating to z/OS. It order to use passtickets securely the user id must have been pre-authenticated. The implementation of the PassTicket extension is responsible for two items, first an authenticated user id and second a generated passticket which can be used in place of a password. These two responsibilities are satisfied by the implementation of two interfaces, IPassTicketUserProvider and IPassTicketGenerator. The [Topaz Workbench SDK](../apis/topaz_workbench_api_code_snippets.md) provides a template project to assist the user in developing the implementations for these two interfaces.
 
 The following topics describe the steps to develop and deploy the extension for PassTicket authentication.
 
@@ -57,6 +57,6 @@ Lastly, developers must create a p2 repository that users can point to for insta
 4. Once the p2 repository has been exported, it should be deployed so that all users can point to it and install the custom feature from it.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTUxNTk4Mzg4LDE0MzM2OTY3NDYsMTE0ND
-gyNzE1OF19
+eyJoaXN0b3J5IjpbLTE0NDE4NDU2MDIsMTQzMzY5Njc0NiwxMT
+Q0ODI3MTU4XX0=
 -->
