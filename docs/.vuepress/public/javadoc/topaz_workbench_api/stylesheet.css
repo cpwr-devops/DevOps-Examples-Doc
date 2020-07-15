@@ -7,8 +7,8 @@ Overall document style
 
 body {
     background-color:#ffffff;
-    color:#353833;
-    font-family:'DejaVu Sans', Arial, Helvetica, sans-serif;
+    color:#444446;
+    font-family:'Avenir', Arial, Helvetica, sans-serif;
     font-size:14px;
     margin:0;
 }
@@ -25,11 +25,11 @@ a:active {
     color:#4A6782;
 }
 a[name] {
-    color:#353833;
+    color:#444446;
 }
 a[name]:hover {
     text-decoration:none;
-    color:#353833;
+    color:#444446;
 }
 pre {
     font-family:'DejaVu Sans Mono', monospace;
@@ -214,7 +214,7 @@ Page header and footer styles
     font-size:13px;
 }
 .title {
-    color:#2c4557;
+    color:#444446;
     margin:10px 0;
 }
 .subTitle {
@@ -527,7 +527,7 @@ ul.blockList ul.blockList ul.blockList li.blockList h3 {
 
 div.block {
     font-size:14px;
-    font-family:'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+    font-family:'Avenir', Georgia, "Times New Roman", Times, serif;
 }
 
 td.colLast div {
