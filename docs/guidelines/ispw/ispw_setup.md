@@ -54,3 +54,6 @@ The promote will create a `set container` in ISPW, which will perform the steps 
 
 The webhook triggers the Jenkins job which executes the tasks defined in the pipeline script.  
 ![ISPW set](../../pipelines/images/Jenkins_Pipeline.png)
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMzMyMjU3NTQ1XX0=
+-->

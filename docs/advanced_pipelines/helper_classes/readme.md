@@ -5,19 +5,19 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Helper classes
 
-The helper classes primarily serve as wrapper classes for the use of the different methods used by the plugins. Other serve purposes like provided configuration data `PipelineConfig` or preparing `JCL` for one specific execution of a pipeline `JclSkeleton`.
+The helper classes primarily serve as wrapper classes for use by  different methods used by the plugins. Other purposes include providing configuration data `PipelineConfig` or preparing `JCL` for a specific pipeline execution `JclSkeleton`.
 
 ## GitHelper
 
-The [GitHelper](./GitHelper.md) class serves as a wrapper around the Git SCM plugin and provides the methods 
+The [GitHelper](./GitHelper.md) class serves as a wrapper around the Git SCM plugin and provides these methods:
 
 ### [`GitHelper(steps)`](./GitHelper.md#GitHelper)
 
-The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code
+The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code.
 
 ### [`checkout(String gitUrl, String gitBranch, String gitCredentials, String tttFolder)`](./GitHelper.md#checkout)  
 
-checks out the branch `gitBranch` in the Git(Hub) repository at `gitUrl`. It uses the `gitCredentials` to authenticate, and places the cloned Git repository into the folder `tttFolder` (within the Jenkins workspace).
+checks out the branch `gitBranch` in the Git(Hub) repository at `gitUrl`. It uses the `gitCredentials` to authenticate and places the cloned Git repository into the folder `tttFolder` within the Jenkins workspace.
 
 ### [`checkoutPath(String gitUrl, String gitBranch, String path, String gitCredentials, String gitProject)`](./GitHelper.md#checkoutPath) 
 
@@ -25,24 +25,24 @@ performs a *sparse checkout*, and checks out path `path` in the branch `gitBranc
 
 ## IspwHelper
 
-The [IspwHelper](./IspwHelper.md) class serves as a wrapper around the Compuware ISPW plugin and provides the methods  
+The [IspwHelper](./IspwHelper.md) class serves as a wrapper around the Compuware ISPW plugin and provides these methods:  
 
 ### [`IspwHelper(steps, pConfig)`](./IspwHelper.md#ispwhelper) 
 
-The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code and a [`PipelineConfig`](./#PipelineConfig) to make use of pipeline execution specific parameters
+The constructor receives the `steps` from the pipeline to allow use of pipeline step within the class code and a [`PipelineConfig`](./#PipelineConfig) to make use of pipeline specific execution parameters.
 
 ### [`downloadAllSources(String ispwLevel)`](./IspwHelper.md#downloadallsources)
 
-downloads all COBOL sources and copybooks for the ISPW stream, application and level as stored in the `PipelineConfig`.
+Downloads all COBOL sources and copybooks for the ISPW stream, application and level as stored in the `PipelineConfig`.
 
 ### [`downloadSources()`](./IspwHelper.md#downloadsources) 
 
-downloads all sources (COBOL programs and copybooks) contained in the [ISPW set](../../pipelines/basic_scenario.md) triggering the pipeline.
+Downloads all sources (COBOL programs and copybooks) contained in the [ISPW set](../../pipelines/basic_scenario.md) triggering the pipeline.
 
 ### [`downloadCopyBooks(String workspace)`](./IspwHelper.md#downloadcopybooks) 
 
 Performs the following tasks:
-- receives the path to the `workspace` of the pipeline job
+- receives the path to the `workspace` for the pipeline job
 - uses the `referencedCopyBooks` method to determine all copybooks used by the download COBOL programs
 - uses a [`JclSkeleton`](./Jcl_skeletons.md) object's `createIebcopyCopyBooksJcl` method to create an `IEBCOPY` job `JCL` that copies all required copybooks in the list from the ISPW libraries into a temporary PDS
 - submits this `JCL` using the [Topaz Utilities](https://wiki.jenkins.io/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin
@@ -146,11 +146,11 @@ The constructor receives the `steps` from the pipeline to allow use of pipeline 
 ### [`initialize()`](.PipelineConfig#initialize) 
 
 Is used for additional initialization which cannot be executed in the constructor and it:
-- deletes any old content from the pipeline workspace
-- Uses the following methods to read configuration files and based on the content intitalize further parameters
+- Deletes any old content from the pipeline workspace
+- Uses the following methods to read configuration files and based on the content initialize further parameters:
   - [`setServerConfig`](#setserverconfig) to set server (Sonar, XLR, etc.) specific parameters
   - [`setTttGitConfig`](#settttgitconfig) to set parameters for the Git repository containing TTT assets
-  - [`setMailConfig`](#setmailconfig) to build the map of ISPW owner IDs and corresponding email adresses
+  - [`setMailConfig`](#setmailconfig) to build the map of ISPW owner IDs and corresponding email addresses.
 
 ### [`setServerConfig()`](.PipelineConfig#setserverconfig) 
 
@@ -191,7 +191,7 @@ Is used for additional initialization which cannot be executed in the constructo
 
 ### [`scan()`](./SonarHelper.md#scan) 
 
-Determines the test results locations based on the assumtion that the results have been created by Topaz for Total Unit Test. (If Functional Tests have been executed, us the [`scan(pipelineType)`](#scan-pipelinetype) method.) It then uses the [`runScan`](#runscan) method to execute the Sonar scanner.
+Determines the test results locations based on the assumption that the results have been created by Topaz for Total Unit Test. (If Functional Tests have been executed, uses the [`scan(pipelineType)`](#scan-pipelinetype) method.) It then uses the [`runScan`](#runscan) method to execute the Sonar scanner.
 
 ### [`scan(pipelineType)`](./SonarHelper.md##scan-pipelinetype)
 
@@ -199,15 +199,15 @@ Determines the test results locations based on the type of Topaz for Total tests
 
 ### [`checkQualityGate`](./SonarHelper.html#checkqualitygate)
 
-Receives the results of the Sonar quality gate and return its status.
+Receives the results of the Sonar quality gate and returns its status.
 
 ### [`determineUtProjectName`](./SonarHelper.html#determineutprojectname)
 
-Builds the name for the SonarQube project, if Topaz for Total Test unit tests were executed, and the pipeline is a "Generate" pipeline.
+Builds the name for the SonarQube project, if Topaz for Total Test unit tests were executed and the pipeline is a "Generate" pipeline.
 
 ### [`determineFtProjectName`](./SonarHelper.html#determineftprojectname)
 
-Builds the name for the SonarQube project, if Topaz for Total Test functional tests were executed, and the pipeline is a "Integrate" pipeline.
+Builds the name for the SonarQube project, if Topaz for Total Test functional tests were executed and the pipeline is a "Integrate" pipeline.
 
 ### [`determineUtResultPath`](./SonarHelper.html#determineutresultpath)
 
@@ -234,7 +234,7 @@ The [TttHelper](./TttHelper.md) class serves as a wrapper around Topaz for Total
 
 ### [`TttHelper(script, steps, pConfig)`](./TttHelper.md#ttthelper) 
 
-The constructor receives the `script` object and the `steps` from the pipeline  and a [`PipelineConfig`](./PipelineConfig.md) to make use of pipeline execution specific parameters.
+The constructor receives the `script` object and the `steps` from the pipeline and a [`PipelineConfig`](./PipelineConfig.md) to make use of pipeline execution specific parameters.
 
 ### [`initialize()`](./TttHelper.md#initialize) 
 
@@ -266,4 +266,9 @@ Uses the Xpediter Code Coverage plugin to retrieve code coverage results from th
 
 ### [`cleanUpCodeCoverageResults()`](./TttHelper.md#cleanupcodecoverageresults)
 
-Uses a JCL Skeleton and the resolting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
+Uses a JCL Skeleton and the resulting JCL to clean up statistics from the previous build in the Code Coverage repository. This prevents the repository dataset to be cluttered by statistics that are not being used anymore.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTg4MDQwNDY1NywtMjA0OTc5MDEwMSwxMz
+k5NzI0NzcyLC02NzM4MTY2MjUsMTY4MzgxOTA3NywtMjEwMDA3
+NjE4MiwtMTE1MzE5NDk0XX0=
+-->

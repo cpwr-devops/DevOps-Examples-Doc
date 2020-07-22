@@ -258,3 +258,6 @@ Complete the following steps to let users see test results as JUnit output after
 * Notice the new 'Test Result' tab/menu point.
 * Click on **Test Result** to display the results.
 * Drill down to view the details of the individual test case. 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTQ2MTc0MDU3MV19
+-->

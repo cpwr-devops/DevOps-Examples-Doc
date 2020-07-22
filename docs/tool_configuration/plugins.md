@@ -10,12 +10,12 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 The examples - especially the two [primary pipelines](../pipelines/basic_scenario.md) - use plugins that may not be part of a standard installation of Jenkins; this will likely be the case for the Compuware plugins. All plugins described here can be obtained from the Jenkins plugin marketplace using *Manage Jenkins* -> *Manage Plugins*.
 
 ::: tip
-Jenkins allows generating pipeline syntax based on plugins. Using the Compuware plugins, and probably other plugins as well, this often causes the challenge for users to find the correct entries in the selection boxes, to find the required plugin. For the Compuware plugin we point to the correct location in the corresponding description.
+???Jenkins allows generating pipeline syntax based on plugins. For the Compuware plugin we point to the correct location in the corresponding description to help you find the correct entries in the selection boxes to find the required plugin.
 :::
 
 ## Compuware plugins
 
-Compuware provides a continuously growing set of plugins that allow connecting to the mainframe and using Compuware's (and other) tools within a Jenkins job/pipeline.
+Compuware provides a continuously growing set of plugins that allow connecting to the mainframe and using Compuware (and other) tools within a Jenkins job/pipeline.
 
 ### Compuware Common Configuration
 
@@ -44,7 +44,7 @@ The [Compuware Source Code Download for Endevor, PDS, and ISPW](https://wiki.jen
 - Plain PDS
 
 ::: tip
-In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **checkout**, followed by the *SCM* dropdown entries 
+In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **checkout**, followed by the *SCM* dropdown entries:
 
 - **ISPW Container**
 - **ISPW Repository** 
@@ -72,7 +72,7 @@ In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Ste
 
 ### Compuware Topaz Utilities
 
-The [Compuware Topaz Utilities](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin will provide a collection of utilities around interfacing to and using tools on mainframes. In its first version it allows execution and checking return codes of JCL. The JCL may be stored in PDS members on the mainframe or in string variables during execution.
+The [Compuware Topaz Utilities](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin will provide a collection of utilities around interfacing to and using tools on mainframes. In its first version it allows execution of and checking JCL return codes. The JCL may be stored in PDS members on the mainframe or in string variables during execution.
 
 ::: tip
 In the Pipeline Syntax generator, the plugin can be accessed 
@@ -102,8 +102,11 @@ The [Pipeline Utility Steps](https://wiki.jenkins.io/display/JENKINS/Pipeline+Ut
 
 ### Config File Provider
 
-The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins thus allowing to define configuration files that do not have to be stored on disk within e.g. the Git repository storing the *jenkinsfile*.
+The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins, thus allowing you to define configuration files that do not have to be stored on disk within repository (e.g. the Git) storing the *jenkinsfile*.
 
 ### Credentials Binding Plugin
 
-Some plugins/methods like the `httpRequest` require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
+Some plugins/methods, like the `httpRequest`, require the use of plain text credentials or tokens rather than using credential IDs as provided by the Jenkins Credentials manager. The [Credentials Binding Plugin](https://plugins.jenkins.io/credentials-binding) allows converting a Jenkins credentials ID into a variable containing the plain text stored in the credential definition. Thus, these plugins can be used without having to expose any plain *secret* texts within the code of the scripts.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNzIzNTc1ODI4XX0=
+-->

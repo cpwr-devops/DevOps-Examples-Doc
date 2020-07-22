@@ -550,3 +550,6 @@ https://vsrm.dev.azure.com/ralphnuesse/ralphnuesse/_apis/release/definitions?api
 The result will look similar to the following. The important information can be found at the highlighted rows:
 
 ![Azure DevOps Release Id](../images/Azure_DevOps_Release_Id.png)
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTEyOTUyODU4Nl19
+-->
