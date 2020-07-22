@@ -322,7 +322,7 @@ Parameter | Description
 `-operation <arg>` | the ISPW operation to perform
 `-targetFolder <arg>` | the target folder where the output of the operation will be saved.
 
-For an example using the CLI (the plugin to be precise) refer to the [Git to ISPW Integration Tutorial](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md).
+For an example using the CLI (the plugin to be precise) refer to the [Git to ISPW Integration - A Tutorial](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md).
 
 ## Submit JCL (SubmitJclCLI.bat)
 
@@ -778,3 +778,6 @@ command would look similar to:
 ./TotalTestFTCLI.sh -e simulator -f ./Project/Accounting -r /temp -s https://server.topaztotaltest.com/totaltestapi/ -u XATUSER -p 123456 --upload-result --recursive
 ```
 The CLI interface will generate a log file in the logs directory in the location specified by the workspace directory. This log file can be used to track down and understand issues in an execution.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTIxMjUzMTQ3OF19
+-->
