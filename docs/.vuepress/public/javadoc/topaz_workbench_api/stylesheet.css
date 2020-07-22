@@ -214,7 +214,7 @@ Page header and footer styles
     font-size:13px;
 }
 .title {
-    color:#444446;
+    color:#353833;
     margin:10px 0;
 }
 .subTitle {
@@ -527,7 +527,7 @@ ul.blockList ul.blockList ul.blockList li.blockList h3 {
 
 div.block {
     font-size:14px;
-    font-family:'Avenir', Georgia, "Times New Roman", Times, serif;
+    font-family:'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
 }
 
 td.colLast div {
