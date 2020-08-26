@@ -768,14 +768,12 @@ usage: TotalTestFTCLI
                                            creating corrrect zAdviser
                                            events. C=CLI (Default),
                                            J=Jenkins, X=XebiaLabs
- -log,--loglevel <arg>                     The logging level. Must be LOG,
-                                           INFO, WARNING, VERBOSE,
-                                           VERBOSE_E or ERROR. The default
-                                           is INFO.
+ -log,--loglevel <arg>                     The logging level. Must be ERROR, WARNING, INFO, 
+                                           DEBUG, TRACE or ALL. The default is INFO.
  -noju,--nojunit                           If specified, no JUnit file
                                            will be created.
  -norep,--noreport                         If specified, no report file
-                                           will be created.
+                                           will be created for unit tests.
  -nores,--noresult                         If specified, no result file
                                            will be created.
  -nosq,--nosonar                           If specified, no Sonarqube file
