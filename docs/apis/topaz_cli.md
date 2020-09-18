@@ -446,7 +446,7 @@ The error message `The configuration area at C:\Program Files\Compuware\Topaz Wo
 is an indication that the -data parameter is required.
 :::
 
-A challenge with using the individual commands in sequence - instead of using the `runtest` command - is that using the `upload`, the CLI will 'randomly' generate names for the target binary files on the mainframe (To be more precise, the 'ID' qualifier is generated randomly - other than using Topaz for Total Test from the GUI, where these qualifiers will be increased in numerical sequence, if the files are not replaced anyway). Currently, there is no known, simple way to control these names or determine which names have been generated. Therefore, we will concentrate on the `runtest` command.
+A challenge with using the individual commands in sequence - instead of using the `runtest` command - is that using the `upload`, the CLI will 'randomly' generate names for the target binary files on the mainframe (To be more precise, the 'ID' qualifier is generated randomly). Currently, there is no known, simple way to control these names or determine which names have been generated. Therefore, we will concentrate on the `runtest` command.
 
 ### CLI commands
 The following table lists the valid commands to invoke them from the command line. For options see the parameters explained below for each CLI component.
@@ -514,7 +514,6 @@ Parameter/Option | Abbr. |	Description
 `-wait` | -w | Indicates if component waits for test completion. Must be TRUE or FALSE. The default is TRUE.
 `-maxwait` | -mw | The number of minutes to wait for the test to complete. The default is 20 minutes.
 `-useStubs` | -us | Indicates if the test should use stubs. Must be TRUE or FALSE. The default is TRUE.
-`-repeat` | -r | The number of time to repeat the test. The default is 0.
 `-backuparchive` | -ba | Indicates if the archive file should be backed up. The file will be time stamped and placed in the History project folder. Must be TRUE or FALSE. The default is TRUE.
 `-deletetemp` | -dt | Indicates if temporary files are to be deleted. Must be TRUE or FALSE. The default is TRUE.
 
