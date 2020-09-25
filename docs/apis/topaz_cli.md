@@ -774,7 +774,7 @@ usage: TotalTestFTCLI
  -norep,--noreport                         If specified, no report file
                                            will be created for unit tests.
  -nores,--noresult                         If specified, no result file
-                                           will be created.
+                                           will be created for unit test.
  -nosq,--nosonar                           If specified, no Sonarqube file
                                            will be created.
  -p,--password <arg>                       tso password
