@@ -757,7 +757,7 @@ usage: TotalTestFTCLI
                                            address
  -fap,--file-aid-service-port <arg>        File-AID service port
  -faw,--file-aid-workspace <arg>           File-AID service workspace
- -G,--copy-reports-to-report-folder        Copy sonar qube reports to the
+ -G,--copy-reports-to-report-folder        Copy SonarQube reports to the
                                            report folder root.
  -h,--halt-at-failure                      Halt the execution when first
                                            test scenario fails
@@ -818,16 +818,16 @@ usage: TotalTestFTCLI
                                            a context file for the selected
                                            environment for each scenario
                                            found
- -v,--sonar-version <arg>                  Sonar Qube version - either 5
+ -v,--sonar-version <arg>                  SonarQube version - either 5
                                            or 6. Default value is 6
  -x,--upload-result                        Upload result to server
 ```
-The --enviroment and the --file arguments are the primary ones, and the --userid and --password arguments for the TSO credential to be used. If the --file argument is relative, the --root-folder parameter is required. It is used to calculate the relative path to the folder being executed and this path is set at the result in the Functional Test server as the External Reference (if --upload-result option is used). Normally the root folder will be the folder to which files have been checked out from version control. With the Jenkins plugin the root folder will be set to the Jenkins workspace unless the --file path is absolute.
-Sonar cube and JUnit output files are also generated and placed in the TTTSonar and TTTUnit directories relative to the root folder given in the --root-folder parameter.
+The `--enviroment` and the `--file` arguments are the primary ones, and the `--userid` and `--password` arguments for the TSO credential to be used. If the `--file` argument is relative, the `--root-folder` parameter is required. It is used to calculate the relative path to the folder being executed and this path is set at the result in the Functional Test server as the External Reference (if `--upload-result` option is used). Normally the root folder will be the folder to which files have been checked out from version control. With the Jenkins plugin the root folder will be set to the Jenkins workspace unless the `--file` path is absolute.
+SonarQube and JUnit output files are also generated and placed in the TTTSonar and TTTUnit directories relative to the root folder given in the `--root-folder` parameter.
 
 ### Finding test scenarios
-The CLI will by default look for and use .context files. A context file contain all the necessary runtime information in order to execute the scenario file. It contains the id of the environment/host connection on which test scenarios are to be executed. The --environment parameter value given to the CLI must match the environmentId defined in the context file. In this way the CLI makes sure to only find and execute the test scenarios that have been used for a particular host connection / environment.
-It is possible to use the parameter --use-scenario-files to search for all .scenario files and use a default execution context created from the parameters given to the CLI. The parameter --recursive can be used to recursively traverse the folder structure under the --file path to search for test scenarios.
+The CLI will by default look for and use .context files. A context file contain all the necessary runtime information in order to execute the scenario file. It contains the id of the environment/host connection on which test scenarios are to be executed. The `--environment` parameter value given to the CLI must match the environmentId defined in the context file. In this way the CLI makes sure to only find and execute the test scenarios that have been used for a particular host connection / environment.
+It is possible to use the parameter `--use-scenario-files` to search for all .scenario files and use a default execution context created from the parameters given to the CLI. The parameter `--recursive` can be used to recursively traverse the folder structure under the `--file` path to search for test scenarios.
 Example on finding all context files recursively in the current directory
 ```
 TotalTestFTCLI.bat --environment testenv --file . --recursive -s https://totaltest.xyz.com/totaltestapi/ -u XATUSER -p 123456
@@ -838,7 +838,7 @@ TotalTestFTCLI.bat --environment testenv --root-folder /test/ws --file GitProjec
 ```
 
 ### Works with and without the Total Test repository server
-The CLI can be used to execute batch test scenarios for customers where the Total Test repository server has not been setup. In this case, the --server parameter is simply excluded. The environment id for which to execute is found in the hostconnections.tttcfg file located under the TotalTestConfiguration folder as the id for the connection. When the --server parameter is not specified, the CLI will expect the TotalTestConfiguration folder to be located under the --root-folder path. If it is located elsewhere, for instance on a shared folder on a Jenkins server, the parameter --configuration-directory can be used to give a path to the TotalTestConfiguration folder, including the folder name itself.
+The CLI can be used to execute batch test scenarios for customers where the Total Test repository server has not been setup. In this case, the `--server` parameter is simply excluded. The environment id for which to execute is found in the hostconnections.tttcfg file located under the TotalTestConfiguration folder as the id for the connection. When the `--server` parameter is not specified, the CLI will expect the TotalTestConfiguration folder to be located under the `--root-folder` path. If it is located elsewhere, for instance on a shared folder on a Jenkins server, the parameter `--configuration-directory` can be used to give a path to the TotalTestConfiguration folder, including the folder name itself.
 Example of not using the repository and assuming that the TotalTestConfiguration folder is located in the current folder
 ```
 TotalTestFTCLI.bat --environment testenv --file . --recursive -u XATUSER -p 123456
@@ -849,7 +849,7 @@ TotalTestFTCLI.bat --environment testenv --root-folder /testdata/jenkins/ws/ --c
 ```
 
 ### Using Topaz for Enterprise Data
-If any of the test cases to be executed use the Topaz for Enterprise Data element, the CLI must setup the parameters required by TED. These include the --ces-url parameter and optionally the --siteid and --customerid if cloud licensing is used. Furthermore the File-AID services ip address and port (for the Connection Manager), and the File-AID workspace must be set by the parameters --file-aid-service-ip, --file-aid-service-port, and --file-aid-workspace.
+If any of the test cases to be executed use the Topaz for Enterprise Data element, the CLI must setup the parameters required by TED. These include the `--ces-url` parameter and optionally the `--siteid` and `--customerid` if cloud licensing is used. Furthermore the File-AID services ip address and port (for the Connection Manager), and the File-AID workspace must be set by the parameters `--file-aid-service-ip`, `--file-aid-service-port`, and `--file-aid-workspace`.
 Example of not using the repository and assuming that the TotalTestConfiguration folder is located in the current folder
 ```
 TotalTestFTCLI.bat --environment testenv --root-folder /testdata/jenkins/ws/ --file . --ces-url http://ces.xyz.com --file-aid-service-ip 1.2.3.4 --file-aid-service-port 1234 --file-aid-workspace utils/fileaidws --recursive -u XATUSER -p 123456
@@ -858,7 +858,7 @@ The File-AID workspace can be copied from a Topaz workspace to where the CLI is 
 In the above example the absolute path to the File-AID workspace is /testdata/jenkins/ws/utils/fileaidws/, and this folder must contain the folder .com.compuware.fileaid.ex.
 
 ### Intelligent test case execution
-The CLI can be used to intelligently selecting only the test scenarios related to specific programs. The program names to be tested can be given as a comma separated list of names to the --program-names parameter, or the --program-names-file parater can be used to give a path to a json file containing the programs that have changed. The format of the json file is the same as ISPW can produce after a generate, and in this way a pipeline can be setup to get ISPW find programs that have changed and Total Test can then find the test cases to test.
+The CLI can be used to intelligently selecting only the test scenarios related to specific programs. The program names to be tested can be given as a comma separated list of names to the `--program-names` parameter, or the `--program-names-file` parater can be used to give a path to a json file containing the programs that have changed. The format of the json file is the same as ISPW can produce after a generate, and in this way a pipeline can be setup to get ISPW find programs that have changed and Total Test can then find the test cases to test.
 Format of the JSON file looks like below.
 ``` JSON
 {
