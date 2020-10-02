@@ -1,6 +1,6 @@
 ---
 title: Using Jenkins Plugins
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2018, 2020 - Compuware
 ---
 # Using Jenkins Plugins
 
@@ -26,7 +26,6 @@ The following are required to use the Topaz for Total Test Jenkins plugin:
 * Topaz for Total Test licenses
 * Host Communications Interface (HCI) Connection to the LPAR on which tests should run 
 * Enterprise Communication Components (ECC) which contains the Topaz for Total Test `TestRunner Mainframe component`
-* For functional testing - access to the Total Test repository server
 
 
 #### Upgrading from a Previous Release 
@@ -62,7 +61,7 @@ Follow these steps to create a Freestyle Project and name it the same as the Top
 * The **CES URL** must be specified at the Compuware configuration setup and is selected here. The CES server must have the Total Test repository server installed and setup.
 * Login credentials are the TSO credentials to be used for executing the tests
 * Click the **Advanced**  button to see optional/advanced parameters. 
-* By default all functional test scenarios that have a corresponding .xactx file for the specified environment will be found. The pipeline will look into the folder specified by the **Test folder path** in the advanced section. If this is a relative path or if the path is empty or a ., if will use the Jenkins workspace as the root folder.
+* By default all functional test scenarios that have a corresponding .context file for the specified environment will be found. The pipeline will look into the folder specified by the **Test folder path** in the advanced section. If this is a relative path or if the path is empty or a ., if will use the Jenkins workspace as the root folder.
 * If **Recursive** is selected, test cases will be found recursively in sub folders to the Test folder path.
 * If **Stop if test fails...** is selected, the test execution will stop as soon as one of the test cases fails.
 ![Functional test build step](./images/jenkins_functional2.png)
@@ -119,7 +118,7 @@ stage("Run Topaz for Total Test")
 * Press **SAVE**.
 
 :::tip
-The above Functional Test examples shows how you setup a pipeline with one build step that will execute all test scenarios in the Jenkins workspace that have a .xactx file with the Environment ID similar to the one defined in the build step. This means that you will have to have the files in the workspace before the build step and that is typically done by integrating with a SCM like Git. It is also possible to setup an absolute path in the **Test folder path** to use static files on the Jenkins server. You can look into our example pipelines to get inspiration and understanding. 
+The above Functional Test examples shows how you setup a pipeline with one build step that will execute all test scenarios in the Jenkins workspace that have a .context file with the Environment ID similar to the one defined in the build step. This means that you will have to have the files in the workspace before the build step and that is typically done by integrating with a SCM like Git. It is also possible to setup an absolute path in the **Test folder path** to use static files on the Jenkins server. You can look into our example pipelines to get inspiration and understanding. 
 :::
 
 ### Add step for Jenkins to process the test results files
@@ -258,6 +257,3 @@ Complete the following steps to let users see test results as JUnit output after
 * Notice the new 'Test Result' tab/menu point.
 * Click on **Test Result** to display the results.
 * Drill down to view the details of the individual test case. 
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ2MTc0MDU3MV19
--->
