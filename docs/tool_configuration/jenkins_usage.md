@@ -1,6 +1,6 @@
 ---
 title: Using Jenkins Plugins
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2018, 2020 - Compuware
 ---
 # Using Jenkins Plugins
 

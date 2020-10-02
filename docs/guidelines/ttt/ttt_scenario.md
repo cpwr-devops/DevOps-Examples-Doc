@@ -10,7 +10,7 @@ Since most mainframe development is not green field development, the first step 
 - Input values as recorded at program `ENTRY`
 - Output values as recorded at program exit (e.g. `GOBACK`)
 - Assertions for the recorded output values
-- Stubs (simulation data) for:
+- Stubs (simulated data) for:
     - Sub program calls
     - File I/O, i.e. `QSAM` or `VSAM` reads and writes
     - `DB2 SQL` statement execution
@@ -31,7 +31,7 @@ Topaz for Total Test allows storing one or more test case for one or more progra
 
 # Naming conventions
 
-In order to map Topaz for Total Test project assets, stored in Git, to program components, stored in ISPW, naming conventions are used. These should be followed already when recording the unit tests, but asset names may be changed later, after recording, to use the following naming conventions:
+In order to map Topaz for Total Test project assets, stored in Git, to program components, stored in ISPW, naming conventions are used. These should be followed when recording the unit tests, but asset names may be changed later (after recording) to use the following naming conventions:
 
 - The Topaz for Total Test project name uses `<Target_Program_Name>_Unit_Tests` as project name
 - The test scenario files or test suite files contain the `<Target_Program_Name>` as first part of their file name, followed by an underscore `_`, follwowed by any trailing name.
@@ -39,7 +39,7 @@ In order to map Topaz for Total Test project assets, stored in Git, to program c
     - `.testscenario` for test scenarios
     - `.testsuite` for test suites
 
-The [Git repository](./ttt_in_git) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
+The [Git repository](./ttt_in_git.md) uses `<ISPW_Stream_Name>_<ISPW_Application_Name>_Unit_Tests` as name.
 
 # The Topaz for Total Test project structure
 
@@ -58,7 +58,7 @@ A Topaz for Total Test project will use the following folder structure, which wi
 
 # The runner.jcl
 
-When using Xpediter/Topaz for Total Test to record test cases, the `JCL` folder will contain sample `JCL` code which is required to execute the Topaz for Total Test driver program `TTTRUNNR`. As of now, Topaz for Total Test cannot create stub data for 100% of all  `SQL` statements or `DL/I` calls. Therefore, test execution of some programs will require a "mixed" mode - partly stubbed, partly using life data. For these situations the following sample `JCL`is generated:
+When using Xpediter/Topaz for Total Test to record test cases, the `JCL` folder will contain sample `JCL` code which is required to execute the Topaz for Total Test driver program `TTTRUNNR`. As of now, Topaz for Total Test cannot create stub data for 100% of all  `SQL` statements or `DL/I` calls. Therefore, test execution of some programs will require a "mixed" mode – partly stubbed, partly using live data. For these situations the following sample `JCL`is generated:
 
 - `RunnerBmp.jcl` for tests of `IMS` programs in "mixed" mode
 - `RunnerBmpDB2.jcl` for tests of `DB2/IMS` programs in "mixed" mode
@@ -95,3 +95,6 @@ New test cases may be added to an existing test scenario by duplicating existing
 The recommended procedure to share Topaz for Total Test projects across teams and to use them in automation pipelines is storing these projects in Git/GitHub repositories.
 
 ![TTT in Git](../images/TTT_in_Git_and_GitHub.png)
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNDkxMzAyMTQxLC0xMTE0NDQ0MjIwXX0=
+-->

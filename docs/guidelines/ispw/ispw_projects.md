@@ -182,3 +182,6 @@ Once this developer specific setup has been performed, they can use SonarLint in
 ### Adding new ISPW applications/ISPW projects
 
 At points, new ISPW applications get defined or get to a point when they shall be made read for use of SonarLint. In this case the administrators will have to follow [their setup task steps](#administrative-tasks) for the new ISPW applications/ISPW project. Whereas the developers only will have to import the new projects (or re-import the underlying team profiles), but they **do not have to re-perform any SonarLint related steps**.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTA3NTI2NDg1Nl19
+-->

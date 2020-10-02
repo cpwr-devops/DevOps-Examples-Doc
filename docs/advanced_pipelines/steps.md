@@ -23,10 +23,10 @@ def call(Map pipelineParams)
         - passed by the job configuration/trigger and are pipeline/execution specific
         - not pipeline or execution specific, like server URLs. These parameters will be read from external configuration files
     - `GitHelper` serving as a wrapper for a set of interactions with Git/GitHub
-    - `IspwHelper` serving as a wrapper for use of the ISPW plugins' methods
-    - `TttHelper` serving as a wrapper for use of the TTT plugin's and Code Coverage plugin's methods
-    - `SonarHelper` serving as a wrapper for use of the Sonar plugins' methods
-    - `XlrHelper` serving as a wrapper for use of the XL Release plugin
+    - `IspwHelper` serving as a wrapper for use by the ISPW plugins' methods
+    - `TttHelper` serving as a wrapper for use by the TTT plugin's and Code Coverage plugin's methods
+    - `SonarHelper` serving as a wrapper for use by the Sonar plugins' methods
+    - `XlrHelper` serving as a wrapper for use by the XL Release plugin
 
 ```groovy
         initialize(pipelineParams)
@@ -64,7 +64,7 @@ def call(Map pipelineParams)
         }
 ```
 
-6. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coveragre metrics from the Xpediter Code Coverage repository
+6. Use the `collectCodeCoverageResults` method of the `TttHelper` class to download the code coverage metrics from the Xpediter Code Coverage repository
 
 ```groovy
         stage("Collect Metrics")
@@ -87,7 +87,7 @@ def call(Map pipelineParams)
             sonarHelper.scan()
 ```
 
-9. And use the `sonarHelper.checkQualityGate` of the `sonarHelper.checkQualityGate` class to query the resulting Sonar quality gate. If the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote -, and the pipeline job will be aborted.
+9. And use the `sonarHelper.checkQualityGate` of the `sonarHelper.checkQualityGate` class to query the resulting Sonar quality gate. If the quality gate fails, an email will be sent to the owner of the ISPW set - notifying them about the failure of the promote and the pipeline job will be aborted.
 
 ```groovy
             String sonarGateResult = sonarHelper.checkQualityGate()
@@ -142,3 +142,6 @@ def call(Map pipelineParams)
     }
 }
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTEyNjIyNjc0MzgsLTY2OTc0NzQwMV19
+-->

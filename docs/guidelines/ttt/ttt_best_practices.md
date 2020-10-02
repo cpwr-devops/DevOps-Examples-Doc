@@ -9,7 +9,7 @@ Whether you’re a COBOL developer creating unit tests for code, or an applicati
 
 ## Unit, Functional and Integration Testing
 
-Total Test supports developers to create, execute and automate unit, functional and integration tests. To make it very simple and understandable, from a technical point of view, the difference between unit and functional test is that a unit test virtualizes all external calls while a functional test runs live
+Total Test supports developers to create, execute and automate unit, functional and integration tests. To make it very simple and understandable, from a technical point of view, the difference between unit and functional test is that a unit test virtualizes all external calls while a functional test runs live.
 
 *-* **Unit test** – executing a test case of a program in isolation where all external calls (Files, DB2, sub programs CICS/IMS apis) are virtualized / stubbed out by the test case.
 * **Functional test** – executing a test case of a program in a live environment with live data.
@@ -19,23 +19,23 @@ The test types are illustrated in the pyramid below. The pyramid illustrates tha
 
 ![Testing Pyramid](../images/ttt_intro1.png)
 
-There are no officially agreed upon clear definitions of different test types and each vendor and customer seems to have their own definitions. As a start let us define what these test types means in relation to Total Test and elaborate a bit more on the differences compared to the technical difference above.
+There are no officially agreed upon clear definitions of different test types and each vendor and customer seems to have their own definitions. As a start let us define what each test type means in relation to Total Test and elaborate a bit more on the differences compared to the technical difference above.
 
-* **Unit Test**. A unit test tests the smallest piece of executable code in an application. For COBOL this is a program. It is created by a developer that understands the program code and logic and knows how to e.g. get into a specific if statement to test this part of the code. The developer is in control and can stub out all external calls from the program to other systems such as IO, DB2, sub programs and CICS/IMS. The developer can decide what an external call from the program should return in a specific test case. A unit test can be described as a whitebox test where the developer has deep knowledge about the source code, and the test is executed in an isolated environment without requirements for access to external systems and data.
-* **Functional Test**. A functional test tests a function of an application. A function is typically implemented as a COBOL program. The functional test tests that the program implements its specification correctly and is typically created by a developer or tester/QA role. The tester understands what the program is supposed to do and sets up the functional test case by providing input to the program and defining expected output. The functional test is a black box test where the tester does not need to know about the internal source code of the program, and the program is executed in a live environment with live data and live systems.
-* **Integration Test**. An integration test tests the collaboration between two or more functions/programs and the data they use. This could e.g. be one program creating an entry in a table and another program reading the entry. The integration test will verify that the collaboration between the programs and their data works as expected. It can be made by a tester or developer. Like for functional testing, integration tests are executed at a live environment with live data and systems.
+* **Unit Test**: A unit test tests the smallest piece of executable code in an application. For COBOL this is a program. It is created by a developer that understands the program code and logic and knows how to, for example, get into a specific IF statement to test this part of the code. The developer is in control and can stub out all external calls from the program to other systems such as IO, DB2, sub programs and CICS/IMS. The developer can decide what an external call from the program should return in a specific test case. A unit test can be described as a "white box" test where the developer has deep knowledge about the source code, and the test is executed in an isolated environment without requirements for access to external systems and data.
+* **Functional Test**: A functional test tests a function in                                   an application. A function is typically implemented as a COBOL program. The functional test tests that the program implements its specification correctly and is typically created by a developer or tester/QA role. The tester understands what the program is supposed to do and sets up the functional test case by providing input to the program and defining expected output. The functional test is a "black box" test where the tester does not need to know about the internal source code of the program, and the program is executed in a live environment with live data and live systems.
+* **Integration Test**: An integration test tests the collaboration between two or more functions/programs and the data they use. This could, for example, be one program creating an entry in a table and another program reading the entry. The integration test will verify that the collaboration between the programs and their data works as expected. It can be made by a tester or developer. Like for functional testing, integration tests are executed in a live environment with live data and systems.
 
 ## Shifting left
 
-In DevOps we often talk about shifting left. This means that testing should be done earlier in the development process. Traditionally testing on the mainframe has mostly been done in the later stages of a project, typically as part of end user acceptance testing. This is very late in the process for finding issues. Shifting left means that bugs should be found as early as possible. The earliest they can be found is at the same time as they are introduced into the source code by the developer. This is where unit testing comes in. A developer should write unit tests that test the changed code and in this way the bug is found as soon as it is introduced into the code. This is the fastest way to detect and correct bugs and has the largest benefit for increasing velocity, quality and efficiency. Functional test is typically done in a test environment with live data and is performed later in a sprint where a developer has moved the compiled load modules from a development environment to a test environment. This means that functional tests find bugs later, and hence the feedback to development is slower and more costly. Integration testing typically comes after functional testing which mean that it is more expensive to detect bugs compared to both unit and functional testing.
-The below illustration shows how unit, functional and integration tests can be used by developers and testers in different environments during an agile sprint.
+In DevOps we often talk about shifting left. This means that testing should be done earlier in the development process. Traditionally, testing on the mainframe is done in the later stages of a project, typically as part of end user acceptance testing. This is very late in the process for finding issues. Shifting left means that bugs should be found as early as possible. The earliest they can be found is at the same time that they are introduced into the source code by the developer. This is where unit testing comes in. A developer should write unit tests that test the changed code and in this way the bug is found as soon as it is introduced into the code. This is the fastest way to detect and correct bugs and has the largest benefit for increasing velocity, quality, and efficiency. Functional test is typically done in a test environment with live data and is performed later in a sprint where a developer has moved the compiled load modules from a development environment to a test environment. This means that functional tests find bugs later, and hence the feedback to development is slower and more costly. Integration testing typically comes after functional testing which means that it is more expensive to detect bugs compared to both unit and functional testing.
+The illustration below shows how unit, functional and integration tests can be used by developers and testers in different environments during an agile sprint.
 
 ![Testing swimlanes](../images/ttt_intro2.png)
 
 
 ## Structure of this document
 
-We will in the first two chapters start by explaining from a high level how to best get started to use Total Test as a user, and how to best adopt the use of Total Test and test automation in an organization. Following these initial chapters, we will then discuss general best practices that are valid for both unit, functional and integration testing. This covers areas like use of SCM to version test cases, how to relate tests to source code versions, how to automate test case executions etc. Finally, we will delve into detailed best practices related to unit, functional and integration testing in Total Test.
+We will, in the first two chapters, start by explaining from a high level how to best get started to use Total Test as a user, and how to best adopt the use of Total Test and test automation in an organization. Following these initial chapters, we will then discuss general best practices that are valid for both unit, functional and integration testing. This covers areas like use of an SCM to version test cases, how to relate tests to source code versions, how to automate test case executions, etc. Finally, we will delve into detailed best practices related to unit, functional and integration testing in Total Test.
 
 [//]: #
 [//]: #
@@ -56,19 +56,19 @@ Are you new to Total Test and test automation, there will be a learning curve to
 1. Do the above with a more complex program
 1. Get experience with Code Coverage and use this actively when creating and executing test cases.
 
-When you have become familiar with recording and executing test cases with Total Test its time to move on in the learning journey of DevOps and test automation. Next step is to start using a SCM to share test cases. We recommend using a Git repository, but other repository technologies work fine as well.
+When you have become familiar with recording and executing test cases with Total Test it's time to move on in the learning journey of DevOps and test automation. Next step is to start using a SCM to share test cases. We recommend using a Git repository, but other repository technologies work fine as well.
 
 **Suggested list of activities to get started with Total Test and the use of a repository**
 
 1. Setup or get access to a SCM and create a repository for test cases. If you don’t have an internal git server, you can always get started with free alternatives on Github, Bitbucket or Gitlab.
 1. In Topaz workbench, install the SCM plugin (e.g. eGit) and clone/checkout the repository
 1. Share your created test projects in the repository
-1. Take another machine and clone the repository and see that you have the shared testcases here as well
+1. Take another machine and clone the repository and see that you have the shared test cases here as well
 1. Start to experiment collaborating with the shared repository
 
 After getting yourself familiar with a SCM and Total Test you are ready to get the most benefit from test automation. You can now create and share automated test cases. With automated we mean, you manually execute the test case, but the test case automatically tests the program. This is the most important step in test automation – to have a suite of regression tests that you can execute after a program has changed.
 
-When you have built a small suite of test cases you will soon find that its annoying to manually remember to execute and evaluate that test suite. Its actually easy to forget, and that means that it will take longer before you detect bugs. And this is where the last piece in test automation comes in – you want to automate the execution and evaluation of the test suite. This can be done with a number of commonly used pipeline technologies such as Jenkins, ElectricCloud, Urban Code Deploy, Xebialabs XLR etc. and you might even have your homegrown solution. No matter of technology used, these steps are recommended to get started to adopt an automated pipeline.
+When you have built a small suite of test cases you will soon find that its' annoying to manually remember to execute and evaluate that test suite. It's actually easy to forget, and that means that it will take longer before you detect bugs. And this is where the last piece in test automation comes in – you want to automate the execution and evaluation of the test suite. This can be done with a number of commonly used pipeline technologies such as Jenkins, ElectricCloud, Urban Code Deploy, Xebialabs XLR etc. and you might even have your own homegrown solution. No matter what technology used, these steps are recommended to get started to adopt an automated pipeline.
 
 **Suggested list of activities to get started with automated pipelines**
 
@@ -676,3 +676,7 @@ There’s a lot more to successfully automating unit testing on the mainframe th
 We welcome your feedback as we continue to update this document alongside the continuous improvement of Topaz for Total Test with quarterly enhancements. To share your feedback on or ask a question about a best practice, please contact your Compuware account manager.
 
 For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE0MTkwMzM3ODIsMzk1MTc1NjgwLC0zMT
+YwNzk5MF19
+-->

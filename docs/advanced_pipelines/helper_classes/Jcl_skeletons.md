@@ -9,11 +9,14 @@ JCL skeletons in ISPF allow building mainframe jobs based on user input without 
 
 The skeleton JCL in our examples uses strings in brackets '<>' to identify placeholders which get substituted at runtime. Currently, these are fixed names and only these 'variables' can be used to substitute placeholders by concrete values.
 
-In total there are three pieces of JCL that get generated during runtime.
+In total there are three pieces of JCL that get generated during runtime:
+- Job card - JobCard.jcl
+- Delete temporary Dataset: deleteDs.skel
+- IEBCOPY job: iebcopy.skel
 
 ## A job card JobCard.jcl
 
-The file `JobCard.jcl` contains a job card that will be used for jobs that get submitted on the mainframe from the pipeline. This way job that get executed by pipeline automation can be distinguished (and executed under different rights) than the normal "user related" job JCL that gets stored with the Topaz for Total test projects.
+The file `JobCard.jcl` contains a job card that will be used for jobs that get submitted on the mainframe from the pipeline. This way jobs that are executed by pipeline automation can be distinguished (and executed under different rights) than the normal "user related" job JCL that gets stored with Topaz for Total test projects.
 The current version of the `JobCard.jcl` does not provide any pipeline specific variable substitution. Any valid JCL specific variable (e.g. `&SYSUID`) may still be used.
 
 ## Delete temporary Dataset deleteDs.skel
@@ -24,11 +27,11 @@ The purpose of this JCL is to submit a job that deletes a dataset. In the contex
 //DELETE DD DISP=(SHR,DELETE,DELETE),DSN=<clean_dsn>
 ```
 
-The placeholder `<clean_dsn>` will be replaced by a concrete dataset name during runtime.
+The placeholder `<clean_dsn>` will be replaced by a specified dataset name during runtime.
 
 ## IEBCOPY job iebcopy.skel
 
-The purpose of this JCL is to copy all members that have been identified a copybooks from the ISPW libraries to a temporary PDS. (These will then be downloaded by the ISPW PDS downloader.) The skeleton looks like this
+The purpose of this JCL is to copy all members that have been identified as copybooks in the ISPW libraries to a temporary PDS. (These will then be downloaded by the ISPW PDS downloader.) The skeleton looks like this
 
 ```
 //COPY    EXEC PGM=IEBCOPY
@@ -56,7 +59,7 @@ The placeholders are:
 
 ## List in IN DD statements iebcopyInDd.skel
 
-The purpose of this file is to provide a list of datasets to use a input datasets for the `iebcopy.skel` JCL. The skeleton looks like this and corresponds with the libraries used to story copybooks in the ISPW environment used for these examples
+The purpose of this file is to provide a list of datasets to use as input datasets for the `iebcopy.skel` JCL. The skeleton looks like this and corresponds with the libraries used to store copybooks in the ISPW environment used for these examples
 
 ```
 //IN1      DD DISP=SHR,DSN=SALESSUP.<ispw_application>.QA<ispw_path>.CPY
@@ -86,5 +89,9 @@ The purpose of this JCL skeleton is to delete all System and Test ID statistics 
 
 The placeholders are:
 
-- `<cc_sysname>` will be replaced by a Code Coverage system name
+- `<cc_sysname>` will be replaced by a Code Coverage System Name
 - `cc_test_id>` will be replaced Code Coverage Test ID
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbMTY0NTEwMDMyOCwtMTEzMDYzNzAxNiwtMT
+UzNDEzODY1Nl19
+-->

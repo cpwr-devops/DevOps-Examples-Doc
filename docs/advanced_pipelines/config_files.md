@@ -6,7 +6,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 The [Mainframe_CI_Pipeline_from_Shared_Lib](./readme.md#mainframe-ci-pipeline-from-shared-lib) uses two external files, storing configuration on the environment it is running in. Using Shared Library conventions, they reside in the `resources` folder of the Shared Library folder structure. There are two files stored in the subfolder `pipeline`. These two files will get read during initialization of the `PipelineConfig` class. For a detailed description of the parameters refer to [the pipeline parameters](./parameters.md).
 
-The values are stored as `parameter=value` pairs in records. Each record contains one pair. The parameter names must remain as they are. The values are processed a entered (trailing blanks will be ignored).
+The values are stored as `parameter=value` pairs in records. Each record contains one pair. The parameter names must remain as they are. The values are processed as entered (trailing blanks will be ignored).
 
 One additional file, containing [email addresses](../tool_configuration/readme.md), is controlled via the [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) plugin.
 
@@ -35,3 +35,6 @@ The example scenarios use GitHub to store Topaz for Total Test unit test project
 TTT_GIT_TARGET_BRANCH=xxx
 TTT_GIT_BRANCH=master
 ```
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE3MTM3ODM3MTddfQ==
+-->
