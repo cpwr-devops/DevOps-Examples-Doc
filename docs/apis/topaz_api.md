@@ -7,7 +7,7 @@ footer: MIT Licensed | Copyright © 2019 - Compuware
 
 The Topaz API is a Java library that can be used in Java applications to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs.
 
-If you are using the Topaz API for plug-ins meant to be run in a Topaz Workbench environment, you should use the [Topaz Workbench SDK](Topaz_Workbench_SDK.md) instead.
+If you are using the Topaz API for plug-ins meant to be run in a Topaz Workbench environment, you should use the [Topaz Workbench SDK](topaz_workbench_sdk.md) instead.
 
 The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
 
@@ -76,4 +76,4 @@ org.apache.commons.lang | 2.6.0 | 3rd party language utilities library
 
 ## Coding Examples
 
-[Topaz Workbench API Code Snippets](Topaz_Workbench_API_Code_Snippets.md) provides may useful examples on using the Topaz API. Though a few of the examples are specific for writing plug-ins running in a Topaz Workbench client, most of the examples are also applicable for writing Java applications.
+[Topaz Workbench SDK Code Snippets](topaz_workbench_api_code_snippets.md) provides may useful examples on using the Topaz API. Though a few of the examples are specific for writing plug-ins running in a Topaz Workbench client, most of the examples are also applicable for writing Java applications.
