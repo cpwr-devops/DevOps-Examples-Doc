@@ -5,11 +5,11 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Topaz Workbench SDK
 
-The Topaz Workbench SDK includes the Compuware Topaz Workbench and Topaz APIs as well as developer resources such as examples, an examples template, a PassTicket Extension template, code snippets, and Javadoc. The functionality of the SDK provides users with methods to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs. The [PassTicket Extension](./Passticket.md) template provides a starter Plug-in project for users to provide an implementation of PassTicket authentication to z/OS.
+The Topaz Workbench SDK includes the Compuware Topaz Workbench and Topaz APIs as well as developer resources such as examples, an examples template, a PassTicket Extension template, code snippets, and Javadoc. The functionality of the SDK provides users with methods to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs. The [PassTicket Extension](./passticket.md) template provides a starter Plug-in project for users to provide an implementation of PassTicket authentication to z/OS.
 
 Starting with the **19.5.1 release**, the Compuware Topaz Workbench API consists of two separate layers:
 
-* A base [Topaz API](./Topaz_API.md) that provides APIs to access the mainframe with no dependencies on Topaz Workbench components.  This allows the Topaz API to be used in non-eclipse based applications like CLIs or web based applications.  
+* A base [Topaz API](./topaz_api.md) that provides APIs to access the mainframe with no dependencies on Topaz Workbench components.  This allows the Topaz API to be used in non-eclipse based applications like CLIs or web based applications.  
 * The Topaz Workbench API provides access Host Connections configured in Topaz Workbench as well Topaz Workbench Host Connection Login dialog.  This allows eclipse plugins to be seemlessly integrated into Topaz Workbench.  
 
 For information about **migrating from the pre-19.5.1 release** of the now depreciated Host Services API to the new APIs, please see the [Migrating from Host Services to Topaz APIs](#migrating-from-host-services-api-to-topaz-apis) section.
