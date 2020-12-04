@@ -944,6 +944,54 @@ try {
 }
 ```
 
+## Defining a Generation Data Group
+
+In order to define a generation data group, you first must create the define generation data group parameters using a DefineGenerationDataGroupParametersBuilder. After creating your parameters, you can then define your generation data group using an IDatasetCommandProvider.
+
+To create define generation data group parameters using all defaults:
+
+```java
+IDefineGenerationDataGroupParameters parameters = DefineGenerationDataGroupParametersBuilder
+        .defaults().build();
+```
+
+To create define generation data group parameters while overriding some parameters:
+
+```java
+IDefineGenerationDataGroupParameters parameters = DefineGenerationDataGroupParametersBuilder
+        .defaults().setGenerationsLimit(50)
+        .setScratchOnEmpty(true, false).build();
+
+// alternatively:
+
+DefineGenerationDataGroupParametersBuilder builder = DefineGenerationDataGroupParametersBuilder
+        .defaults();
+builder.setGenerationsLimit(50);
+builder.setScratchOnEmpty(true, false);
+IDefineGenerationDataGroupParameters parameters = builder.build();
+```
+
+To define a generation data group:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+IDefineGenerationDataGroupParameters parameters = ...
+
+try {
+    commandProvider.defineGenerationDataGroup(generationDataGroupName,
+            parameters);
+} catch (GenerationDataGroupExistsException e) {
+    // the generation data group (or a like-named dataset) already
+    // exists
+    ...
+} catch (DefinitionFailedException e) {
+    // the definition failed - most likely because the user does not
+    // have the proper authority
+    ...
+}
+```
+
 ## Obtaining a JES Command Provider
 
 In order to perform various JES functions, a JES command provider must first be obtained.
