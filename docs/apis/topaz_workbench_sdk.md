@@ -35,40 +35,7 @@ The following are provided regarding API examples:
 
 The Compuware Topaz Workbench SDK provides an Example Launcher view with a set of API examples that can be launched by users. The Example Launcher view can be used to verify that the Compuware Topaz Workbench API is functioning correctly on a given host. A description of an example is provided within the Example Launcher view when the example is selected.
 
-The following set of API examples is provided within the Example Launcher view:
-
-* Hosts
-  * List Hosts
-  * Connect Using Credentials
-  * Connect Using UI User Credentials
-* Datasets
-  * Allocate a Dataset
-  * Allocate a Dataset Like Another Dataset
-  * Find a Single Dataset
-  * Find Multiple Datasets
-  * Fetch Dataset Characteristics
-  * Read a Sequential Dataset
-  * Write to a Sequential Dataset
-* Members
-  * Create a PDS Member Using a Command Provider
-  * Create a PDS Member Using a Dataset
-  * Delete a PDS Member Using a Command Provider
-  * Delete a PDS Member Using a Dataset
-  * Find a Single Member Using a Command Provider
-  * Find a Single Member Using a Dataset
-  * Find Multiple Members Using a Command Provider
-  * Find Multiple Members Using a Dataset
-  * Fetch Member Statistics
-  * Read a Member
-  * Write to a Member
-* JES
-  * Submit a Job
-  * Get a Job’s Status
-* User Programs
-  * Hello Mainframe
-  * Termination Listener
-
-In order to run one of the API examples listed above, either double-click on the example or select the example and click the `Run` button. Follow the prompts to complete execution of the example.
+In order to run one of the API examples, either double-click on the example or select the example and click the `Run` button. Follow the prompts to complete execution of the example.
 
 ## Examples Template
 
