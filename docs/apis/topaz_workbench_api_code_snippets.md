@@ -992,6 +992,112 @@ try {
 }
 ```
 
+## Obtaining one or more Generation Data Groups
+
+To retrieve a generation data group:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+
+// generationDataGroup will be null if it cannot be found
+IGenerationDataGroup generationDataGroup = commandProvider
+        .findGenerationDataGroup(generationDataGroupName);
+```
+
+To retrieve a list of generation data groups matching a filter:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupFilter = ...
+
+// generationDataGroups will be empty if no generation data groups match
+// the generation data group filter
+List<IGenerationDataGroup> generationDataGroups = commandProvider
+        .findGenerationDataGroups(generationDataGroupFilter);
+```
+
+## Obtaining one or more Generation Datasets
+
+To retrieve a specific generation dataset of a generation data group from an IDataSetCommandProvider:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if the generation data
+// group does not exist or a generation dataset does not exist for the
+// specified relative generation number
+IDataSet generationDataSet = commandProvider.findGenerationDataSet(
+        generationDataGroupName, relativeGenerationNumber);
+```
+
+To retrieve a specific generation dataset of a generation data group from an IGenerationDataGroup:
+
+```java
+IGenerationDataGroup generationDataGroup = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if a generation dataset
+// does not exist for the specified relative generation number
+IDataSet generationDataSet = generationDataGroup
+        .findGenerationDataSet(relativeGenerationNumber);
+```
+
+To retrieve a specific generation dataset of a generation data group, typed as an ISequentialDataSet, from an
+IDataSetCommandProvider:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if the generation data
+// group does not exist, or a generation sequential dataset does not
+// exist for the specified relative generation number
+ISequentialDataSet generationDataSet = commandProvider
+        .findGenerationSequentialDataSet(generationDataGroupName,
+                relativeGenerationNumber);
+```
+
+To retrieve a specific generation dataset of a generation data group, typed as an ISequentialDataSet, from an
+IGenerationDataGroup:
+
+```java
+IGenerationDataGroup generationDataGroup = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if a generation
+// sequential dataset does not exist for the specified relative
+// generation number
+ISequentialDataSet generationDataSet = generationDataGroup
+        .findGenerationSequentialDataSet(relativeGenerationNumber);
+```
+
+To retrieve a list of all generation datasets of a generation data group from an IDataSetCommandProvider:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+
+// generationDataSets will be empty if the generation data group does
+// not have any generation datasets
+List<IDataSet> generationDataSets = commandProvider
+        .fetchGenerationDataSets(generationDataGroupName);
+```
+
+To retrieve a list of all generation datasets of a generation data group from an IGenerationDataGroup:
+
+```java
+IGenerationDataGroup generationDataGroup = ...
+
+// generationDataSets will be empty if the generation data group does
+// not have any generation datasets
+List<IDataSet> generationDataSets = generationDataGroup
+        .fetchGenerationDataSets();
+```
+
 ## Obtaining a JES Command Provider
 
 In order to perform various JES functions, a JES command provider must first be obtained.
