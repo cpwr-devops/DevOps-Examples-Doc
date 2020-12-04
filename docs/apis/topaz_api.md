@@ -2,7 +2,7 @@
 footer: MIT Licensed | Copyright © 2019 - Compuware | © Copyright 2019, 2020 BMC Software, Inc.
 ---
 
-# Topaz API
+# Topaz Java API
 
 The Topaz API is a Java library that can be used in Java applications to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs.
 
