@@ -1,6 +1,5 @@
 ---
-title: Topaz Java API
-footer: MIT Licensed | Copyright © 2019 - Compuware
+footer: MIT Licensed | Copyright © 2019 - Compuware | © Copyright 2019, 2020 BMC Software, Inc.
 ---
 
 # Topaz API
@@ -9,7 +8,7 @@ The Topaz API is a Java library that can be used in Java applications to program
 
 If you are using the Topaz API for plug-ins meant to be run in a Topaz Workbench environment, you should use the [Topaz Workbench SDK](topaz_workbench_sdk.md) instead.
 
-The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
+The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.
 
 ## Version History
 

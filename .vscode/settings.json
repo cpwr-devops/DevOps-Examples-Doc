@@ -1,7 +1,11 @@
 {
     "git.ignoreLimitWarning": true,
     "cSpell.words": [
+        "abend",
+        "abended",
+        "compuware",
         "serializable",
+        "vsam",
         "webhooks"
     ]
 }

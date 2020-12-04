@@ -1,6 +1,5 @@
 ---
-title: Topaz Workbench SDK
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2018 - Compuware | © Copyright 2018, 2020 BMC Software, Inc.
 ---
 
 # Topaz Workbench SDK
