@@ -18,8 +18,8 @@ These are
 `IspwCLI.bat` | Used for the Git to ISPW integration
 `SCMDownloaderCLI.bat` | Allows interaction with the ISPW downloader to download sources from ISPW repositories, Endevor repositories or PDS 
 `SubmitJclCLI.bat` | Allows submitting JCL on the mainframe and retrieving the return code
-`TotalTestCLI.bat` | Allows execution of Topaz for Total Test unit test scenarios and suites.
-`TotalTestFTCLI.bat` | Allows execution of Topaz for Total Test functional/integration test scenarios and suites.
+`TotalTestFTCLI.bat` | Allows execution of Topaz for Total Test scenarios and suites. This includes Total Test scenarios (.scenario) as well as unit test scenarios (.testscenario)
+`TotalTestCLI.bat` | Deprecated. Use TotalTestFTCLI instead. Allows execution of Topaz for Total Test unit test scenarios and suites.
 
 ## Workspace
 
@@ -408,9 +408,251 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 "%CLIPath%"SubmitJclCLI.bat -host %host% -port %port% -id %user% -pass %pw% -code %codepage% -timeout "0" -data %workspace% -maxcc %maxcc% -jcl %jclFile%
 ```
 
-## Total Test Unit Test (TotalTestCLI.bat)
+## Total Test CLI (TotalTestFTCLI.bat)
+
+With the Topaz for Total Test CLI interface you can execute Total Test scenarios (.scenario files) as well as unit test scenarios (.testscenario files).
+There are many options for how you can execute test scenarios. You can specify a folder path and an environment ID or host+port, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Total Test server. You can also point to a specific test scenario or test suite. If you point to a test scenario file, the CLI will automatically generate a test suite and produce result for the suite similar to using a folder. The generated test suite will be placed in a Suites folder under the folder being executed, and the execution result and logs will be placed in the Output folder. In this way the CLI works similar to Topaz, and results can be found and looked at in a consistent way.
+The CLI will typically be used from a Continuous Integration server like Jenkins, where test scenario files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface.
+
+The CLI interface will generate a log file in the logs directory in the location specified by the workspace directory. This log file can be used to track down and understand issues in an execution.
+
+::: tip
+In releases prior to the 20.05.01 release you had to use the unit test CLI (described later) for testing unit test scenarios. This is not necessary anymore. The TotalTestFTCLI is the "One CLI" that can handle all test scenario executions and the unit test CLI has been deprecated.
+:::
+
+### Test using 'SQL Select' or 'SQL Update'
+When testing a Total Test scenario that contains one or more of the SQL Select or SQL Update elements, additional initial setup of the CLI installation must be done. These palette elements require DB2 jar files on the classpath for using JDBC to access DB2 on the mainframe, and these jar files must be available. By default the CLI looks for these jar files in \<install directory\>/dbDrivers. The user responsible for the CLI installation must create the directory and copy the customer specific DB2 jar files to this directory. Typically there are two jar files, one with the DB2 driver and one with the DB2 license. They are typically named db2jcc.jar and db2jcc_license_cisuz.jar.
+
+Optionally the user can specify the environment variable TTT\_DB\_DRIVERS_PATH. The variable must be set to the directory containing the user specific DB2 jar files.
+
+### CLI Arguments
+The CLI interface is executed from a Windows or Linux terminal by writing:
+`./TotalTestFTCLI.sh` or `TotalTestFTCLI.bat`
+This will show the help for using the CLI as illustrated below.
+
+```
+usage: TotalTestFTCLI
+ -a,--accounting-info <arg>                Optional job accounting
+                                           information. Use the accounting
+                                           information parameter to enter
+                                           an account number and any other
+                                           accounting information that
+                                           your installation requires.
+ -ccclear,--ccclearstats <arg>             Specifies whether the Code
+                                           Coverage repository statistics
+                                           should be cleared before
+                                           running the test. Valid values
+                                           are 'true' or 'false'. The
+                                           default value is 'true'.
+ -ccrepo,--ccrepository <arg>              The name of the Code Coverage
+                                           repository dataset. Must be
+                                           specified to enable Code
+                                           Coverage.
+ -ccsys,--ccsystem <arg>                   Code Coverage system. Must be
+                                           specified to enable Code
+                                           Coverage.
+ -cctid,--cctestid <arg>                   Code Coverage test id. Must be
+                                           specified to enable Code
+                                           Coverage.
+ -ces,--ces-url <arg>                      CES serve URL used for license
+                                           check
+ -cesp,--ces-password <arg>                CES server password
+ -cesu,--ces-userid <arg>                  CES server userid
+ -cfgdir,--configuration-directory <arg>   Path to the configuration
+                                           directory containing JCL
+                                           skeletons and properties. Only
+                                           used when the server option is
+                                           not used (running without
+                                           repository server)
+ -cid,--customerid <arg>                   Customer Id used for cloud
+                                           license check
+ -cju,--compare-junits                     Optional Indicates that JUnit
+                                           from this execution should be
+                                           compared to the baseline JUnit
+ -ctxvars,--context-variables <arg>        Context variables as ID/value
+                                           pairs in the form
+                                           "id1=value1,id2=value2"
+ -e,--environment <arg>                    Environment in which to execute
+                                           test scenarios
+ -f,--file <arg>                           File or folder path to the
+                                           Total Test .xactx file(s) to
+                                           execute. Can be absolute or
+                                           relative to the root-folder
+ -faip,--file-aid-service-ip <arg>         File-AID service Host/IP
+                                           address
+ -fap,--file-aid-service-port <arg>        File-AID service port
+ -faw,--file-aid-workspace <arg>           File-AID service workspace
+ -G,--copy-reports-to-report-folder        Copy SonarQube reports to the
+                                           report folder root.
+ -h,--halt-at-failure                      Halt the execution when first
+                                           test scenario fails
+ -help                                     print this message
+ -host,--host <arg>                        Host for connection
+ -j,--runner-jcl <arg>                     Unit test runner jcl location.
+                                           Only used when the -f parameter
+                                           points to a .testscenario file
+                                           that should be run with
+                                           hardcoded JCL
+ -l,--launcher <arg>                       Optional Launcher where the CLI
+                                           is called from. Used for
+                                           creating corrrect zAdviser
+                                           events. C=CLI (Default),
+                                           J=Jenkins, X=XebiaLabs
+ -log,--loglevel <arg>                     The logging level. Must be ERROR, WARNING, INFO, 
+                                           DEBUG, TRACE or ALL. The default is INFO.
+ -noju,--nojunit                           If specified, no JUnit file
+                                           will be created.
+ -norep,--noreport                         If specified, no report file
+                                           will be created for unit tests.
+ -nores,--noresult                         If specified, no result file
+                                           will be created for unit test.
+ -nosq,--nosonar                           If specified, no Sonarqube file
+                                           will be created.
+ -p,--password <arg>                       tso password
+ -pn,--program-names <arg>                 Comma separated list of program
+                                           names to be tested. Will only
+                                           include test scenarios that
+                                           have component under test
+                                           defined as one of these
+ -pnf,--program-names-file <arg>           Path to a json file containing
+                                           the program names to be tested.
+                                           Will only include test
+                                           scenarios that have component
+                                           under test defined in this json
+                                           file
+ -port,--port <arg>                        Port for connection
+ -r,--root-folder <arg>                    Optional path to the folder
+                                           containing the root of all
+                                           source. Is used to name test
+                                           scenarios with correct file
+                                           paths from the file structure.
+                                           If not defined, it will be set
+                                           to the same value as the file
+                                           parameter
+ -R,--recursive                            Recursively find all relevant
+                                           test scenarios
+ -S,--source-folder <arg>                  Optional file path to a folder
+                                           that contains source code of
+                                           tested programs. Default value
+                                           is 'cobol'. Is only used to set
+                                           the source path in code
+                                           coverage reports.
+ -s,--server <arg>                         Address to the CES Server, e.g.
+                                           https://server.topaztotaltest.c
+                                           om/totaltestapi/. Can be left
+                                           out which will result in no
+                                           repository usage
+ -sid,--siteid <arg>                       Site Id used for cloud license
+                                           check
+ -u,--userid <arg>                         tso userid
+ -U,--use-scenario-files                   Find scenario files instead of
+                                           context files and auto generate
+                                           a context file for the selected
+                                           environment for each scenario
+                                           found
+ -v,--sonar-version <arg>                  SonarQube version - either 5
+                                           or 6. Default value is 6
+ -x,--upload-result                        Upload result to server
+```
+The `--enviroment` (or the `--host` and `--port`) and the `--file` arguments are the primary ones, and the `--userid` and `--password` arguments for the TSO credential to be used. If the `--file` argument is relative, the `--root-folder` parameter is required. It is used to calculate the relative path to the folder being executed and this path is set at the result in the Functional Test server as the External Reference (if `--upload-result` option is used). Normally the root folder will be the folder to which files have been checked out from version control. With the Jenkins plugin the root folder will be set to the Jenkins workspace unless the `--file` path is absolute.
+SonarQube and JUnit output files are also generated and placed in the TTTSonar and TTTUnit directories relative to the root folder given in the `--root-folder` parameter.
+
+### Finding test scenarios
+The CLI will by default look for and use .context files. A context file contain all the necessary runtime information in order to execute the scenario file. From release 20.04.01 .context files are created both for Total Test scenario files as well as unit test scenario files. The context file contains the id of the environment/host connection on which test scenarios are to be executed. The `--environment` parameter value given to the CLI must match the environmentId defined in the context file. It is also possible to specify the host connection ip address and port instead of the environment id. In this way the CLI makes sure to only find and execute the test scenarios that have been used for a particular host connection / environment.
+It is possible to use the parameter `--use-scenario-files` to search for all .scenario files and use a default execution context created from the parameters given to the CLI. The parameter `--recursive` can be used to recursively traverse the folder structure under the `--file` path to search for test scenarios.
+Example on finding all context files recursively in the current directory
+```
+TotalTestFTCLI.bat --environment testenv --file . --recursive -s https://totaltest.xyz.com/totaltestapi/ -u XATUSER -p 123456
+```
+Same example, but using host and port instead of environment. Be aware that it will pick the first Batch environment from the repository server matching the host+port.
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 --file . --recursive -s https://totaltest.xyz.com/totaltestapi/ -u XATUSER -p 123456
+```
+Example of executing all test scenarios under the Accounting folder where a git repository, GitProject containing test cases have been checked out to the folder /test/ws.
+```
+TotalTestFTCLI.bat --environment testenv --root-folder /test/ws --file GitProject/Accounting --recursive --use-scenario-files -s https://totaltest.xyz.com/totaltestapi/  -u XATUSER -p 123456
+```
+
+### Executing unit test scenarios with specific runner JCL
+It is possible to run a unit test scenario file directly with the CLI similar to using the deprecated unit test CLI. With this approach it will be necessary to provide the runner JCL file to be used for the executed with the `--runner-jcl`, or `-j` option. In this way it is possible to execute old and new unit test scenarios "the old way" where hard coded runner JCL is used. When using dynamically generated JCL and load libraries provided through the context file, it will not be necessary to use the `--runner-jcl` option. However, both approaches can be used and its up to the user which approach to use.
+Example of executing a unit test scenario with hard coded runner.jcl
+```
+TotalTestFTCLI.bat --host 1.2.3.4 --port 19196 --file /a/b/Scenarios/test.testscenario --runner-jcl /a/b/JCL/runner.jcl -cfgdir /a/c/TotalTestConfiguration -u XATUSER -p 123456
+```
+
+::: warning IMPORTANT 
+In the 20.5.1 release, using the `--runner-jcl` parameter will require that the TotalTestConfiguration project to be present (option --configuration-directory or -cfgdir), or that the repository server is available (option --server or -s). This is actually a requirement for all CLI executions. In a future release this requirement will probably be removed when executing unit test scenarios directly with hard coded runner JCL to make it easier to setup the CLI execution since the information from the project/server in this use case is not required.
+:::
+
+### Using the Total Test repository server and CES with authentication
+When using the Total Test repository server and CES has user authorization enabled, it is necessary to specify the CES userid and password in order to access the server. This is done with the parameters `--ces-user` (`-cesu`) and `--ces-password` (`-cesp`).
+Example on command for CES with authorization
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 -cesu johnd -cesp 654321 --file . --recursive -s https://totaltest.xyz.com/totaltestapi/ -u XATUSER -p 123456
+```
+
+### Works with and without the Total Test repository server
+The CLI can be used to execute batch test scenarios for customers where the Total Test repository server has not been setup. In this case, the `--server` parameter is simply excluded. The environment id for which to execute is found in the hostconnections.tttcfg file located under the TotalTestConfiguration folder as the id for the connection. It is also possible, and easier, to simply specify the host and port with the `-host` and `-port` options. When the `--server` parameter is not specified, the CLI will expect the TotalTestConfiguration folder to be located under the `--root-folder` path. If it is located elsewhere, for instance on a shared folder on a Jenkins server, the parameter `--configuration-directory` can be used to give a path to the TotalTestConfiguration folder, including the folder name itself.
+Example of not using the repository and assuming that the TotalTestConfiguration folder is located in the current folder
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 testenv --file . --recursive -u XATUSER -p 123456
+```
+Example of not using the repository where a root path is given and another path to the TotalTestConfiguration folder. This could be a setup for a Jenkins server
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 --root-folder /testdata/jenkins/ws/ --configuration-directory /testdata/config/TotalTestConfiguration --file . --recursive -u XATUSER -p 123456
+```
+
+### Using Topaz for Enterprise Data
+If any of the test cases to be executed use the Topaz for Enterprise Data element, the CLI must setup the parameters required by TED. These include the `--ces-url` parameter and optionally the `--siteid` and `--customerid` if cloud licensing is used. Furthermore the File-AID services ip address and port (for the Connection Manager), and the File-AID workspace must be set by the parameters `--file-aid-service-ip`, `--file-aid-service-port`, and `--file-aid-workspace`.
+Example of not using the repository and assuming that the TotalTestConfiguration folder is located in the current folder
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 --root-folder /testdata/jenkins/ws/ --file . --ces-url http://ces.xyz.com --file-aid-service-ip 1.2.3.4 --file-aid-service-port 1234 --file-aid-workspace utils/fileaidws --recursive -u XATUSER -p 123456
+```
+The File-AID workspace can be copied from a Topaz workspace to where the CLI is to be used. The File-AID workspace directory is located in the .com.compuware.fileaid.ex folder under the workspace root. Default location is C:\Users\<userid>\Compuware\Workbench\workspace\.com.compuware.fileaid.ex.
+In the above example the absolute path to the File-AID workspace is /testdata/jenkins/ws/utils/fileaidws/, and this folder must contain the folder .com.compuware.fileaid.ex.
+
+### Intelligent test case execution
+The CLI can be used to intelligently selecting only the test scenarios related to specific programs. The program names to be tested can be given as a comma separated list of names to the `--program-names` parameter, or the `--program-names-file` parameter can be used to give a path to a json file containing the programs that have changed. The format of the json file is the same as ISPW can produce after a generate, and in this way a pipeline can be setup to get ISPW find programs that have changed and Total Test can then find the test cases to test.
+Format of the JSON file looks like below.
+``` JSON
+{
+  "version": "1.0.0",
+  "programs": [
+    {
+      "version": "1.0.0",
+      "programName": "XARISCAL",
+      "programLanguage": "COB",
+      "isImpact": true,
+      "application": "KTTA",
+      "stream": "CPWR",
+      "level": "DEV1"
+    }
+  ]
+}
+```
+
+Example of not using the repository and given programs names directly. If more than one name is given, the comma separated list must be inside "".
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 --file . --program-names "XARISCAL,XAPGMTST" --recursive -u XATUSER -p 123456
+```
+Example of not using the repository and given programs names through a json file.
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 --file . --program-names-file /testdata/jenkins/ws/changedPrograms.json --recursive -u XATUSER -p 123456
+```
+### Overriding Context parameters
+Several parameters can be added to the CLI command which will override the values set in the individual context files. This includes code coverage options, accounting info used to submit jobs, what result files that are generated and the log level.
+It is also possible to override context variables. Context variables are key/value pairs that have been setup by a user in the execution dialog and saved in the .context file. The context variables are available by the test engine and can be used to parameterize a test scenario. From the CLI, context variables can be provided by the user, and these will override the values in the .context files which will end up as variables in the test scenarios being executed.
+Example of providing two context variables level and customerId. Test scenarios that have been setup to use these parameters will get the values provided in the argument, i.e. level and 1234. The argument needs to be encapsulated by double quotes.
+```
+TotalTestFTCLI.bat -host 1.2.3.4 -port 16196 --file . --context-variables "level=PDSE,customerId=1234" --recursive -u XATUSER -p 123456
+```
+
+## Deprecated Total Test Unit Test CLI (TotalTestCLI.bat)
 
 The Total Test Unit Test CLI runs Total Test unit tests.  The test suite or scenario must have been defined in the Topaz for Total Test Unit Test Eclipse client. The command line tools expect a complete Topaz for Total Test Unit Test project structure.
+::: danger
+The Total Test Unit Test CLI has been deprecated and will be removed in a future release. Instead the TotalTestFTCLI.bat CLI, described before, should be used. It can handle execution of unit test scenarios as well as Total Test scenarios.
+:::
 
 ### Usage
 Executing unit test scenarios is done with the `TotalTestCLI.bat` file. The general syntax for using the `TotalTestCLI.bat` is 
@@ -692,210 +934,3 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 `-project` | -p | Path to the project folder. If provided, the result and report parameters can be omitted, and their file names will be automatically derived. This parameter has no default.
 `-fileencoding` | -fe | The character encoding to be used for output files. Defaults to UTF-8.
 `-save` | -s | Save output or not. Set to TRUE to write output, or FALSE for no output. When set to FALSE, no files will be created and the archive will not be updated. Defaults to TRUE.
-
-## Total Test Functional Test (TotalTestFTCLI.bat)
-
-With the Functional Test CLI interface you can specify a folder path and an environment ID, and the CLI interface will locate all relevant test scenario files in the folder, generate a test suite, execute this and optionally publish the results to the Total Test server. You can also point to a specific test scenario or test suite. If you point to a test scenario file, the CLI will automatically generate a test suite and produce result for the suite similar to using a folder. The generated test suite will be placed in a Suites folder under the folder being executed, and the execution result and logs will be placed in the Output folder. In this way the CLI works similar to Topaz, and results can be found and looked at in a consistent way.
-The CLI will typically be used from a Continuous Integration server like Jenkins, where source files have been checked out from the Version Control System. The same test scenarios that have been created and executed manually in Eclipse can now be executed automatically through the CLI interface.
-
-The CLI interface will generate a log file in the logs directory in the location specified by the workspace directory. This log file can be used to track down and understand issues in an execution.
-
-### Test using 'SQL Select' or 'SQL Update'
-These palette elements require DB2 jar files on the classpath for using JDBC to access DB2 on the mainframe, and these jar files must be available. By default the Functional Test CLI looks for these jar files in \<install directory\>/dbDrivers. The user must create the directory and copy the user specific DB2 jar files to this directory. Typically there are two jar files, one with the DB2 driver and one with the DB2 license. They are typically named db2jcc.jar and db2jcc_license_cisuz.jar.
-
-Optionally the user can specify the environment variable TTT\_DB\_DRIVERS_PATH. The variable must be set to the directory containing the user specific DB2 jar files.
-
-### CLI Arguments
-The CLI interface is executed from a Windows or Linux terminal by writing:
-`./TotalTestFTCLI.sh` or `TotalTestFTCLI.bat`
-This will show the help for using the CLI as illustrated below.
-
-```
-usage: TotalTestFTCLI
- -a,--accounting-info <arg>                Optional job accounting
-                                           information. Use the accounting
-                                           information parameter to enter
-                                           an account number and any other
-                                           accounting information that
-                                           your installation requires.
- -ccclear,--ccclearstats <arg>             Specifies whether the Code
-                                           Coverage repository statistics
-                                           should be cleared before
-                                           running the test. Valid values
-                                           are 'true' or 'false'. The
-                                           default value is 'true'.
- -ccrepo,--ccrepository <arg>              The name of the Code Coverage
-                                           repository dataset. Must be
-                                           specified to enable Code
-                                           Coverage.
- -ccsys,--ccsystem <arg>                   Code Coverage system. Must be
-                                           specified to enable Code
-                                           Coverage.
- -cctid,--cctestid <arg>                   Code Coverage test id. Must be
-                                           specified to enable Code
-                                           Coverage.
- -ces,--ces-url <arg>                      CES serve URL used for license
-                                           check
- -cfgdir,--configuration-directory <arg>   Path to the configuration
-                                           directory containing JCL
-                                           skeletons and properties. Only
-                                           used when the server option is
-                                           not used (running without
-                                           repository server)
- -cid,--customerid <arg>                   Customer Id used for cloud
-                                           license check
- -cju,--compare-junits                     Optional Indicates that JUnit
-                                           from this execution should be
-                                           compared to the baseline JUnit
- -e,--environment <arg>                    Environment in which to execute
-                                           test scenarios
- -f,--file <arg>                           File or folder path to the
-                                           Total Test .xactx file(s) to
-                                           execute. Can be absolute or
-                                           relative to the root-folder
- -faip,--file-aid-service-ip <arg>         File-AID service Host/IP
-                                           address
- -fap,--file-aid-service-port <arg>        File-AID service port
- -faw,--file-aid-workspace <arg>           File-AID service workspace
- -G,--copy-reports-to-report-folder        Copy SonarQube reports to the
-                                           report folder root.
- -h,--halt-at-failure                      Halt the execution when first
-                                           test scenario fails
- -help                                     print this message
- -l,--launcher <arg>                       Optional Launcher where the CLI
-                                           is called from. Used for
-                                           creating corrrect zAdviser
-                                           events. C=CLI (Default),
-                                           J=Jenkins, X=XebiaLabs
- -log,--loglevel <arg>                     The logging level. Must be ERROR, WARNING, INFO, 
-                                           DEBUG, TRACE or ALL. The default is INFO.
- -noju,--nojunit                           If specified, no JUnit file
-                                           will be created.
- -norep,--noreport                         If specified, no report file
-                                           will be created for unit tests.
- -nores,--noresult                         If specified, no result file
-                                           will be created for unit test.
- -nosq,--nosonar                           If specified, no Sonarqube file
-                                           will be created.
- -p,--password <arg>                       tso password
- -pn,--program-names <arg>                 Comma separated list of program
-                                           names to be tested. Will only
-                                           include test scenarios that
-                                           have component under test
-                                           defined as one of these
- -pnf,--program-names-file <arg>           Path to a json file containing
-                                           the program names to be tested.
-                                           Will only include test
-                                           scenarios that have component
-                                           under test defined in this json
-                                           file
- -r,--root-folder <arg>                    Optional path to the folder
-                                           containing the root of all
-                                           source. Is used to name test
-                                           scenarios with correct file
-                                           paths from the file structure.
-                                           If not defined, it will be set
-                                           to the same value as the file
-                                           parameter
- -R,--recursive                            Recursively find all relevant
-                                           test scenarios
- -S,--source-folder <arg>                  Optional file path to a folder
-                                           that contains source code of
-                                           tested programs. Default value
-                                           is 'cobol'. Is only used to set
-                                           the source path in code
-                                           coverage reports.
- -s,--server <arg>                         Address to the CES Server, e.g.
-                                           https://server.topaztotaltest.c
-                                           om/totaltestapi/. Can be left
-                                           out which will result in no
-                                           repository usage
- -sid,--siteid <arg>                       Site Id used for cloud license
-                                           check
- -u,--userid <arg>                         tso userid
- -U,--use-scenario-files                   Find scenario files instead of
-                                           context files and auto generate
-                                           a context file for the selected
-                                           environment for each scenario
-                                           found
- -v,--sonar-version <arg>                  SonarQube version - either 5
-                                           or 6. Default value is 6
- -x,--upload-result                        Upload result to server
-```
-The `--enviroment` and the `--file` arguments are the primary ones, and the `--userid` and `--password` arguments for the TSO credential to be used. If the `--file` argument is relative, the `--root-folder` parameter is required. It is used to calculate the relative path to the folder being executed and this path is set at the result in the Functional Test server as the External Reference (if `--upload-result` option is used). Normally the root folder will be the folder to which files have been checked out from version control. With the Jenkins plugin the root folder will be set to the Jenkins workspace unless the `--file` path is absolute.
-SonarQube and JUnit output files are also generated and placed in the TTTSonar and TTTUnit directories relative to the root folder given in the `--root-folder` parameter.
-
-### Finding test scenarios
-The CLI will by default look for and use .context files. A context file contain all the necessary runtime information in order to execute the scenario file. It contains the id of the environment/host connection on which test scenarios are to be executed. The `--environment` parameter value given to the CLI must match the environmentId defined in the context file. In this way the CLI makes sure to only find and execute the test scenarios that have been used for a particular host connection / environment.
-It is possible to use the parameter `--use-scenario-files` to search for all .scenario files and use a default execution context created from the parameters given to the CLI. The parameter `--recursive` can be used to recursively traverse the folder structure under the `--file` path to search for test scenarios.
-Example on finding all context files recursively in the current directory
-```
-TotalTestFTCLI.bat --environment testenv --file . --recursive -s https://totaltest.xyz.com/totaltestapi/ -u XATUSER -p 123456
-```
-Example of executing all test scenarios under the Accounting folder where a git repository, GitProject containing test cases have been checked out to the folder /test/ws.
-```
-TotalTestFTCLI.bat --environment testenv --root-folder /test/ws --file GitProject/Accounting --recursive --use-scenario-files -s https://totaltest.xyz.com/totaltestapi/  -u XATUSER -p 123456
-```
-
-### Works with and without the Total Test repository server
-The CLI can be used to execute batch test scenarios for customers where the Total Test repository server has not been setup. In this case, the `--server` parameter is simply excluded. The environment id for which to execute is found in the hostconnections.tttcfg file located under the TotalTestConfiguration folder as the id for the connection. When the `--server` parameter is not specified, the CLI will expect the TotalTestConfiguration folder to be located under the `--root-folder` path. If it is located elsewhere, for instance on a shared folder on a Jenkins server, the parameter `--configuration-directory` can be used to give a path to the TotalTestConfiguration folder, including the folder name itself.
-Example of not using the repository and assuming that the TotalTestConfiguration folder is located in the current folder
-```
-TotalTestFTCLI.bat --environment testenv --file . --recursive -u XATUSER -p 123456
-```
-Example of not using the repository where a root path is given and another path to the TotalTestConfiguration folder. This could be a setup for a Jenkins server
-```
-TotalTestFTCLI.bat --environment testenv --root-folder /testdata/jenkins/ws/ --configuration-directory /testdata/config/TotalTestConfiguration --file . --recursive -u XATUSER -p 123456
-```
-
-### Using Topaz for Enterprise Data
-If any of the test cases to be executed use the Topaz for Enterprise Data element, the CLI must setup the parameters required by TED. These include the `--ces-url` parameter and optionally the `--siteid` and `--customerid` if cloud licensing is used. Furthermore the File-AID services ip address and port (for the Connection Manager), and the File-AID workspace must be set by the parameters `--file-aid-service-ip`, `--file-aid-service-port`, and `--file-aid-workspace`.
-Example of not using the repository and assuming that the TotalTestConfiguration folder is located in the current folder
-```
-TotalTestFTCLI.bat --environment testenv --root-folder /testdata/jenkins/ws/ --file . --ces-url http://ces.xyz.com --file-aid-service-ip 1.2.3.4 --file-aid-service-port 1234 --file-aid-workspace utils/fileaidws --recursive -u XATUSER -p 123456
-```
-The File-AID workspace can be copied from a Topaz workspace to where the CLI is to be used. The File-AID workspace directory is located in the .com.compuware.fileaid.ex folder under the workspace root. Default location is C:\Users\<userid>\Compuware\Workbench\workspace\.com.compuware.fileaid.ex.
-In the above example the absolute path to the File-AID workspace is /testdata/jenkins/ws/utils/fileaidws/, and this folder must contain the folder .com.compuware.fileaid.ex.
-
-### Intelligent test case execution
-The CLI can be used to intelligently selecting only the test scenarios related to specific programs. The program names to be tested can be given as a comma separated list of names to the `--program-names` parameter, or the `--program-names-file` parater can be used to give a path to a json file containing the programs that have changed. The format of the json file is the same as ISPW can produce after a generate, and in this way a pipeline can be setup to get ISPW find programs that have changed and Total Test can then find the test cases to test.
-Format of the JSON file looks like below.
-``` JSON
-{
-  "version": "1.0.0",
-  "programs": [
-    {
-      "version": "1.0.0",
-      "programName": "XARISCAL",
-      "programLanguage": "COB",
-      "isImpact": true,
-      "application": "KTTA",
-      "stream": "CPWR",
-      "level": "DEV1",
-      "lifeCycleLoadModules": [
-        {
-          "loadModName": "XARISCAL",
-          "loadLibName": "CM.KTTADEV.DEV1.LOAD",
-          "componentType": "LOAD",
-          "loadLibConcatenation": [
-            "CM.KTTADEV.DEV1.LOAD",
-            "CM.KTTADEV.HLD1.LOAD"
-          ]
-        }
-      ],
-      "deployTargetLoadModules": []
-    }
-  ]
-}
-```
-
-Example of not using the repository and given programs names directly. If more than one name is given, the comma separated list must be inside "".
-```
-TotalTestFTCLI.bat --environment testenv --file . --program-names "XARISCAL,XAPGMTST" --recursive -u XATUSER -p 123456
-```
-Example of not using the repository and given programs names through a json file.
-```
-TotalTestFTCLI.bat --environment testenv --file . --program-names-file /testdata/jenkins/ws/changedPrograms.json --recursive -u XATUSER -p 123456
-```
-### Overriding Context parameters
-Several parameters can be added to the CLI command which will override the values set in the individual context files. This includes code coverage options, accounting info used to submit jobs, what result files that are generated and the log level
