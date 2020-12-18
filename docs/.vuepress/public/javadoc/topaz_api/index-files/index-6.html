@@ -76,6 +76,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">z/OS record format of "FA" (fixed-length, American Standards Association print-control characters).</div>
 </dd>
+<dt><span class="memberNameLink"><a href="../com/compuware/api/topaz/jes/ExecutionStatus.html#FAILED_IN_END_OF_MEMORY">FAILED_IN_END_OF_MEMORY</a></span> - com.compuware.api.topaz.jes.<a href="../com/compuware/api/topaz/jes/ExecutionStatus.html" title="enum in com.compuware.api.topaz.jes">ExecutionStatus</a></dt>
+<dd>
+<div class="block">JES execution status for a job that failed in "end of memory".</div>
+</dd>
 <dt><span class="memberNameLink"><a href="../com/compuware/api/topaz/hostresources/zos/RecordFormat.html#FB">FB</a></span> - com.compuware.api.topaz.hostresources.zos.<a href="../com/compuware/api/topaz/hostresources/zos/RecordFormat.html" title="enum in com.compuware.api.topaz.hostresources.zos">RecordFormat</a></dt>
 <dd>
 <div class="block">z/OS record format of "FB" (fixed-length, blocked).</div>
@@ -162,6 +166,18 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns a specific generation dataset, typed as an <a href="../com/compuware/api/topaz/hostresources/zos/ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>ISequentialDataSet</code></a>, from the specified generation data group if it can be
  found on the associated z/OS host.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/compuware/api/topaz/jes/IJESCommandProvider.html#findJobs(java.lang.String,java.lang.String)">findJobs(String, String)</a></span> - Method in interface com.compuware.api.topaz.jes.<a href="../com/compuware/api/topaz/jes/IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes">IJESCommandProvider</a></dt>
+<dd>
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/compuware/api/topaz/jes/IJESCommandProvider.html#findJobs(java.lang.String,java.lang.String,int)">findJobs(String, String, int)</a></span> - Method in interface com.compuware.api.topaz.jes.<a href="../com/compuware/api/topaz/jes/IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes">IJESCommandProvider</a></dt>
+<dd>
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter.</div>
+</dd>
+<dt><span class="memberNameLink"><a href="../com/compuware/api/topaz/jes/IJESCommandProvider.html#findJobs(java.lang.String,java.lang.String,int,boolean,boolean)">findJobs(String, String, int, boolean, boolean)</a></span> - Method in interface com.compuware.api.topaz.jes.<a href="../com/compuware/api/topaz/jes/IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes">IJESCommandProvider</a></dt>
+<dd>
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter that are on one of the specified JES queues.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="../com/compuware/api/topaz/hostresources/zos/IPartitionedDataSet.html#findMember(java.lang.String)">findMember(String)</a></span> - Method in interface com.compuware.api.topaz.hostresources.zos.<a href="../com/compuware/api/topaz/hostresources/zos/IPartitionedDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSet</a></dt>
 <dd>
