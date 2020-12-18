@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6};
+<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -254,17 +254,19 @@ loadScripts(document, 'script');</script>
  </pre>
  
  For examples on how to connect to a z/OS host with an <code>IZOSHostConnection</code> see <a href="../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos"><code>IZOSHostConnection</code></a>.<br>
+ For examples on how to retrieve <code>IJob</code>s see <a href="IJob.html" title="interface in com.compuware.api.topaz.jes"><code>IJob</code></a>.<br>
  For examples on how to retrieve <code>ISequentialDataSet</code>s see <a href="../hostresources/zos/ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>ISequentialDataSet</code></a>.<br>
  For examples on how to retrieve <code>IPartitionedDataSetMember</code>s see <a href="../hostresources/zos/IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IPartitionedDataSetMember</code></a>.</div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.0.0</dd>
 <dt><span class="simpleTagLabel">Version:</span></dt>
-<dd>2.0.0</dd>
+<dd>2.2.0</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos"><code>IZOSHostConnection</code></a>, 
 <a href="../hostresources/zos/ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>ISequentialDataSet</code></a>, 
 <a href="../hostresources/zos/IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IPartitionedDataSetMember</code></a>, 
+<a href="IJob.html" title="interface in com.compuware.api.topaz.jes"><code>IJob</code></a>, 
 <a href="JobInfo.html" title="class in com.compuware.api.topaz.jes"><code>JobInfo</code></a>, 
 <a href="JobStatus.html" title="enum in com.compuware.api.topaz.jes"><code>JobStatus</code></a></dd>
 <dt><span class="simpleTagLabel">Restriction:</span></dt>
@@ -294,20 +296,48 @@ loadScripts(document, 'script');</script>
 </thead>
 <tbody>
 <tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IJob.html" title="interface in com.compuware.api.topaz.jes">IJob</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findJobs(java.lang.String,java.lang.String)">findJobs</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jobNameFilter,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;ownerFilter)</code></th>
+<td class="colLast">
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IJob.html" title="interface in com.compuware.api.topaz.jes">IJob</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findJobs(java.lang.String,java.lang.String,int)">findJobs</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jobNameFilter,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;ownerFilter,
+int&nbsp;jesLimit)</code></th>
+<td class="colLast">
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter.</div>
+</td>
+</tr>
+<tr class="altColor" id="i2">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IJob.html" title="interface in com.compuware.api.topaz.jes">IJob</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findJobs(java.lang.String,java.lang.String,int,boolean,boolean)">findJobs</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jobNameFilter,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;ownerFilter,
+int&nbsp;jesLimit,
+boolean&nbsp;includePrintQueue,
+boolean&nbsp;includeExecutionQueue)</code></th>
+<td class="colLast">
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter that are on one of the specified JES queues.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i3">
 <td class="colFirst"><code><a href="JobStatus.html" title="enum in com.compuware.api.topaz.jes">JobStatus</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJobStatus(com.compuware.api.topaz.jes.JobInfo)">getJobStatus</a></span>&#8203;(<a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a>&nbsp;jobInfo)</code></th>
 <td class="colLast">
 <div class="block">Retrieves the current status of the job with the specified job information.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i1">
+<tr class="altColor" id="i4">
 <td class="colFirst"><code><a href="../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos">IZOSHostConnection</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getZOSHostConnection()">getZOSHostConnection</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the z/OS host connection associated with this command provider.</div>
 </td>
 </tr>
-<tr class="altColor" id="i2">
+<tr class="rowColor" id="i5">
 <td class="colFirst"><code><a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submit(com.compuware.api.topaz.hostresources.zos.IPartitionedDataSetMember)">submit</a></span>&#8203;(<a href="../hostresources/zos/IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a>&nbsp;member)</code></th>
 <td class="colLast">
@@ -315,14 +345,14 @@ loadScripts(document, 'script');</script>
  associated job.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i3">
+<tr class="altColor" id="i6">
 <td class="colFirst"><code><a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submit(com.compuware.api.topaz.hostresources.zos.ISequentialDataSet)">submit</a></span>&#8203;(<a href="../hostresources/zos/ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">ISequentialDataSet</a>&nbsp;sequentialDataSet)</code></th>
 <td class="colLast">
 <div class="block">Submits the content of the specified sequential dataset as JCL and returns information about the associated job.</div>
 </td>
 </tr>
-<tr class="altColor" id="i4">
+<tr class="rowColor" id="i7">
 <td class="colFirst"><code><a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submit(java.lang.String)">submit</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sequentialDataSetName)</code></th>
 <td class="colLast">
@@ -330,7 +360,7 @@ loadScripts(document, 'script');</script>
  job.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i5">
+<tr class="altColor" id="i8">
 <td class="colFirst"><code><a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submit(java.lang.String,java.lang.String)">submit</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
 <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -339,7 +369,7 @@ loadScripts(document, 'script');</script>
  returns information about the associated job.</div>
 </td>
 </tr>
-<tr class="altColor" id="i6">
+<tr class="rowColor" id="i9">
 <td class="colFirst"><code><a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#submit(java.util.List)">submit</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&gt;&nbsp;jclRecords)</code></th>
 <td class="colLast">
@@ -552,6 +582,135 @@ loadScripts(document, 'script');</script>
 <a href="#submit(com.compuware.api.topaz.hostresources.zos.ISequentialDataSet)"><code>submit(ISequentialDataSet)</code></a>, 
 <a href="#submit(java.lang.String)"><code>submit(String)</code></a>, 
 <a href="#submit(java.util.List)"><code>submit(List)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="findJobs(java.lang.String,java.lang.String)">findJobs</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IJob.html" title="interface in com.compuware.api.topaz.jes">IJob</a>&gt;</span>&nbsp;<span class="memberName">findJobs</span>&#8203;(<span class="arguments"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jobNameFilter,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;ownerFilter)</span></div>
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter. This method will return all matching jobs on
+ both <a href="JesQueue.html#PRINT"><code>PRINT</code></a> and <a href="JesQueue.html#EXECUTION"><code>EXECUTION</code></a> JES queues with no JES limit.
+ <p>
+ An empty list will be returned if no jobs match the specified criteria.
+ <p>
+ A job name filter or an owner filter must be specified. Both may be specified.
+ <p>
+ Both job name and owner filters can use "*" to match any string of characters.
+ <p>
+ Examples:
+ 
+ <pre>
+ "ABC*" will match on anything that starts with "ABC"
+ "*DEF" will match on anything that ends with "DEF"
+ "*XYZ*" will match on anything that contains "XYZ"
+ "*" will match anything
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jobNameFilter</code> - the job name filter</dd>
+<dd><code>ownerFilter</code> - the owner filter</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the list of matching jobs</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if both <code>jobNameFilter</code> and <code>ownerFilter</code> is <code>null</code> or empty</dd>
+<dd><code><a href="../hosts/zos/ZOSSystemException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSSystemException</a></code> - if a z/OS system error occurs</dd>
+<dd><code><a href="../hosts/zos/ZOSAbendException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSAbendException</a></code> - if a z/OS ABEND occurs</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.2.0</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#findJobs(java.lang.String,java.lang.String,int)"><code>findJobs(String, String, int)</code></a>, 
+<a href="#findJobs(java.lang.String,java.lang.String,int,boolean,boolean)"><code>findJobs(String, String, int, boolean, boolean)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="findJobs(java.lang.String,java.lang.String,int)">findJobs</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IJob.html" title="interface in com.compuware.api.topaz.jes">IJob</a>&gt;</span>&nbsp;<span class="memberName">findJobs</span>&#8203;(<span class="arguments"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jobNameFilter,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;ownerFilter,
+int&nbsp;jesLimit)</span></div>
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter. This method will return all matching jobs on
+ both <a href="JesQueue.html#PRINT"><code>PRINT</code></a> and <a href="JesQueue.html#EXECUTION"><code>EXECUTION</code></a> JES queues.
+ <p>
+ An empty list will be returned if no jobs match the specified criteria.
+ <p>
+ A job name filter or an owner filter must be specified. Both may be specified.
+ <p>
+ Both job name and owner filters can use "*" to match any string of characters.
+ <p>
+ Examples:
+ 
+ <pre>
+ "ABC*" will match on anything that starts with "ABC"
+ "*DEF" will match on anything that ends with "DEF"
+ "*XYZ*" will match on anything that contains "XYZ"
+ "*" will match anything
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jobNameFilter</code> - the job name filter</dd>
+<dd><code>ownerFilter</code> - the owner filter</dd>
+<dd><code>jesLimit</code> - the max JES limit of how many jobs to return (use 0 to indicate no limit)</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the list of matching jobs</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if both <code>jobNameFilter</code> and <code>ownerFilter</code> is <code>null</code> or empty, or if
+             <code>jesLimit</code> is less than 0</dd>
+<dd><code><a href="../hosts/zos/ZOSSystemException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSSystemException</a></code> - if a z/OS system error occurs</dd>
+<dd><code><a href="../hosts/zos/ZOSAbendException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSAbendException</a></code> - if a z/OS ABEND occurs</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.2.0</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#findJobs(java.lang.String,java.lang.String)"><code>findJobs(String, String)</code></a>, 
+<a href="#findJobs(java.lang.String,java.lang.String,int,boolean,boolean)"><code>findJobs(String, String, int, boolean, boolean)</code></a></dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="findJobs(java.lang.String,java.lang.String,int,boolean,boolean)">findJobs</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IJob.html" title="interface in com.compuware.api.topaz.jes">IJob</a>&gt;</span>&nbsp;<span class="memberName">findJobs</span>&#8203;(<span class="arguments"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;jobNameFilter,
+<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;ownerFilter,
+int&nbsp;jesLimit,
+boolean&nbsp;includePrintQueue,
+boolean&nbsp;includeExecutionQueue)</span></div>
+<div class="block">Returns the list of jobs that match the specified job name filter and/or owner filter that are on one of the specified JES queues.
+ <p>
+ An empty list will be returned if no jobs match the specified criteria.
+ <p>
+ A job name filter or an owner filter must be specified. Both may be specified.
+ <p>
+ Both job name and owner filters can use "*" to match any string of characters.
+ <p>
+ Examples:
+ 
+ <pre>
+ "ABC*" will match on anything that starts with "ABC"
+ "*DEF" will match on anything that ends with "DEF"
+ "*XYZ*" will match on anything that contains "XYZ"
+ "*" will match anything
+ </pre></div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>jobNameFilter</code> - the job name filter</dd>
+<dd><code>ownerFilter</code> - the owner filter</dd>
+<dd><code>jesLimit</code> - the max JES limit of how many jobs to return (use 0 to indicate no limit)</dd>
+<dd><code>includePrintQueue</code> - <code>true</code> to include jobs on the print queue, otherwise <code>false</code></dd>
+<dd><code>includeExecutionQueue</code> - <code>true</code> to include jobs on the execution queue, otherwise <code>false</code></dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the list of matching jobs</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if both <code>jobNameFilter</code> and <code>ownerFilter</code> are <code>null</code> or empty, if <code>jesLimit</code>
+             is less than 0, or if both <code>includePrintQueue</code> and <code>includeExecutionQueue</code> are <code>false</code></dd>
+<dd><code><a href="../hosts/zos/ZOSSystemException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSSystemException</a></code> - if a z/OS system error occurs</dd>
+<dd><code><a href="../hosts/zos/ZOSAbendException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSAbendException</a></code> - if a z/OS ABEND occurs</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.2.0</dd>
+<dt><span class="seeLabel">See Also:</span></dt>
+<dd><a href="#findJobs(java.lang.String,java.lang.String)"><code>findJobs(String, String)</code></a>, 
+<a href="#findJobs(java.lang.String,java.lang.String,int)"><code>findJobs(String, String, int)</code></a></dd>
 </dl>
 </section>
 </li>
