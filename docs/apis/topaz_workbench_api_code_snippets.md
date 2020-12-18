@@ -1247,6 +1247,49 @@ JobInfo jobInfo = ...
 JobStatus jobStatus = commandProvider.getJobStatus(jobInfo);
 ```
 
+## Obtaining one or more Jobs
+
+To retrieve a list of jobs matching a job name filter and/or an owner filter:
+
+```java
+IJESCommandProvider commandProvider = ...
+String jobNameFilter = ...
+String ownerFilter = ...
+
+// jobs will be empty if no jobs match the filters
+List<IJob> jobs = commandProvider.findJobs(jobNameFilter, ownerFilter);
+```
+
+To retrieve a list of jobs matching a job name filter and/or an owner filter with a JES limit:
+
+```java
+IJESCommandProvider commandProvider = ...
+String jobNameFilter = ...
+String ownerFilter = ...
+int jesLimit = ...
+
+// jobs will be empty if no jobs match the filters
+// the number of returned jobs will be limited by jesLimit
+List<IJob> jobs = commandProvider.findJobs(jobNameFilter, ownerFilter,
+        jesLimit);
+```
+
+To retrieve a list of jobs matching a job name filter and/or an owner filter on a specific JES queue:
+
+```java
+IJESCommandProvider commandProvider = ...
+String jobNameFilter = ...
+String ownerFilter = ...
+int jesLimit = ...
+boolean includePrintQueue = ...
+boolean includeExecutionQueue = ...
+
+// jobs will be empty if no jobs match the filters and JES queue
+// the number of returned jobs will be limited by jesLimit
+List<IJob> jobs = commandProvider.findJobs(jobNameFilter, ownerFilter,
+        jesLimit, includePrintQueue, includeExecutionQueue);
+```
+
 ## Launching a z/OS User Program
 
 In order to communicate with a z/OS user program, the program must first be launched.
