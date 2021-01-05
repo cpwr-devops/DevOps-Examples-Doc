@@ -1,5 +1,5 @@
 ---
-pntitle: Git to ISPW Integration Tutorial
+spntitle: Git to ISPW Integration Tutorial
 footer: MIT Licensed | Copyright © 2020 – Compuware
 ---
 # Git to ISPW Integration Tutorial
@@ -28,7 +28,7 @@ Topaz Workbench 20.01.01:
  Jenkins version 2.190.3:
  Topaz Workbench CLI version 20.01.01
  Compuware Common Configurations Jenkins plugin 1.0.10-SNAPSHOT
- ISPW Operations Jenkins plugin 1.0.5-SNAPSHOT
+ ISPW Operations Jenkins plugin 1.0.8-SNAPSHOT
 
  Atlassian Bitbucket v5.16.0
 
@@ -141,7 +141,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 1. In Topaz Workbench’s **Project Explorer** view, right-click the **GitPlay** project node and select **Configure>Configure to Use ISPW**. The **Configure ISPW and GIT Mapping** wizard appears.
 
-2. From the **Host** list, select the host where the PLAY application is located, or click **Configure** to configure a host.
+2. From the **Host** list, select the host where the PLAY application is located, or click **Configure** to configure a host. Compuware recommends using the fully qualified domain name when configuring the host.
 
 3. In the **Runtime Configuration** field, enter the runtime configuration if not using the default ISPW instance.
 
@@ -168,7 +168,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
          ,,,   !!com.compuware.ispw.cli.model.IspwRoot
              ispwApplication:
                application: PLAY
-               host: abcd
+               host: somehost.example.com
                pathMappings:
                - path: \CLST
              types:
@@ -275,8 +275,7 @@ node {
 	consoleLogResponseBody: true, 
 	credentialsId: 'CES20.1Conn', 
 	ispwAction: 'BuildAssignment', 
-	ispwRequestBody: '''assignmentId=PLAY003145
-	level=DEV1
+	ispwRequestBody: '''buildautomatically = true
 	'''
   }
 }
@@ -314,7 +313,7 @@ node {
    ![gitToIspwIntegration3](../images/gitToIspwIntegration3.png)
 
 
-   **Note:** If any user ID or login credentials are present at the beginning of the Git repository URL, remove them. 
+   **Note:** For ISPW Operations Jenkins plugin 1.0.7 or older, if any user ID or login credentials are present at the beginning of the Git repository URL, remove them. 
 
 9. Copy and paste the generated script within the second stage in the text file, replacing all code between the curly braces for that stage.
 
@@ -329,17 +328,14 @@ node {
 12. In the **Request** field, specify the following:
 
     ```
-    assignmentId=PLAY003145
-    level=DEV1
+    buildautomatically=true
     ```
-
-    **Note:** In a later step, a new **assignmentId** will be used for the pipeline. It isn’t known at this time, so leave the assignment ID as is.
-
+    
 13. Complete the rest of the fields, referring to the available help as needed. 
 
 14. Click **Generate Pipeline Script**. The generated script appears below the **Generate Pipeline Script** button. 
 
-    ![ispwOperationScript](../images/ispwOperationScript.png)
+    ![ispwOperationScript](../images/index.png)
 
     
 
@@ -446,14 +442,14 @@ node {
 
     ![ConsoleViewBuild](../images/ConsoleViewBuild.png)
 
-7. In the **Console** view, note the assignment where TPROG01 was loaded. This is the assignment number that will be specified for the build in the Jenkinsfile **Build ISPW** stage below. In the example above, TPROG01 was loaded into assignment PLAY003136 at the DEV1 level.
+7. In the **Console** view, note the assignment where TPROG01 was loaded. In the example above, TPROG01 was loaded into assignment PLAY003136 at the DEV1 level.
     <a id="_4-update-the-jenkinsfile-build-ispw-assignment-stage"></a>
 
 #### **Update the Jenkinsfile Build ISPW assignment stage**
 
-1. In Topaz Workbench’s **Project Explorer** view’s **GitPlay** project, right-click **Jenkinsfile** and select **Open**. The source opens in the editor.
+1. In Topaz Workbench’s **Project Explorer** view’s **GitPlay** project, right-click **Jenkinsfile** and select **Open**. The source’ opens in the editor.
 
-3. In the **Build ISPW assignment** stage, change the **assignmentId** to the assignment where TPROG01 was loaded (the assignment ID that was shown in the **Console** view in the previous step). In the example in the previous step, the assignment is PLAY003136.
+3. In the **Build ISPW assignment** stage, verify that the ispwRequestBody reads “‘buildautomatically=true’”.
 
    ![UpdateJenkinsFile1](../images/UpdateJenkinsFile1.png)
 
