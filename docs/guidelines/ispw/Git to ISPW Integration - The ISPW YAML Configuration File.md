@@ -14,7 +14,7 @@ The YAML configuration file contains ISPW property settings and path mappings.
 
 The YAML configuration file **must** contain the following ISPW property settings:
 
-- host - The host name or IP address of the ISPW communications interface (CI) task.
+- host - The host name or IP address of the ISPW communications interface (CI) task. Compuware recommends using the fully qualified domain name when specifying the host.
 - port - The port number for the communications interface (CI) task.
 - stream - A 2- to 8-character code that defines the application structure with which the application is associated.
 - application - A 4-character application ID.
