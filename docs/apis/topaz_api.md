@@ -1,28 +1,28 @@
 ---
-title: Topaz Java API
-footer: MIT Licensed | Copyright © 2019 - Compuware
+footer: MIT Licensed | Copyright © 2019 - Compuware | © Copyright 2019, 2020 BMC Software, Inc.
 ---
 
-# Topaz API
+# Topaz Java API
 
 The Topaz API is a Java library that can be used in Java applications to programmatically access and perform operations on datasets and perform JES operations, as well as launch and communicate with their own z/OS programs.
 
 If you are using the Topaz API for plug-ins meant to be run in a Topaz Workbench environment, you should use the [Topaz Workbench SDK](topaz_workbench_sdk.md) instead.
 
-The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.  
+The Compuware Topaz API Specification (Javadoc) can be found <a href="../javadoc/topaz_api/index.html" target="_blank">here</a>.
 
 ## Version History
 
 Version | Release Date | Description
 ---- | -------------- | -----------
 `1.0.0` | 7/29/2014 | Initial Release of Host Services API.
-`1.0.1` | 4/1/2019 | Added following additional functionality to  allocate PDS or sequential dataset, create and delete members in a PDS and write to a sequential dataset or a member in a PDS.
+`1.0.1` | 4/1/2019 | Added following additional functionality to allocate PDS or sequential dataset, create and delete members in a PDS and write to a sequential dataset or a member in a PDS.
 `2.0.1` | 6/27/2019 | Renamed to Topaz API and removed Eclipse dependencies.  See the [migration guide](topaz_workbench_sdk.md#migrating-from-host-services-api-to-topaz-apis) for guidance on upgrading to the new API.
 `2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
+`2.1.0` | 1/6/2021 | Added API for Generation Data Groups.
 
 ## Dataset API
 
-The Compuware Topaz API provides users with methods to programmatically access and perform actions on datasets. These API’s do not provide the capability to manipulate the Topaz Workbench UI. `Sequential`, `Partitioned` and `VSAM` are supported.
+The Compuware Topaz API provides users with methods to programmatically access and perform actions on datasets and generation data groups. These API’s do not provide the capability to manipulate the Topaz Workbench UI. `Sequential`, `Partitioned` and `VSAM` are supported.
 
 The following actions are provided regarding datasets:
 
@@ -33,6 +33,8 @@ The following actions are provided regarding datasets:
 * Write content to a sequential dataset or a PDS member
 * Obtain the characteristics of a dataset or the statistics of a PDS member
 * Recall a migrated dataset
+* Define a generation data group
+* Obtain generation dataset objects from generation data groups
 
 ## JES API
 
@@ -59,20 +61,20 @@ This is the list of dependent libraries you must include in your class path, in 
 
 Library | Version | Description
 ------- | ------- | -----------
-com.compuware.api.topaz | 2.0.0 | The Topaz API
-com.compuware.frameworks.hostservices.hci | 19.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.common | 19.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.core.messages | 19.5.1 | Internal Compuware Library
-com.compuware.frameworks.hostservices.crypto | 19.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.icu | 19.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.css | 19.5.1 | Internal Compuware library
-com.compuware.frameworks.nls | 19.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.message.resources | 19.5.1 | Internal Compuware library
-log4j.over.slf4j | 1.7.6 | 3rd party logging library
-slf4j.api | 1.7.6 | 3rd party logging library
-ch.qos.logback.classic | 1.1.1 | 3rd party logging library
-ch.qos.logback.core | 1.1.1 | 3rd party logging library
+com.compuware.api.topaz | 2.1.0 | The Topaz API
+com.compuware.frameworks.hostservices.common | 20.5.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.core.messages | 20.5.1 | Internal Compuware Library
+com.compuware.frameworks.hostservices.crypto | 20.5.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.css | 20.5.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.hci | 20.5.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.message.resources | 20.5.1 | Internal Compuware library
+com.compuware.frameworks.nls | 20.5.1 | Internal Compuware library
+com.compuware.java.utilities | 20.5.1 | Internal Compuware library
+com.compuware.java.utilities.icu | 20.5.1 | Internal Compuware library
+ch.qos.logback.classic | 1.0.7 | 3rd party logging library
+ch.qos.logback.core | 1.0.7 | 3rd party logging library
 org.apache.commons.lang | 2.6.0 | 3rd party language utilities library
+org.slf4j.api | 1.7.2 | 3rd party logging library
 
 ## Coding Examples
 

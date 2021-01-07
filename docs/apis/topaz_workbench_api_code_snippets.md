@@ -1,6 +1,5 @@
 ---
-title: Topaz Workbench SDK Code Snippets
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2018 - Compuware | © Copyright 2018, 2020 BMC Software, Inc.
 ---
 
 # Topaz Workbench SDK Code Snippets
@@ -61,22 +60,22 @@ String password = ...
 // use one of the several ZOSCredentialsFactory methods to create a z/OS
 // credentials object
 IZOSCredentials credentials = ZOSCredentialsFactory
-		.createZOSCredentials(userID, password);
+        .createZOSCredentials(userID, password);
 
 // create a connection from the z/OS host
 IZOSHostConnection zosHostConnection = zosHost
-		.createZOSHostConnection();
+        .createZOSHostConnection();
 
 try {
-	// connect to the host
-	zosHostConnection.connect(credentials);
+    // connect to the host
+    zosHostConnection.connect(credentials);
 
-	// the connection is now available for use
-	...
+    // the connection is now available for use
+    ...
 } catch (HostCredentialsException e) {
-	// credentials were invalid, likely caused by incorrect login
-	// information or expired password
-	...
+    // credentials were invalid, likely caused by incorrect login
+    // information or expired password
+    ...
 }
 ```
 
@@ -89,20 +88,20 @@ IZOSHost zosHost = ...
 // make sure we have access to the UI user's credentials (either saved
 // credentials, or the UI user is currently logged in)
 if (!ZOSUIUserCredentialsManager.hasUIUserCredentials(zosHost)) {
-	// connect the UI user so we can access their credentials (user will
-	// be presented with a login dialog)
-	ZOSUIUserCredentialsManager.connectUIUser(zosHost);
+    // connect the UI user so we can access their credentials (user will
+    // be presented with a login dialog)
+    ZOSUIUserCredentialsManager.connectUIUser(zosHost);
 }
 
 // we should have the UI user's credentials now, unless they cancelled
 // the login dialog
 if (ZOSUIUserCredentialsManager.hasUIUserCredentials(zosHost)) {
-	// get UI user's z/OS credentials
-	IZOSCredentials credentials = ZOSUIUserCredentialsManager
-			.getUIUserCredentials(zosHost);
+    // get UI user's z/OS credentials
+    IZOSCredentials credentials = ZOSUIUserCredentialsManager
+            .getUIUserCredentials(zosHost);
 
-	// you may now use these credentials to connect to the z/OS Host
-	...
+    // you may now use these credentials to connect to the z/OS Host
+    ...
 }
 ```
 
@@ -117,7 +116,7 @@ IZOSHostConnection zosHostConnection = ...
 // note: the command provider will only be usable while the z/OS host
 // connection is connected to its z/OS host
 IDataSetCommandProvider commandProvider = zosHostConnection
-		.getDataSetCommandProvider();
+        .getDataSetCommandProvider();
 ```
 
 ## Allocating Partitioned or Sequential Datasets
@@ -131,19 +130,19 @@ To create allocate parameters based off of an existing dataset:
 IPartitionedDataSet dataset = ...
 
 try {
-	IAllocateParameters parameters = AllocateParametersBuilder.like(dataset).build();
+    IAllocateParameters parameters = AllocateParametersBuilder.like(dataset).build();
 } catch (DataSetInUseException e1) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetNotFoundException e1) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 } catch (DataSetAccessException e1) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetMigratedException e1) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 }
 ```
 
@@ -154,28 +153,28 @@ To create allocate parameters based off of an existing dataset while overriding 
 IPartitionedDataSet dataset = ...
 
 try {
-	IAllocateParameters parameters = AllocateParametersBuilder.like(dataset)
-			.setRecordFormat(RecordFormat.VB).setLogicalRecordLength(120).setBlockSize(124).build();
+    IAllocateParameters parameters = AllocateParametersBuilder.like(dataset)
+            .setRecordFormat(RecordFormat.VB).setLogicalRecordLength(120).setBlockSize(124).build();
 
-	// alternatively:
+    // alternatively:
 
-	AllocateParametersBuilder builder = AllocateParametersBuilder.like(dataset);
-	builder.setRecordFormat(RecordFormat.VB);
-	builder.setLogicalRecordLength(120);
-	builder.setBlockSize(124);
-	IAllocateParameters parameters2 = builder.build();
+    AllocateParametersBuilder builder = AllocateParametersBuilder.like(dataset);
+    builder.setRecordFormat(RecordFormat.VB);
+    builder.setLogicalRecordLength(120);
+    builder.setBlockSize(124);
+    IAllocateParameters parameters2 = builder.build();
 } catch (DataSetInUseException e1) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetNotFoundException e1) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 } catch (DataSetAccessException e1) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetMigratedException e1) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 }
 ```
 
@@ -183,8 +182,8 @@ To create allocate parameters for a partitioned dataset based off of defaults:
 
 ```java
 IAllocateParameters parameters = AllocateParametersBuilder.partitionedDefaults(true)
-		.setAllocationUnit(IAllocateParameters.AllocationUnit.CYLINDERS).setPrimaryQuantity(5)
-		.setSecondaryQuantity(2).build();
+        .setAllocationUnit(IAllocateParameters.AllocationUnit.CYLINDERS).setPrimaryQuantity(5)
+        .setSecondaryQuantity(2).build();
 
 // alternatively:
 
@@ -199,8 +198,8 @@ To create allocate parameters for a sequential dataset based off of defaults:
 
 ```java
 IAllocateParameters parameters = AllocateParametersBuilder.sequentialDefaults()
-		.setAllocationUnit(IAllocateParameters.AllocationUnit.CYLINDERS).setPrimaryQuantity(5)
-		.setSecondaryQuantity(2).build();
+        .setAllocationUnit(IAllocateParameters.AllocationUnit.CYLINDERS).setPrimaryQuantity(5)
+        .setSecondaryQuantity(2).build();
 
 // alternatively:
 
@@ -219,13 +218,13 @@ String dataSetName = ...
 IAllocateParameters parameters = ...
 
 try {
-	commandProvider.allocatePartitionedDataSet(dataSetName, parameters);
+    commandProvider.allocatePartitionedDataSet(dataSetName, parameters);
 } catch (DataSetExistsException e) {
-	// the dataset already exists
-	...
+    // the dataset already exists
+    ...
 } catch (AllocationFailedException e) {
-	// the allocation failed - most likely because the user does not have the proper authority
-	...
+    // the allocation failed - most likely because the user does not have the proper authority
+    ...
 }
 ```
 
@@ -237,13 +236,13 @@ String dataSetName = ...
 IAllocateParameters parameters = ...
 
 try {
-	commandProvider.allocateSequentialDataSet(dataSetName, parameters);
+    commandProvider.allocateSequentialDataSet(dataSetName, parameters);
 } catch (DataSetExistsException e) {
-	// the dataset already exists
-	...
+    // the dataset already exists
+    ...
 } catch (AllocationFailedException e) {
-	// the allocation failed - most likely because the user does not have the proper authority
-	...
+    // the allocation failed - most likely because the user does not have the proper authority
+    ...
 }
 ```
 
@@ -257,24 +256,24 @@ String pdsName = ...
 String memberName = ...
 
 try {
-	commandProvider.createPDSMember(pdsName, memberName);
+    commandProvider.createPDSMember(pdsName, memberName);
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset is migrated
-	...
+    // the dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset could not be found or is not a PDS
-	...
+    // the dataset could not be found or is not a PDS
+    ...
 } catch (MemberAlreadyExistsException e) {
-	// a member with the same name already exists in the PDS
-	...
+    // a member with the same name already exists in the PDS
+    ...
 }
 ```
 
@@ -285,24 +284,24 @@ IPartitionedDataSet pds = ...
 String memberName = ...
 
 try {
-	pds.createMember(memberName);
+    pds.createMember(memberName);
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 } catch (MemberAlreadyExistsException e) {
-	// a member with the same name already exists in the PDS
-	...
+    // a member with the same name already exists in the PDS
+    ...
 }
 ```
 
@@ -316,27 +315,27 @@ String pdsName = ...
 String memberName = ...
 
 try {
-	commandProvider.deletePDSMember(pdsName, memberName);
+    commandProvider.deletePDSMember(pdsName, memberName);
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset is migrated
-	...
+    // the dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset could not be found or is not a PDS
-	...
+    // the dataset could not be found or is not a PDS
+    ...
 } catch (MemberInUseException e) {
-	// the member is enqueued by another user or job
-	...
+    // the member is enqueued by another user or job
+    ...
 } catch (MemberNotFoundException e) {
-	// the member could not be found
-	...
+    // the member could not be found
+    ...
 }
 ```
 
@@ -347,27 +346,27 @@ IPartitionedDataSet pds = ...
 String memberName = ...
 
 try {
-	pds.deleteMember(memberName);
+    pds.deleteMember(memberName);
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 } catch (MemberInUseException e) {
-	// the member is enqueued by another user or job
-	...
+    // the member is enqueued by another user or job
+    ...
 } catch (MemberNotFoundException e) {
-	// the member could not be found
-	...
+    // the member could not be found
+    ...
 }
 ```
 
@@ -401,7 +400,7 @@ String dataSetName = ...
 
 // dataSet will be null if it cannot be found
 IPartitionedDataSet dataSet = commandProvider
-		.findPartitionedDataSet(dataSetName);
+        .findPartitionedDataSet(dataSetName);
 ```
 
 To retrieve a list of partitioned datasets matching a filter:
@@ -413,7 +412,7 @@ String dataSetFilter = ...
 // dataSets will be empty if no partitioned datasets match the dataset
 // filter
 List<IPartitionedDataSet> dataSets = commandProvider
-		.findPartitionedDataSets(dataSetFilter);
+        .findPartitionedDataSets(dataSetFilter);
 ```
 
 To retrieve a single sequential dataset:
@@ -424,7 +423,7 @@ String dataSetName = ...
 
 // dataSet will be null if it cannot be found
 ISequentialDataSet dataSet = commandProvider
-		.findSequentialDataSet(dataSetName);
+        .findSequentialDataSet(dataSetName);
 ```
 
 To retrieve a list of sequential datasets matching a filter:
@@ -436,7 +435,7 @@ String dataSetFilter = ...
 // dataSets will be empty if no sequential datasets match the dataset
 // filter
 List<ISequentialDataSet> dataSets = commandProvider
-		.findSequentialDataSets(dataSetFilter);
+        .findSequentialDataSets(dataSetFilter);
 ```
 
 To retrieve a single VSAM cluster:
@@ -447,7 +446,7 @@ String vsamClusterName = ...
 
 // vsamCluster will be null if it cannot be found
 IVSAMCluster vsamCluster = commandProvider
-		.findVSAMCluster(vsamClusterName);
+        .findVSAMCluster(vsamClusterName);
 ```
 
 To retrieve a list of VSAM clusters matching a filter:
@@ -459,7 +458,7 @@ String dataSetFilter = ...
 // vsamClusters will be empty if no VSAM clusters match the dataset
 // filter
 List<IVSAMCluster> vsamClusters = commandProvider
-		.findVSAMClusters(dataSetFilter);
+        .findVSAMClusters(dataSetFilter);
 ```
 
 To retrieve a single migrated dataset:
@@ -470,7 +469,7 @@ String dataSetName = ...
 
 // dataSet will be null if it cannot be found
 IMigratedDataSet dataSet = commandProvider
-		.findMigratedDataSet(dataSetName);
+        .findMigratedDataSet(dataSetName);
 ```
 
 To retrieve a list of migrated datasets matching a filter:
@@ -482,7 +481,7 @@ String dataSetFilter = ...
 // dataSets will be empty if no migrated datasets match the dataset
 // filter
 List<IMigratedDataSet> dataSets = commandProvider
-		.findMigratedDataSets(dataSetFilter);
+        .findMigratedDataSets(dataSetFilter);
 ```
 
 ## Reading the Content of a Sequential Dataset
@@ -495,31 +494,31 @@ ISequentialDataSet sequentialDataSet = ...
 // create a BufferedReader wrapping a new DataSetReader using a
 // try-with-resources statement
 try (BufferedReader reader = new BufferedReader(new DataSetReader(
-		sequentialDataSet))) {
-	// read the sequential dataset data using the reader
-	String record;
-	while ((record = reader.readLine()) != null) {
-		// note: non-displayable characters will be output as the
-		// '\uFFFD' (lozenge) character (displays as '?' in some
-		// character sets)
-		System.out.println(record);
-	}
+        sequentialDataSet))) {
+    // read the sequential dataset data using the reader
+    String record;
+    while ((record = reader.readLine()) != null) {
+        // note: non-displayable characters will be output as the
+        // '\uFFFD' (lozenge) character (displays as '?' in some
+        // character sets)
+        System.out.println(record);
+    }
 } catch (DataSetAccessException e) {
-	// the user does not have access to the sequential dataset
-	...
+    // the user does not have access to the sequential dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the sequential dataset is enqueued by another user or job
-	...
+    // the sequential dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the sequential dataset has been migrated since it was first
-	// retrieved
-	...
+    // the sequential dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the sequential dataset can no longer be found
-	...
+    // the sequential dataset can no longer be found
+    ...
 } catch (IOException e) {
-	// an IO error has occurred reading a line and/or closing the reader
-	...
+    // an IO error has occurred reading a line and/or closing the reader
+    ...
 }
 ```
 
@@ -532,31 +531,31 @@ String sequentialDataSetName = ...
 // create a BufferedReader wrapping a new DataSetReader using a
 // try-with-resource statement
 try (BufferedReader reader = new BufferedReader(new DataSetReader(
-		zosHostConnection, sequentialDataSetName))) {
-	// read the sequential dataset data using the reader
-	String record;
-	while ((record = reader.readLine()) != null) {
-		// note: non-displayable characters will be output as the
-		// '\uFFFD' (lozenge) character (displays as '?' in some
-		// character sets)
-		System.out.println(record);
-	}
+        zosHostConnection, sequentialDataSetName))) {
+    // read the sequential dataset data using the reader
+    String record;
+    while ((record = reader.readLine()) != null) {
+        // note: non-displayable characters will be output as the
+        // '\uFFFD' (lozenge) character (displays as '?' in some
+        // character sets)
+        System.out.println(record);
+    }
 } catch (DataSetAccessException e) {
-	// the user does not have access to the sequential dataset
-	...
+    // the user does not have access to the sequential dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the sequential dataset is enqueued by another user or job
-	...
+    // the sequential dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the sequential dataset is migrated
-	...
+    // the sequential dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the sequential dataset could not be found or is not a sequential
-	// dataset
-	...
+    // the sequential dataset could not be found or is not a sequential
+    // dataset
+    ...
 } catch (IOException e) {
-	// an IO error has occurred reading a line and/or closing the reader
-	...
+    // an IO error has occurred reading a line and/or closing the reader
+    ...
 }
 ```
 
@@ -571,25 +570,25 @@ datasetContents = ...
 // create a BufferedWriter wrapping a new DataSetReader using a
 // try-with-resources statement
 try (BufferedWriter writer = new BufferedWriter(new DataSetWriter(
-		sequentialDataSet))) {
-	// write the sequential dataset data using the writer
-	writer.write(datasetContents);
+        sequentialDataSet))) {
+    // write the sequential dataset data using the writer
+    writer.write(datasetContents);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the sequential dataset
-	...
+    // the user does not have access to the sequential dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the sequential dataset is enqueued by another user or job
-	...
+    // the sequential dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the sequential dataset has been migrated since it was first
-	// retrieved
-	...
+    // the sequential dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the sequential dataset can no longer be found
-	...
+    // the sequential dataset can no longer be found
+    ...
 } catch (IOException e) {
-	// an IO error has occurred writing the sequential dataset and/or closing the writer
-	...
+    // an IO error has occurred writing the sequential dataset and/or closing the writer
+    ...
 }
 ```
 
@@ -603,25 +602,25 @@ datasetContents = ...
 // create a BufferedWriter wrapping a new DataSetWriter using a
 // try-with-resource statement
 try (BufferedWriter writer = new BufferedWriter(new DataSetWriter(
-		zosHostConnection, sequentialDataSetName))) {
-	// write the sequential dataset data using the writer
-	writer.write(datasetContents);
+        zosHostConnection, sequentialDataSetName))) {
+    // write the sequential dataset data using the writer
+    writer.write(datasetContents);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the sequential dataset
-	...
+    // the user does not have access to the sequential dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the sequential dataset is enqueued by another user or job
-	...
+    // the sequential dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the sequential dataset is migrated
-	...
+    // the sequential dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the sequential dataset could not be found or is not a sequential
-	// dataset
-	...
+    // the sequential dataset could not be found or is not a sequential
+    // dataset
+    ...
 } catch (IOException e) {
-	// an IO error has occurred writing the sequential dataset closing the writer
-	...
+    // an IO error has occurred writing the sequential dataset closing the writer
+    ...
 }
 ```
 
@@ -635,34 +634,34 @@ IPartitionedDataSetMember partitionedDataSetMember = ...
 // create a BufferedReader wrapping a new MemberReader using a
 // try-with-resource statement
 try (BufferedReader reader = new BufferedReader(new MemberReader(
-		partitionedDataSetMember))) {
-	// read the partitioned dataset member data using the reader
-	String record;
-	while ((record = reader.readLine()) != null) {
-		// note: non-displayable characters will be output as the
-		// '\uFFFD' (lozenge) character (displays as '?' in some
-		// character sets)
-		System.out.println(record);
-	}
+        partitionedDataSetMember))) {
+    // read the partitioned dataset member data using the reader
+    String record;
+    while ((record = reader.readLine()) != null) {
+        // note: non-displayable characters will be output as the
+        // '\uFFFD' (lozenge) character (displays as '?' in some
+        // character sets)
+        System.out.println(record);
+    }
 } catch (DataSetAccessException e) {
-	// the user does not have access to the partitioned dataset
-	...
+    // the user does not have access to the partitioned dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the partitioned dataset is enqueued by another user or job
-	...
+    // the partitioned dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the partitioned dataset has been migrated since it was first
-	// retrieved
-	...
+    // the partitioned dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the partitioned dataset can no longer be found
-	...
+    // the partitioned dataset can no longer be found
+    ...
 } catch (MemberNotFoundException e) {
-	// the partitioned dataset member can no longer be found
-	...
+    // the partitioned dataset member can no longer be found
+    ...
 } catch (IOException e) {
-	// an IO error has occurred reading a line and/or closing the reader
-	...
+    // an IO error has occurred reading a line and/or closing the reader
+    ...
 }
 ```
 
@@ -676,34 +675,34 @@ String memberName = ...
 // create a BufferedReader wrapping a new MemberReader using a
 // try-with-resource statement
 try (BufferedReader reader = new BufferedReader(new MemberReader(
-		zosHostConnection, pdsName, memberName))) {
-	// read the partitioned dataset member data using the reader
-	String record;
-	while ((record = reader.readLine()) != null) {
-		// note: non-displayable characters will be output as the
-		// '\uFFFD' (lozenge) character (displays as '?' in some
-		// character sets)
-		System.out.println(record);
-	}
+        zosHostConnection, pdsName, memberName))) {
+    // read the partitioned dataset member data using the reader
+    String record;
+    while ((record = reader.readLine()) != null) {
+        // note: non-displayable characters will be output as the
+        // '\uFFFD' (lozenge) character (displays as '?' in some
+        // character sets)
+        System.out.println(record);
+    }
 } catch (DataSetAccessException e) {
-	// the user does not have access to the partitioned dataset
-	...
+    // the user does not have access to the partitioned dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the partitioned dataset is enqueued by another user or job
-	...
+    // the partitioned dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the partitioned dataset is migrated
-	...
+    // the partitioned dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the partitioned dataset could not be found or is not a
-	// partitioned dataset
-	...
+    // the partitioned dataset could not be found or is not a
+    // partitioned dataset
+    ...
 } catch (MemberNotFoundException e) {
-	// the partitioned dataset member could not be found
-	...
+    // the partitioned dataset member could not be found
+    ...
 } catch (IOException e) {
-	// an IO error has occurred reading a line and/or closing the reader
-	...
+    // an IO error has occurred reading a line and/or closing the reader
+    ...
 }
 ```
 
@@ -718,31 +717,31 @@ memberContents = ...
 // create a BufferedWriter wrapping a new MemberWriter using a
 // try-with-resource statement
 try (BufferedWriter writer = new BufferedWriter(new MemberWriter(
-		partitionedDataSetMember))) {
-	// write the partitioned dataset member data using the writer
-	writer.write(memberContents);
+        partitionedDataSetMember))) {
+    // write the partitioned dataset member data using the writer
+    writer.write(memberContents);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the partitioned dataset
-	...
+    // the user does not have access to the partitioned dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the partitioned dataset is enqueued by another user or job
-	...
+    // the partitioned dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the partitioned dataset has been migrated since it was first
-	// retrieved
-	...
+    // the partitioned dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the partitioned dataset can no longer be found
-	...
+    // the partitioned dataset can no longer be found
+    ...
 } catch (MemberNotFoundException e) {
-	// the partitioned dataset member can no longer be found
-	...
+    // the partitioned dataset member can no longer be found
+    ...
 } catch (MemberInUseException e) {
-	// the partitioned dataset member is enqueued by another use or job
-	...
+    // the partitioned dataset member is enqueued by another use or job
+    ...
 } catch (IOException e) {
-	// an IO error has occurred writing the dataset member and/or closing the writer
-	...
+    // an IO error has occurred writing the dataset member and/or closing the writer
+    ...
 }
 ```
 
@@ -757,31 +756,31 @@ memberContents = ...
 // create a BufferedWriter wrapping a new MemberWriter using a
 // try-with-resource statement
 try (BufferedWriter writer = new BufferedWriter(new MemberWriter(
-		zosHostConnection, pdsName, memberName))) {
-	// write the partitioned dataset member data using the writer
-	writer.write(memberContents);
+        zosHostConnection, pdsName, memberName))) {
+    // write the partitioned dataset member data using the writer
+    writer.write(memberContents);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the partitioned dataset
-	...
+    // the user does not have access to the partitioned dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the partitioned dataset is enqueued by another user or job
-	...
+    // the partitioned dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the partitioned dataset is migrated
-	...
+    // the partitioned dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the partitioned dataset could not be found or is not a
-	// partitioned dataset
-	...
+    // the partitioned dataset could not be found or is not a
+    // partitioned dataset
+    ...
 } catch (MemberNotFoundException e) {
-	// the partitioned dataset member could not be found
-	...
+    // the partitioned dataset member could not be found
+    ...
 } catch (MemberInUseException e) {
-	// the partitioned dataset member is enqueued by another use or job
-	...
+    // the partitioned dataset member is enqueued by another use or job
+    ...
 } catch (IOException e) {
-	// an IO error has occurred writing the dataset member and/or closing the writer
-	...
+    // an IO error has occurred writing the dataset member and/or closing the writer
+    ...
 }
 ```
 
@@ -793,23 +792,23 @@ To obtain the characteristics of a dataset of any type:
 IDataSet dataSet = ...
 
 try {
-	// fetch the characteristics from the dataset
-	IDataSetCharacteristics dataSetCharacteristics = dataSet
-			.fetchCharacteristics();
+    // fetch the characteristics from the dataset
+    IDataSetCharacteristics dataSetCharacteristics = dataSet
+            .fetchCharacteristics();
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 }
 ```
 
@@ -819,24 +818,24 @@ To obtain the characteristics of a partitioned dataset:
 IPartitionedDataSet dataSet = ...
 
 try {
-	// fetch the partitioned dataset characteristics from the
-	// partitioned dataset
-	IPartitionedDataSetCharacteristics partitionedDataSetCharacteristics = partitionedDataSet
-			.fetchCharacteristics();
+    // fetch the partitioned dataset characteristics from the
+    // partitioned dataset
+    IPartitionedDataSetCharacteristics partitionedDataSetCharacteristics = partitionedDataSet
+            .fetchCharacteristics();
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 }
 ```
 
@@ -846,24 +845,24 @@ To obtain the characteristics of a sequential dataset:
 ISequentialDataSet sequentialDataSet = ...
 
 try {
-	// fetch the sequential dataset characteristics from the sequential
-	// dataset
-	ISequentialDataSetCharacteristics sequentialDataSetCharacteristics = sequentialDataSet
-			.fetchCharacteristics();
+    // fetch the sequential dataset characteristics from the sequential
+    // dataset
+    ISequentialDataSetCharacteristics sequentialDataSetCharacteristics = sequentialDataSet
+            .fetchCharacteristics();
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this dataset
-	...
+    // the user does not have access to this dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset has been migrated since it was first retrieved
-	...
+    // the dataset has been migrated since it was first retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset can no longer be found
-	...
+    // the dataset can no longer be found
+    ...
 }
 ```
 
@@ -873,23 +872,23 @@ To obtain the characteristics of a VSAM cluster:
 IVSAMCluster vsamCluster = ...
 
 try {
-	// fetch the VSAM cluster characteristics from the VSAM cluster
-	IVSAMClusterCharacteristics vsamClusterCharacteristics = vsamCluster
-			.fetchCharacteristics();
+    // fetch the VSAM cluster characteristics from the VSAM cluster
+    IVSAMClusterCharacteristics vsamClusterCharacteristics = vsamCluster
+            .fetchCharacteristics();
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to this VSAM cluster
-	...
+    // the user does not have access to this VSAM cluster
+    ...
 } catch (DataSetInUseException e) {
-	// the VSAM cluster is enqueued by another user or job
-	...
+    // the VSAM cluster is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the VSAM cluster has been migrated since it was first retrieved
-	...
+    // the VSAM cluster has been migrated since it was first retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the VSAM cluster can no longer be found
-	...
+    // the VSAM cluster can no longer be found
+    ...
 }
 ```
 
@@ -901,28 +900,28 @@ To obtain the statistics of a PDS member:
 IPartitionedDataSetMember partitionedDataSetMember = ...
 
 try {
-	// fetch the partitioned dataset member statistics from the
-	// partitioned dataset member
-	IPartitionedDataSetMemberStatistics partitionedDataSetMemberStatistics = partitionedDataSetMember
-			.fetchStatistics();
+    // fetch the partitioned dataset member statistics from the
+    // partitioned dataset member
+    IPartitionedDataSetMemberStatistics partitionedDataSetMemberStatistics = partitionedDataSetMember
+            .fetchStatistics();
 
-	...
+    ...
 } catch (DataSetAccessException e) {
-	// the user does not have access to the partitioned dataset
-	...
+    // the user does not have access to the partitioned dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the partitioned dataset is enqueued by another user or job
-	...
+    // the partitioned dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the partitioned dataset has been migrated since it was first
-	// retrieved
-	...
+    // the partitioned dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the partitioned dataset can no longer be found
-	...
+    // the partitioned dataset can no longer be found
+    ...
 } catch (MemberNotFoundException e) {
-	// the partitioned dataset member can no longer be found
-	...
+    // the partitioned dataset member can no longer be found
+    ...
 }
 ```
 
@@ -934,14 +933,168 @@ To recall a migrated dataset:
 IMigratedDataSet migratedDataSet = ...
 
 try {
-	// recall the migrated dataset
-	IDataSet recalledDataSet = migratedDataSet.recall();
+    // recall the migrated dataset
+    IDataSet recalledDataSet = migratedDataSet.recall();
 
-	...
+    ...
 } catch (DataSetNotFoundException e) {
-	// the migrated dataset can no longer be found
-	...
+    // the migrated dataset can no longer be found
+    ...
 }
+```
+
+## Defining a Generation Data Group
+
+In order to define a generation data group, you first must create the define generation data group parameters using a DefineGenerationDataGroupParametersBuilder. After creating your parameters, you can then define your generation data group using an IDatasetCommandProvider.
+
+To create define generation data group parameters using all defaults:
+
+```java
+IDefineGenerationDataGroupParameters parameters = DefineGenerationDataGroupParametersBuilder
+        .defaults().build();
+```
+
+To create define generation data group parameters while overriding some parameters:
+
+```java
+IDefineGenerationDataGroupParameters parameters = DefineGenerationDataGroupParametersBuilder
+        .defaults().setGenerationsLimit(50)
+        .setScratchOnEmpty(true, false).build();
+
+// alternatively:
+
+DefineGenerationDataGroupParametersBuilder builder = DefineGenerationDataGroupParametersBuilder
+        .defaults();
+builder.setGenerationsLimit(50);
+builder.setScratchOnEmpty(true, false);
+IDefineGenerationDataGroupParameters parameters = builder.build();
+```
+
+To define a generation data group:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+IDefineGenerationDataGroupParameters parameters = ...
+
+try {
+    commandProvider.defineGenerationDataGroup(generationDataGroupName,
+            parameters);
+} catch (GenerationDataGroupExistsException e) {
+    // the generation data group (or a like-named dataset) already
+    // exists
+    ...
+} catch (DefinitionFailedException e) {
+    // the definition failed - most likely because the user does not
+    // have the proper authority
+    ...
+}
+```
+
+## Obtaining one or more Generation Data Groups
+
+To retrieve a generation data group:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+
+// generationDataGroup will be null if it cannot be found
+IGenerationDataGroup generationDataGroup = commandProvider
+        .findGenerationDataGroup(generationDataGroupName);
+```
+
+To retrieve a list of generation data groups matching a filter:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupFilter = ...
+
+// generationDataGroups will be empty if no generation data groups match
+// the generation data group filter
+List<IGenerationDataGroup> generationDataGroups = commandProvider
+        .findGenerationDataGroups(generationDataGroupFilter);
+```
+
+## Obtaining one or more Generation Datasets
+
+To retrieve a specific generation dataset of a generation data group from an IDataSetCommandProvider:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if the generation data
+// group does not exist or a generation dataset does not exist for the
+// specified relative generation number
+IDataSet generationDataSet = commandProvider.findGenerationDataSet(
+        generationDataGroupName, relativeGenerationNumber);
+```
+
+To retrieve a specific generation dataset of a generation data group from an IGenerationDataGroup:
+
+```java
+IGenerationDataGroup generationDataGroup = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if a generation dataset
+// does not exist for the specified relative generation number
+IDataSet generationDataSet = generationDataGroup
+        .findGenerationDataSet(relativeGenerationNumber);
+```
+
+To retrieve a specific generation dataset of a generation data group, typed as an ISequentialDataSet, from an
+IDataSetCommandProvider:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if the generation data
+// group does not exist, or a generation sequential dataset does not
+// exist for the specified relative generation number
+ISequentialDataSet generationDataSet = commandProvider
+        .findGenerationSequentialDataSet(generationDataGroupName,
+                relativeGenerationNumber);
+```
+
+To retrieve a specific generation dataset of a generation data group, typed as an ISequentialDataSet, from an
+IGenerationDataGroup:
+
+```java
+IGenerationDataGroup generationDataGroup = ...
+int relativeGenerationNumber = ...
+
+// generationDataSet will be null if a generation
+// sequential dataset does not exist for the specified relative
+// generation number
+ISequentialDataSet generationDataSet = generationDataGroup
+        .findGenerationSequentialDataSet(relativeGenerationNumber);
+```
+
+To retrieve a list of all generation datasets of a generation data group from an IDataSetCommandProvider:
+
+```java
+IDataSetCommandProvider commandProvider = ...
+String generationDataGroupName = ...
+
+// generationDataSets will be empty if the generation data group does
+// not have any generation datasets
+List<IDataSet> generationDataSets = commandProvider
+        .fetchGenerationDataSets(generationDataGroupName);
+```
+
+To retrieve a list of all generation datasets of a generation data group from an IGenerationDataGroup:
+
+```java
+IGenerationDataGroup generationDataGroup = ...
+
+// generationDataSets will be empty if the generation data group does
+// not have any generation datasets
+List<IDataSet> generationDataSets = generationDataGroup
+        .fetchGenerationDataSets();
 ```
 
 ## Obtaining a JES Command Provider
@@ -957,7 +1110,7 @@ IZOSHostConnection zosHostConnection = ...
 // note: the command provider will only be usable while the z/OS host
 // connection is connected to its z/OS host
 IJESCommandProvider commandProvider = zosHostConnection
-		.getJESCommandProvider();
+        .getJESCommandProvider();
 ```
 
 ## Submitting a Job
@@ -969,25 +1122,25 @@ IJESCommandProvider commandProvider = ...
 IPartitionedDataSetMember member = ...
 
 try {
-	// submit the job (the returned JobInfo may be used to
-	// retrieve/monitor the job's status)
-	JobInfo jobInfo = commandProvider.submit(member);
+    // submit the job (the returned JobInfo may be used to
+    // retrieve/monitor the job's status)
+    JobInfo jobInfo = commandProvider.submit(member);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the partitioned dataset
-	...
+    // the user does not have access to the partitioned dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the partitioned dataset is enqueued by another user or job
-	...
+    // the partitioned dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the partitioned dataset has been migrated since it was first
-	// retrieved
-	...
+    // the partitioned dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the partitioned dataset can no longer be found
-	...
+    // the partitioned dataset can no longer be found
+    ...
 } catch (MemberNotFoundException e) {
-	// the partitioned dataset member can no longer be found
-	...
+    // the partitioned dataset member can no longer be found
+    ...
 }
 ```
 
@@ -999,24 +1152,24 @@ String pdsName = ...
 String memberName = ...
 
 try {
-	// submit the job (the returned JobInfo may be used to
-	// retrieve/monitor the job's status)
-	JobInfo jobInfo = commandProvider.submit(pdsName, memberName);
+    // submit the job (the returned JobInfo may be used to
+    // retrieve/monitor the job's status)
+    JobInfo jobInfo = commandProvider.submit(pdsName, memberName);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the dataset
-	...
+    // the user does not have access to the dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset is migrated
-	...
+    // the dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset could not be found or is not a partitioned dataset
-	...
+    // the dataset could not be found or is not a partitioned dataset
+    ...
 } catch (MemberNotFoundException e) {
-	// the member could not be found
-	...
+    // the member could not be found
+    ...
 }
 ```
 
@@ -1027,22 +1180,22 @@ IJESCommandProvider commandProvider = ...
 ISequentialDataSet sequentialDataSet = ...
 
 try {
-	// submit the job (the returned JobInfo may be used to
-	// retrieve/monitor the job's status)
-	JobInfo jobInfo = commandProvider.submit(sequentialDataSet);
+    // submit the job (the returned JobInfo may be used to
+    // retrieve/monitor the job's status)
+    JobInfo jobInfo = commandProvider.submit(sequentialDataSet);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the sequential dataset
-	...
+    // the user does not have access to the sequential dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the sequential dataset is enqueued by another user or job
-	...
+    // the sequential dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the sequential dataset has been migrated since it was first
-	// retrieved
-	...
+    // the sequential dataset has been migrated since it was first
+    // retrieved
+    ...
 } catch (DataSetNotFoundException e) {
-	// the sequential dataset can no longer be found
-	...
+    // the sequential dataset can no longer be found
+    ...
 }
 ```
 
@@ -1053,21 +1206,21 @@ IJESCommandProvider commandProvider = ...
 String sequentialDataSetName = ...
 
 try {
-	// submit the job (the returned JobInfo may be used to
-	// retrieve/monitor the job's status)
-	JobInfo jobInfo = commandProvider.submit(sequentialDataSetName);
+    // submit the job (the returned JobInfo may be used to
+    // retrieve/monitor the job's status)
+    JobInfo jobInfo = commandProvider.submit(sequentialDataSetName);
 } catch (DataSetAccessException e) {
-	// the user does not have access to the dataset
-	...
+    // the user does not have access to the dataset
+    ...
 } catch (DataSetInUseException e) {
-	// the dataset is enqueued by another user or job
-	...
+    // the dataset is enqueued by another user or job
+    ...
 } catch (DataSetMigratedException e) {
-	// the dataset is migrated
-	...
+    // the dataset is migrated
+    ...
 } catch (DataSetNotFoundException e) {
-	// the dataset could not be found or is not a sequential dataset
-	...
+    // the dataset could not be found or is not a sequential dataset
+    ...
 }
 ```
 
@@ -1110,24 +1263,24 @@ String userProgramName = ...
 // use one of the several ZOSCredentialsFactory methods to create a z/OS
 // credentials object
 IZOSCredentials credentials = ZOSCredentialsFactory
-		.createZOSCredentials(userID, password);
+        .createZOSCredentials(userID, password);
 
 // create a z/OS user program connection from the z/OS host
 IZOSUserProgramConnection zosUserProgramConnection = zosHost
-		.createZOSUserProgramConnection();
+        .createZOSUserProgramConnection();
 
 try {
-	// launch the z/OS user program
-	zosUserProgramConnection.launchUserProgram(credentials,
-			userProcedureName, userProgramName);
+    // launch the z/OS user program
+    zosUserProgramConnection.launchUserProgram(credentials,
+            userProcedureName, userProgramName);
 
-	// the z/OS user program connection is now able to communicate with the
-	// program (for as long as it remains running)
-	...
+    // the z/OS user program connection is now able to communicate with the
+    // program (for as long as it remains running)
+    ...
 } catch (HostCredentialsException e) {
-	// credentials were invalid, likely caused by incorrect login
-	// information or expired password
-	...
+    // credentials were invalid, likely caused by incorrect login
+    // information or expired password
+    ...
 }
 ```
 
@@ -1144,15 +1297,15 @@ IZOSUserProgramConnection zosUserProgramConnection = ...
 byte[] data = ...
 
 try {
-	// get the z/OS user program's output stream
-	// Note: a z/OS user program must be executing before calling this method
-	OutputStream outputStream = zosUserProgramConnection.getOutputStream();
+    // get the z/OS user program's output stream
+    // Note: a z/OS user program must be executing before calling this method
+    OutputStream outputStream = zosUserProgramConnection.getOutputStream();
 
-	// use any of the output stream's "write" methods to write data
-	outputStream.write(data);
+    // use any of the output stream's "write" methods to write data
+    outputStream.write(data);
 } catch (IOException e) {
-	// an IO error occurred getting the input stream or reading its data
-	...
+    // an IO error occurred getting the input stream or reading its data
+    ...
 }
 ```
 
@@ -1163,25 +1316,25 @@ IZOSUserProgramConnection zosUserProgramConnection = ...
 String data = ...
 
 try {
-	// get the z/OS user program's output stream
-	// Note: a z/OS user program must be executing before calling this method
-	OutputStream outputStream = zosUserProgramConnection.getOutputStream();
+    // get the z/OS user program's output stream
+    // Note: a z/OS user program must be executing before calling this method
+    OutputStream outputStream = zosUserProgramConnection.getOutputStream();
 
-	// wrap the z/OS user program's output stream in a buffered writer
-	// Note: this code assumes the z/OS user program is decoding received
-	// data using UTF-8
-	BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-			outputStream, "UTF-8"));
+    // wrap the z/OS user program's output stream in a buffered writer
+    // Note: this code assumes the z/OS user program is decoding received
+    // data using UTF-8
+    BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
+            outputStream, "UTF-8"));
 
-	// use any of the writer's "write" methods to write text to the z/OS user
-	// program
-	writer.write(data);
+    // use any of the writer's "write" methods to write text to the z/OS user
+    // program
+    writer.write(data);
 
-	// flush the writer to ensure the data gets sent to the z/OS user program
-	writer.flush();
+    // flush the writer to ensure the data gets sent to the z/OS user program
+    writer.flush();
 } catch (IOException e) {
-	// an IO error occurred getting the input stream or reading its data
-	...
+    // an IO error occurred getting the input stream or reading its data
+    ...
 }
 ```
 
@@ -1192,15 +1345,15 @@ IZOSUserProgramConnection zosUserProgramConnection = ...
 byte[] buffer = ...
 
 try {
-	// get the z/OS user program's input stream
-	// Note: a z/OS user program must be executing before calling this method
-	InputStream inputStream = zosUserProgramConnection.getInputStream();
+    // get the z/OS user program's input stream
+    // Note: a z/OS user program must be executing before calling this method
+    InputStream inputStream = zosUserProgramConnection.getInputStream();
 
-	// use any of the input stream's "read" methods to read data
-	int numBytesRead = inputStream.read(buffer);
+    // use any of the input stream's "read" methods to read data
+    int numBytesRead = inputStream.read(buffer);
 } catch (IOException e) {
-	// an IO error occurred getting the input stream or reading its data
-	...
+    // an IO error occurred getting the input stream or reading its data
+    ...
 }
 ```
 
@@ -1210,22 +1363,22 @@ To read text data from a z/OS user program:
 IZOSUserProgramConnection zosUserProgramConnection = ...
 
 try {
-	// get the z/OS user program's input stream
-	// Note: a z/OS user program must be executing before calling this method
-	InputStream inputStream = zosUserProgramConnection.getInputStream();
+    // get the z/OS user program's input stream
+    // Note: a z/OS user program must be executing before calling this method
+    InputStream inputStream = zosUserProgramConnection.getInputStream();
 
-	// wrap the z/OS user program's input stream in a buffered reader
-	// Note: this code assumes the z/OS user program is encoding its data
-	// using UTF-8
-	BufferedReader reader = new BufferedReader(new InputStreamReader(
-			inputStream, "UTF-8"));
+    // wrap the z/OS user program's input stream in a buffered reader
+    // Note: this code assumes the z/OS user program is encoding its data
+    // using UTF-8
+    BufferedReader reader = new BufferedReader(new InputStreamReader(
+            inputStream, "UTF-8"));
 
-	// use the any of the reader's "read" methods to read text from the
-	// z/OS user program
-	String data = reader.readLine();
+    // use the any of the reader's "read" methods to read text from the
+    // z/OS user program
+    String data = reader.readLine();
 } catch (IOException e) {
-	// an IO error occurred getting the input stream or reading its data
-	...
+    // an IO error occurred getting the input stream or reading its data
+    ...
 }
 ```
 
@@ -1238,17 +1391,17 @@ IZOSUserProgramConnection zosUserProgramConnection = ...
 
 // create a z/OS user program termination listener
 IZOSUserProgramTerminationListener terminationListener = new IZOSUserProgramTerminationListener() {
-	@Override
-	public void programCompleted(IZOSUserProgramCompletionEvent event) {
-		// handle z/OS user program normal completion here
-		...
-	}
+    @Override
+    public void programCompleted(IZOSUserProgramCompletionEvent event) {
+        // handle z/OS user program normal completion here
+        ...
+    }
 
-	@Override
-	public void programAbended(IZOSUserProgramAbendEvent event) {
-		// handle z/OS user program abend here
-		...
-	}
+    @Override
+    public void programAbended(IZOSUserProgramAbendEvent event) {
+        // handle z/OS user program abend here
+        ...
+    }
 };
 
 // add listener to z/OS user program connection
@@ -1256,5 +1409,5 @@ IZOSUserProgramTerminationListener terminationListener = new IZOSUserProgramTerm
 // programs launched via this z/OS user program connection until it is
 // removed
 zosUserProgramConnection
-		.addUserProgramTerminationListener(terminationListener);
+        .addUserProgramTerminationListener(terminationListener);
 ```
