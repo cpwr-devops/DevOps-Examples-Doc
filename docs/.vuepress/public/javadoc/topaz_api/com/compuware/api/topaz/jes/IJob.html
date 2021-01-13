@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6};
+<script type="text/javascript">var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -137,14 +137,16 @@ loadScripts(document, 'script');</script>
          jesLimit, includePrintQueue, includeExecutionQueue);
  </pre>
  
- For examples on how to obtain an <code>IJESCommandProvider</code> see <a href="IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes"><code>IJESCommandProvider</code></a>.</div>
+ For examples on how to obtain an <code>IJESCommandProvider</code> see <a href="IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes"><code>IJESCommandProvider</code></a>.<br>
+ For examples on how to retrieve a job's <code>ISysoutDataDefinition</code>s see <a href="ISysoutDataDefinition.html" title="interface in com.compuware.api.topaz.jes"><code>ISysoutDataDefinition</code></a>.<br></div>
 <dl>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.2.0</dd>
 <dt><span class="simpleTagLabel">Version:</span></dt>
 <dd>2.2.0</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
-<dd><a href="IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes"><code>IJESCommandProvider</code></a></dd>
+<dd><a href="IJESCommandProvider.html" title="interface in com.compuware.api.topaz.jes"><code>IJESCommandProvider</code></a>, 
+<a href="ISysoutDataDefinition.html" title="interface in com.compuware.api.topaz.jes"><code>ISysoutDataDefinition</code></a></dd>
 <dt><span class="simpleTagLabel">Restriction:</span></dt>
 <dd>This interface is not intended to be extended by clients.</dd>
 <dt><span class="simpleTagLabel">Restriction:</span></dt>
@@ -172,111 +174,118 @@ loadScripts(document, 'script');</script>
 </thead>
 <tbody>
 <tr class="altColor" id="i0">
+<td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ISysoutDataDefinition.html" title="interface in com.compuware.api.topaz.jes">ISysoutDataDefinition</a>&gt;</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fetchSysoutDataDefinitions()">fetchSysoutDataDefinitions</a></span>()</code></th>
+<td class="colLast">
+<div class="block">Retrieves the current list of sysout data definitions (DDs) for this job.</div>
+</td>
+</tr>
+<tr class="rowColor" id="i1">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEndDate()">getEndDate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the date on which this job stopped executing.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i1">
+<tr class="altColor" id="i2">
 <td class="colFirst"><code><a href="ExecutionStatus.html" title="enum in com.compuware.api.topaz.jes">ExecutionStatus</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getExecutionStatus()">getExecutionStatus</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the execution status of this job.</div>
 </td>
 </tr>
-<tr class="altColor" id="i2">
+<tr class="rowColor" id="i3">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getID()">getID</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the ID of this job.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code><a href="JesQueue.html" title="enum in com.compuware.api.topaz.jes">JesQueue</a></code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJesQueue()">getJesQueue</a></span>()</code></th>
+<tr class="altColor" id="i4">
+<td class="colFirst"><code><a href="JESQueue.html" title="enum in com.compuware.api.topaz.jes">JESQueue</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJESQueue()">getJESQueue</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the JES queue of this job.</div>
 </td>
 </tr>
-<tr class="altColor" id="i4">
+<tr class="rowColor" id="i5">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJobClass()">getJobClass</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the job class of this job.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i5">
+<tr class="altColor" id="i6">
 <td class="colFirst"><code><a href="JobInfo.html" title="class in com.compuware.api.topaz.jes">JobInfo</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getJobInfo()">getJobInfo</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns a job information object that uniquely identifies this job.</div>
 </td>
 </tr>
-<tr class="altColor" id="i6">
+<tr class="rowColor" id="i7">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the name of this job.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i7">
+<tr class="altColor" id="i8">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOwner()">getOwner</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the owner of this job.</div>
 </td>
 </tr>
-<tr class="altColor" id="i8">
+<tr class="rowColor" id="i9">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getProgrammerName()">getProgrammerName</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the programmer name of this job, as specified in the job card.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i9">
+<tr class="altColor" id="i10">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getQueuePosition()">getQueuePosition</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the position of this job in the JES queue.</div>
 </td>
 </tr>
-<tr class="altColor" id="i10">
+<tr class="rowColor" id="i11">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getReturnCode()">getReturnCode</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the return code of this job.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i11">
+<tr class="altColor" id="i12">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStartDate()">getStartDate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the date on which this job started executing.</div>
 </td>
 </tr>
-<tr class="altColor" id="i12">
+<tr class="rowColor" id="i13">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/Date.html?is-external=true" title="class or interface in java.util" class="externalLink">Date</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSubmitDate()">getSubmitDate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the date on which this job was submitted.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i13">
+<tr class="altColor" id="i14">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getSystemName()">getSystemName</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the name of the system this job executed or is executing on.</div>
 </td>
 </tr>
-<tr class="altColor" id="i14">
+<tr class="rowColor" id="i15">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isBlockedByDuplicate()">isBlockedByDuplicate</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the this job is blocked from execution by another job, executing with the same name.</div>
 </td>
 </tr>
-<tr class="rowColor" id="i15">
+<tr class="altColor" id="i16">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHeld()">isHeld</a></span>()</code></th>
 <td class="colLast">
@@ -330,8 +339,8 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getId()">getId</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getId</span>()</div>
+<h3><a id="getID()">getID</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a></span>&nbsp;<span class="memberName">getID</span>()</div>
 <div class="block">Returns the ID of this job.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -382,8 +391,8 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getJesQueue()">getJesQueue</a></h3>
-<div class="memberSignature"><span class="returnType"><a href="JesQueue.html" title="enum in com.compuware.api.topaz.jes">JesQueue</a></span>&nbsp;<span class="memberName">getJesQueue</span>()</div>
+<h3><a id="getJESQueue()">getJESQueue</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="JESQueue.html" title="enum in com.compuware.api.topaz.jes">JESQueue</a></span>&nbsp;<span class="memberName">getJESQueue</span>()</div>
 <div class="block">Returns the JES queue of this job.</div>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
@@ -515,6 +524,22 @@ loadScripts(document, 'script');</script>
 <dl>
 <dt><span class="returnLabel">Returns:</span></dt>
 <dd>the end date, or <code>null</code> if the job has not ended yet</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.2.0</dd>
+</dl>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="fetchSysoutDataDefinitions()">fetchSysoutDataDefinitions</a></h3>
+<div class="memberSignature"><span class="returnType"><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ISysoutDataDefinition.html" title="interface in com.compuware.api.topaz.jes">ISysoutDataDefinition</a>&gt;</span>&nbsp;<span class="memberName">fetchSysoutDataDefinitions</span>()</div>
+<div class="block">Retrieves the current list of sysout data definitions (DDs) for this job.</div>
+<dl>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>the sysout data definitions</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="../hosts/zos/ZOSSystemException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSSystemException</a></code> - if a z/OS system error occurs</dd>
+<dd><code><a href="../hosts/zos/ZOSAbendException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSAbendException</a></code> - if a z/OS ABEND occurs</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.2.0</dd>
 </dl>
