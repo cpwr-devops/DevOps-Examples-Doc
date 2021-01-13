@@ -19,6 +19,7 @@ Version | Release Date | Description
 `2.0.1` | 6/27/2019 | Renamed to Topaz API and removed Eclipse dependencies.  See the [migration guide](topaz_workbench_sdk.md#migrating-from-host-services-api-to-topaz-apis) for guidance on upgrading to the new API.
 `2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 `2.1.0` | 1/6/2021 | Added API for Generation Data Groups.
+`2.2.0` | 4/1/2021 | Added API for finding lists of JES jobs
 
 ## Dataset API
 
@@ -42,6 +43,8 @@ The Compuware Topaz API provides users with methods to programmatically perform 
 
 * Submit JCL
 * Track a job’s status
+* Obtain job objects by job name and/or owner filters
+* Obtain execution and queue data of jobs
 
 ## z/OS User Program API
 
@@ -62,15 +65,15 @@ This is the list of dependent libraries you must include in your class path, in 
 Library | Version | Description
 ------- | ------- | -----------
 com.compuware.api.topaz | 2.1.0 | The Topaz API
-com.compuware.frameworks.hostservices.common | 20.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.core.messages | 20.5.1 | Internal Compuware Library
-com.compuware.frameworks.hostservices.crypto | 20.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.css | 20.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.hci | 20.5.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.message.resources | 20.5.1 | Internal Compuware library
-com.compuware.frameworks.nls | 20.5.1 | Internal Compuware library
-com.compuware.java.utilities | 20.5.1 | Internal Compuware library
-com.compuware.java.utilities.icu | 20.5.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.common | 20.6.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.core.messages | 20.6.1 | Internal Compuware Library
+com.compuware.frameworks.hostservices.crypto | 20.6.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.css | 20.6.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.hci | 20.6.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.message.resources | 20.6.1 | Internal Compuware library
+com.compuware.frameworks.nls | 20.6.1 | Internal Compuware library
+com.compuware.java.utilities | 20.6.1 | Internal Compuware library
+com.compuware.java.utilities.icu | 20.6.1 | Internal Compuware library
 ch.qos.logback.classic | 1.0.7 | 3rd party logging library
 ch.qos.logback.core | 1.0.7 | 3rd party logging library
 org.apache.commons.lang | 2.6.0 | 3rd party language utilities library
