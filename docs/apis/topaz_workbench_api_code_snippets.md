@@ -1290,6 +1290,27 @@ List<IJob> jobs = commandProvider.findJobs(jobNameFilter, ownerFilter,
         jesLimit, includePrintQueue, includeExecutionQueue);
 ```
 
+## Obtaining the list of sysout data definitions (DDs) of a job
+
+To retrieve the list of sysout data definitions of a job from an IJESCommandProvider:
+
+```java
+IJESCommandProvider commandProvider = ...
+IJobInfo jobInfo = ...
+
+List<ISysoutDataDefinition> dataDefinitions = commandProvider
+        .fetchSysoutDataDefinitions(jobInfo);
+```
+
+To retrieve the list of sysout data definitions of a job from an IJob:
+
+```java
+IJob job = ...
+
+List<ISysoutDataDefinition> dataDefinitions = job
+        .fetchSysoutDataDefinitions();
+```
+
 ## Launching a z/OS User Program
 
 In order to communicate with a z/OS user program, the program must first be launched.
