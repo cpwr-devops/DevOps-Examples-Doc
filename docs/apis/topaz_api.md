@@ -19,7 +19,7 @@ Version | Release Date | Description
 `2.0.1` | 6/27/2019 | Renamed to Topaz API and removed Eclipse dependencies.  See the [migration guide](topaz_workbench_sdk.md#migrating-from-host-services-api-to-topaz-apis) for guidance on upgrading to the new API.
 `2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 `2.1.0` | 1/6/2021 | Added API for Generation Data Groups.
-`2.2.0` | 4/1/2021 | Added API for finding lists of JES jobs
+`2.2.0` | 4/1/2021 | Added APIs for finding lists of JES jobs and retrieving a job's sysout data definitions (DDs).
 
 ## Dataset API
 
@@ -45,6 +45,7 @@ The Compuware Topaz API provides users with methods to programmatically perform 
 * Track a job’s status
 * Obtain job objects by job name and/or owner filters
 * Obtain execution and queue data of jobs
+* Obtain sysout data definition (DD) objects of jobs
 
 ## z/OS User Program API
 
