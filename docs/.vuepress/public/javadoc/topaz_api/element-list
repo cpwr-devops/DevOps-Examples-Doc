@@ -8,3 +8,4 @@ com.compuware.api.topaz.hostresources.zos
 com.compuware.api.topaz.hosts
 com.compuware.api.topaz.hosts.zos
 com.compuware.api.topaz.jes
+com.compuware.api.topaz.tso
