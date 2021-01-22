@@ -22,7 +22,7 @@ To access the APIs within your environment, go to the CES URL and select the `AP
 
 ### Example of REST API usage
 
-For an example of how to call the Rest API from a scripting language, please see this [Powershell script](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src/misc-examples/ISPW_Operations.ps1) that calls ISPW's API to perform various ISPW Operations from a command line.
+For an example of how to call the Rest API from a scripting language, please see this [Powershell script](https://github.com/cpwr-devops/DevOps-Examples/blob/master/src/misc-examples/AzureDevOps/Powershell/ISPW_Operations.ps1) that calls ISPW's API to perform various ISPW Operations from a command line.
 
 ## Total Test REST APIs
 
