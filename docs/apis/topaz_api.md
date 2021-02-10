@@ -36,6 +36,8 @@ The following actions are provided regarding datasets:
 * Recall a migrated dataset
 * Define a generation data group
 * Obtain generation dataset objects from generation data groups
+* Delete a partitioned, sequential, Migrated or VSAM dataset 
+
 
 ## JES API
 
