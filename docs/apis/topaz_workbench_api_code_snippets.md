@@ -248,7 +248,7 @@ try {
 
 ## Deleting a Dataset Using a Dataset
 
-To delete a partitioned, sequential, Migrated or VSAM dataset using  IDataSet:
+To delete a partitioned, sequential, migrated or VSAM dataset using  IDataSet:
 
  ```java
  IDataSet dataset = ...
@@ -271,7 +271,7 @@ try {
  
 ## Deleting a Dataset Using a Command Provider
 
-To delete a partitioned, sequential, Migrated or VSAM dataset using  IDatasetCommandProvider:
+To delete a partitioned, sequential, migrated or VSAM dataset using  IDatasetCommandProvider:
 
  ```java
  IDataSetCommandProvider commandProvider = ...
