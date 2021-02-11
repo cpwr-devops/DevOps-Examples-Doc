@@ -28,6 +28,7 @@ The Compuware Topaz API provides users with methods to programmatically access a
 The following actions are provided regarding datasets:
 
 * Allocate a partitioned or sequential dataset
+* Delete a partitioned, sequential, migrated or VSAM dataset 
 * Create or delete a PDS member
 * Obtain dataset and PDS member objects by name/pattern and type
 * Read the content of a sequential dataset or a PDS member
@@ -36,7 +37,6 @@ The following actions are provided regarding datasets:
 * Recall a migrated dataset
 * Define a generation data group
 * Obtain generation dataset objects from generation data groups
-* Delete a partitioned, sequential, Migrated or VSAM dataset 
 
 
 ## JES API
