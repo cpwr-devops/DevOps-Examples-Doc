@@ -246,6 +246,56 @@ try {
 }
 ```
 
+## Deleting a Dataset Using a Dataset
+
+To delete a partitioned, sequential, Migrated or VSAM dataset using  IDataSet:
+
+ ```java
+ IDataSet dataset = ...
+ String datasetName = ...
+
+try {
+    dataset.delete();
+    ...
+} catch (DataSetAccessException e) {
+    // the user does not have access to this dataset
+    ...
+} catch (DataSetInUseException e) {
+    // the dataset is enqueued by another user or job
+    ...
+} catch (IllegalArgumentException e) {
+    // invalid dataset name
+     ...
+} 
+```
+ 
+## Deleting a Dataset Using a Command Provider
+
+To delete a partitioned, sequential, Migrated or VSAM dataset using  IDatasetCommandProvider:
+
+ ```java
+ IDataSetCommandProvider commandProvider = ...
+ IDataSet dataset = ...
+ String datasetName = ...
+
+try {
+    commandProvider.delete(datasetName);
+    ...
+} catch (DataSetAccessException e) {
+    // the user does not have access to this dataset
+    ...
+} catch (DataSetInUseException e) {
+    // the dataset is enqueued by another user or job
+    ...
+} catch (IllegalArgumentException e) {
+    // invalid dataset name
+     ...
+} catch (DataSetNotFoundException e) {
+    // the dataset could not be found
+     ...
+}
+```
+
 ## Creating a PDS Member
 
 To create a single PDS member from an IDatasetCommandProvider:
@@ -1290,8 +1340,6 @@ List<IJob> jobs = commandProvider.findJobs(jobNameFilter, ownerFilter,
         jesLimit, includePrintQueue, includeExecutionQueue);
 ```
 
-## Delete a dataset using 
-
 To retrieve the list of sysout data definitions of a job from an IJESCommandProvider:
 
 ```java
@@ -1475,54 +1523,6 @@ IZOSUserProgramTerminationListener terminationListener = new IZOSUserProgramTerm
 zosUserProgramConnection
         .addUserProgramTerminationListener(terminationListener);
 ```
-## Deleting a Dataset Using a Dataset
 
-To delete a partitioned, sequential, Migrated or VSAM dataset using  IDataSet:
-
- ```java
- IDataSet dataset = ...
- String datasetName = ...
-
-try {
-    dataset.delete();
-    ...
-} catch (DataSetAccessException e) {
-    // the user does not have access to this dataset
-    ...
-} catch (DataSetInUseException e) {
-    // the dataset is enqueued by another user or job
-    ...
-} catch (IllegalArgumentException e) {
-    // invalid dataset name
-     ...
-} 
-```
- 
-## Deleting a Dataset Using a Command Provider
-
-To delete a partitioned, sequential, Migrated or VSAM dataset using  IDatasetCommandProvider:
-
- ```java
- IDataSetCommandProvider commandProvider = ...
- IDataSet dataset = ...
- String datasetName = ...
-
-try {
-    commandProvider.delete(datasetName);
-    ...
-} catch (DataSetAccessException e) {
-    // the user does not have access to this dataset
-    ...
-} catch (DataSetInUseException e) {
-    // the dataset is enqueued by another user or job
-    ...
-} catch (IllegalArgumentException e) {
-    // invalid dataset name
-     ...
-} catch (DataSetNotFoundException e) {
-    // the dataset could not be found
-     ...
-}
-```
     
   
