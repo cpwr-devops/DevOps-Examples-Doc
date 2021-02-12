@@ -1524,5 +1524,12 @@ zosUserProgramConnection
         .addUserProgramTerminationListener(terminationListener);
 ```
 
-    
+## Submitting TSO Command Result
+
+To Submit a TSO command for execution on the connected mainframe.
+```java 
+ITSOCommandProvider = ...
+String command = ...
+ITSOCommandResult results = commandProvider.submitTSOCommand(command);
+```    
   
