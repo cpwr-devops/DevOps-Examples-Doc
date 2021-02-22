@@ -173,21 +173,21 @@ extends <a href="../IHostResource.html" title="interface in com.compuware.api.to
          .fetchGenerationDataSets();
  </pre>
  
- To delete a dataset from an <a href="IDataSetCommandProvider.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSetCommandProvider</code></a>: 
+ To delete a dataset using an <a href="IDataSetCommandProvider.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSetCommandProvider</code></a>: 
  <pre>
  IDataSetCommandProvider commandProvider = ...
  String datasetName = ...
  
  try {
-    commandProvider.deleteDataSet(datasetName);
+     commandProvider.deleteDataSet(datasetName);
+ } catch (IllegalArgumentException e) {
+     // invalid dataset name
+     ...
  } catch (DataSetAccessException e) {
      // the user does not have access to this dataset
      ...
  } catch (DataSetInUseException e) {
      // the dataset is enqueued by another user or job
-    ...
- } catch (IllegalArgumentException e) {
-     // invalid dataset name
      ...
  } catch (DataSetNotFoundException e) {
      // the dataset could not be found
@@ -195,11 +195,10 @@ extends <a href="../IHostResource.html" title="interface in com.compuware.api.to
  }
  </pre>
  
- To delete a dataset from an <a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSet</code></a>:
+ To delete a dataset using an <a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSet</code></a>:
  
  <pre>
  IDataSet dataset = ...
- String datasetName = ...
  
  try {
      dataset.delete();
@@ -209,9 +208,6 @@ extends <a href="../IHostResource.html" title="interface in com.compuware.api.to
  } catch (DataSetInUseException e) {
      // the dataset is enqueued by another user or job
      ...
- } catch (IllegalArgumentException e) {
-    // invalid dataset name
-    ...
  }
  </pre>
  
