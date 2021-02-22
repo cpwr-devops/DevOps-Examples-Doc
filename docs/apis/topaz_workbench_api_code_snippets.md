@@ -1,5 +1,5 @@
 ---
-footer: MIT Licensed | Copyright © 2018 - Compuware | © Copyright 2018, 2020 BMC Software, Inc.
+footer: MIT Licensed | Copyright © 2018 - Compuware | © Copyright 2018, 2020-2021 BMC Software, Inc.
 ---
 
 # Topaz Workbench SDK Code Snippets
@@ -261,9 +261,6 @@ try {
 } catch (DataSetInUseException e) {
     // the dataset is enqueued by another user or job
     ...
-} catch (IllegalArgumentException e) {
-    // invalid dataset name
-    ...
 }
 ```
 
@@ -275,14 +272,14 @@ String datasetName = ...
 
 try {
     commandProvider.deleteDataSet(datasetName);
+} catch (IllegalArgumentException e) {
+    // invalid dataset name
+    ...
 } catch (DataSetAccessException e) {
     // the user does not have access to this dataset
     ...
 } catch (DataSetInUseException e) {
     // the dataset is enqueued by another user or job
-    ...
-} catch (IllegalArgumentException e) {
-    // invalid dataset name
     ...
 } catch (DataSetNotFoundException e) {
     // the dataset could not be found
