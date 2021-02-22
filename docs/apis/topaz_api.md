@@ -19,7 +19,7 @@ Version | Release Date | Description
 `2.0.1` | 6/27/2019 | Renamed to Topaz API and removed Eclipse dependencies.  See the [migration guide](topaz_workbench_sdk.md#migrating-from-host-services-api-to-topaz-apis) for guidance on upgrading to the new API.
 `2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 `2.1.0` | 1/6/2021 | Added API for Generation Data Groups.
-`2.2.0` | 4/1/2021 | Added APIs for finding lists of JES jobs and retrieving a job's sysout data definitions (DDs).Added APIs for reading the JES output of a job and reading the contents of a DD of a job. Added additional functionality to delete a partitioned, sequential, migrated or VSAM dataset.
+`2.2.0` | 4/1/2021 | Added APIs for finding lists of JES jobs and retrieving a job's sysout data definitions (DDs). Added APIs for reading the JES output of a job and reading the contents of a DD of a job. Added APIs to delete partitioned, sequential, migrated or VSAM datasets. Added API to execute TSO commands.
 
 ## Dataset API
 
@@ -51,13 +51,6 @@ The Compuware Topaz API provides users with methods to programmatically perform 
 * Read the JES output of a job
 * Read the contents of a DD of a job
 
-
-## TSO Command API
-
-The Compuware Topaz API provides users with methods to programmatically submit TSO commands The following actions are provided regarding TSO commands 
-
-  * Execute a TSO command
- 
 ## z/OS User Program API
 
 The Compuware Topaz API provides users with methods to programmatically launch and communicate with their own z/OS programs.
@@ -67,6 +60,12 @@ The following actions are provided regarding z/OS user programs:
 * Launch a z/OS user program
 * Write/read user-defined data to/from the z/OS user program
 * Be notified of when the z/OS user program has ended
+
+## TSO Command API
+
+The Compuware Topaz API provides users with methods to programmatically submit TSO commands The following actions are provided regarding TSO commands 
+
+* Execute a TSO command
 
 ## Dependencies
 

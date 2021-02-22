@@ -246,17 +246,15 @@ try {
 }
 ```
 
-## Deleting a Dataset Using a Dataset
+## Deleting a Dataset
 
-To delete a partitioned, sequential, migrated or VSAM dataset using  IDataSet:
+To delete a partitioned, sequential, migrated or VSAM dataset using an IDataSet:
 
- ```java
- IDataSet dataset = ...
- String datasetName = ...
+```java
+IDataSet dataset = ...
 
 try {
     dataset.delete();
-    ...
 } catch (DataSetAccessException e) {
     // the user does not have access to this dataset
     ...
@@ -265,22 +263,18 @@ try {
     ...
 } catch (IllegalArgumentException e) {
     // invalid dataset name
-     ...
-} 
+    ...
+}
 ```
- 
-## Deleting a Dataset Using a Command Provider
 
-To delete a partitioned, sequential, migrated or VSAM dataset using  IDatasetCommandProvider:
+To delete a partitioned, sequential, migrated or VSAM dataset using an IDatasetCommandProvider:
 
- ```java
- IDataSetCommandProvider commandProvider = ...
- IDataSet dataset = ...
- String datasetName = ...
+```java
+IDataSetCommandProvider commandProvider = ...
+String datasetName = ...
 
 try {
-    commandProvider.delete(datasetName);
-    ...
+    commandProvider.deleteDataSet(datasetName);
 } catch (DataSetAccessException e) {
     // the user does not have access to this dataset
     ...
@@ -289,10 +283,10 @@ try {
     ...
 } catch (IllegalArgumentException e) {
     // invalid dataset name
-     ...
+    ...
 } catch (DataSetNotFoundException e) {
     // the dataset could not be found
-     ...
+    ...
 }
 ```
 
@@ -1527,9 +1521,9 @@ zosUserProgramConnection
 ## Submitting TSO Command Result
 
 To Submit a TSO command for execution on the connected mainframe.
-```java 
+
+```java
 ITSOCommandProvider = ...
 String command = ...
 ITSOCommandResult results = commandProvider.submitTSOCommand(command);
-```    
-  
+```
