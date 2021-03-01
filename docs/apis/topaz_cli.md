@@ -938,7 +938,7 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 
 ## Topaz Enterprise Data CLI (TedCLI.bat)
 
-The Topaz Enterprise Data CLI runs TED specifications that consist of ConverterPro, ComparePro, Related Extract, Related Loader and Execution Suites. The specifications will have to be created using the relevant application client available in the File-AID/EX perspective in Topaz and the specifications should be saved and made available on any of the shared repository configured.
+The Topaz Enterprise Data CLI executes TED specifications such ConverterPro, ComparePro, Related Extract, Related Loader and Execution Suites. The specifications will have to be created using the relevant application client available in the File-AID/EX perspective of Topaz and the specifications should be saved and made available in any of the shared repositories. Moreover the shared repository should be configured on a standalone communication manager for using it with TED CLI. Further, to execute the specifications via the TED CLI, standalone execution servers need to be used. The embedded communication manager and execution server that comes with the Topaz TED feature cannot be used for executing TED cli. The standalone communication manager is installed along with the File-AID Services, and can be configured on the Topaz preferences under the TED. for configuring the shared repository. Please refer to the TED install guide for more information.
 
 ### Usage
 Executing the specification should be done with the `TedCLI.bat` file. The general syntax for using the `TedCLI.bat` is
