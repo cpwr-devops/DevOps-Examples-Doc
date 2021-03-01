@@ -17,6 +17,7 @@ These are
 `CodeCoverageCLI.bat` | Allows downloading results from a Xpediter Code Coverage repository by specifying the repository name, system name and test ID.
 `IspwCLI.bat` | Used for the Git to ISPW integration
 `SCMDownloaderCLI.bat` | Allows interaction with the ISPW downloader to download sources from ISPW repositories, Endevor repositories or PDS 
+`SCMDownloaderCLI.bat` | Allows interaction with the ISPW downloader to download sources from ISPW repositories, Endevor repositories or PDS
 `SubmitJclCLI.bat` | Allows submitting JCL on the mainframe and retrieving the return code
 `TotalTestFTCLI.bat` | Allows execution of Topaz for Total Test scenarios and suites. This includes Total Test scenarios (.scenario) as well as unit test scenarios (.testscenario)
 `TotalTestCLI.bat` | Deprecated. Use TotalTestFTCLI instead. Allows execution of Topaz for Total Test unit test scenarios and suites.
@@ -41,8 +42,8 @@ will create a workspace in the user's profile, copy the `configuration` folder i
 Executing any of the `.bat` files without parameters, or with just the `-data` parameter, or with the `-help` parameter will return the help pages for the respective file. For example using the previous command will result in the following output:
 
 ```
-Code Coverage CLI started, version = 19.02.01. 
-Program arguments were not passed in the ALL_ARGS environment variable, will use the Eclipse command line to parse. 
+Code Coverage CLI started, version = 19.02.01.
+Program arguments were not passed in the ALL_ARGS environment variable, will use the Eclipse command line to parse.
 usage: Code Coverage CLI
     --cc.ddio.overrides <arg>   comma separated list of DDIO overrides
     --cc.repos <arg>            the code coverage repository (dataset
@@ -61,8 +62,8 @@ usage: Code Coverage CLI
                                 downloaded
  -timeout <arg>                 the timeout (in minutes) for the
                                 connection
-The host parameter is not specified. 
-Code Coverage CLI ended with status = 4. 
+The host parameter is not specified.
+Code Coverage CLI ended with status = 4.
 ```
 
 ## Common parameters
@@ -86,7 +87,7 @@ In addition to the above parameters, the `.bat` files use parameters specific to
 
 ## Xpediter Code Coverage (CodeCoverageCLI.bat)
 
-The Xpediter Code Coverage CLI downloads code coverage results from from Xpediter and generates a code coverage file that SonarQube can consume. 
+The Xpediter Code Coverage CLI downloads code coverage results from from Xpediter and generates a code coverage file that SonarQube can consume.
 
 Parameter | Description
 --------- | -----------
@@ -106,17 +107,17 @@ The following example will download the Code Coverage results from repository `'
 
 REM
 REM Script to download CoCo results using the Topaz CLI
-REM 
+REM
 REM **********************************************************
 REM Configuration Variables for the Script
 REM
 REM Change according to your environment
-REM 
+REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM JAVA_HOME Installation Path of Java
- 
+
 SET "CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\"
 SET "workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
 SET "targetFolder=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
@@ -162,7 +163,7 @@ Parameter | Description
 ### Example using the ISPW container downloader
 
 The following example will download all COBOL components and copybooks from ISPW assignment (`-ispwContainerType "0"`) `RXN3000007`, using the container downloader (`-scm "ispwc"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
-The resources reside on host `my.mainframe.host`, communicating on port `16196`. 
+The resources reside on host `my.mainframe.host`, communicating on port `16196`.
 The downloaded sources will end up in the sub folder `<application>/MF_Source` (in the example `RXN3\MF_Source`) of the specified target folder name.
 
 ```
@@ -170,15 +171,15 @@ The downloaded sources will end up in the sub folder `<application>/MF_Source` (
 
 REM
 REM Script to download sources from ISPW using the Topaz CLI
-REM 
+REM
 REM **********************************************************
 REM Configuration Variables for the Script
 REM
 REM Change according to your environment
-REM 
+REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM
 REM JAVA_HOME Installation Path of Java
 
@@ -211,18 +212,18 @@ The downloaded sources will end up in the sub folder `<application>/MF_Source` (
 
 REM
 REM Script to download sources from ISPW using the Topaz CLI
-REM 
+REM
 REM **********************************************************
 REM Configuration Variables for the Script
 REM
 REM Change according to your environment
-REM 
+REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM
 REM JAVA_HOME Installation Path of Java
- 
+
 SET "CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\"
 SET "workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
 SET "targetFolder=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
@@ -250,8 +251,8 @@ SET "JAVA_HOME=C:\Program Files\Java\jdk1.8.0_101"
 ### Example using the PDS downloader
 
 The following example will download all members from PDS `'SALESSUP.RXN3.DEV1.COB'`, using the PDS downloader (`-scm "ispw"`). Sources will be downloaded, regardless weather they have been changed or not (`ispwDownloadAll "true"`)
-The resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the workspace. 
-The downloaded sources will end up in specified target folder in one sub folder per PDS in the list that contained members. 
+The resources reside on host `my.mainframe.host`, communicating on port `16196`. The results will be downloaded to the workspace.
+The downloaded sources will end up in specified target folder in one sub folder per PDS in the list that contained members.
 
 For example:
 
@@ -270,18 +271,18 @@ if there are no members in the `QA1` or `STG` PDS.
 
 REM
 REM Script to download sources from PDS using the Topaz CLI
-REM 
+REM
 REM **********************************************************
 REM Configuration Variables for the Script
 REM
 REM Change according to your environment
-REM 
+REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM
 REM JAVA_HOME Installation Path of Java
- 
+
 SET "CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\"
 SET "workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
 SET "targetFolder=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace\RXN3\MF_Source_PDS"
@@ -343,18 +344,18 @@ This example will submit two jobs on host `my.mainframe.host`, communicating on 
 
 REM
 REM Script to submit JCL from PDS using the Topaz CLI
-REM 
+REM
 REM **********************************************************
 REM Configuration Variables for the Script
 REM
 REM Change according to your environment
-REM 
+REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM
 REM JAVA_HOME Installation Path of Java
- 
+
 SET "CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\"
 SET "workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
 SET "host=my.mainframe.host"
@@ -388,7 +389,7 @@ REM Change according to your environment
 REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM
 REM JAVA_HOME Installation Path of Java
 
@@ -498,7 +499,7 @@ usage: TotalTestFTCLI
                                            creating corrrect zAdviser
                                            events. C=CLI (Default),
                                            J=Jenkins, X=XebiaLabs
- -log,--loglevel <arg>                     The logging level. Must be ERROR, WARNING, INFO, 
+ -log,--loglevel <arg>                     The logging level. Must be ERROR, WARNING, INFO,
                                            DEBUG, TRACE or ALL. The default is INFO.
  -noju,--nojunit                           If specified, no JUnit file
                                            will be created.
@@ -580,7 +581,7 @@ Example of executing a unit test scenario with hard coded runner.jcl
 TotalTestFTCLI.bat --host 1.2.3.4 --port 19196 --file /a/b/Scenarios/test.testscenario --runner-jcl /a/b/JCL/runner.jcl -cfgdir /a/c/TotalTestConfiguration -u XATUSER -p 123456
 ```
 
-::: warning IMPORTANT 
+::: warning IMPORTANT
 In the 20.5.1 release, using the `--runner-jcl` parameter will require that the TotalTestConfiguration project to be present (option --configuration-directory or -cfgdir), or that the repository server is available (option --server or -s). This is actually a requirement for all CLI executions. In a future release this requirement will probably be removed when executing unit test scenarios directly with hard coded runner JCL to make it easier to setup the CLI execution since the information from the project/server in this use case is not required.
 :::
 
@@ -655,7 +656,7 @@ The Total Test Unit Test CLI has been deprecated and will be removed in a future
 :::
 
 ### Usage
-Executing unit test scenarios is done with the `TotalTestCLI.bat` file. The general syntax for using the `TotalTestCLI.bat` is 
+Executing unit test scenarios is done with the `TotalTestCLI.bat` file. The general syntax for using the `TotalTestCLI.bat` is
 ```
 TotalTestCLI.bat -cmd=<command> options
 ```
@@ -767,18 +768,18 @@ The followwing example will execute the suite `CWXTSUBC.testsuite` residing in T
 
 REM
 REM Script to submit JCL using the Topaz CLI
-REM 
+REM
 REM **********************************************************
 REM Configuration Variables for the Script
 REM
 REM Change according to your environment
-REM 
+REM
 REM **********************************************************
 REM
-REM CLIPath  Installation Path of your Topaz CLI 
+REM CLIPath  Installation Path of your Topaz CLI
 REM
 REM JAVA_HOME Installation Path of Java
- 
+
 SET "CLIPath=C:\Program Files\Compuware\Topaz Workbench CLI 1921\"
 SET "workspace=C:\Users\cwde-rnuesse\Compuware\Topaz\TopazCLIWorkspace"
 SET "host=my.mainframe.host"
@@ -934,3 +935,88 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 `-project` | -p | Path to the project folder. If provided, the result and report parameters can be omitted, and their file names will be automatically derived. This parameter has no default.
 `-fileencoding` | -fe | The character encoding to be used for output files. Defaults to UTF-8.
 `-save` | -s | Save output or not. Set to TRUE to write output, or FALSE for no output. When set to FALSE, no files will be created and the archive will not be updated. Defaults to TRUE.
+
+## Topaz Enterprise Data CLI (TedCLI.bat)
+
+The Topaz Enterprise Data CLI runs TED specifications that consist of ConverterPro, ComparePro, Related Extract, Related Loader and Execution Suites. The specifications will have to be created using the relevant application client available in the File-AID/EX perspective in Topaz and the specifications should be saved and made available on any of the shared repository configured.
+
+### Usage
+Executing the specification should be done with the `TedCLI.bat` file. The general syntax for using the `TedCLI.bat` is
+
+```
+TedCLI.bat -cmd=<command> options
+```
+where the command is:
+- execute - Executes the specification from the repository specified.
+
+Note: Many of the parameters available for the 'execute' command can also be specified via the execution context file, these are marked accordingly in the table below. Please refer to table below for more information regarding the execution context.
+
+**Execute Command parameters**
+Parameter/Option | Abbr | Description |	Context (-able)? | Required?
+--------- | -----------|---------------|---------------|---------------
+-repository	| -r | The repository name where the specification is present. | | Yes
+-specification | -s | The name of the specification that is to be executed. | |	Yes if specification-list is not provided
+-specification-type | -st | The type of the specification that is to be executed. compare, convert, extract, load, exsuite | |Yes if specification-list is not provided									
+-results-repository | -rr | The results repository where ComparePro execution results will be stored. Applicable only to ComparePro specification. Defaults to main repository if not specified.| |
+-execution-context | -ec | The name or absolute path to the execution context file. The execution context file can supply some of the arguments that can also be passed with the execute command. If a value of a certain parameter is present in the context file and is also passed as an argument, the value passed with the command will take precedence. To know which all parameters can be specified via the context file, view the template provided at <InstallPath>/WorkbenchCLI/EnterpriseData namely executioncontext_template.properties. Multiple execution contexts can be created as required by copying the template.| | 	
+-specification-list | -sl | Specification Name and Type list each separate by space within quotes, if multiple specifications have to be executed in series. If this argument is specified, the specification and specification-type arguments will not be used.| |			
+-exit-on-failure | -eof | Flag to indicate exit on encountering specification execution in case of executing multiple specifications. This is an optional field, that is defaulted to true. If set to false, will continue executing other specifications down the provided list of specifications.| |
+-execution-timeout | -t | The execution timeout in seconds, if needs to be set to a value other than 20 seconds.| Yes |
+-comm-manager | -cm | The remote communication manager to be used, where the repositories are configured. |	Yes | Yes
+-comm-manager-port | -cmp | The remote communication manager's port. |	Yes | Yes
+-execution-server | -es | The execution server where the EX specifications should be executed. | Yes | Yes for EX Specifications
+-execution-server-port | -esp | The execution server's port to be used for communication. | Yes | Yes for EX Specifications
+-execution-host | -eh | The execution host where the RDX specifications should be executed. | Yes | Yes for RDX Specifications
+-executor-host-port | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
+-hci-userid | -hid | The HCI connection user id to be used in RDX specification execution.| | Yes for RDX execution
+-hci-password | -hpw | The HCI connection password in case of RDX specification execution.| |Yes for RDX execution
+-ccsid | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
+-ces-uri | -ces | The ces uri to be used for license validation. | Yes | Yes
+-use-cloud | -ucd | Flag to denote which type of CES is to be used, a local CES or the Compuware cloud CES. | Yes |	Yes
+-ces-cust-no | -cno | The customer number in case cloud CES is being used. | Yes | Yes for cloud CES
+-ces-site-id | -sid | The site ID in case cloud CES is being used. | Yes | Yes for cloud CES
+-jcl-jobcard1 | -j1 | The JCL Jobcard Line 1 to be used in RDX specification execution. | Yes |
+-jcl-jobcard2 |	-j2 | The JCL Jobcard Line 2 to be used in RDX specification execution. | Yes |
+-jcl-jobcard3 |	-j3	| The JCL Jobcard Line 3 to be used in RDX specification execution. | Yes | 	
+-jcl-jobcard4 |	-j4 | The JCL Jobcard Line 4 to be used in RDX specification execution. | Yes |
+-jcl-jobcard5 |	-j5 | The JCL Jobcard Line 5 to be used in RDX specification execution. | Yes |
+-dataset-hlq | -hlq | The dataset high level qualifier to be used in RDX specification execution. | Yes |
+-temp-dataset-prefix | -px | The prefix to be used for temporary datasets in case of RDX specification execution. | Yes |
+-temp-dataset-suffix |	-sx | The suffix to be used for temporary datasets in case of RDX specification execution. | Yes |
+-fadebug | -fdb | The dataprivacy override FADEBUG to be applied. | Yes | 		
+-faexpath | -fxp | The dataprivacy override FAEXPATH to be applied. | Yes |
+-faipaddr | -fip | The dataprivacy override FAIPADDR to be applied. | Yes |
+-fajopts | -fjo | The dataprivacy override FAJOPTS to be applied. | Yes |
+-fajpath | -fjp | The dataprivacy override FAJAPTH to be applied. | Yes |
+
+**Sample usage**
+### Help on execute command
+```
+TedCLI.bat -cmd execute -help
+```
+Will print the help text for execute command.
+
+### Executing an EX Extract specification from the repository
+```
+TedCLI.bat -cmd execute -repository=TestRepo -specification=TestExExtractSpec -specificationtype=EXTRACT -comm-mgr=remote-comm-manager-machine -comm-mgr-port=4901 -execution-server=server-machine -execution-server-port=4900 -ces-uri=http://test-ces-host:2020/compuware -use-cloud=false
+```
+Executes the TestSpec EX Extract from TestRepo repository configured on the given remote communication manager
+on the provided execution server while checking for license on the provided ces.
+
+### Executing an ComparePro specification from the repository
+```
+TedCLI.bat -cmd=execute -repository=SpecRepository -specification=TestCompareProSpec -specificationtype=Compare -results-repository=ResultsRepo -execution-context=TestExecutionContext.properties
+```
+Executes a ComparePro specification. Make use of the specified results repository to store the compare results instead of the default SpecRepository. Also this execution utilizes the values specified in the execution context for the rest of the required parameters.
+
+### Executing an RDX specification from the repository
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec
+```
+Executes the TestRDXExtractSpec RDX Extract from TestRepo repository. The job is submitted to the mfhost:16196 defined via the execution host and port params. Some of the values are specified in the execution context file 'TestExecutionContext.properties' defined, while some of the arguments like dataset-hlq defined in the context has been overridden with the value passed as the argument.  
+
+### Executing multiple specifications in a single command from the repository
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification-list "ExExtractSpec extract convspec convert loadspec load" -exit-on-failure false -execution-timeout 20
+```
+Executes three specifications an extract, converterPro and a loader specification. Since the optional exit-on-failure flag is set to false, if the execution of a specification fails it will continue executing the rest of the specifications listed, default behavior is true if not specified. The execution time out has been set to 30 seconds in this example instead of the default 20 seconds.
