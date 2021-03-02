@@ -949,3 +949,90 @@ Parameter&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Abbr.  | Description
 `-project` | -p | Path to the project folder. If provided, the result and report parameters can be omitted, and their file names will be automatically derived. This parameter has no default.
 `-fileencoding` | -fe | The character encoding to be used for output files. Defaults to UTF-8.
 `-save` | -s | Save output or not. Set to TRUE to write output, or FALSE for no output. When set to FALSE, no files will be created and the archive will not be updated. Defaults to TRUE.
+
+## Topaz Enterprise Data CLI (TedCLI.bat)
+
+The Topaz Enterprise Data CLI executes TED specifications such ConverterPro, ComparePro, Related Extract, Related Loader and Execution Suites. The specifications will have to be created using the relevant application client available in the File-AID/EX perspective of Topaz and the specifications should be saved and made available in any of the shared repositories. Moreover the shared repository should be configured on a standalone communication manager for using it with TED CLI. Further, to execute the specifications via the TED CLI, standalone execution server needs to be installed if not already available. Please note that the embedded communication manager and execution server that is available with the Topaz TED feature cannot be used for executing TED CLI.
+
+The standalone communication manager is installed along with the File-AID Services, and can be configured in Topaz Workbench preferences, under the TED section for use with the client. Once configured and set as current, the Repository Management utility shall be used to configure the shared repository on to the current communication manager. Please refer to the TED install guide for more information.
+
+### Usage
+Executing the specification should be done with the `TedCLI.bat` file. The general syntax for using the `TedCLI.bat` is
+
+```
+TedCLI.bat -cmd=<command> options
+```
+where the command is:
+- execute - Executes the specification from the repository specified.
+
+Note: Many of the parameters available for the 'execute' command can also be specified via the execution context file, these are marked accordingly in the table below. Please refer to table below for more information regarding the execution context.
+
+**Execute Command parameters**
+Parameter/Option | Abbr | Description |	Context (-able)? | Required?
+--------- | -----------|---------------|---------------|---------------
+-repository	| -r | The repository name where the specification is present. | | Yes
+-specification | -s | The name of the specification that is to be executed. | |	Yes if specification-list is not provided
+-specification-type | -st | The type of the specification that is to be executed. compare, convert, extract, load, exsuite | |Yes if specification-list is not provided									
+-results-repository | -rr | The results repository where ComparePro execution results will be stored. Applicable only to ComparePro specification. Defaults to main repository if not specified.| |
+-execution-context | -ec | The name or absolute path to the execution context file. The execution context file can supply some of the arguments that can also be passed with the execute command. If a value of a certain parameter is present in the context file and is also passed as an argument, the value passed with the command will take precedence. To know which all parameters can be specified via the context file, view the template provided at <InstallPath>/WorkbenchCLI/EnterpriseData namely executioncontext_template.properties. Multiple execution contexts can be created as required by copying the template.| | 	
+-specification-list | -sl | Specification Name and Type list each separate by space within quotes, if multiple specifications have to be executed in series. If this argument is specified, the specification and specification-type arguments will not be used.| |			
+-exit-on-failure | -eof | Flag to indicate exit on encountering specification execution in case of executing multiple specifications. This is an optional field, that is defaulted to true. If set to false, will continue executing other specifications down the provided list of specifications.| |
+-execution-timeout | -t | The execution timeout in seconds, if needs to be set to a value other than 20 seconds.| Yes |
+-comm-manager | -cm | The remote communication manager to be used, where the repositories are configured. |	Yes | Yes
+-comm-manager-port | -cmp | The remote communication manager's port. |	Yes | Yes
+-execution-server | -es | The execution server where the EX specifications should be executed. | Yes | Yes for EX Specifications
+-execution-server-port | -esp | The execution server's port to be used for communication. | Yes | Yes for EX Specifications
+-execution-host | -eh | The execution host where the RDX specifications should be executed. | Yes | Yes for RDX Specifications
+-executor-host-port | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
+-hci-userid | -hid | The HCI connection user id to be used in RDX specification execution.| | Yes for RDX execution
+-hci-password | -hpw | The HCI connection password in case of RDX specification execution.| |Yes for RDX execution
+-ccsid | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
+-ces-uri | -ces | The ces uri to be used for license validation. | Yes | Yes
+-use-cloud | -ucd | Flag to denote which type of CES is to be used, a local CES or the Compuware cloud CES. | Yes |	Yes
+-ces-cust-no | -cno | The customer number in case cloud CES is being used. | Yes | Yes for cloud CES
+-ces-site-id | -sid | The site ID in case cloud CES is being used. | Yes | Yes for cloud CES
+-jcl-jobcard1 | -j1 | The JCL Jobcard Line 1 to be used in RDX specification execution. | Yes |
+-jcl-jobcard2 |	-j2 | The JCL Jobcard Line 2 to be used in RDX specification execution. | Yes |
+-jcl-jobcard3 |	-j3	| The JCL Jobcard Line 3 to be used in RDX specification execution. | Yes | 	
+-jcl-jobcard4 |	-j4 | The JCL Jobcard Line 4 to be used in RDX specification execution. | Yes |
+-jcl-jobcard5 |	-j5 | The JCL Jobcard Line 5 to be used in RDX specification execution. | Yes |
+-dataset-hlq | -hlq | The dataset high level qualifier to be used in RDX specification execution. | Yes |
+-temp-dataset-prefix | -px | The prefix to be used for temporary datasets in case of RDX specification execution. | Yes |
+-temp-dataset-suffix |	-sx | The suffix to be used for temporary datasets in case of RDX specification execution. | Yes |
+-fadebug | -fdb | The dataprivacy override FADEBUG to be applied. | Yes | 		
+-faexpath | -fxp | The dataprivacy override FAEXPATH to be applied. | Yes |
+-faipaddr | -fip | The dataprivacy override FAIPADDR to be applied. | Yes |
+-fajopts | -fjo | The dataprivacy override FAJOPTS to be applied. | Yes |
+-fajpath | -fjp | The dataprivacy override FAJAPTH to be applied. | Yes |
+
+**Sample usage**
+### Help on execute command
+```
+TedCLI.bat -cmd execute -help
+```
+Will print the help text for execute command.
+
+### Executing an EX Extract specification from the repository
+```
+TedCLI.bat -cmd execute -repository=TestRepo -specification=TestExExtractSpec -specificationtype=EXTRACT -comm-mgr=remote-comm-manager-machine -comm-mgr-port=4901 -execution-server=server-machine -execution-server-port=4900 -ces-uri=http://test-ces-host:2020/compuware -use-cloud=false
+```
+Executes the TestSpec EX Extract from TestRepo repository configured on the given remote communication manager
+on the provided execution server while checking for license on the provided ces.
+
+### Executing an ComparePro specification from the repository
+```
+TedCLI.bat -cmd=execute -repository=SpecRepository -specification=TestCompareProSpec -specificationtype=Compare -results-repository=ResultsRepo -execution-context=TestExecutionContext.properties
+```
+Executes a ComparePro specification. Make use of the specified results repository to store the compare results instead of the default SpecRepository. Also this execution utilizes the values specified in the execution context for the rest of the required parameters.
+
+### Executing an RDX specification from the repository
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec
+```
+Executes the TestRDXExtractSpec RDX Extract from TestRepo repository. The job is submitted to the mfhost:16196 defined via the execution host and port params. Some of the values are specified in the execution context file 'TestExecutionContext.properties' defined, while some of the arguments like dataset-hlq defined in the context has been overridden with the value passed as the argument.  
+
+### Executing multiple specifications in a single command from the repository
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification-list "ExExtractSpec extract convspec convert loadspec load" -exit-on-failure false -execution-timeout 20
+```
+Executes three specifications an extract, converterPro and a loader specification. Since the optional exit-on-failure flag is set to false, if the execution of a specification fails it will continue executing the rest of the specifications listed, default behavior is true if not specified. The execution time out has been set to 30 seconds in this example instead of the default 20 seconds.
