@@ -75,11 +75,7 @@ The example uses levels `DEV1`, `DEV2`, `DEV3`, with the life cycle for the appl
 
 One or more events during the operation(s) that trigger the webhook. Events can be:
 
-- `Always`
-- `Executing`
-- `Dispatched`
-- `Ready`
-- `Closed`
+- `Approve`
 - `Completed`
 - `Failed`
 - `Terminated`
