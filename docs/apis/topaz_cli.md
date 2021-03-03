@@ -969,8 +969,8 @@ Parameter/Option | Abbr | Description |	Context (-able)? | Required?
 -execution-server-port | -esp | The standalone execution server's port to be used for communication. | Yes | Yes for EX Specifications
 -execution-host | -eh | The execution host where RDX specifications should be executed. | Yes | Yes for RDX Specifications
 -executor-host-port | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
--hci-userid | -hid | The HCI connection userid. (RDX Extract and Load execution)| | Yes for RDX execution
--hci-password | -hpw | The HCI connection password. (RDX Extract and Load execution).| |Yes for RDX execution
+-hci-userid | -hid | The HCI connection userid. (For RDX execution only)| | Yes for RDX execution
+-hci-password | -hpw | The HCI connection password. (For RDX execution only).| |Yes for RDX execution
 -ccsid | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
 -ces-uri | -ces | The CES uri to be used for license validation. | Yes | Yes
 -use-cloud | -ucd | Flag to denote which type of CES is to be used, a local CES or the Compuware cloud CES. | Yes |	Yes
