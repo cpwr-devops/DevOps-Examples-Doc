@@ -21,18 +21,19 @@ The *Detailed Steps* section provides the comprehensive steps to perform the Git
 
 
 ## Environment
+These are the minimum releases of software and plugins required.
 
 Topaz Workbench 20.01.01:
- Egit in Eclipse 5.6.0
+- Egit in Eclipse 5.6.0
 
- Jenkins version 2.190.3:
- Topaz Workbench CLI version 20.01.01
- Compuware Common Configurations Jenkins plugin 1.0.10-SNAPSHOT
- ISPW Operations Jenkins plugin 1.0.8-SNAPSHOT
+Jenkins version 2.190.3:
+- Topaz Workbench CLI version 20.01.01
+- Compuware Common Configurations Jenkins plugin 1.0.10-SNAPSHOT
+- ISPW Operations Jenkins plugin 1.0.8-SNAPSHOT
 
- Atlassian Bitbucket v5.16.0
+Atlassian Bitbucket v5.16.0
 
- ISPW PLAY application 18.02
+ISPW PLAY application 18.02
 
 
 ## Overview Steps
@@ -85,19 +86,19 @@ If the PLAY application is already in Git but the Jenkins Pipeline is not set up
 
 ##### <u>Topaz Workbench</u>
 
-Install Egit: Refer to https://www.eclipse.org/egit/download/ for the installation.
+Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.eclipse.org/egit/download) for the installation.
 
 ##### <u>Jenkins</u>
 
-1. Install Topaz Workbench CLI version 20.01.01 on Windows or Linux according to the following: [http://frontline.compuware.com/doc/KB/KB1802/HTML/TopazWorkbench_Install/Responsive%20HTML5/TopazWorkbench_Install/Install_Topaz_Workbench/Install_Topaz_Workbench.htm](http://frontline.compuware.com/doc/KB/KB1802/HTML/TopazWorkbench_Install/Responsive HTML5/TopazWorkbench_Install/Install_Topaz_Workbench/Install_Topaz_Workbench.htm))
+1. Install Topaz Workbench CLI version 20.01.01 on Windows or Linux according to the following [Topaz Workbench Installation Guide](https://docs.compuware.com/kb/KB2005/HTML/TopazWorkbench_Install/Responsive%20HTML5/index.html#t=TopazWorkbench_Install%2FInstall_Topaz_Workbench%2FInstall_Topaz_Workbench.htm%23TOC_Task_2_3_Install_Topazbc-4&rhsearch=command%20line%20interface&rhsyns=%20&rhtocid=_5_0_2)
    
    **Update Jenkins configuration for the Topaz Workbench CLI** 
    
    In Jenkins, click **Jenkins**, select **Manage Jenkins**, and then select **Configure System** and set up the [Topaz Workbench CLI location](https://devops.api.compuware.com/tool_configuration/Jenkins_config.html#compuware-configurations) and a host connection.
 
-2. Compuware Common Configurations Jenkins. For the installation, refer to https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-common-configuration.
+2. Compuware Common Configurations Jenkins. For the installation, refer to [Tool Configurations/Compuware Common Configuration](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-common-configuration).
 
-3. ISPW Operations Jenkins plugin. For the installation, refer to https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-ispw-operations-plugin.
+3. ISPW Operations Jenkins plugin. For the installation, refer to [Tool Configurations/Compuware ISPW Operations Plugin](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-ispw-operations-plugin).
 <a id="verify-the-ispw-mainframe-play-application-is-available"></a>
 
 #### **Verify the ISPW mainframe PLAY application is available** 
@@ -164,32 +165,32 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 11. To examine the contents of the ispwconfig.yml file, right-click the file and select **Open**. 
 
     
-
-         ,,,   !!com.compuware.ispw.cli.model.IspwRoot
-             ispwApplication:
-               application: PLAY
-               host: somehost.example.com
-               pathMappings:
-               - path: \CLST
-             types:
-             - fileExtension: clst
-               ispwType: CLST
-                 - path: \COB
-             types:
-             - fileExtension: cob
-               ispwType: COB
-                 - path: \COPY
-             types:
-             - fileExtension: copy
-               ispwType: COPY
-                 - path: \JOB
-             types:
-             - fileExtension: job
-               ispwType: JOB
-                 port: 12345
-                 runtimeConfig: TPZP
-                 stream: PLAY
-             ,,,
+```
+!!com.compuware.ispw.cli.model.IspwRoot
+   ispwApplication:
+   application: PLAY
+   host: somehost.example.com
+   pathMappings:
+   - path: \CLST
+   types:
+   - fileExtension: clst
+   ispwType: CLST
+      - path: \COB
+   types:
+   - fileExtension: cob
+   ispwType: COB
+      - path: \COPY
+   types:
+   - fileExtension: copy
+   ispwType: COPY
+      - path: \JOB
+   types:
+   - fileExtension: job
+   ispwType: JOB
+      port: 12345
+      runtimeConfig: TPZP
+      stream: PLAY
+```
 
 12. Refer to the *ISPW to GIT Integration: ISPW YAML Configuration File* for information on the available ISPW property settings and path mappings that can be in the ispwconfig.yml file.
 
@@ -223,6 +224,12 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
    ![BitbutcketProfile](../images/BitbutcketProfile.png)
    
+
+::: tip
+
+Depending on the Git server (GitHub, Bitbucket, etc.) and interface (web, desktop, etc.) you are using, the nomenclature and way to create a new repository may differ from what is shown here. Refer to your Git server's online help.
+
+:::
 
 <a id="_5-configure-the-ispw-and-git-mapping"></a>
 
@@ -302,7 +309,7 @@ node {
 6. In the **Branch Mapping** field, enter ***Play\* => DEV1, per-branch**.
 
    ::: tip
-   The first field in the branch mapping (***Play\\***) is part of the branch name **PlayBranch1**, which will be used to do the commit and push in a later step. Therefore, it is important that the mapping matches the branch name or part of the branch name with a wildcard for the multibranch pipeline project to be completed successfully.
+   The first field in the branch mapping (***Play\***) is part of the branch name **PlayBranch1**, which will be used to do the commit and push in a later step. Therefore, it is important that the mapping matches the branch name or part of the branch name with a wildcard for the multibranch pipeline project to be completed successfully.
 
    :::
 
