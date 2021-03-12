@@ -444,6 +444,9 @@ usage: TotalTestFTCLI
                                            running the test. Valid values
                                            are 'true' or 'false'. The
                                            default value is 'true'.
+ -cctype, --ccpgmtype <arg>                Code Coverage type. Must be specified 
+                                           to enable Code Coverage. Valid values 
+                                           are: TOTALTEST, DB2, IMS                                          
  -ccrepo,--ccrepository <arg>              The name of the Code Coverage
                                            repository dataset. Must be
                                            specified to enable Code
@@ -469,11 +472,16 @@ usage: TotalTestFTCLI
  -cju,--compare-junits                     Optional Indicates that JUnit
                                            from this execution should be
                                            compared to the baseline JUnit
+ -cp, --code-page <arg>                    The code page to use when connecting 
+                                           to the host.                               
  -ctxvars,--context-variables <arg>        Context variables as ID/value
                                            pairs in the form
                                            "id1=value1,id2=value2"
  -e,--environment <arg>                    Environment in which to execute
                                            test scenarios
+ -encrypt, --encryption-protocol <arg>     Host connection encryption protocol.
+                                           Must be: NONE, AUTO, SSLv3, TLS, TLSv1, 
+                                           TLSv1.1, TLSv1.2
  -f,--file <arg>                           File or folder path to the
                                            Total Test .xactx file(s) to
                                            execute. Can be absolute or
@@ -487,6 +495,8 @@ usage: TotalTestFTCLI
  -h,--halt-at-failure                      Halt the execution when first
                                            test scenario fails
  -help                                     print this message
+ -hlq, --dsn-hlq <arg>                     High level qualifier to use when
+                                           allocating datsets.                                           
  -host,--host <arg>                        Host for connection
  -j,--runner-jcl <arg>                     Unit test runner jcl location.
                                            Only used when the -f parameter
