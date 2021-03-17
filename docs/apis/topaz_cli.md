@@ -590,13 +590,13 @@ Example of executing a unit test scenario with hard coded runner.jcl
 TotalTestFTCLI.bat --host 1.2.3.4 --port 19196 --file /a/b/Scenarios/test.testscenario --runner-jcl /a/b/JCL/runner.jcl -cfgdir /a/c/TotalTestConfiguration -u XATUSER -p 123456
 ```
 
-The CLI can also execute a unit test scenario without the use of the TotalTestConfiguration project. This can be useful when executing older unit test scenarios in a pipeline where the configuration project is not available. The example below shows how the high-level qualifier, used for dataset creation. and the encryption protocol, used for communication with the LPAR, can be set with parameters.
+The CLI can also execute a unit test scenario without the use of the TotalTestConfiguration project. This can be useful when executing older unit test scenarios in a pipeline where the configuration project is not available. The example below shows how the high-level qualifier, used for dataset creation, and the encryption protocol, used for communication with the LPAR, can be set with parameters.
 ```
 TotalTestFTCLI.bat --host 1.2.3.4 --port 19196 -hlq A.B.C -encrypt TLS --file /a/b/Scenarios/test.testscenario --runner-jcl /a/b/JCL/runner.jcl -u XATUSER -p 123456
 ```
 
 ::: warning IMPORTANT 
-In the 20.5.1 release, using the `--runner-jcl` parameter will require that the TotalTestConfiguration project to be present (option --configuration-directory or -cfgdir), or that the repository server is available (option --server or -s). This is actually a requirement for all CLI executions.
+In pre 20.6.1 releases, using the `--runner-jcl` parameter will require that the TotalTestConfiguration project to be present (option --configuration-directory or -cfgdir), or that the repository server is available (option --server or -s). This is actually a requirement for all CLI executions.
 :::
 
 ### Using the Total Test repository server and CES with authentication
