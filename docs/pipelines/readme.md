@@ -87,7 +87,7 @@ It is now even possible to store mainframe code alongside Topaz for Total Test s
 
 **Old Version folder structure** | **New Version fodler structure** | **New Version folder structure with sources**
 ---------------------------------|----------------------------------|----------------------------------------------
-Each sub folder containing tests for a component, is a project in its own right, resulting in nested projects. Importing new test projects into an existing repository like this requires manual tweaking of .project files, making maintenance less straight forward. | Each sub folder is just a sub folder within a single project. Adding new tests for a ew component is a simple as specifying a new folder when recording the corresponding tests. | Configuring a Topaz for Total Test project to be "connected" to ISPW (or vice versa) allows storing mainfgrame code alongside tests for this code.
+Each sub folder containing tests for a component, is a project in its own right, resulting in nested projects. Importing new test projects into an existing repository like this requires manual tweaking of .project files, making maintenance less straight forward. | Each sub folder is just a sub folder within a single project. Adding new tests for a component is a simple as specifying a new folder when recording the corresponding tests. Virtualized and Non Virtualized Tests may reside in the same project and can be grouped into dedicated folder by type, instead of by component. | Configuring a Topaz for Total Test project to be "connected" to ISPW (or vice versa) allows storing mainfgrame code alongside tests for this code.
 ![Old Version](./images/ttt_project_structure_old_version.png) | ![New Version](./images/ttt_project_structure_new_version.png) | ![Git Version](./images/ttt_project_structure_git_version.png)
 ### One Topaz for Total Test CLI
 
@@ -144,31 +144,14 @@ Based on the description above and due to the requirements for the use of [Pipel
 
 ```
     (root)
-    +- resources                                            # Files used by the pipelines
-    |   +- pipeline                                         # Configuration files for pipeline variables
-    |   |
-    |   +- skels                                            # Mainframe JCL "skeleton" files
-    |
+    +- resources                                            # Configuration files used by the pipelines
     +- src                                                  # (Groovy) source files
-    |   +- com
-    |   |   +- compuware
-    |   |       +- devops
-    |   |           +- util                                 # Classes used by the pipelines
-    |   |
     |   +- Jenkinsfile                                      # "simple" example job scripts
-    |   |
     |   +- misc-examples                                    # non Jenkins related (non Groovy) code examples
     |       +- AzureDevOps
     |           +- PipelineYAML                             # YAML file(s) describing Azure DevOps pipelines (builds or releases)
-    |           |
     |           +- Powershell                               # Powershell scripts being used by an Azure DevOps example pipeline
-    |
     +- vars                                                 # Shared Library Pipeline Examples
-    |
-    +- resources                                            # Files used by the pipelines
-        +- pipeline                                         # Configuration files for pipeline variables
-        |
-        +- skels                                            # Mainframe JCL "skeleton" files
 ```
 
 ## People wanting to contribute

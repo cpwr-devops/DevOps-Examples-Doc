@@ -5,9 +5,15 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Shared Library Pipelines
 
-[Shared Libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/) are  getting the preferred method of providing code (primarily in the form of classes) that can can be re-used (**shared**) between pipeline definitions. 
+[Shared Libraries](https://jenkins.io/doc/book/pipeline/shared-libraries/) are getting the preferred method of providing code that can can be re-used (**shared**) between pipeline definitions. 
 
-Three of the example pipelines shared on the [Compuware GitHub](https://github.com/cpwr-devops/DevOps-Examples/) are built based on shared library principles and use a set of common ["Helper Classes"](./helper_classes/). The pipelines are as follows:
+Three of the example pipelines shared on the [Compuware GitHub](https://github.com/cpwr-devops/DevOps-Examples/) are built based on shared library principles. 
+
+::: tip Note
+While we have been using *Helper Classes* in former versions of these tutorials, the need for classes for the purposes demonstrated in these tutorials has been reduced by [the features introduced to the CLIs and Plugins over recent months](../pipelines/readme.md#what-has-changed-in-april-2021).
+
+Still, there are other advantages of using Shared Libraries that we demonstrate using the examples below.
+:::
 
 - [`Mainframe_CI_Pipeline_from_Shared_Lib.groovy`](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
 - The two following pipelines are part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md) and get triggered at different stages of that process:
@@ -18,8 +24,7 @@ Three of the example pipelines shared on the [Compuware GitHub](https://github.c
 
 This pipeline executes the following steps [after a developer has promoted their code in ISPW](../pipelines/basic_scenario.md):
 - Retrieve the mainframe code from ISPW for later analysis by SonarQube
-- Retrieve any missing copybooks that were not part of the promotion, but are required by SonarQube 
-- Retrieve Topaz for Total Test unit test definitions for the corresponding ISPW application from GitHub
+- Retrieve Topaz for Total Test test definitions for the corresponding ISPW application from GitHub
 - Execute those test scenarios that belong to the COBOL programs that have been promoted
 - Retrieve the Code Coverage metrics generated during test execution from the mainframe repository
 - Pass all information (sources, test results, code coverage metrics) to SonarQube
@@ -27,12 +32,13 @@ This pipeline executes the following steps [after a developer has promoted their
 - If the quality gate was passed, continue the process by triggering an XL Release release template
 - In either case (passed/failed), send an email to the developer informing them of the status of the pipeline
 
+Comparing the [code in this example]() to the [basic example pipeline]() you will find that they differ only in a few minor details. One of the differences being that the "hard coded" configuration parameters are externalized into a configuration `.yml` file, allowing for changes in configuration without havng to change any pipeline code.
+
 In these pages we describe in detail the way `Mainframe_CI_Pipeline_from_Shared_Lib` 
 - [is setup in Jenkins](./setup.md)
 - how it is configured using [configuration files](./config_files.md)
 - [parameters](./parameters.md) that are passed into the pipeline, and which sources the values come from
 - the [steps it executes](./steps.md)
-- and document the [helper classes](./helper_classes/) that are shared among all three pipelines
 
 ## The other two pipelines
 

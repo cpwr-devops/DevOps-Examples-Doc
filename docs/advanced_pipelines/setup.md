@@ -19,74 +19,78 @@ The parameters in this first set are specific to the individual execution of the
 Name  |  Description
 ----- |  -----------
 ISPW_Stream | ISPW Stream Name
-ISPW_Application | RXN3 ISPW Application
-ISPW_Src_Level | ISPW Level the promote has been started from
+ISPW_Application | ISPW Application
 ISPW_Release | ISPW Release Name
-ISPW_Container | ISPW Set ID
-ISPW_Container_Type | ISPW Container Type -0 - assignment -1 - release -2 - set
+ISPW_Assignment | ISPW Assignment Name
+ISPW_Src_Level | ISPW Level the promote has been started from
 ISPW_Owner | ISPW Owner User ID
 
-## Loading the script from a shared library
+## Executing a Shared Library script
 
 To tell Jenkins to execute a pipeline from a shared library, you need to add code like the following to the Pipeline script definition:
 
 ![Pipeline from Shared Library](../pipelines/images/pipeline_from_shared_lib.png)
 
+::: tip Note
+Alternatively, you could place the code below in a separate `.jenkinsfile` and [load this from a Git repository](../pipelines/basic_example_pipeline.md#loading-the-script-from-github).
+:::
+
 The example uses
 
 ```groovy
-@Library('RNU_Shared_Lib@Dev') _
+@Library('RNU_Shared_Lib@JenkinsFTS') _
+
 Mainframe_CI_Pipeline_from_Shared_Lib(
-    ISPW_Stream         :"${ISPW_Stream}",                          // ISPW Stream
-    ISPW_Application    :"${ISPW_Application}",                     // ISPW Application
-    ISPW_Release        :"${ISPW_Release}",                         // ISPW Release
-    ISPW_Assignment     :"${ISPW_Assignment}",                      // ISPW Assignment
-    ISPW_Container      :"${ISPW_Container}",                       // ISPW Container (Set)
-    ISPW_Container_Type :"${ISPW_Container_Type}",                  // ISPW Container Type (2 for Set)
-    ISPW_Src_Level      :"${ISPW_Src_Level}",                       // ISPW Level the promote worked from
-    ISPW_Owner          :"${ISPW_Owner}",                           // ISPW User doing the promote
-    CES_Token           :'xxxx',
-    HCI_Conn_ID         :'xxxx',
-    HCI_Token           :'xxxx',
-    CC_repository       :'xxxx',
-    Git_Project         :'xxxx',
-    Git_Credentials     :'xxxx'
-    )
+    ispwStream:        ISPW_Stream,                             
+    ispwApplication:   ISPW_Application,
+    ispwRelease:       ISPW_Release,
+    ispwAssignment:    ISPW_Assignment,
+    ispwSrcLevel:      ISPW_Src_Level,
+    ispwOwner:         ISPW_Owner,
+    cesToken:          'xxxx',            
+    jenkinsCesToken:   'xxxx',
+    hciConnectionId:   'xxxx',
+    hciToken:          'xxxx',
+    ccRepository:      'xxxx',
+    gitProject:        'xxxx',
+    gitCredentials:    'xxxx'
+)    )
 ```
 
 where
 
-- `@Library('RNU_Shared_Lib@Dev') _`
-refers to the name of a [Shared Library](./helper_classes/PipelineConfig.md), with `@Dev` in this example referring to the `Dev` branch of the underlying GitHub repository. The trailing `_` is required by Jenkins.
+- `@Library('RNU_Shared_Lib@JenkinsFTS') _`
+refers to the name of a [Shared Library](../tool_configuration/Jenkins_config.md#global-pipeline-libraries), with `@JenkinsFTS` in this example referring to the `JenkinsFTS` branch of the underlying Git repository. The trailing `_` is required by Jenkins.
 - `Mainframe_CI_Pipeline_from_Shared_Lib`
 refers to the name of the `.groovy` file in the `vars` folder of the GitHub repository, containing the pipeline code
 - Within the brackets `(...)` parameters are passed to the pipeline script. `Mainframe_CI_Pipeline_from_Shared_Lib` expects a `groovy` [`Map`](http://groovy-lang.org/syntax.html#_maps), containing the following `key:value` pairs.
 
-The parameters in this first set are specific to the individual execution of the pipeline. The values are the parameters defined as pipeline parameters). The syntax `"${parameter}"` ensures that the value passed to this parameter is taken as a value in the `Map`.
+The parameters in this first set are specific to the individual execution of the pipeline. They correspond to the parameters defined in the [pipeline configuration](#defining-parameters) above and take the values from these pipeline parameters.
 
-Key  | Default Value | Description
+Key  | Value | Description
 ----- | ------------- | -----------
-ISPW_Stream | "${ISPW_Stream}" | The ISPW_Stream parameter from the pipeline configuration above
-ISPW_Application | "${ISPW_Application}" | The ISPW_Application parameter from the pipeline configuration above
-ISPW_Release | "${ISPW_Release}" | The ISPW_Release parameter from the pipeline configuration above
-ISPW_Assignment | "${ISPW_Assignment}" | The ISPW_Assignment parameter from the pipeline configuration above
-ISPW_Container | "${ISPW_Container}" | The ISPW_Container parameter from the pipeline configuration above
-ISPW_Container_Type | "${ISPW_Container_Type}" | The ISPW_Container_Type parameter from the pipeline configuration above
-ISPW_Src_Level | "${ISPW_Src_Level}" | The ISPW_Src_Level parameter from the pipeline configuration above
-ISPW_Owner | "${ISPW_Owner}" | The ISPW_Owner parameter from the pipeline configuration above
+ispwStream | ISPW_Stream | The ISPW_Stream parameter from the pipeline configuration above
+ispwApplication | ISPW_Application | The ISPW_Application parameter from the pipeline configuration above
+ispwRelease | ISPW_Release | The ISPW_Release parameter from the pipeline configuration above
+ispwAssignment | ISPW_Assignment | The ISPW_Assignment parameter from the pipeline configuration above
+ispwSrcLevel | ISPW_Src_Level | The ISPW_Src_Level parameter from the pipeline configuration above
+ispwOwner | ISPW_Owner | The ISPW_Owner parameter from the pipeline configuration above
 
-The second set of parameters is installation specific and references tokens and other IDs that have been defined during the configuration phase. To determine the appropriate values to use, refer to the [description of the pipeline parameters](./parameters.md).
+The second set of parameters may be specific to individual jobs/pipelines using the same set of scripts. They reference tokens and other IDs that have been defined during the [Jenkins configuration phase](../tool_configuration/Jenkins_config.md). To determine the appropriate values to use, refer to the [description of the pipeline parameters](./parameters.md).
 
-Usually, these parameters will be installation specific rather than pipeline job or execution specific. Future versions of the example will take care of this and move these parameters to configuration files.
+::: tip Note
+These parameters may be installation specific instead of specific to an individual job/pipeline definition. In that case, they also could be placed in a [configuration file](./config_files.md).
+:::
 
 Key  |  Description
 ----- | -----------
-CES_Token | The Jenkins token, referring to the CES token
-HCI_Conn_ID | The Jenkins internal ID for the HCI connection to use
-HCI_Token | Jenkins internal ID for HCI Token
-CC_repository | The Xpediter Code Coverage repository to use
-Git_Project | The name of the GitHub repository storing Topaz for Total Test assets
-Git_Credentials | Jenkins internal ID for credentials to use the GitHub repository
+cesToken | CES Personal Access Token 
+jenkinsCesToken | Jenkins Credentials ID for the CES Personal Access Token
+hciConnectionId | HCI Connection ID configured in the Compuware Common Configuration Plugin
+hciToken | The ID of the Jenkins Credential for the TSO ID that will used to execute the pipeline
+ccRepository | The Compuware Xpediter Code Coverage Repository that the Pipeline will use
+gitProject | Github project/user used to store the Topaz for Total Test Projects
+gitCredentials | Jenkins credentials for logging into git 
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNDgwNzU3MDIyLDc5NDk0ODYxOF19
 -->
