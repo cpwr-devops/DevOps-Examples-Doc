@@ -36,22 +36,24 @@ We have published several examples of "complete" pipelines which show different 
 - **[Mainframe-CI-Example-pipeline](./basic_scenario.md)** - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Mainframe-CI-Example-pipeline.jenkinsfile)) - a scripted pipeline using parameters. This is a simple approach to a DevOps pipeline that allows you to get up and going quickly, but may not be the best when scaling pipelines across your enterprise. The job is intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md)
 
   ::: tip Note
-  This pipeline serves as the model for most of the other pipelines examples. Meaning, other pipelines follow the same structure, implementing bascially the process and just differing in nuances, e.g. the types of test being executed at different stages of the development process, and demonstrating certain techniques that proved to be helpful.
+  This pipeline serves as the model for most of the other pipelines examples. Meaning, other pipelines follow the same structure, implementing bascially the process and just differing in nuances, e.g. the types of test being executed at different stages of the development process, and demonstrating certain techniques that prove to be helpful.
   :::
 
 - **[Mainframe_CI_Pipeline_from_Shared_Lib](../advanced_pipelines/readme.md#mainframe-ci-pipeline-from-shared-lib)** - ([groovy](https://github.com/cpwr-devops/DevOps-Examples/blob/master/vars/Mainframe_CI_Pipeline_from_Shared_Lib.groovy)) - a pipeline loaded from a Jenkins shared library.  Shared Libraries are a useful approach to scale pipelines across an enterprise since it moves the bulk of the pipeline logic to shared components that individual pipelines can reference as steps.  This allows organizations to develop pipelines in a more standard way.  The job is also intended to be triggered [after promoting code within ISPW](../pipelines/basic_scenario.md).
 
   ::: tip Note
-  Thanks to the [changes in the Compuware CLI and plugins](#what-has-changed-in-april-2021) the complexity of the code required to implement such a pipeline has been reduced so much that the use of *helper classes* does not seem to be necessary anymore. Older versions of this pipeline made use of such classes to encapsulate some of the compleity and make the flow of the job easier to folow.
+  Older versions of this pipeline made use *helper classes* to encapsulate some of the complexity and make the flow of the job easier to folow.  Thanks to the [changes in the Compuware CLI and plugins](#what-has-changed-in-april-2021) the complexity of the code required to implement such a pipeline has been reduced so much that the use of these classes does not seem to be necessary anymore. 
   :::
 
-- The following two pipelines are part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md) and are triggered at different stages of that process
-    - **[Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy)** - a pipeline that is triggered by an ISPW Generate that executes unit tests against those components that have been generated.
-    - **[Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy)** - a pipeline that is triggered by an ISPW Promote that executes functional/integration tests against the project/assignment.
+- **Combined Pipeline**: The following two pipeline definitions are part of a more [elaborate process](../advanced_pipelines/elaborate_scenario.md). They are called by a Jenkins job "distrubuting" the work to either of the scripts based on the ISPW operation (generat or promote) triggering the webhook and Jenkins job. 
+    - **[Mainframe_Generate_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Generate_Pipeline.groovy)** - a pipeline that is triggered by an ISPW Generate that executes virtualized tests against those components that have been generated.
+    - **[Mainframe_Integration_Pipeline.groovy](https://github.com/cpwr-devops/DevOps-Examples/tree/master/vars/Mainframe_Integration_Pipeline.groovy)** - a pipeline that is triggered by an ISPW Promote that executes non virtualized tests against the project/assignment.
 
   ::: tip Note
-  Also using the Shared Library technique, these two example show how Shared Library scripts can be used for modularization and re-use of exeisting code to implement such more elaborate processes.
+  Also using the Shared Library technique, these two example show how Shared Library scripts can be used for modularization and re-use of existing code to implement such more elaborate processes.
   :::
+
+- **Git/ISPW pipeline**: 
 
 ### Other Code examples
 
