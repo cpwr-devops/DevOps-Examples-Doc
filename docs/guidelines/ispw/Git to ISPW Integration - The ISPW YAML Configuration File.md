@@ -28,9 +28,13 @@ The YAML configuration file may **optionally** contain the following ISPW proper
 The YAML configuration file **must** contain the following path mappings:
 
 - path -  The file path of the project, such as \MYFILE\COB). This path applies to any nested paths unless it’s defined separately, such as \MYFILE\COB\SOURCE.
--  types - The YAML configuration file **must** contain the following two types:
-  - fileExtension - The file extension type for each path mapping (such as cob or clst)
-  - ispwType - The ISPW type for each path mapping (such as COB or CLST)
+
+  **Note:** ISPW/Eclipse also supports using Java pattern matching. Pattern matching uses special characters to create a glob pattern and then relative path names can be compared against that pattern. Refer to **Java Pattern Matching** below.
+
+- types - The YAML configuration file **must** contain the following two types:
+
+- fileExtension - The file extension type for each path mapping (such as cob or clst)
+- ispwType - The ISPW type for each path mapping (such as COB or CLST)
 
 The YAML configuration file may **optionally** contain the following types:
 - cics - A ‘Yes’ or ‘No’ value indicating whether the source contains CICS
@@ -107,3 +111,23 @@ Multiple types can exist under the same path within the YAML file. In the follow
    ispwType: PLI
 ```
 
+### Java Pattern Matching
+
+ISPW/Eclipse supports using Java pattern matching. Pattern matching uses special characters to create a glob pattern and then relative path names can be compared against that pattern. 
+
+The following rules are used to interpret glob patterns:
+
+- The * character matches zero or more characters of a name component without crossing directory boundaries.
+
+- The ** characters matches zero or more characters crossing directory boundaries.
+
+- The ? character matches exactly one character of a name component.
+
+
+When the syntax is "glob",  then the string representation of the path is matched using a limited pattern language that resembles regular expressions but with a simpler syntax. For example:
+
+| /home/\*/\*  | Matches /home/gus/data on UNIX platforms                   |
+| ------------ | ---------------------------------------------------------- |
+| **/home/**** | **Matches /home/gus and /home/gus/data on UNIX platforms** |
+
+The expression string in YAML must be surrounded by double quotes.
