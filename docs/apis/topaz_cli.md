@@ -955,40 +955,40 @@ Note: Many of the parameters available for the 'execute' command can also be spe
 **Execute Command parameters**
 Parameter/Option | Abbr | Description |	Context (-able)? | Required?
 --------- | -----------|---------------|---------------|---------------
--repository	| -r | The repository name where the specification is present. | | Yes
--specification | -s | The name of the specification that is to be executed. | |	Yes if specification-list is not provided
--specification-type | -st | The type of the specification that is to be executed. compare, convert, extract, load, exsuite | |Yes if specification-list is not provided									
--results-repository | -rr | The results repository where ComparePro execution results will be stored. Applicable only to ComparePro specification. Defaults to main repository if not specified.| |
--execution-context | -ec | The name or absolute path to the execution context file. The execution context file can supply some of the arguments that can also be passed with the execute command. If a value of a certain parameter is present in the context file and is also passed as an argument, the value passed with the command will take precedence. To know which all parameters can be specified via the context file, view the template provided at \<InstallPath\>/WorkbenchCLI/EnterpriseData namely executioncontext_template.properties. Multiple execution contexts can be created as required by copying the template.| | 	
--specification-list | -sl | Specification Name and Type list each separate by space within quotes, if multiple specifications have to be executed in series. If this argument is specified, the specification and specification-type arguments will not be used.| |			
--exit-on-failure | -eof | Flag to indicate exit on encountering specification execution in case of executing multiple specifications. This is an optional field, that is defaulted to true. If set to false, will continue executing other specifications down the provided list of specifications.| |
--execution-timeout | -t | The execution timeout in seconds, if needs to be set to a value other than 20 seconds.| Yes |
--comm-manager | -cm | The standalone communication manager to be used, where the repository is configured. |	Yes | Yes
--comm-manager-port | -cmp | The standalone communication manager's port. |	Yes | Yes
--execution-server | -es | The standalone execution server where EX specifications should be executed. | Yes | Yes for EX Specifications
--execution-server-port | -esp | The standalone execution server's port to be used for communication. | Yes | Yes for EX Specifications
--execution-host | -eh | The execution host where RDX specifications should be executed. | Yes | Yes for RDX Specifications
--executor-host-port | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
--hci-userid | -hid | The HCI connection userid. (For RDX execution only)| | Yes for RDX execution
--hci-password | -hpw | The HCI connection password. (For RDX execution only).| |Yes for RDX execution
--ccsid | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
--ces-uri | -ces | The CES uri to be used for license validation. | Yes | Yes
--use-cloud | -ucd | Flag to denote which type of CES is to be used, a local CES or the Compuware cloud CES. | Yes |	Yes
--ces-cust-no | -cno | The customer number in case cloud CES is being used. | Yes | Yes for cloud CES
--ces-site-id | -sid | The site ID in case cloud CES is being used. | Yes | Yes for cloud CES
--jcl-jobcard1 | -j1 | The JCL Jobcard's line 1. (For RDX execution only) | Yes |
--jcl-jobcard2 |	-j2 | The JCL Jobcard's line 2. (For RDX execution only) | Yes |
--jcl-jobcard3 |	-j3	| The JCL Jobcard's line 3. (For RDX execution only) | Yes | 	
--jcl-jobcard4 |	-j4 | The JCL Jobcard's line 4. (For RDX execution only) | Yes |
--jcl-jobcard5 |	-j5 | The JCL Jobcard's line 5. (For RDX execution only) | Yes |
--dataset-hlq | -hlq | The dataset high level qualifier to be used. (For RDX execution only) | Yes |
--temp-dataset-prefix | -px | The prefix to be used for temporary datasets. (For RDX execution only) | Yes |
--temp-dataset-suffix | -sx | The suffix to be used for temporary datasets. (For RDX execution only) | Yes |
--fadebug | -fdb | The dataprivacy override FADEBUG, that defines the logging information for the File-AID Rules Engine. (For RDX Extract execution only) | Yes | 		
--faexpath | -fxp | The dataprivacy override FAEXPATH, that defines the path for File-AID Rules Engine location. (For RDX Extract execution only) | Yes |
--faipaddr | -fip | The dataprivacy override FAIPADDR, that provides the File-AID Services IP address and execution port. (For RDX Extract execution only) | Yes |
--fajopts | -fjo | The dataprivacy override FAJOPTS, that defines the Java options for the File-AID Rules Engine. (For RDX Extract execution only) | Yes |
--fajpath | -fjp | The dataprivacy override FAJAPTH, that defines the z/OS UNIX path for the Java Virtual Machine. (For RDX Extract execution only) | Yes |
+`-repository` | -r | The repository name where the specification is present. | | Yes
+`-specification` | -s | The name of the specification that is to be executed. | | Yes if specification-list is not provided
+`-specification-type` | -st | The type of the specification that is to be executed. compare, convert, extract, load, exsuite | |Yes if specification-list is not provided									
+`-results-repository` | -rr | The results repository where ComparePro execution results will be stored. Applicable only to ComparePro specification. Defaults to main repository if not specified.| |
+`-execution-context` | -ec | The name or absolute path to the execution context file. The execution context file can supply some of the arguments that can also be passed with the execute command. If a value of a certain parameter is present in the context file and is also passed as an argument, the value passed with the command will take precedence. To know which all parameters can be specified via the context file, view the template provided at \<Install_Path\>/WorkbenchCLI/EnterpriseData namely executioncontext_template.properties. Multiple execution contexts can be created as required by copying the template.| | 	
+`-specification-list` | -sl | Specification Name and Type list each separate by space within quotes, if multiple specifications have to be executed in series. If this argument is specified, the specification and specification-type arguments will not be used.| |			
+`-exit-on-failure` | -eof | Flag to indicate exit on encountering specification execution in case of executing multiple specifications. This is an optional field, that is defaulted to true. If set to false, will continue executing other specifications down the provided list of specifications.| |
+`-execution-timeout` | -t | The execution timeout in seconds, if needs to be set to a value other than 20 seconds.| Yes |
+`-comm-manager` | -cm | The standalone communication manager to be used, where the repository is configured. |	Yes | Yes
+`-comm-manager-port` | -cmp | The standalone communication manager's port. |	Yes | Yes
+`-execution-server` | -es | The standalone execution server where EX specifications should be executed. | Yes | Yes for EX Specifications
+`-execution-server-port` | -esp | The standalone execution server's port to be used for communication. | Yes | Yes for EX Specifications
+`-execution-host` | -eh | The execution host where RDX specifications should be executed. | Yes | Yes for RDX Specifications
+`-executor-host-port` | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
+`-hci-userid` | -hid | The HCI connection userid. (For RDX execution only)| | Yes for RDX execution
+`-hci-password` | -hpw | The HCI connection password. (For RDX execution only).| |Yes for RDX execution
+`-ccsid` | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
+`-ces-uri` | -ces | The CES uri to be used for license validation. | Yes | Yes
+`-use-cloud` | -ucd | Flag to denote which type of CES is to be used, a local CES or the Compuware cloud CES. | Yes |	Yes
+`-ces-cust-no` | -cno | The customer number in case cloud CES is being used. | Yes | Yes for cloud CES
+`-ces-site-id` | -sid | The site ID in case cloud CES is being used. | Yes | Yes for cloud CES
+`-jcl-jobcard1` | -j1 | The JCL Jobcard's line 1. (For RDX execution only) | Yes |
+`-jcl-jobcard2` |	-j2 | The JCL Jobcard's line 2. (For RDX execution only) | Yes |
+`-jcl-jobcard3` |	-j3	| The JCL Jobcard's line 3. (For RDX execution only) | Yes | 	
+`-jcl-jobcard4` |	-j4 | The JCL Jobcard's line 4. (For RDX execution only) | Yes |
+`-jcl-jobcard5` |	-j5 | The JCL Jobcard's line 5. (For RDX execution only) | Yes |
+`-dataset-hlq` | -hlq | The dataset high level qualifier to be used. (For RDX execution only) | Yes |
+`-temp-dataset-prefix` | -px | The prefix to be used for temporary datasets. (For RDX execution only) | Yes |
+`-temp-dataset-suffix` | -sx | The suffix to be used for temporary datasets. (For RDX execution only) | Yes |
+`-fadebug` | -fdb | The dataprivacy override FADEBUG, that defines the logging information for the File-AID Rules Engine. (For RDX Extract execution only) | Yes | 		
+`-faexpath` | -fxp | The dataprivacy override FAEXPATH, that defines the path for File-AID Rules Engine location. (For RDX Extract execution only) | Yes |
+`-faipaddr` | -fip | The dataprivacy override FAIPADDR, that provides the File-AID Services IP address and execution port. (For RDX Extract execution only) | Yes |
+`-fajopts` | -fjo | The dataprivacy override FAJOPTS, that defines the Java options for the File-AID Rules Engine. (For RDX Extract execution only) | Yes |
+`-fajpath` | -fjp | The dataprivacy override FAJAPTH, that defines the z/OS UNIX path for the Java Virtual Machine. (For RDX Extract execution only) | Yes |
 
 **Sample usage**
 ### Help on execute command
