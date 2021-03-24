@@ -6,11 +6,13 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 ## Setting up the pipeline job
 
-The job itself is defined via the usual way of creating a new pipeline job. It is important, though, to make sure that the resulting job uses parameters by checking the `This project is parameterized` box, ![Parameterized Pipeline](../pipelines/images/parametertized_pipeline.png)
+The job itself is defined via the usual way of creating a new pipeline job. It is important to make sure that the resulting job uses parameters by checking the `This project is parameterized` box. 
+
+![Parameterized Pipeline](../pipelines/images/parametertized_pipeline.png)
 
 ## Defining parameters
 
-Successively add the following string parameters (note that default values are used in the examples).
+Successively add the following string parameters.
 
 ![Adding parameters](../pipelines/images/Adding_parameters.png)
 
@@ -32,7 +34,7 @@ To tell Jenkins to execute a pipeline from a shared library, you need to add cod
 ![Pipeline from Shared Library](../pipelines/images/pipeline_from_shared_lib.png)
 
 ::: tip Note
-Alternatively, you could place the code below in a separate `.jenkinsfile` and [load this from a Git repository](../pipelines/basic_example_pipeline.md#loading-the-script-from-github).
+Alternatively, you may place the code below in a separate `.jenkinsfile` and [load this from a Git repository](../pipelines/basic_example_pipeline.md#loading-the-script-from-github).
 :::
 
 The example uses
