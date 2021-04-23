@@ -5,7 +5,7 @@ metaTitle: Compuware
 heroText: Mainstream the Mainframe
 heroImage: /infinity_loop.png
 #sidebar: auto
-tagline: Building CI / CD pipelines using Compuware products
+tagline: Building CI / CD pipelines using BMC Compuware products
 actionText: Getting Started →
 actionLink: ./pipelines/
 features:
