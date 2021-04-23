@@ -1,7 +1,7 @@
 ---
 home: true
-title: Compuware
-metaTitle: Compuware
+title: BMC Compuware
+metaTitle: BMC Compuware
 heroText: Mainstream the Mainframe
 heroImage: /infinity_loop.png
 #sidebar: auto

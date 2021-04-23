@@ -99,7 +99,7 @@ module.exports = {
             ]
           },
           { 
-            text: 'Compuware',
+            text: ' BMC Compuware',
             items:
             [
               { 
