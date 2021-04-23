@@ -1,6 +1,5 @@
 ---
-title: Topaz CLI
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2019 - Compuware | © Copyright 2019, 2020-2021 BMC Software, Inc.
 ---
 # Topaz CLI
 
