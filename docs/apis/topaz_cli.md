@@ -456,6 +456,9 @@ usage: TotalTestFTCLI
  -cctid,--cctestid <arg>                   Code Coverage test id. Must be
                                            specified to enable Code
                                            Coverage.
+  -certificate,--certificate <arg>         Actual security certificate used for authentication
+  -certificateAlis,--certificateAlias<arg> Unique identifier of certificate in keystore
+                                            
  -ces,--ces-url <arg>                      CES serve URL used for license
                                            check
  -cesp,--ces-password <arg>                CES server password
@@ -502,6 +505,9 @@ usage: TotalTestFTCLI
                                            points to a .testscenario file
                                            that should be run with
                                            hardcoded JCL
+ -keystore,--keystore <arg>                Path to keystore location. To use windows keystore
+ 												  specify "Windows-MY" as argumen.t
+ -keystorePassword,--keystorePassword<arg> Password of specified keystore 												  	                                         
  -l,--launcher <arg>                       Optional Launcher where the CLI
                                            is called from. Used for
                                            creating corrrect zAdviser
