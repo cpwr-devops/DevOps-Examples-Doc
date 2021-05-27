@@ -50,12 +50,20 @@ usage: Code Coverage CLI
                                 where the source has been downloaded
     --cc.system <arg>           the code coverage system name
     --cc.test <arg>             the code coverage test name
+ -certificate <arg>             the certificate base-64 string
+ -certificateAlias <arg>        the certificate alias
  -code <arg>                    the code page for the connection
  -help                          print help
  -host <arg>                    the host name or IP to be connected
  -id <arg>                      the user name
+ -keystore <arg>                the keystore file path or reserved
+                                keystore name
+ -keystorePassword <arg>        the keystore password
  -pass <arg>                    the user password
  -port <arg>                    the port to be connected
+ -protocol <arg>                the encryption protocol for the connection
+                                (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1,
+                                TLSv1.2)
  -targetFolder <arg>            the target folder where the source will be
                                 downloaded
  -timeout <arg>                 the timeout (in minutes) for the
@@ -70,10 +78,14 @@ Several parameters are common between the `.bat` files. These are:
 
 Parameter | Description
 --------- | -----------
+`-certificate <arg>` | the certificate base-64 string
+`-certificateAlias <arg>` | the certificate alias
 `-code <arg>` | the code page for the connection
 `-help` | print help
 `-host <arg>` | the host name or IP to be connected
 `-id <arg>` | the user name
+`-keystore <arg>` | the keystore file path or reserved
+`-keystorePassword <arg>` | the keystore password 
 `-pass <arg>` | the user password (in clear text)
 `-port <arg>` | the port to be connected
 `-protocol <arg>` | the encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2)
