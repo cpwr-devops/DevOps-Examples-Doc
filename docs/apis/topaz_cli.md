@@ -84,8 +84,8 @@ Parameter | Description
 `-help` | print help
 `-host <arg>` | the host name or IP to be connected
 `-id <arg>` | the user name
-`-keystore | the keystore file path or reserved
-`-keystorePassword | the keystore password 
+`-keystore <arg>` | the keystore file path or reserved
+`-keystorePassword <arg>` | the keystore password 
 `-pass <arg>` | the user password (in clear text)
 `-port <arg>` | the port to be connected
 `-protocol <arg>` | the encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2)
