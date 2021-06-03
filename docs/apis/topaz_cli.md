@@ -457,7 +457,7 @@ usage: TotalTestFTCLI
                                            specified to enable Code
                                            Coverage.
   -certificate,--certificate <arg>         Actual security certificate used for authentication
-  -certificateAlis,--certificateAlias<arg> Unique identifier of certificate in keystore
+  -certificateAlias,--certificateAlias<arg> Unique identifier of certificate in keystore
                                             
  -ces,--ces-url <arg>                      CES serve URL used for license
                                            check
@@ -506,7 +506,7 @@ usage: TotalTestFTCLI
                                            that should be run with
                                            hardcoded JCL
  -keystore,--keystore <arg>                Path to keystore location. To use windows keystore
- 												  specify "Windows-MY" as argumen.t
+ 												  specify "Windows-MY" as argument.
  -keystorePassword,--keystorePassword<arg> Password of specified keystore 												  	                                         
  -l,--launcher <arg>                       Optional Launcher where the CLI
                                            is called from. Used for
