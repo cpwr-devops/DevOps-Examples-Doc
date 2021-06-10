@@ -160,11 +160,11 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 3. Make sure **Add a README file** is checked, so the repository is fully initialized.
 
-![IspwGithubCreateRepo3](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_create_repo3.png)
+![IspwGithubCreateRepo3](../images/ispw_github_create_repo3.png)
 
-::: tip
 
-The repository can also be created under an organization. Refer to GitHub online help.
+
+::: tip The repository can also be created under an organization. Refer to GitHub online help.
 :::
 
 #### **Clone GitPlay repository from GitHub and Import as an Eclipse project**
@@ -307,7 +307,7 @@ The repository can also be created under an organization. Refer to GitHub online
 2. Right-click **TPROG15.cob** and select **Open**. The source opens in the editor.
 3. On line 8, append the **TEST** to **...PROGRAM**.
 
-![image-20210610185541731](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_component_change.png)
+![image-20210610185541731](../images/ispw_github_component_change.png)
 
 
 
