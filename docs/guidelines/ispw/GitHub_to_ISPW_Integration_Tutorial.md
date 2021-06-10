@@ -319,72 +319,57 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 #### **Perform the build action to verify the source generates successfully along with any impacted components**
 
-1. In Topaz Workbench’s **Project Explorer** view, right-click the **GitPlay** project node and select **Properties>ISPW**. The **ISPW** page of the **Properties** dialog box appears.
+1. In Topaz Workbench’s **Project Explorer** view, Right click on **GitPlay** project, select **Properties**, add **ISPW Nature**, then click **Apply and Close**.
 
-2. In the **YAML mapping file location** field, enter or browse to the YAML mapping file.
+![IspwGithubConfigProjectNature](../images/ispw_github_config_project_nature.png)
 
-3. In the **Level** field, enter **DEV1** as the life cycle level for the project that will be used to load the file into ISPW at that level.  The *level* value is required to perform any ISPW action. 
+2. In Topaz Workbench’s **Project Explorer** view, right-click the **GitPlay** project node and select **Properties>ISPW**. The **ISPW** page of the **Properties** dialog box appears.
 
-4. Optionally, in the **Assignment description** field, enter the assignment name to be used for the generate/build process; click **Insert Variable**, if desired, to choose variables to build the assignment name. Note that, if no valid value exists for the chosen variable, the **Description** field in the **Containers** view will treat the variable as empty, Descriptions longer than 50 characters will be truncated. The default assignment description is ${user} ${branch_name}.
+3. In the **YAML mapping file location** field, enter or browse to the YAML mapping file.
+4. In the **Level** field, enter **DEV1** as the life cycle level for the project that will be used to load the file into ISPW at that level.  The *level* value is required to perform any ISPW action. 
 
-5. Click **Apply and Close**.
+5. Optionally, in the **Assignment description** field, enter the assignment name to be used for the generate/build process; click **Insert Variable**, if desired, to choose variables to build the assignment name. Note that, if no valid value exists for the chosen variable, the **Description** field in the **Containers** view will treat the variable as empty, Descriptions longer than 50 characters will be truncated. The default assignment description is ${user} ${branch_name}.
 
-6. In the **Project Explorer** view’s **COB** folder, right-click **TPROG15.cob** and select **ISPW>Build**. The **Console** view shows the progress of the build.
+6. Click **Apply and Close**.
 
-    **Note:** If an ISPW pop-up appears, click **YES** to continue.
+7. In the **Project Explorer** view’s **COB** folder, right-click **TPROG15.cob** and select **ISPW>Build**. The **Console** view shows the progress of the build.
 
-    ![IspwGithubConsoleViewBuild](../images/ispw_github_console_view_build.png)
+**Note:** If an ISPW pop-up appears, click **YES** to continue.
 
-7. In the **Console** view, note the assignment where TPROG15 was loaded. In the example above, TPROG15 was loaded into assignment PLAY004840 at the DEV1 level.
-    
+![IspwGithubConsoleViewBuild](../images/ispw_github_console_view_build.png)
 
-#### **Update the Jenkinsfile Build ISPW assignment stage**
+8. In the **Console** view, note the assignment where TPROG15 was loaded. In the example above, TPROG15 was loaded into assignment PLAY004840 at the DEV1 level.
+   
 
-1. In Topaz Workbench’s **Project Explorer** view’s **GitPlay** project, right-click **Jenkinsfile** and select **Open**. The source’ opens in the editor.
+###  **Submit change to GitHub**
 
-3. In the **Build ISPW assignment** stage, verify that the ispwRequestBody reads “‘buildautomatically=true’”.
+#### **Commit and push the changes to GitHub**
 
-   ![UpdateJenkinsFile1](../images/UpdateJenkinsFile1.png)
+ ###### <u>Commit and push TPROG15</u>
 
-4. From the **File** menu, select **Save.**
-5. From the **File** menu, select **Close.**
+1. In the **Unstaged Changes** box, select **TPROG15** and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
+
+![IspwGithubCommitPushChange](../images/ispw_github_commit_push_change.png)
 
 
-<a id="_1-commit-and-push-the-changes-to-git"></a>
-###  **Submit change to pipeline**
 
-#### **Commit and push the changes to Git**
-
-First commit and push only the Jenkinsfile so the updated assignmentId is used for the change to TPROG01. Then commit and push TPROG01.
-
-######  <u>Commit and push the Jenkinsfile</u>
-
-1. In Topaz Workbench, open the **Git** perspective’s **Git Staging** view.
-
-3. If the **Git Staging** view is not set to the **GitPlay** repository, click ![SwitchToImage](../images/SwitchToImage.png) and select **GitPlay** to switch to the **GitPlay** repository.  
-
-4. In the **Unstaged Changes** box, select the Jenkinsfile file and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
-
-   ![JenkinsfileCommit](../images/JenkinsfileCommit.png)
-
-5. In the **Commit Message** box, enter a commit message, such as **Jenkinsfile commit**.
-
-6. Click **Commit and Push.** The **Push Results** dialog box appears.
-
-6. Click **Close**.
-
- ###### <u>Commit and push TPROG01</u>
-
-1. In the **Unstaged Changes** box, select **TPROG01** and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
-
-   ![TPROG01Commit](../images/TPROG01Commit.png)
-
-2. In the **Commit Message** box, enter a commit message, such as **TPROG01 commit.**
+2. In the **Commit Message** box, enter a commit message, such as **TPROG15 commit.**
 
 3. The **Push Results** dialog box appears.
 
 4. Click **Close**.
-   <a id="_2-determine-whether-the-synchronization-process-completed-successfully"></a>
+
+
+
+
+
+
+
+
+
+
+
+
 
 #### **Determine whether the synchronization process completed successfully**
 
