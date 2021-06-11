@@ -339,7 +339,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 ![IspwGithubConsoleViewBuild](../images/ispw_github_console_view_build.png)
 
 8. In the **Console** view, note the assignment where TPROG15 was loaded. In the example above, TPROG15 was loaded into assignment PLAY004840 at the DEV1 level.
-   
+9. Delete the task from container PLAY004840 and close the container.
 
 ###  **Submit change to GitHub**
 
@@ -361,41 +361,54 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 
 
-
-
-
-
-
-
-
-
-
-
 #### **Determine whether the synchronization process completed successfully**
 
-Two jobs will be triggered for the Jenkins multibranch pipeline project within a one-minute interval: one job when the Jenkinsfile was pushed and one job when TPROG01 was pushed. 
+Once the TPROG15 is pushed to GitHub, the workflow on GitHub is immediately triggered (for demo purpose, **ispw-sync-local-generate-deploy** workflow is disabled, workflow **ispw-sync-build-deploy** is enabled). 
 
-1. In Jenkins, examine the second job. In the multibranch pipeline project, in the **Branches** section, select **PlayBranch1**. Within the **Pipeline PlayBranch1**, go to the **Build History** section where the jobs are listed.
-2. Once the job completes, go to the **Console Output.** The **Console Output** link is in the multibranch pipeline project’s sidebar.
+1. Visit GitHub repository **GitPlay | Actions**.
 
-The following is an example of what the **Console Output** will show for a successful Git to ISPW synchronization (the second stage of the Jenkinsfile):
+   ![image-20210610194940566](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_workflow_triggered.png)
+
+2. Once the job completes, click **TPROG15 commit** to view workflow run detail.
+
+![image-20210610195257191](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_job_detail1.png)
+
+The following is an example of what the **sync step** will show for a successful Git to ISPW synchronization:
 
 ```
-Finished synchronizing changes from Git to ISPW assignment PLAY003145 at level DEV1
-COB/TPROG01.cob     ----- Success
+Finished synchronizing changes from Git to ISPW assignment PLAY005107 at level DEV1
+
+ COB/TPROG15.cob                                     -----  Success                               
+ 
 1 total changes detected during synchronization: Success 1, Failure 0, Skipped 0
 ```
 
-The following is an example of what the **Console Output** will show for a successful build (the third stage of the Jenkinsfile):
+The following is an example of what the **build step** will show for a successful build:
 
 ```
-1 task will be built as part of S000183395
-TPROG01 has been compiled successfully
-1 of 1 generated successfully. 0 of 1 generated with errors.
-The build process was successfully completed.
+Build parameters are being retrieved from the build_automatically input.
+Starting the build process for task 7E5655E16646
+
+ISPW: Set S000248884 - The generate request completed successfully for TPROG15 in PLAY005107. Job ID and name: J0156513 ISPWTPZG
+ISPW: Set S000248884 - The build process completed successfully
+
+The build request completed successfully.
 ```
 
-<a id="_3-verify-the-updates-occurred-to-the-mainframe"></a>
+The following is an example of what the **deploy step** will show for a successful build:
+
+```
+Deploy parameters are being retrieved from the deploy_automatically input.
+
+Starting to submit the deploy request for task 7E5655E16646
+ISPW: received set ID: S000248885
+
+ISPW: received URL: http://10.100.12.250:48226/ispw/cw09-47623/sets/S000248885
+
+The deploy request has been submitted.
+```
+
+
 
 ::: tip
 
@@ -407,12 +420,13 @@ Git commit information can be viewed in Topaz within the **ISPW Assignment** vie
 
 #### **Verify the updates occurred to the mainframe**
 
-1. In Topaz Workbench’s **ISPW Containers** view, find the assignment where TPROG01 was loaded and double-click the assignment. The **ISPW Tasks** view appears.
+1. In Topaz Workbench’s **ISPW Containers** view, find the assignment where TPROG15 was loaded and double-click the assignment. The **ISPW Tasks** view appears.
 
-2. Double-click **TPROG01**. The source is opened in the editor. 
+2. Double-click **TPROG15**. The source is opened in the editor. 
 
    **Note:** If a copybook download message appears, click **No** to not download copybooks.
 
-3. Verify that line 3 shows **BENCHMARK ISPW TRAINING1** for **Author**.
+3. Verify that line 8 shows **TEST** appened.
 
-![ComponentChange2](../images/ComponentChange2.png)
+![image-20210610200454573](../images/ispw_github_topaz_component_change2.png)
+
