@@ -367,11 +367,11 @@ Once the TPROG15 is pushed to GitHub, the workflow on GitHub is immediately trig
 
 1. Visit GitHub repository **GitPlay | Actions**.
 
-   ![image-20210610194940566](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_workflow_triggered.png)
+   ![IspwGithubWorkflowTriggered](../images/ispw_github_workflow_triggered.png)
 
 2. Once the job completes, click **TPROG15 commit** to view workflow run detail.
 
-![image-20210610195257191](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_job_detail1.png)
+![IspwGithubJobDetail](../images/ispw_github_job_detail1.png)
 
 The following is an example of what the **sync step** will show for a successful Git to ISPW synchronization:
 
