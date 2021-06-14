@@ -13,9 +13,9 @@ The *Environment* section describes what environments to use to follow the steps
 The *Overview Steps* section provides a brief overview of the steps for performing the GitHub workflow and ISPW integration. This section outlines the following:
 
 - [Set up the environment.](#set-up-the-environment)
-- [Set up a GitHub project with the source, YAML file, and GitHub workflow.](#set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline)
+- [Set up a GitHub project with the source, YAML file, and GitHub workflow.](#set-up-a-git-project-with-the-source)
 - [Make a change and build.](#make-a-change-and-build)
-- [Submit change to pipeline.](#submit-change-to-pipeline)
+- [Commit and push the changes to GitHub and Trigger GitHub workflow.](#submit-change-to-github)
 
 The *Detailed Steps* section provides the comprehensive steps to perform the GitHub workflow and ISPW integration.
 
@@ -26,98 +26,204 @@ These are the minimum releases of software and plugins required.
 Topaz Workbench 20.07.01:
 - Egit in Eclipse 5.6.0
 
+* ISPW PLAY application 18.02
+
 GitHub
 
-ISPW PLAY application 18.02
+Windows or Linux based self-hosted runner
 
 
 ## Overview Steps
 
-### **Set up the environment**
 <a id="set-up-the-environment"></a>
 
-1. [Install the necessary plugins in Topaz Workbench.](#install-the-necessary-plugins-in-topaz-workbench)
-2. 
-3. [Verify the ISPW mainframe PLAY application is available.](#verify-the-ispw-mainframe-play-application-is-available)
+### **Set up the environment**
 
-### **Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline** 
-<a id="set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline"></a>
+1. [Install the necessary plugins in Topaz Workbench.](#install-the-necessary-plugins-in-topaz-workbench)
+3. [Verify the ISPW mainframe PLAY application is available.](#verify-the-ispw-mainframe-play-application-is-available)
+3. [Set up a GitHub repository with the ISPW source and YAML configuration file](#setup-ispw-source-yaml-config)
+4. [Set up self-hosted runner](#setup-self-hosted-runner)
+
+<a id="set-up-a-git-project-with-the-source"></a>
+
+### **Set up a Git project with the source, YAML file, and GitHub workflow** 
 
 - [GitHub Workflow and ISPW Integration Tutorial](#github-workflow-and-ispw-integration-tutorial)
   - [Environment](#environment)
   - [Overview Steps](#overview-steps)
-    - [**Set up the environment**](#set-up-the-environment)
-    - [**Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline**](#set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline)
-    - [**Make a change and build**](#make-a-change-and-build)
-    - [**Submit change to pipeline**](#submit-change-to-pipeline)
+    - [Set up the environment](#set-up-the-environment)
+    - [Set up a Git project with the source, YAML file, and GitHub workflow](#set-up-a-git-project-with-the-source)
+    - [Make a change and build](#make-a-change-and-build)
+    - [Commit and push the changes to GitHub and Trigger GitHub workflow](#submit-change-to-workflow)
   - [Detailed Steps](#detailed-steps)
     - [Set up the environment](#set-up-the-environment-1)
-      - [**Install the necessary plugins in Topaz Workbench and Configure GitHub Self-hosted Runner**](#install-the-necessary-plugins-in-topaz-workbench-and-configure-github-self-hosted-runner)
+      - [Install the necessary plugins in Topaz Workbench and Configure GitHub Self-hosted Runner](#install-the-necessary-plugins-in-topaz-workbench)
         - [<u>Topaz Workbench</u>](#utopaz-workbenchu)
-        - [<u>Jenkins</u>](#ujenkinsu)
-      - [**Verify the ISPW mainframe PLAY application is available**](#verify-the-ispw-mainframe-play-application-is-available)
-    - [Set up a GitHub project with the source, YAML file](#set-up-a-github-project-with-the-source-yaml-file)
-      - [**Create a new general project called GitPlay and import the ISPW project source**](#create-a-new-general-project-called-gitplay-and-import-the-ispw-project-source)
-      - [Configure the ISPW and Git mapping](#configure-the-ispw-and-git-mapping)
-      - [Create a new Git repository named GitPlay](#create-a-new-git-repository-named-gitplay)
-      - [**Share the GitPlay project as a GitHub repository to convert the ISPW project to a GitHub project**](#share-the-gitplay-project-as-a-github-repository-to-convert-the-ispw-project-to-a-github-project)
-      - [Create a multibranch pipeline project using the Jenkinsfile](#create-a-multibranch-pipeline-project-using-the-jenkinsfile)
-      - [**Create a Jenkinsfile**](#create-a-jenkinsfile)
-      - [**Import a Jenkinsfile to the root directory of the GitPlay project**](#import-a-jenkinsfile-to-the-root-directory-of-the-gitplay-project)
-      - [**Commit and push the GitPlay project to the main branch in the IspwGitPlayTest repository**](#commit-and-push-the-gitplay-project-to-the-main-branch-in-the-ispwgitplaytest-repository)
-    - [**Make a change and build**](#make-a-change-and-build-1)
-      - [**Switch to a new branch named PlayBranch1**](#switch-to-a-new-branch-named-playbranch1)
-      - [**Make a change to Cobol component TPROG01.cob**](#make-a-change-to-cobol-component-tprog01cob)
-      - [**Perform the build action to verify the source generates successfully along with any impacted components**](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
-      - [**Update the Jenkinsfile Build ISPW assignment stage**](#update-the-jenkinsfile-build-ispw-assignment-stage)
-    - [**Submit change to pipeline**](#submit-change-to-pipeline-1)
-      - [**Commit and push the changes to Git**](#commit-and-push-the-changes-to-git)
-          - [<u>Commit and push the Jenkinsfile</u>](#ucommit-and-push-the-jenkinsfileu)
-          - [<u>Commit and push TPROG01</u>](#ucommit-and-push-tprog01u)
-      - [**Determine whether the synchronization process completed successfully**](#determine-whether-the-synchronization-process-completed-successfully)
-      - [**Verify the updates occurred to the mainframe**](#verify-the-updates-occurred-to-the-mainframe)
+        - [<u>Config self-hosted runner</u>](#setup-self-hosted-runner)
+          - [Extra setup if using ispw-sync GitHub Docker action](#extra-setup1)
+          - [Extra setup if using ispw-sync-local GitHub action](#extra-setup2)
+      - [Verify the ISPW mainframe PLAY application is available](#verify-the-ispw-mainframe-play-application-is-available)
+    - [Set up a GitHub repository with the ISPW source and YAML configuration file](#set-up-a-github-project-with-the-source-yaml-file)
+      - [Create a new GitHub repository named GitPlay](#create-gitplay-repo)
+      - [Clone GitPlay repository from GitHub and Import as an Eclipse project](#clone-gitplay)
+      - [Configure the ISPW and Import the ISPW Source](#config-import-ispw-source)
+      - [Commit and push the initial source into GitPlay repository](#commit-init-source)
+      - [Create a GitHub workflow](#create-github-workflow)
+    - [Make a change and build](#make-a-change-and-build-1)
+      - [Make a change to Cobol component TPROG015.cob](#make-a-change-to-a-cobol-component-tprog15-cob)
+      - [Perform the build action to verify the source generates successfully along with any impacted components](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
+    - [Commit and push the changes to GitHub and Trigger GitHub workflow](#submit-change-to-github)
+      - [Commit and push the changes to Git](#submit-change-trigger-workflow)
+      - [Determine whether the synchronization process completed successfully](#determine-whether-the-synchronization-process-completed-successfully)
+      - [Verify the updates occurred to the mainframe](#verify-the-updates-occurred-to-the-mainframe)
 
 ::: tip
 If the PLAY application is already in Git but the Jenkins Pipeline is not set up, skip steps 1-7 and proceed to step 8. If the PLAY application is already in Git and the Jenkins Pipeline is set up, skip steps 1-9 and proceed to the next section.
 
 :::
 
-### **Make a change and build**
 <a id="make-a-change-and-build"></a>
 
-1. [From Topaz Workbench’s **Project Explorer** view, switch to a new branch named PlayBranch1. ](#_1-switch-to-a-new-branch-named-playbranch1)
-2. [From Topaz Workbench’s **Project Explorer** view within the IspwGitPlayTest project, make a change to a Cobol component TPROG01.cob.](#_2-make-a-change-to-a-cobol-component-tprog01-cob)
-3. [From Topaz Workbench’s **Project Explorer** view within the IspwGitPlayTest project, perform the build action to verify the source generates successfully along with any impacted components.](#_3-perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
-4. [From Topaz Workbench’s **Project Explorer** view within the IspwGitPlayTest project, update the Jenkinsfile **Build ISPW Assignment** stage.](#_4-update-the-jenkinsfile-build-ispw-assignment-stage)
-### **Submit change to pipeline**
-<a id="submit-change-to-pipeline"></a>
+### **Make a change and build**
 
-1. [From Topaz Workbench’s **Git Staging** view, commit and push the changes to Git.](#_1-commit-and-push-the-changes-to-git)
-2. [From Jenkins, check the console output of the multibranch pipeline project job to determine whether the synchronization process completed successfully.](#_2-determine-whether-the-synchronization-process-completed-successfully)
-3. [From Topaz Workbench, go to the assignment where the component was loaded to verify the updates occurred to the mainframe.](#_3-verify-the-updates-occurred-to-the-mainframe)
+
+
+2. [From Topaz Workbench’s **Project Explorer** view within the GitPlay project, make a change to a Cobol component TPROG15.cob.](#make-a-change-to-a-cobol-component-tprog15-cob)
+3. [From Topaz Workbench’s **Project Explorer** view within the GitPlay project, perform the build action to verify the source generates successfully along with any impacted components.](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
+
+<a id="submit-change-to-github"></a>
+
+### **Commit and push the changes to GitHub and Trigger GitHub workflow**
+
+1. [From Topaz Workbench’s **Git Staging** view, commit and push the changes to GitHub.](#commit-and-push-the-changes-to-git)
+2. [From Jenkins, check the console output of the workflow to determine whether the synchronization process completed successfully.](#determine-whether-the-synchronization-process-completed-successfully)
+3. [From Topaz Workbench, go to the assignment where the component was loaded to verify the updates occurred to the mainframe.](#verify-the-updates-occurred-to-the-mainframe)
 
 ## Detailed Steps
 <a id="install-the-necessary-plugins-in-topaz-workbench"></a>
 
 ### Set up the environment
 
-#### **Install the necessary plugins in Topaz Workbench and Configure GitHub Self-hosted Runner**
+
+
+#### **Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization**
+
+<a id='topaz-workbench'></a>
 
 ##### <u>Topaz Workbench</u>
 
 Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.eclipse.org/egit/download) for the installation.
 
-##### <u>Jenkins</u>
+<a id='setup-self-hosted-runner'></a>
 
-1. Install Topaz Workbench CLI version 20.01.01 on Windows or Linux according to the following [Topaz Workbench Installation Guide](https://docs.compuware.com/kb/KB2005/HTML/TopazWorkbench_Install/Responsive%20HTML5/index.html#t=TopazWorkbench_Install%2FInstall_Topaz_Workbench%2FInstall_Topaz_Workbench.htm%23TOC_Task_2_3_Install_Topazbc-4&rhsearch=command%20line%20interface&rhsyns=%20&rhtocid=_5_0_2)
-   
-   **Update Jenkins configuration for the Topaz Workbench CLI** 
-   
-   In Jenkins, click **Jenkins**, select **Manage Jenkins**, and then select **Configure System** and set up the [Topaz Workbench CLI location](https://devops.api.compuware.com/tool_configuration/Jenkins_config.html#compuware-configurations) and a host connection.
 
-2. Compuware Common Configurations Jenkins. For the installation, refer to [Tool Configurations/Compuware Common Configuration](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-common-configuration).
 
-3. ISPW Operations Jenkins plugin. For the installation, refer to [Tool Configurations/Compuware ISPW Operations Plugin](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-ispw-operations-plugin).
+##### <u>Config GitHub Self-hosted Runner</u>
+
+This how-to will guide you on the setup required for creating a self-hosted runner and some configurations to get you started.
+
+**Step-by-step Guild**
+
+Before starting, ensure you know what machine/environment you would like to create the self-hosted runner. In some cases, you would want this installed on a **virtual machine**, and in other cases on your **own machine**. 
+It's also important to understand the difference between all 3 levels that a self-hosted runner can be set-up on. See the explanation below to better understand the 3 levels and which one is more applicable for you.
+
+- **Repository-level** runners are dedicated to a single repository.
+- **Organization-level** runners can process jobs for multiple repositories in an organization.
+- **Enterprise-level** runners can be assigned to multiple organizations in an enterprise account.
+
+The steps below will be more geared towards creating a **repository/organization level** self-hosted runner with one pre-requisite, that you have a machine, whether it's a VM or your own machine ready to host a self-hosted runner.
+
+1. Create the necessary environment before we run the steps for creating a self-hosted runner.
+
+   * For an **organization-level** self-hosted runner, now is the time to create an organization if one does not already exist.
+
+   * For a **repository-level** self-hosted runner, create a new repository through GitHub, or you may simply use an existing repository if you already have one created.
+
+   **IMPORTANT:** **Only create private repositories when working with self-hosted runners. We do not want public access to our privately self-hosted machines.**
+
+2. In GitHub, navigate to the settings page that will allow you to create a self-hosted runner. You can find this page by going into the settings of your **organization/repository** and clicking on the **Actions** menu option within the settings.
+
+3. Go to the bottom of the page and find the **Self-hosted runners** section (or may see "Runners" under the Actions menu). From there, select the Add new option → New runner for an **Organization** and New runner for a **Repository**
+
+![image-20210614095739613](../images/ispw_github_new_selfhosted_runner.png)
+
+3. You will be redirected to a new page that will outline the steps for creating a runner. Within that page, prior to running any of those steps, you will need to select the **Operating System** of the machine on which you will host the runner from. The steps described below will be for a Windows VM, but the steps are similar to any other OS.
+
+4. Run the commands/steps provided on that page. Keep in mind that the token within the **Configure** section of that instructions page expires and the page will need to be refreshed to retrieve a new token if the old one has expired. 
+
+   You will need to use your shell to run the commands. Use the shell for your OS. May need to download Powershell for windows from Github (run the .msi in Github from https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3) or bash shell for Linux.
+
+   When asked if you want the runner to run as a service, We recommend you indicate Yes, so it doesn't need to be started each time you want to use it. Else go to the actions-runner location and execute the run.cmd. Also, in order for the service to execute, the Powershell has to be started with "run as administrator".
+
+5. After running the steps within your **shell**, the shell should look something like this
+
+![image-20210614100254893](../images/ispw_github_selfhosted_runner_shell.png)
+
+7. To double-check that the runner installed successfully, for a Windows machine once the process is completed, you can go into your services (not from task manager, but rather open your start menu and search for services) and look for **GitHub Actions Runner**. If you see that, then that means the process completed successfully and that your runner is currently running.
+
+![image-20210614100559209](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_selfhosted_runner_service.png)
+
+
+
+<u>**Extra Setup for ISPW Synchronization**</u>
+
+<a id='extra-setup1'></a>
+
+**Extra setup if using ispw-sync GitHub Docker action**
+
+In order to use **ispw-sync** Docker container action (a TopazCLI Docker image is distributed from Docker hub and no need to install TopazCLI on the self-hosted runner), self-hosted runner must use a Linux operating system and have Docker installed. Currently, GitHub only supports Linux self-hosted runner for Docker container action. 
+
+Assume an Ubuntu based self-hosted runner is prefered, run the following commands to [install Docker]( https://docs.docker.com/engine/install/ubuntu/)
+
+```
+
+$ sudo apt-get remove docker docker-engine docker.io containerd runc
+
+$ sudo apt-get update
+
+$ sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg \
+    lsb-release
+
+$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+$ echo \
+  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+$ sudo apt-get update
+
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+Because the action-runner cannot run under root, so the action-runner will have the following error to trigger an antion of any docker action: ```Got permission denied while trying to connect to the Docker daemon socket```
+
+To resole the issue, modify the permission and restart Docker daemon:
+
+```
+$ sudo usermod -aG docker ${USER}
+$ sudo rm -rf ~/.docker
+$ sudo systemctl restart docker
+$ sudo chmod 666 /var/run/docker.sock
+```
+
+**Note**: You certainly can setup Docker on Windows WSL2 (Windows Subsystem for Linux, version 2). In this case, ispw-sync will work on Windows self-hosted runner too. Please following the [link](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) for more information.
+
+<a id='extra-setup2'></a>
+
+**Extra setup if using ispw-sync-local GitHub action**
+
+If Windows based self-hosted runner, install the TopazCLI windows distribution.
+
+If Linux based self-hosted runner, install the TopazCLI Linux distribution. 
+
+Please remember the root path to TopazCLI, then specify the CLI location in the ispw-sync-local action.
+
+
+
 <a id="verify-the-ispw-mainframe-play-application-is-available"></a>
 
 #### **Verify the ISPW mainframe PLAY application is available** 
@@ -146,10 +252,11 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 :::
 
-
+<a id='set-up-a-github-project-with-the-source-yaml-file'></a>
 
 ### Set up a GitHub repository with the ISPW source and YAML configuration file
 
+<a id='create-gitplay-repo'></a>
 
 #### Create a new GitHub repository named GitPlay
 
@@ -167,6 +274,8 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 ::: tip The repository can also be created under an organization. Refer to GitHub online help.
 :::
 
+<a id='clone-gitplay'></a>
+
 #### **Clone GitPlay repository from GitHub and Import as an Eclipse project**
 
 1. In Topaz Workbench, open the Git perspective.
@@ -180,6 +289,8 @@ If you are not logged into a host connection where the ISPW PLAY application is 
    ![IspwGitHubTopazImportProject](../images/ispw_github_topaz_import_project.png)
 
    
+
+<a id='config-import-ispw-source'></a>
 
 #### Configure the ISPW and Import the ISPW Source
 
@@ -238,7 +349,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 12. Refer to the *ISPW to GIT Integration: ISPW YAML Configuration File* for information on the available ISPW property settings and path mappings that can be in the ispwconfig.yml file.
 
-
+<a id='commit-init-source'></a>
 
 #### **Commit and push the initial source into GitPlay repository**
 
@@ -256,7 +367,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 6. Click **Commit and Push.**
 
-
+<a id='create-github-workflow'></a>
 
 #### Create a GitHub workflow
 
@@ -301,6 +412,8 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 ### **Make a change and build**
 
+<a id='make-a-change-to-a-cobol-component-tprog15-cob'></a>
+
 #### **Make a change to Cobol component TPROG15.cob**
 
 1. In Topaz Workbench’s **Project Explorer** view, expand **GitPlay>COB**.
@@ -315,7 +428,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 5. From the **File** menu, select **Close**.
 
-   
+<a id='perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components'></a>
 
 #### **Perform the build action to verify the source generates successfully along with any impacted components**
 
@@ -343,7 +456,9 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 ###  **Submit change to GitHub**
 
-#### **Commit and push the changes to GitHub**
+<a id='submit-change-trigger-workflow'></a>
+
+#### **Commit and push the changes to GitHub and Trigger GitHub workflow**
 
  ###### <u>Commit and push TPROG15</u>
 
@@ -360,6 +475,8 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 4. Click **Close**.
 
 
+
+<a id='determine-whether-the-synchronization-process-completed-successfully'></a>
 
 #### **Determine whether the synchronization process completed successfully**
 
@@ -417,6 +534,8 @@ Git commit information can be viewed in Topaz within the **ISPW Assignment** vie
 
 
 :::
+
+<a id='verify-the-updates-occurred-to-the-mainframe'></a>
 
 #### **Verify the updates occurred to the mainframe**
 
