@@ -15,7 +15,7 @@ The *Overview Steps* section provides a brief overview of the steps for performi
 - [Set up the environment.](#set-up-the-environment)
 - [Set up a GitHub project with the source, YAML file, and GitHub workflow.](#set-up-a-git-project-with-the-source)
 - [Make a change and build.](#make-a-change-and-build)
-- [Commit and push the changes to GitHub and Trigger GitHub workflow.](#submit-change-to-github)
+- [Commit, Push the changes to GitHub and Trigger GitHub workflow.](#submit-change-to-github)
 
 The *Detailed Steps* section provides the comprehensive steps to perform the GitHub workflow and ISPW integration.
 
@@ -157,7 +157,9 @@ The steps below will be more geared towards creating a **repository/organization
 
 5. After running the steps within your **shell**, the shell should look something like this
 
-![image-20210614100254893](../images/ispw_github_selfhosted_runner_shell.png)
+![image-20210614125448957](../images/ispw_github_selfhosted_runner_shell2.png)
+
+
 
 7. To double-check that the runner installed successfully, for a Windows machine once the process is completed, you can go into your services (not from task manager, but rather open your start menu and search for services) and look for **GitHub Actions Runner**. If you see that, then that means the process completed successfully and that your runner is currently running.
 
