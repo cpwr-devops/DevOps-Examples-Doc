@@ -161,7 +161,7 @@ The steps below will be more geared towards creating a **repository/organization
 
 7. To double-check that the runner installed successfully, for a Windows machine once the process is completed, you can go into your services (not from task manager, but rather open your start menu and search for services) and look for **GitHub Actions Runner**. If you see that, then that means the process completed successfully and that your runner is currently running.
 
-![image-20210614100559209](/Users/pmisvz0/dev2/gitrepo2/DevOps-Examples-Doc/docs/guidelines/images/ispw_github_selfhosted_runner_service.png)
+![image-20210614100559209](../images/ispw_github_selfhosted_runner_service.png)
 
 
 
