@@ -72,11 +72,6 @@ If the PLAY application is already in Git but the Jenkins Pipeline is not set up
 ### **Submit change to pipeline**
 <a id="submit-change-to-pipeline"></a>
 
-::: warning
-For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
-
-:::
-
 1. [From Topaz Workbench’s **Git Staging** view, commit and push the changes to Git.](#_1-commit-and-push-the-changes-to-git)
 2. [From Jenkins, check the console output of the multibranch pipeline project job to determine whether the synchronization process completed successfully.](#_2-determine-whether-the-synchronization-process-completed-successfully)
 3. [From Topaz Workbench, go to the assignment where the component was loaded to verify the updates occurred to the mainframe.](#_3-verify-the-updates-occurred-to-the-mainframe)
@@ -129,6 +124,11 @@ If you are unable to locate the PLAY application, refer to the *ISPW Installatio
 
 ::: tip
 If you are not logged into a host connection where the ISPW PLAY application is installed, you will be prompted when you select any list in the **ISPW Repository Explorer** view. 
+
+:::
+
+::: warning CAUTION
+For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
 
 :::
 <a id="_1-create-an-ispw-project-named-play-play"></a>
