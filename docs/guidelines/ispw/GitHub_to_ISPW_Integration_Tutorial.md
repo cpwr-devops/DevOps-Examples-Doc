@@ -41,7 +41,7 @@ Windows or Linux based self-hosted runner
 
 1. [Install the necessary plugins in Topaz Workbench.](#install-the-necessary-plugins-in-topaz-workbench)
 3. [Verify the ISPW mainframe PLAY application is available.](#verify-the-ispw-mainframe-play-application-is-available)
-3. [Set up a GitHub repository with the ISPW source and YAML configuration file](#setup-ispw-source-yaml-config)
+3. [Set up a GitHub repository with the ISPW source and YAML configuration file](#set-up-a-github-project-with-the-source-yaml-file)
 4. [Set up self-hosted runner](#setup-self-hosted-runner)
 
 <a id="set-up-a-git-project-with-the-source"></a>
@@ -52,7 +52,7 @@ Windows or Linux based self-hosted runner
   - [Environment](#environment)
   - [Overview Steps](#overview-steps)
     - [Set up the environment](#set-up-the-environment)
-    - [Set up a Git project with the source, YAML file, and GitHub workflow](#set-up-a-git-project-with-the-source)
+    - [Set up a Git project with the source, YAML file, and GitHub workflow](#set-up-a-github-project-with-the-source-yaml-file)
     - [Make a change and build](#make-a-change-and-build)
     - [Commit and push the changes to GitHub and Trigger GitHub workflow](#submit-change-to-workflow)
   - [Detailed Steps](#detailed-steps)
