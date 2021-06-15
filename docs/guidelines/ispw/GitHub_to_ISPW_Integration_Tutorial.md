@@ -51,31 +51,30 @@ Windows or Linux based self-hosted runner
 - [GitHub Workflow and ISPW Integration Tutorial](#github-workflow-and-ispw-integration-tutorial)
   - [Environment](#environment)
   - [Overview Steps](#overview-steps)
-    - [Set up the environment](#set-up-the-environment)
-    - [Set up a Git project with the source, YAML file, and GitHub workflow](#set-up-a-github-project-with-the-source-yaml-file)
-    - [Make a change and build](#make-a-change-and-build)
-    - [Commit and push the changes to GitHub and Trigger GitHub workflow](#submit-change-to-workflow)
+    - [**Set up the environment**](#set-up-the-environment)
+    - [**Set up a Git project with the source, YAML file, and GitHub workflow**](#set-up-a-git-project-with-the-source-yaml-file-and-github-workflow)
+    - [**Make a change and build**](#make-a-change-and-build)
+    - [**Commit and push the changes to GitHub and Trigger GitHub workflow**](#commit-and-push-the-changes-to-github-and-trigger-github-workflow)
   - [Detailed Steps](#detailed-steps)
     - [Set up the environment](#set-up-the-environment-1)
-      - [Install the necessary plugins in Topaz Workbench and Configure GitHub Self-hosted Runner](#install-the-necessary-plugins-in-topaz-workbench)
+      - [**Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization**](#install-the-necessary-plugins-in-topaz-workbench-configure-github-self-hosted-runner-and-extra-setup-for-synchronization)
         - [<u>Topaz Workbench</u>](#utopaz-workbenchu)
-        - [<u>Config self-hosted runner</u>](#setup-self-hosted-runner)
-          - [Extra setup if using ispw-sync GitHub Docker action](#extra-setup1)
-          - [Extra setup if using ispw-sync-local GitHub action](#extra-setup2)
-      - [Verify the ISPW mainframe PLAY application is available](#verify-the-ispw-mainframe-play-application-is-available)
-    - [Set up a GitHub repository with the ISPW source and YAML configuration file](#set-up-a-github-project-with-the-source-yaml-file)
-      - [Create a new GitHub repository named GitPlay](#create-gitplay-repo)
-      - [Clone GitPlay repository from GitHub and Import as an Eclipse project](#clone-gitplay)
-      - [Configure the ISPW and Import the ISPW Source](#config-import-ispw-source)
-      - [Commit and push the initial source into GitPlay repository](#commit-init-source)
-      - [Create a GitHub workflow](#create-github-workflow)
-    - [Make a change and build](#make-a-change-and-build-1)
-      - [Make a change to Cobol component TPROG015.cob](#make-a-change-to-a-cobol-component-tprog15-cob)
-      - [Perform the build action to verify the source generates successfully along with any impacted components](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
-    - [Commit and push the changes to GitHub and Trigger GitHub workflow](#submit-change-to-github)
-      - [Commit and push the changes to Git](#submit-change-trigger-workflow)
-      - [Determine whether the synchronization process completed successfully](#determine-whether-the-synchronization-process-completed-successfully)
-      - [Verify the updates occurred to the mainframe](#verify-the-updates-occurred-to-the-mainframe)
+        - [<u>Config GitHub Self-hosted Runner</u>](#uconfig-github-self-hosted-runneru)
+      - [**Verify the ISPW mainframe PLAY application is available**](#verify-the-ispw-mainframe-play-application-is-available)
+    - [Set up a GitHub repository with the ISPW source and YAML configuration file](#set-up-a-github-repository-with-the-ispw-source-and-yaml-configuration-file)
+      - [Create a new GitHub repository named GitPlay](#create-a-new-github-repository-named-gitplay)
+      - [**Clone GitPlay repository from GitHub and Import as an Eclipse project**](#clone-gitplay-repository-from-github-and-import-as-an-eclipse-project)
+      - [Configure the ISPW and Import the ISPW Source](#configure-the-ispw-and-import-the-ispw-source)
+      - [**Commit and push the initial source into GitPlay repository**](#commit-and-push-the-initial-source-into-gitplay-repository)
+      - [Create a GitHub workflow](#create-a-github-workflow)
+    - [**Make a change and build**](#make-a-change-and-build-1)
+      - [**Make a change to Cobol component TPROG15.cob**](#make-a-change-to-cobol-component-tprog15cob)
+      - [**Perform the build action to verify the source generates successfully along with any impacted components**](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
+    - [**Submit change to GitHub**](#submit-change-to-github)
+      - [**Commit and push the changes to GitHub and Trigger GitHub workflow**](#commit-and-push-the-changes-to-github-and-trigger-github-workflow-1)
+          - [<u>Commit and push TPROG15</u>](#ucommit-and-push-tprog15u)
+      - [**Determine whether the synchronization process completed successfully**](#determine-whether-the-synchronization-process-completed-successfully)
+      - [**Verify the updates occurred to the mainframe**](#verify-the-updates-occurred-to-the-mainframe)
 
 ::: tip
 If the PLAY application is already in Git but the Jenkins Pipeline is not set up, skip steps 1-7 and proceed to step 8. If the PLAY application is already in Git and the Jenkins Pipeline is set up, skip steps 1-9 and proceed to the next section.
@@ -547,7 +546,7 @@ Git commit information can be viewed in Topaz within the **ISPW Assignment** vie
 
    **Note:** If a copybook download message appears, click **No** to not download copybooks.
 
-3. Verify that line 8 shows **TEST** appened.
+3. Verify that line 8 shows **TEST** appended.
 
 ![image-20210610200454573](../images/ispw_github_topaz_component_change2.png)
 
