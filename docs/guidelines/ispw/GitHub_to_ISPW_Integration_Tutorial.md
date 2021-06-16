@@ -380,7 +380,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 2. Expand GitPlay project, create folder **.github/workflows**.
 
-3. Create a GitHub workflow file, for example, **ispw-sync-build-deploy.yml**, the workflow is broken up into the following stages:
+3. Create a GitHub workflow file, for example, **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml)), the workflow is broken up into the following stages:
 
    ![image-20210610164731778](../images/ispw_github_topaz_new_workflow.png)
 
@@ -399,7 +399,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 
 
-4. Or if you prefer to use GitHub action **ispw-sync-local** , you may specify the **sync** step as below, the workflow is broken up into the following stages:
+4. Or if you prefer to use GitHub action **ispw-sync-local** , you may specify the **sync** step as below, the workflow is broken up into the following stages ([Download a template - ispw-sync-local-generate-deploy.yml](ispw-sync-local-generate-deploy.yml)):
    * Checkout - checks out the source code.
    * Synchronize changeset to ISPW - uses GitHub action **ispw-sync-local** to perform GitHub to ISPW synchronization.
    * Generate ISPW tasks - uses GitHub action **ispw-generate** to perform a generate
