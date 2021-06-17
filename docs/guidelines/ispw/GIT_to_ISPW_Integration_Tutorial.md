@@ -57,7 +57,7 @@ ISPW PLAY application 18.02
 8. [From Topaz Workbench’s Git Staging view, commit and push the GitPlay project to the master branch in the IspwGitPlayTest repository.](#_8-create-a-multibranch-pipeline-project-using-the-jenkinsfile)
 
 ::: tip
-If the PLAY application is already in Git but the Jenkins Pipeline is not set up, skip steps 1-7 and proceed to step 8. If the PLAY application is already in Git and the Jenkins Pipeline is set up, skip steps 1-9 and proceed to the next section.
+If the PLAY application is already in Git but the Jenkins Pipeline is not set up, skip steps 1-4 and proceed to step 5. If the PLAY application is already in Git and the Jenkins Pipeline is set up, skip steps 1-8 and proceed to the next section.
 
 :::
 
@@ -124,6 +124,11 @@ If you are unable to locate the PLAY application, refer to the *ISPW Installatio
 
 ::: tip
 If you are not logged into a host connection where the ISPW PLAY application is installed, you will be prompted when you select any list in the **ISPW Repository Explorer** view. 
+
+:::
+
+::: warning CAUTION
+For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
 
 :::
 <a id="_1-create-an-ispw-project-named-play-play"></a>
