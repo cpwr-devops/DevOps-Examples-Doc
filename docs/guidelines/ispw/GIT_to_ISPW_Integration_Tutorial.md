@@ -127,10 +127,6 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 :::
 
-::: warning CAUTION
-For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
-
-:::
 <a id="_1-create-an-ispw-project-named-play-play"></a>
 
 ### Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline
@@ -536,6 +532,11 @@ The build process was successfully completed.
 Git commit information can be viewed in Topaz within the **ISPW Assignment** view and the **ISPW Release** view.
 
 
+
+:::
+
+::: warning CAUTION
+For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
 
 :::
 
