@@ -102,7 +102,7 @@ module.exports = {
             ]
           },
           { 
-            text: 'Compuware',
+            text: ' BMC Compuware',
             items:
             [
               { 
@@ -184,27 +184,49 @@ module.exports = {
         items: 
         [
           {
-            text: 'APIs',
+            text: 'REST APIs',
             items: 
             [
               {
-                text: 'Rest API',
-                link: '/apis/rest_api'
+                text: 'Topaz Rest APIs',
+                link: '/apis/rest_api_topaz'
               },
-              { 
-                text: 'Topaz CLI',
-                link: '/apis/topaz_cli'
+              {
+                text: 'Topaz Total Test Rest APIs',
+                link: '/apis/rest_api_ttt'
               },
-              { 
-                text: 'Topaz Workbench SDK',
-                link: '/apis/topaz_workbench_sdk'
-              },
-              { 
-                text: 'Topaz Java API',
-                link: '/apis/topaz_api'
-              },
+              {
+                text: 'ISPW Rest APIs',
+                link: '/apis/rest_api_ispw'
+              }
             ]
           },
+          {
+            text: 'Topaz CLI',
+            items: [
+              { 
+                text: 'Topaz CLI',            
+                link: '/apis/topaz_cli'
+              }
+            ]
+          },
+          {
+            text: 'Topaz Java APIs',
+            items: [
+            { 
+              text: 'Topaz Java API',            
+              link: '/apis/topaz_api'
+            },
+            { 
+              text: 'Topaz Workbench SDK',            
+              link: '/apis/topaz_workbench_sdk'
+            },
+            { 
+              text: 'Topaz Java API Code Examples',            
+              link: '/apis/topaz_workbench_api_code_snippets'
+            }
+          ]
+        },
           {
             text: 'Use cases',
             items: [
@@ -262,10 +284,12 @@ module.exports = {
         'CES_credentials_token'
       ],
       '/apis/': [
-          'rest_api',
+          'rest_api_topaz',
+          'rest_api_ttt',
+          'rest_api_ispw',
           'topaz_cli',
-          'topaz_workbench_sdk',
           'topaz_api',
+          'topaz_workbench_sdk',
           'topaz_workbench_api_code_snippets',
           'passticket'
       ]

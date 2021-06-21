@@ -1,6 +1,5 @@
 ---
-title: Topaz CLI
-footer: MIT Licensed | Copyright © 2018 - Compuware
+footer: MIT Licensed | Copyright © 2019 - Compuware | © Copyright 2019, 2020-2021 BMC Software, Inc.
 ---
 # Topaz CLI
 
@@ -444,6 +443,9 @@ usage: TotalTestFTCLI
                                            running the test. Valid values
                                            are 'true' or 'false'. The
                                            default value is 'true'.
+ -cctype, --ccpgmtype <arg>                Code Coverage type. Must be specified 
+                                           to enable Code Coverage. Valid values 
+                                           are: TOTALTEST, DB2, IMS                                          
  -ccrepo,--ccrepository <arg>              The name of the Code Coverage
                                            repository dataset. Must be
                                            specified to enable Code
@@ -454,6 +456,9 @@ usage: TotalTestFTCLI
  -cctid,--cctestid <arg>                   Code Coverage test id. Must be
                                            specified to enable Code
                                            Coverage.
+  -certificate,--certificate <arg>         Actual security certificate used for authentication
+  -certificateAlias,--certificateAlias<arg> Unique identifier of certificate in keystore
+                                            
  -ces,--ces-url <arg>                      CES serve URL used for license
                                            check
  -cesp,--ces-password <arg>                CES server password
@@ -469,11 +474,16 @@ usage: TotalTestFTCLI
  -cju,--compare-junits                     Optional Indicates that JUnit
                                            from this execution should be
                                            compared to the baseline JUnit
+ -cp, --code-page <arg>                    The code page to use when connecting 
+                                           to the host.                               
  -ctxvars,--context-variables <arg>        Context variables as ID/value
                                            pairs in the form
                                            "id1=value1,id2=value2"
  -e,--environment <arg>                    Environment in which to execute
                                            test scenarios
+ -encrypt, --encryption-protocol <arg>     Host connection encryption protocol.
+                                           Must be: NONE, AUTO, SSLv3, TLS, TLSv1, 
+                                           TLSv1.1, TLSv1.2
  -f,--file <arg>                           File or folder path to the
                                            Total Test .xactx file(s) to
                                            execute. Can be absolute or
@@ -487,12 +497,17 @@ usage: TotalTestFTCLI
  -h,--halt-at-failure                      Halt the execution when first
                                            test scenario fails
  -help                                     print this message
+ -hlq, --dsn-hlq <arg>                     High level qualifier to use when
+                                           allocating datsets.                                           
  -host,--host <arg>                        Host for connection
  -j,--runner-jcl <arg>                     Unit test runner jcl location.
                                            Only used when the -f parameter
                                            points to a .testscenario file
                                            that should be run with
                                            hardcoded JCL
+ -keystore,--keystore <arg>                Path to keystore location. To use windows keystore
+ 												  specify "Windows-MY" as argument.
+ -keystorePassword,--keystorePassword<arg> Password of specified keystore 												  	                                         
  -l,--launcher <arg>                       Optional Launcher where the CLI
                                            is called from. Used for
                                            creating corrrect zAdviser
@@ -580,8 +595,13 @@ Example of executing a unit test scenario with hard coded runner.jcl
 TotalTestFTCLI.bat --host 1.2.3.4 --port 19196 --file /a/b/Scenarios/test.testscenario --runner-jcl /a/b/JCL/runner.jcl -cfgdir /a/c/TotalTestConfiguration -u XATUSER -p 123456
 ```
 
+The CLI can also execute a unit test scenario without the use of the TotalTestConfiguration project. This can be useful when executing older unit test scenarios in a pipeline where the configuration project is not available. The example below shows how the high-level qualifier, used for dataset creation, and the encryption protocol, used for communication with the LPAR, can be set with parameters.
+```
+TotalTestFTCLI.bat --host 1.2.3.4 --port 19196 -hlq A.B.C -encrypt TLS --file /a/b/Scenarios/test.testscenario --runner-jcl /a/b/JCL/runner.jcl -u XATUSER -p 123456
+```
+
 ::: warning IMPORTANT 
-In the 20.5.1 release, using the `--runner-jcl` parameter will require that the TotalTestConfiguration project to be present (option --configuration-directory or -cfgdir), or that the repository server is available (option --server or -s). This is actually a requirement for all CLI executions. In a future release this requirement will probably be removed when executing unit test scenarios directly with hard coded runner JCL to make it easier to setup the CLI execution since the information from the project/server in this use case is not required.
+In pre 20.6.1 releases, using the `--runner-jcl` parameter will require that the TotalTestConfiguration project to be present (option --configuration-directory or -cfgdir), or that the repository server is available (option --server or -s). This is actually a requirement for all CLI executions.
 :::
 
 ### Using the Total Test repository server and CES with authentication
@@ -760,7 +780,7 @@ Parameter/Option | Abbr. |	Description
 `-deletetemp` | -dt | Indicates if temporary files are to be deleted. Must be TRUE or FALSE. The default is TRUE.
 
 #### Example of using `runtest`
-The followwing example will execute the suite `CWXTSUBC.testsuite` residing in Topaz for Total Test project `project=C:\Users\cwde-rnuesse\Compuware\Topaz\Workspace\Unit CWXTSUBC 1.0`, on host `my.mainframe.host`, communicating on port `16196`, using the `Runner.jcl` file for the job to submit.
+The following example will execute the suite `CWXTSUBC.testsuite` residing in Topaz for Total Test project `project=C:\Users\cwde-rnuesse\Compuware\Topaz\Workspace\Unit CWXTSUBC 1.0`, on host `my.mainframe.host`, communicating on port `16196`, using the `Runner.jcl` file for the job to submit.
 
 ```
 @echo off

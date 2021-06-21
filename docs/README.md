@@ -1,11 +1,11 @@
 ---
 home: true
-title: Compuware
-metaTitle: Compuware
+title: BMC Compuware
+metaTitle: BMC Compuware
 heroText: Mainstream the Mainframe
 heroImage: /infinity_loop.png
 #sidebar: auto
-tagline: Building CI / CD pipelines using Compuware products
+tagline: Building CI / CD pipelines using BMC Compuware products
 actionText: Getting Started →
 actionLink: ./pipelines/
 features:
@@ -14,8 +14,8 @@ features:
 - title: Configuration
   details: Guides for configuring various tools used in the example Pipelines
 - title: Guides
-  details: General guides on using Compuware tools in Mainframe DevOps processes
+  details: General guides on using BMC Compuware tools in Mainframe DevOps processes
 - title: APIs
   details: APIs, CLIs and SDK that can be used to integrate Mainframe processes into DevOps tools
-footer: MIT Licensed | Copyright © 2020 - Compuware
+footer: MIT Licensed | Copyright © 2019 - Compuware | © Copyright 2019, 2020-2021 BMC Software, Inc.
 ---

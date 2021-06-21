@@ -2,7 +2,7 @@
 footer: MIT Licensed | Copyright © 2018 - Compuware | © Copyright 2018, 2020-2021 BMC Software, Inc.
 ---
 
-# Topaz Workbench SDK Code Snippets
+# Topaz Java API Code Snippets
 
 The following scenarios contain a brief description as well as one or more code snippets pertinent to the scenario:
 
