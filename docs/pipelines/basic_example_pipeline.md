@@ -308,7 +308,7 @@ The `tool` method returns the installation path of to the SonarScanner. `withSon
                 " -Dsonar.projectVersion=1.0"                                                       +
                 " -Dsonar.sources=${ISPW_Application}/${MF_Source}"                                 +
                 " -Dsonar.cobol.copy.directories=${ISPW_Application}/${MF_Source}"                  + 
-                " -Dsonar.cobol.file.suffixes=cbl,testsuite,testscenario,stub,results,scenario"     +
+                " -Dsonar.cobol.file.suffixes=cbl,testsuite,testscenario,stub,result,scenario"     +
                 " -Dsonar.cobol.copy.suffixes=cpy"                                                  +
                 " -Dsonar.sourceEncoding=UTF-8"
         }
