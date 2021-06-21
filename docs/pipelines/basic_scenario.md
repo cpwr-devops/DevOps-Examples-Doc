@@ -52,13 +52,13 @@ While there might be differences in details when it comes to the individual impl
 The ultimate goal of this process is to use SonarQube quality gates to determine if the promoted code is ready to be released. For SonarQube to work, it needs the source code. The source code will be downloaded in one of the early steps (often the first step) of the pipeline. 
 
 ### Step 2 - Retrieve Topaz for Total Test Tests
-Topaz for Total Test Unit Test assets are stored in a Git server repository and need to be downloaded to the Jenkins workspace.
+Topaz for Total Test scenarios and assets are stored in a Git server repository and need to be downloaded to the Jenkins workspace.
 
 ### Step 3 - Execute Tests
-This step will execute the downloaded unit tests. Determining which tests to download or which tests to execute may vary based on the requirements of the individual implementation. The examples show how to download every Topaz for Total Test project and execute only those test scenarios that belong to the programs that have been promoted by the developer.
+This step will execute the downloaded these tests. Determining which tests to download or which tests to execute may vary based on the requirements of the individual implementation. The examples show how to download every Topaz for Total Test project and execute only those test scenarios that belong to the programs that have been promoted by the developer.
 
 ### Step 4 - Retrieve Code Coverage statistics from the mainframe
-The unit tests will collect code coverage data and store the results in a Xpediter Code Coverage repository dataset on the mainframe. To be able to pass the results to SonarQube, they need to be extracted from the mainframe repository and downloaded to the mainframe.
+The tests will collect code coverage data and store the results in a Xpediter Code Coverage repository dataset on the mainframe. To be able to pass the results to SonarQube, they need to be extracted from the mainframe repository and downloaded to the mainframe.
 
 ### Step 5 - Pass results to SonarQube
 The sources, test execution results, and code coverage data will be passed to SonarQube for analysis.

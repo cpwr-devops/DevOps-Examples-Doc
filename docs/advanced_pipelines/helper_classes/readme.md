@@ -76,7 +76,7 @@ The [JclSkeleton](./JclSkeleton.md) class allows the pipelines to customize piec
 
 ### [`JclSkeleton(steps, String workspace, String ispwApplication, String ispwPathNum)`](./JclSkeleton.md#jclskeleton)
 
-The constructor  receives the `steps` from the pipeline to allow use of pipeline step within the class code, the path to the pipeline `workpace`, the name of the ISPW application in `ispwApplication` and the [number of the development path](../../guidelines/ttt_scenario.md) in `pathNum`.
+The constructor  receives the `steps` from the pipeline to allow use of pipeline step within the class code, the path to the pipeline `workpace`, the name of the ISPW application in `ispwApplication` and the [number of the development path](../../guidelines/ttt/ttt_scenario.md) in `pathNum`.
 
 
 ### [`initialize()`](./JclSkeleton.md#initialize) 
