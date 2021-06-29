@@ -3,67 +3,87 @@ title: Pipeline Parameters
 footer: MIT Licensed | Copyright © 2018 - Compuware
 ---
 # The pipeline parameter
-The two primary pipelines - and some of the other code examples - use a set of parameters where both names and values are taken from several sources.
+Most of the pipelines shown here, use a set of parameters and configuration settings that are taken from several sources.
 
-This table documents the different names these parameters appear under, how and where to define them, where the parameters are read from, how to determine which value to specify as used in the `PipelineConfig` class and the [Mainframe_CI_Pipeline_from_Shared_Lib](./readme.md#mainframe-ci-pipeline-from-shared-lib).
+This table documents the different names these parameters appear under, how and where they are defined/passed into the pipleine, and how to determine which values to specify.
 
 ## Webhook Parameters
 
-These values are passed via the ISPW [Webhook](../tool_configuration/webhook_setup.md#URL)
+These values are passed via the ISPW [Webhook](../tool_configuration/webhook_setup.md#URL). Each pipeline is setup as [parameterized](../pipelines/basic_example_pipeline.md#setting-up-the-pipeline-job) to accept the corresponding values as input.
 
-Name in PipelineConfig class | Alias | Parameter / Description
----------------------------- | ----- | -----------------------
-`public String ispwStream` | `ISPW_Stream` | The ISPW stream that contains the tasks that were promoted.  This value is passed via the ISPW Webhook as value `$$stream$$`
-`public String ispwApplication` | `ISPW_Application` | The ISPW application that contains the tasks that were promoted.  This value is passed via the ISPW Webhook as value`$$application$$`
-`public String ispwRelease` | `ISPW_Release` | The ISPW release that contains the tasks that were promoted.  This value is passed via the ISPW Webhook as parameter `$$release$$`
-`public String ispwAssignment` | `ISPW_Assignment` | The ISPW assignment that contains the tasks that were promoted.  This value is passed via the ISPW Webhook as parameter `$$assignment$$`
-`public String ispwContainer` | `ISPW_Container` | The internal ID of the container/set triggering the pipeline.  This is passed from the Webhook as parameter `$$container$$`
-`public String ispwContainerType` | `ISPW_Container_Type` | The type of container being passed by the ISPW webhook parameter as a hardcoded value 2, which indicates a set container
-`public String ispwSrcLevel` | `ISPW_Src_Level` | The level in the ISPW life cycle, the sources were promoted from via the ISPW Webhook as parameter `$$level$$`
-`public String ispwOwner` | `ISPW_Owner` | The TSO user id of the user promoting the sources and thus triggering the pipeline via the ISPW Webhook as parameter `$$owner$$`
+The first column contains the name as configured in the Jenkins job configuration. The follwoing columns show the variable names used within the code of the corresponding `.jenkinsfile`/`.groovy` file.
 
-## Total Test / Git Parameters
+Jenkins configuration | Basic Pipeline | Shared Library Examples | Combined Pipelines | Source / Name of parameter passed by Webhook | Description
+--------------------- | -------------- | ----------------------- | ------------------ | -------------------------------------------- | -----------
+`ISPW_Stream`         | `ISPW_Stream`       | `ispwStream`        | `ispwStream`        | `$$stream$$`        | ISPW stream
+`ISPW_Application`    | `ISPW_Application`  | `ispwApplication`   | `ispwApplication`   | `$$application$$`   | ISPW application
+`ISPW_Release`        | `ISPW_Release`      | `ispwRelease`       | `ispwRelease`       | `$$release$$`       | ISPW release - depending on the circumstances, the release may be empty
+`ISPW_Assignment`     | `ISPW_Assignment`   | `ispwAssignment`    | `ispwAssignment`    | `$$assignment$$`    | ISPW assignment
+`ISPW_Set_id`         | not used            | `ispwSet`           | `ispwSet`           | `$$set$$`           | ISPW set that was created for a specific operation, like `generate`or `promote`
+`ISPW_Src_Level`      | `ISPW_Src_Level`    | `ispwSrcLevel`      | `ispwSrcLevel`      | `$$level$$`         | Level in the ISPW life cycle
+`ISPW_Owner`          | `ISPW_Owner`        | `ispwOwner`         | `ispwOwner`         | `$$owner$$`         | TSO user id of the user performing the ISPW operation triggering webhook
+`ISPW_Operation`      | not used            | not used            | `ISPW_Operation`    | `$$operation$$`     | Operation in ISPW triggering the webhook, like `generate`or `promote`
 
-These are values passed via the config file [tttgit.config](./config_files.md#tttgit.config)
+::: tip Note
+The `ISPW_Operation` in the combined example is not used by the two scripts performing the work, but used in the calling code to determine which of the two scripts to call.
+::: 
 
-Name in PipelineConfig class | Alias | Parameter / Description
----------------------------- | ----- | -----------------------
-`public String gitTargetBranch` | `TTT_GIT_TARGET_BRANCH` | Git/GitHub branch to merge Topaz for Total Test unit tests into after successful execution of the pipeline.  This is not used in the standard example pipeline. Some of the other code examples demonstrate how to use this. If not used, the value may remain empty
-`public String gitBranch` | `TTT_GIT_BRANCH` | Git/GitHub branch to use when downloading Topaz for Total Test unit tests.
-`public String mfSourceFolder` | `MF_SOURCE_FOLDER` | Folder in the application folder, containing sources downloaded via the ISPW downloader plugin.  This value is currently unchangeable and will always be be `MF_Source`
+## Configuration parameters
 
-## Pipeline Configuration Parameters
+These parameters are dependent on environment and configuration. Unlike the previous set of parameters, they will not differ from build to build, and may all be consitent for every job/pipeline in the installation. 
+- In the basic pipeline example they are partly defined as [parameters using default values](../pipelines/basic_example_pipeline.md#the-pipeline-parameters) or [partly set as global variables in the code](../pipelines/basic_example_pipeline.md#global-variables)
+- In the examples using Shared Libraries they are [passed on the call to the Shared Library script](../advanced_pipelines/setup.md#executing-a-shared-library-script) or set from the [pipelineConfig.yml](./config_files.md#pipelineconfig.yml) file.
 
-These are values passed via the config file [pipeline.config](./config_files.md#pipeline.config)
+::: tip Note
+To determine where in your configuration to define and set any of these parameters, you should ask yourself:
+- Is the value likely to change between different implementations of Jenkins jobs using the same code? In that case it should rather be a pipeline parameter using a default or be set on the call.
+- Is the value likely to remain the same across all jobs? In that case it should be set in the script or via a configuration file.
+- Should the value be "hidden" from users? In that case it should be set in the script or via a configuration file.
+:::
 
-Name in PipelineConfig class | Alias | Parameter / Description
----------------------------- | ----- | -----------------------
-`public String sqScannerName` | `SQ_SCANNER_NAME` | SonarQube scanner configuration name within Jenkins In `Manage Jenkins` --> `Global Tool Configuration` --> `SonarQube Scanner` as `Name`
-`public String sqServerName` | `SQ_SERVER_NAME` | SonarQube server name within Jenkins in `Manage Jenkins` --> `Configure System` --> `SonarQube servers` as `Name`
-`public String sqServerUrl` | `SQ_SERVER_URL` | URL of the SonarQube server
-`public String xlrTemplate` | `XLR_TEMPLATE` | XL Release template to use for creation of a new XL Release release
-`public String xlrUser` | `XLR_USER` | XL Release credentials token to use for creation of a new XL Release release in `Manage Jenkins` --> `Configure System` --> `XL Release` as `Credentials name`
-`public String gitTttRepo` | N/A | The name of the GitHub repository containing the Topaz for Total Test projects.  Built as "${ispwStream}_${ispw_application}_Unit_Tests.git" from `ispwStream` and `ispwApplication`
-`public String tttFolder` | `TTT_FOLDER` | Folder in the Jenkins workspace that will contain the Topaz for Total Test project folders after downloading from GitHub.  The examples use `tests` as the value
-`private String tttGitConfigFile` | N/A | Name of the config file for the GitHub repository storing Topaz for Total Test projects. The file name is `tttgit.config`. Passed via the class constructor
-`public String ispwUrl` | `ISPW_URL` | CES URL to use when executing raw http requests against the ISPW REST API
-`public String ispwRuntime` | `ISPW_RUNTIME` | The ISPW runtime being used by the ISPW installation.  The default is `ispw`
-`public String gitProject` | `Git_Project` | Name of the GitHub project, used to store Topaz for Total Test projects As parameter in the call of the pipeline. IF, for example,  the full URL for the git is: https://github.com/ralphnuessecpwr/FTSDEMO_RXN3_Unit_Tests.git "ralphnuessecpwr" would be the project name
-`public String gitCredentials` | `Git_Credentials` | Jenkins credentials token to use to authenticate with GitHub As parameter in the call of the pipeline | In `Manage Jenkins` --> `Credentials` | In the list at `Manage Jenkins` --> `Credentials` in column `ID`
-`public String cesTokenId` | `CES_Token` | The Jenkins credential token for the CES token as used by most Compuware plugins As parameter in the call of the pipeline. This value can be found in `Manage Jenkins` --> `Credentials` in the list at `Manage Jenkins` --> `Credentials` in column `ID`
-`public String hciConnId` | `HCI_Conn_ID` | The connection configuration storing host name and port for the connection to the mainframe LPAR to connect to the As parameter in the call of the pipeline. This value can be found In `Manage Jenkins` --> `Configure System` --> `Compuware Configurations`. Use `Pipeline Syntax`, e.g. to define an ISPW container checkout and select the HCI connection from the `Host connection` dropdown ![Determine HCI connection](../pipelines/images/Determine_HCI_Conn.png)
-`public String hciTokenId` | `HCI_Token` | The user ID / password token for a valid logon to the required mainframe LPAR used by plugins that do not use the CES credentials token As parameter in the call of the pipeline. This value can be found in In `Manage Jenkins` --> `Credentials` in the list at `Manage Jenkins` --> `Credentials` in column `ID`
-`public String ccRepository` | `CC_repository` | The Xpediter Code Coverage repository to use. The Xpediter Code Coverage repository is defined using Xpediter Code Coverage or Topaz Workbench or defined by the administrator of Xpediter Code Coverage As parameter in the call of the pipeline.
-`public String gitUrl` | N/A | The name of the GitHub project, storing the repository containing the Topaz for Total Test projects. Built as "https://github.com/${gitProject}" from `gitProject`
-`public String applicationPathNum` | N/A | The number of the path through the development life cycle which is in use by the set triggering the pipeline. Determined from the name of the level `ispwSrcLevel` the sources have been promoted from; the number of the levels `DEV1`, `DEV2`, or `DEV3`
-`public String tttJcl` | N/A | Runner jcl to use for unit test execution. It is built as "Runner_PATH${applicationPathNum}.jcl" using `applicationPathNum`
-`public String mailRecipient` | N/A | Recipient of emails sent by the pipeline informing the owner of the ISPW set about the results. The email file contains TSO user : email address pairs. The owner of the ISPW set will be taken as lookup for the email address.  This value is defined in `Manage Jenkins` -> `Managed Files`.  Email List configuration file `mailList.config`
-`private String configPath` | N/A | Path to the configuration files after downloading from GitHub to the Jenkins workspace.  The folder containing all configuration file is `(root)/config/pipeline`
-`private String pipelineConfigFile` | N/A | Name of the config file for pipeline and environment specific settings. The file name is `pipeline.config`
-`private String configGitPath` | N/A | Folder in the Git repository containing all configuration files. The folder containing all configuration file is `(root)/config`
-`private String configGitProject` | N/A | Git project name of repository storing configuration files. The configuration files are stored in the same Git project which stores the pipeline code itself
-`private String workspace` | N/A | Name of current Jenkins workspace.
-`public String ispwTargetLevel` | N/A | The level in the ISPW life cycle, the sources were promoted to in ISPW. The parameter is built as "QA${applicationPathNum}" from `applicationPathNum`
+### Jenkins configuration / pipeline script call
+ 
+Jenkins configuration | Basic Pipeline variable | Shared Library variable | Description / Value to use
+--------------------- | ----------------------- | -------------------     | ------------------------------------
+`CES_Token`           | `CES_Token`             | `cesToken`              | [Token defined in CES (clear text)](../tool_configuration/CES_credentials_token.md)
+`Jenkins_CES_Token`   | `Jenkins_CES_Token`     | `jenkinsCesToken`       | [ID of Jenkins (secret text) credentials for the CES token](../tool_configuration/CES_credentials_token.md)
+`HCI_Conn_ID`         | `HCI_Conn_ID`           | `hciConnectionId`       | [Jenkins ID of the HCI connection to use](../tool_configuration/Jenkins_config.md#compuware-configurations)
+`HCI_Token`           | `HCI_Token`             | `hciToken`              | [ID of Jenkins (userid and password) credentials for TSO user ID and password](../tool_configuration/CES_credentials_token.md)
+`CC_Repository`       | `CC_Repository`         | `ccRepository`          | Code Coverage repository dataset to use for Code Coverage data collection during test execution.
+`Git_Project`         | `Git_Project`           | `gitProject`            | Name of the GitHub project used to store Topaz for Total Test repositories. (GitHub repository URLs are of the form `https://github.com/<project>/<repository>`)
+`Git_Credentials`     | `Git_Credentials`       | `gitCredentials`        | [ID of Jenkins (userid and password) credentials for the GitHub repository used to store Topaz for Total Test assets](../tool_configuration/CES_credentials_token.md)
+
+### Set in script / via `pipelineConfig.yml`
+
+::: tip Note 1
+The code of the Shared Library examples reads the content of the `pipelineConfig.yml` file into variable `pipelineConfig`. As a result, a parameter from this file gets reffered to by adding this variable name to the path of the parameter, e.g. `pipelineConfig.git.url`.
+:::
+
+::: tip Note 2
+Some of the values for the paramters below are fixed by the plugins or tools generating the values.
+::: 
+
+Basic Pipeline | `pipelineConfig.yml` | Description / Value to use | Fixed value if applicable
+---------------| -------------------- | -------------------------- | -------------------------
+`Git_URL` | `git.url` | URL to the git repository server. In the examples `https://github.com`. In the basic example the value is set to the GitHub URL plus the `GIT_Project` | 
+`Git_Ttt_Repo` | `git.tttRepoExtension` | **Basic pipeline**: Full name of the TTT repository, built from the `ISPW_Stream`, `ISPW_Application` and the extension `'_Total_Tests.git'`. **Shared Library**: The extension to use to build the repository name. | 
+`Git_Branch` | `git.branch` | Branch of the Git repository to use for Topaz for Total Tests | 
+`SQ_Scanner_Name` | `sq.scannerName` | Name of the SonbarQube scanner as defined in the [Jenkins Global Tool Configuration](../tool_configuration/Jenkins_config.md#sonarqube-scanner) | 
+`SQ_Server_Name` | `sq.serverName` | Name of the SonarQube server as defined in the [Jenkins System Configuration](../tool_configuration/Jenkins_config.md#sonarqube-server-information) | 
+`MF_Source` | `ispw.mfSourceFolder` | Name of the workspace folder containing the sources downloaded from the mainframe | `'MF_Source'` (set by ISPW downloader plugin)
+`XLR_Template` | `xlr.template` | Name of the XL Release release template to trigger after successful execution of a 'promote pipeline' | 
+`XLR_User` | `xlr.user` | Name of the credentials defined with the [XL Release configuration](../tool_configuration/Jenkins_config.md#xl-release) |
+`TTT_Base_Folder` | `ttt.general.folder` | Name of workspace folder to clone the Topaz for Total Test repository into. Creating a separate sub folder simplifies using the Topaz for Total Test step. | 
+`TTT_Vt_Folder` | `ttt.virtualized.folder` | Sub folder of the test base folder containing **virtualized test scenarios**. Pointing the Topaz for Total Test step to this sub folder allows targeted execution of virtualized tests only. |
+`TTT_Vt_Environment` | `ttt.virtualized.environment` | ID of an environment defined in the [CES repository for Topaz for Total Test](). This will execute only scenarios (`.context` files) matching the environemnt. | 
+| | `ttt.virtualized.targetSonarResults` | In case several Topaz for Total Test steps are executed within one build, the results file of any previous step would be replaced by the most current version. To prevent this, the examples rename the original file into this new name. | 
+| | `ttt.nonVirtualized.folder` | Sub folder of the test base folder containing **non virtualized test scenarios**. Pointing the Topaz for Total Test step to this sub folder allows targeted execution of virtualized tests only. |
+| | `ttt.nonVirtualized.environment` | ID of an environment defined in the [CES repository for Topaz for Total Test](). This will execute only scenarios (`.context` files) matching the environemnt. | 
+| | `ttt.nonVirtualized.targetSonarResults` | In case several Topaz for Total Test steps are executed within one build, the results file of any previous step would be replaced by the most current version. To prevent this, the examples rename the original file into this new name. | 
+`TTT_Sonar_Results_File` | `ttt.general.sonarResultsFolder + ttt.general.sonarResultsFile` | Name and path within the workspace of the Topaz for Total Test results file in SonarQube format | `'generated.cli.suite.sonar.xml'` (set by the Topaz for Total Test plugin)
+`CES_Url` | `ces.url` | URL to the CES to use for Topaz for Total Test or ISPW operations and defined in [Jenkins System Configuration](#/tool_configuration/Jenkins_config.md#compuware-configurations)
+`ISPW_Runtime` | `ispw.runtime` | Name of the ISPW runtime configuration to use. Determined by your ISPW administrator. |
+`ISPW_Changed_Programs_File` | `ispw.changedProgramsFile` | Name of the `.json` file containing the list of components affected by an ISPW step | `'changedPrograms.json'` (set by ISPW plugins)
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbNzEwODkwNjgxLDIwNjI2MjY0LDExMDIwND
 UyOThdfQ==
