@@ -60,10 +60,13 @@ module.exports = {
                 text: 'Elaborate Scenario',
                 link: '/advanced_pipelines/elaborate_scenario'
               },
-              { 
-                text: 'Helper Classes',
-                link: '/advanced_pipelines/helper_classes/'
+              { text: 'Git to ISPW Synchronization',
+                link: '/advanced_pipelines/git_ispw_synchronization'
               },
+              // { 
+              //   text: 'Helper Classes',
+              //   link: '/advanced_pipelines/helper_classes/'
+              // },
               { 
                 text: 'Groovy Tips',
                 link: '/advanced_pipelines/jenkins_groovy'
@@ -259,12 +262,13 @@ module.exports = {
       ],            
       '/advanced_pipelines/': [ 
         '',
+        'coding_schared_lib_scripts',
         'setup',
-        'steps',
+        'elaborate_scenario',                
+        'git_ispw_synchronization',
         'config_files',
         'parameters',
-        'elaborate_scenario',        
-        'helper_classes/',
+//        'helper_classes/',
         'jenkins_groovy'
       ],
       '/pipeline_snippets/': [ 

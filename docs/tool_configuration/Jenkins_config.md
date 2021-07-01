@@ -11,6 +11,8 @@ In `Manage Jenkins` -> `Configure System`, under the heading **Compuware Configu
 
 Use the `Add Host Connection` button to add new host connection definition (connection to a mainframe LPAR). Use `Description` for name to be used during the scripts. Use `Host:port` to point to the host name of the mainframe LPAR to connect to (HCI port), select the required `Code page`, and use `CES URL`to point to the CES to use.
 
+The `Connection ID` can be set manually to make it "readable" in your code. Otherwise Jenkins will generate an ID and display the value in this field.
+
 ![Compuware configuration](./images/Compuware_Config.png)
 
 ## SonarQube server information
