@@ -50,12 +50,20 @@ usage: Code Coverage CLI
                                 where the source has been downloaded
     --cc.system <arg>           the code coverage system name
     --cc.test <arg>             the code coverage test name
+ -certificate <arg>             the certificate base-64 string
+ -certificateAlias <arg>        the certificate alias
  -code <arg>                    the code page for the connection
  -help                          print help
  -host <arg>                    the host name or IP to be connected
  -id <arg>                      the user name
+ -keystore <arg>                the keystore file path or reserved
+                                keystore name
+ -keystorePassword <arg>        the keystore password
  -pass <arg>                    the user password
  -port <arg>                    the port to be connected
+ -protocol <arg>                the encryption protocol for the connection
+                                (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1,
+                                TLSv1.2)
  -targetFolder <arg>            the target folder where the source will be
                                 downloaded
  -timeout <arg>                 the timeout (in minutes) for the
@@ -70,10 +78,14 @@ Several parameters are common between the `.bat` files. These are:
 
 Parameter | Description
 --------- | -----------
+`-certificate <arg>` | the certificate base-64 string
+`-certificateAlias <arg>` | the certificate alias
 `-code <arg>` | the code page for the connection
 `-help` | print help
 `-host <arg>` | the host name or IP to be connected
 `-id <arg>` | the user name
+`-keystore <arg>` | the keystore file path or reserved keystore name
+`-keystorePassword <arg>` | the keystore password 
 `-pass <arg>` | the user password (in clear text)
 `-port <arg>` | the port to be connected
 `-protocol <arg>` | the encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2)
@@ -976,31 +988,35 @@ Note: Many of the parameters available for the 'execute' command can also be spe
 Parameter/Option | Abbr | Description |	Context (-able)? | Required?
 --------- | -----------|---------------|---------------|---------------
 `-repository` | -r | The repository name where the specification is present. | | Yes
+`-results-repository` | -rr | The results repository where ComparePro execution results will be stored. Applicable only to ComparePro specification. Defaults to main repository if not specified.| |
 `-specification` | -s | The name of the specification that is to be executed. | | Yes if specification-list is not provided
 `-specification-type` | -st | The type of the specification that is to be executed. compare, convert, extract, load, exsuite | |Yes if specification-list is not provided									
-`-results-repository` | -rr | The results repository where ComparePro execution results will be stored. Applicable only to ComparePro specification. Defaults to main repository if not specified.| |
+`-specification-list` | -sl | Specification Name and Type list each separated by space within quotes, if multiple specifications have to be executed in series. If this argument is specified, the specification and specification-type arguments will not be used.| |			
 `-execution-context` | -ec | The name or absolute path to the execution context file. The execution context file can supply some of the arguments that can also be passed with the execute command. If a value of a certain parameter is present in the context file and is also passed as an argument, the value passed with the command will take precedence. To know which all parameters can be specified via the context file, view the template provided at \<Install_Path\>/WorkbenchCLI/EnterpriseData namely executioncontext_template.properties. Multiple execution contexts can be created as required by copying the template.| | 	
-`-specification-list` | -sl | Specification Name and Type list each separate by space within quotes, if multiple specifications have to be executed in series. If this argument is specified, the specification and specification-type arguments will not be used.| |			
-`-exit-on-failure` | -eof | Flag to indicate exit on encountering specification execution in case of executing multiple specifications. This is an optional field, that is defaulted to true. If set to false, will continue executing other specifications down the provided list of specifications.| |
-`-execution-timeout` | -t | The execution timeout in seconds, if needs to be set to a value other than 20 seconds.| Yes |
 `-comm-manager` | -cm | The standalone communication manager to be used, where the repository is configured. |	Yes | Yes
 `-comm-manager-port` | -cmp | The standalone communication manager's port. |	Yes | Yes
-`-execution-server` | -es | The standalone execution server where EX specifications should be executed. | Yes | Yes for EX Specifications
-`-execution-server-port` | -esp | The standalone execution server's port to be used for communication. | Yes | Yes for EX Specifications
-`-execution-host` | -eh | The execution host where RDX specifications should be executed. | Yes | Yes for RDX Specifications
-`-executor-host-port` | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
-`-hci-userid` | -hid | The HCI connection userid. (For RDX execution only)| | Yes for RDX execution
-`-hci-password` | -hpw | The HCI connection password. (For RDX execution only).| |Yes for RDX execution
-`-ccsid` | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
 `-ces-uri` | -ces | The CES uri to be used for license validation. | Yes | Yes
 `-use-cloud` | -ucd | Flag to denote which type of CES is to be used, a local CES or the Compuware cloud CES. | Yes |	Yes
 `-ces-cust-no` | -cno | The customer number in case cloud CES is being used. | Yes | Yes for cloud CES
 `-ces-site-id` | -sid | The site ID in case cloud CES is being used. | Yes | Yes for cloud CES
+`-exit-on-failure` | -eof | Directive to initiate exit on encountering specification execution failure in case of executing multiple specifications. This optional field is defaulted to true. If set to false, will continue executing other specifications in the provided list.| |
+`-execution-timeout` | -t | The execution timeout in seconds, if needs to be set to a value other than 20 seconds.| Yes |
+`-execution-server` | -es | The standalone execution server where EX specifications should be executed. | Yes | Yes for EX Specification
+`-execution-server-port` | -esp | The standalone execution server's port to be used for communication. | Yes | Yes for EX Specification
+`-execution-host` | -eh | The execution host where RDX specifications should be executed. | Yes | Yes for RDX Specifications
+`-executor-host-port` | -ehp | The execution host's port to be used for communication. | Yes | Yes for RDX Specifications
+`-hci-userid` | -hid | The HCI connection userid. (For RDX execution only)| | Yes for RDX Specification
+`-hci-password` | -hpw | The HCI connection password. (For RDX execution only).| |Yes for RDX Specification
+`-certificate` | -certificate | Base64 encoded string content of the certificate required to establish HCI connection with certificate based authentication. Takes precedence over keystore based authentication if both supplied. (For RDX execution only) |Yes|Yes for RDX Specification
+`-keystore` | -keystore | Absolute path to keystore file required for establishing HCI connection with keystore based authentication. (For RDX execution only)|Yes|Yes for RDX Specification
+`-certificateAlias` | -certificateAlias | Alias of the certificate to be used in the supplied keystore for keystore based authentication. (For RDX execution only)|Yes|Yes for RDX Specification
+`-keystorePassword` | -keystorePassword | The password for accessing the provided keystore if applicable, for keystore based authentication. (For RDX execution only)|Yes|Yes for RDX Specification
+`-ccsid` | -ccs | The CCSID to be used in the execution host connection, the default is 1047.| Yes |		
 `-jcl-jobcard1` | -j1 | The JCL Jobcard's line 1. (For RDX execution only) | Yes |
-`-jcl-jobcard2` |	-j2 | The JCL Jobcard's line 2. (For RDX execution only) | Yes |
-`-jcl-jobcard3` |	-j3	| The JCL Jobcard's line 3. (For RDX execution only) | Yes | 	
-`-jcl-jobcard4` |	-j4 | The JCL Jobcard's line 4. (For RDX execution only) | Yes |
-`-jcl-jobcard5` |	-j5 | The JCL Jobcard's line 5. (For RDX execution only) | Yes |
+`-jcl-jobcard2` | -j2 | The JCL Jobcard's line 2. (For RDX execution only) | Yes |
+`-jcl-jobcard3` | -j3 | The JCL Jobcard's line 3. (For RDX execution only) | Yes | 	
+`-jcl-jobcard4` | -j4 | The JCL Jobcard's line 4. (For RDX execution only) | Yes |
+`-jcl-jobcard5` | -j5 | The JCL Jobcard's line 5. (For RDX execution only) | Yes |
 `-dataset-hlq` | -hlq | The dataset high level qualifier to be used. (For RDX execution only) | Yes |
 `-temp-dataset-prefix` | -px | The prefix to be used for temporary datasets. (For RDX execution only) | Yes |
 `-temp-dataset-suffix` | -sx | The suffix to be used for temporary datasets. (For RDX execution only) | Yes |
@@ -1029,11 +1045,26 @@ TedCLI.bat -cmd=execute -repository=SpecRepository -specification=TestComparePro
 ```
 Executes a ComparePro specification. Makes use of the specified results repository to store the compare results instead of the default SpecRepository. Also this execution utilizes the values specified in the execution context for the rest of the required parameters.
 
-### Executing an RDX specification from the repository
+### Executing an RDX specification from the repository using password credentials
 ```
-TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec
+TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec -hid=myuserid -hpw=mypassword
 ```
 Executes the TestRDXExtractSpec RDX Extract from TestRepo repository. The job is submitted to the mfhost:16196 defined via the execution host and port params. Some of the values are specified in the execution context file 'TestExecutionContext.properties' defined, while some of the arguments like dataset-hlq defined in the context has been overridden with the value passed as the argument.  
+
+### Executing an RDX specification from the repository using certificate
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec -certificate base64EncodedCERTcontent
+```
+
+### Executing an RDX specification from the repository using certificate from a keystore
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec -keystore c:/path/mykeystore -certificateAlias myCertName -keystorePassword mykeystrpwd
+```  
+
+### Executing an RDX specification from the repository using certificate from windows cert store
+```
+TedCLI.bat -cmd execute -repository TestRepo -specification TestRDXExtractSpec -specificationtype EXTRACT -execution-host mfhost -execution-host-port 16196 -execution-context TestExecutionContext.properties dataset-hlq=faexrec -keystore Windows-MY -certificateAlias myCertName 
+```  
 
 ### Executing multiple specifications in a single command from the repository
 ```
