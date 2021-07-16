@@ -79,6 +79,7 @@ Several parameters are common between the `.bat` files. These are:
 Parameter | Description
 --------- | -----------
 `-certificate <arg>` | the certificate base-64 string
+`-certificateAlias <arg>` | the certificate alias
 	`or` |	
 `-certificateStdin <arg>` | the certificate base-64 string while be read from the STDIN input
 `-certificateAlias <arg>` | the certificate alias
