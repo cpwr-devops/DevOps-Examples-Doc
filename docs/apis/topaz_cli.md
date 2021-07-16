@@ -79,8 +79,7 @@ Several parameters are common between the `.bat` files. These are:
 Parameter | Description
 --------- | -----------
 `-certificate <arg>` | the certificate base-64 string
-`-certificateAlias <arg>` | the certificate alias
-	`or` |	
+`or` | 
 `-certificateStdin <arg>` | the certificate base-64 string while be read from the STDIN input
 `-certificateAlias <arg>` | the certificate alias
 `-code <arg>` | the code page for the connection
@@ -90,7 +89,7 @@ Parameter | Description
 `-keystore <arg>` | the keystore file path or reserved keystore name
 `-keystorePassword <arg>` | the keystore password 
 `-pass <arg>` | the user password (in clear text)
-	`or` |	
+`or` | 
 `-passStdin <arg>` | the user password while be read from the STDIN input
 `-port <arg>` | the port to be connected
 `-protocol <arg>` | the encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2)
