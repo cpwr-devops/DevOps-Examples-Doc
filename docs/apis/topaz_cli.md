@@ -79,7 +79,7 @@ Several parameters are common between the `.bat` files. These are:
 Parameter | Description
 --------- | -----------
 `-certificate <arg>`| the certificate base-64 string
-`-certificateStdin`| the certificate base-64 string will be read from the STDIN input.The value will be used as -certificate argument
+`-certificateStdin`| the certificate base-64 string will be read from the STDIN input. The value will be used as -certificate argument
 `-certificateAlias <arg>` | the certificate alias
 `-code <arg>`| the code page for the connection
 `-help` | print help
@@ -88,7 +88,7 @@ Parameter | Description
 `-keystore <arg>`| the keystore file path or reserved keystore name
 `-keystorePassword <arg>` | the keystore password 
 `-pass <arg>`| the user password (in clear text)
-`-passStdin`| the user password will be read from the STDIN input.The value will be used as -pass argument
+`-passStdin`| the user password will be read from the STDIN input. The value will be used as -pass argument
 `-port <arg>`| the port to be connected
 `-protocol <arg>`| the encryption protocol for the connection (None, Auto, SSLv3, TLS, TLSv1, TLSv1.1, TLSv1.2)
 `-timeout <arg>`| the timeout (in minutes) for the connection
