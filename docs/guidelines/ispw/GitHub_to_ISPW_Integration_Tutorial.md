@@ -107,14 +107,14 @@ The steps below will be more geared towards creating a **repository/organization
 
 4. Run the commands/steps provided on that page. Keep in mind that the token within the **Configure** section of that instructions page expires and the page will need to be refreshed to retrieve a new token if the old one has expired. 
 
-You will need to use your shell to run the commands. Use the correct shell for your OS. In order for the service to execute, the Powershell has to be started with the **run as administrator** option within Windows. You may need to download Powershell for windows from Github (run the .msi in Github from https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3) or bash shell for Linux. When asked if you want the runner to run as a service, We recommend you indicate Yes, so it does not need to be manually started each time you want to use it. Else go to the actions-runner location and execute the run.cmd.
+   You will need to use your shell to run the commands. Use the correct shell for your OS. In order for the service to execute, the Powershell has to be started with the **run as administrator** option within Windows. You may need to download Powershell for Windows from Github (run the .msi in Github from https://github.com/PowerShell/PowerShell/releases/tag/v7.1.3) or bash shell for Linux. When asked if you want the runner to run as a service, We recommend you indicate Yes, so it does not need to be manually started each time you want to use it. Else go to the actions-runner location and execute the run.cmd.
 
-You can also provide labels for your runner while running the GitHub instructions in the shell window. Towards the beginning of the runner installation, a step will ask you the following:
-**This runner will have the following labels...**
-**Enter any additional labels**
+   You can also provide labels for your runner while running the GitHub instructions in the shell window. Towards the beginning of the runner installation, a step will ask you the following:<br />
+      **This runner will have the following labels...** <br />
+      **Enter any additional labels** <br />
 
-At this point, you can enter any labels you prefer to associate to this runner. Labels can be used to run specific runners by their label during an action execution.
-You can also change the labels after installing the runner. To change them through GitHub, follow the steps which can be found [here](https://docs.github.com/en/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)
+   At this point, you can enter any labels you prefer to associate to this runner. Labels can be used to run specific runners by their label during an action execution.
+   You can also change the labels after installing the runner. To change them through GitHub, follow the steps which can be found [here](https://docs.github.com/en/actions/hosting-your-own-runners/using-labels-with-self-hosted-runners)
 
 5. After running the steps within your **shell**, the shell should look something like this
 
@@ -373,11 +373,11 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 ![image-20210610175232004](../images/ispw_github_workflow_synclocal3.png)
 
 5. Create secrets to hide usernames, passwords, or tokens that will be used in the workflows
-   * Navigate to your GitHub repository where your workflows are stored.
-   * Click on the **Settings** tab that is located on the top left just under the repository path
-   * Click on the **Secrets** section
-   * From the following screen, you can either create organization level secrets (secrets that can be used across all repositories within your organization group) or repository level secrets.
-   * Some secrets examples you may create based on the **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml))
+   a. Navigate to your GitHub repository where your workflows are stored.
+   b. Click on the **Settings** tab that is located on the top left just under the repository path
+   c. Click on the **Secrets** section
+   d. From the following screen, you can either create organization level secrets (secrets that can be used across all repositories within your organization group) or repository level secrets.
+   e. Some secrets examples you may create based on the **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml))
       * secrets.TSOUSER
       * secrets.TSOPASS
       * secrets.GITUID
