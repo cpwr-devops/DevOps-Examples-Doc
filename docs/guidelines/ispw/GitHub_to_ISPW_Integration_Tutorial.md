@@ -4,23 +4,23 @@ footer: MIT Licensed | Copyright © 2020 – Compuware
 ---
 # GitHub Workflow and ISPW Integration Tutorial
 
-This tutorial helps a developer understand the process of how the ISPW and GitHub synchronization process can be performed by GitHub actions. It uses the ISPW training application PLAY to synchronize a change to a component from GitHub to ISPW. Specifically, after the necessary setup is completed, within Topaz Workbench an ISPW project containing the PLAY application source code is imported to a GitHub project that is then pushed to the GitHub repository as the main branch. Then a new file change is pushed to GitHub, which then triggers a GitHub workflow to perform the GitHub to ISPW integration and perform a build.
+This tutorial helps developers understand how the ISPW and GitHub synchronization process can be performed using GitHub actions. It uses PLAY, the ISPW training application, to synchronize a change to a component from GitHub to ISPW. After the necessary setup is complete, an ISPW project containing the PLAY application source code is imported to a GitHub project within Topaz Workbench. The GitHub project is then pushed to the GitHub repository as the main branch. Then a new file change is pushed to GitHub, which then triggers a GitHub workflow to perform the GitHub to ISPW integration to perform a build.
 
-There are three sections in this tutorial: *Overview Steps*, *Environment*, and *Detailed Steps*.
+There are three sections in this tutorial:
 
-The *Environment* section describes what environments to use to follow the steps outlined in this tutorial. If a different version of any of the software or plugins are used instead of the versions specified in the *Environment* section, different results may occur than what is shown in this tutorial.
+- *Environment Specifications:* this section describes what environments to use when following the steps outlined in this tutorial. If a different version of any of the software or plugins are used different results may occur than what are shown in this tutorial.
 
-The following *Overview Steps* provides a brief overview of the steps for performing the GitHub workflow and ISPW integration. This section outlines the following:
+- *Process Overview:* this section provides an overview of the steps for performing the GitHub workflow and ISPW integration. This section outlines the following:
 
-- [Set up the environment.](#set-up-the-environment)
-- [Set up a GitHub project with the source, YAML file, and GitHub workflow.](#set-up-a-git-project-with-the-source)
-- [Make a change and build.](#make-a-change-and-build)
-- [Commit, Push the changes to GitHub and Trigger GitHub workflow.](#submit-change-to-github)
+   - [Set up the environment.](#set-up-the-environment)
+   - [Set up a GitHub project with the source, YAML file, and GitHub workflow.](#set-up-a-git-project-with-the-source)
+   - [Make a change and build.](#make-a-change-and-build)
+   - [Commit, Push the changes to GitHub and Trigger GitHub workflow.](#submit-change-to-github)
 
-The *Detailed Steps* below provide the comprehensive steps to perform the GitHub workflow and ISPW integration.
+- *Detailed Steps:* this section details the comprehensive steps to perform the GitHub workflow and ISPW integration.
 
 
-## Environment
+## Environment Specifications
 These are the minimum releases of software and plugins required.
 
 Topaz Workbench 20.07.01:
@@ -33,40 +33,42 @@ Topaz Workbench 20.07.01:
 - Windows or Linux based self-hosted runner
 
 
-## Detailed Steps
+## Process Overview
 
    1. [Set up the environment](#set-up-the-environment)
-   2. [**Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization**](#install-the-necessary-plugins-in-topaz-workbench-configure-github-self-hosted-runner-and-extra-setup-for-synchronization)
+   2. [Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization](#install-the-necessary-plugins-in-topaz-workbench-configure-github-self-hosted-runner-and-extra-setup-for-synchronization)
       *  [<u>Topaz Workbench</u>](#utopaz-workbenchu)
       *  [<u>Config GitHub Self-hosted Runner</u>](#uconfig-github-self-hosted-runneru)
-   3. [**Verify the ISPW mainframe PLAY application is available**](#verify-the-ispw-mainframe-play-application-is-available)
+   3. [Verify the ISPW mainframe PLAY application is available](#verify-the-ispw-mainframe-play-application-is-available)
    4. [Set up a GitHub repository with the ISPW source and YAML configuration file](#set-up-a-github-repository-with-the-ispw-source-and-yaml-configuration-file)
    5. [Create a new GitHub repository named GitPlay](#create-a-new-github-repository-named-gitplay)
-   6. [**Clone GitPlay repository from GitHub and Import as an Eclipse project**](#clone-gitplay-repository-from-github-and-import-as-an-eclipse-project)
+   6. [Clone GitPlay repository from GitHub and Import as an Eclipse project](#clone-gitplay-repository-from-github-and-import-as-an-eclipse-project)
    7. [Configure the ISPW and Import the ISPW Source](#configure-the-ispw-and-import-the-ispw-source)
-   8. [**Commit and push the initial source into GitPlay repository**](#commit-and-push-the-initial-source-into-gitplay-repository)
+   8. [Commit and push the initial source into GitPlay repository](#commit-and-push-the-initial-source-into-gitplay-repository)
    9. [Create a GitHub workflow](#create-a-github-workflow)
-   10. [**Make a change and build**](#make-a-change-and-build-1)
-   11. [**Make a change to Cobol component TPROG15.cob**](#make-a-change-to-cobol-component-tprog15cob)
-   12. [**Perform the build action to verify the source generates successfully along with any impacted components**](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
-   13. [**Submit change to GitHub**](#submit-change-to-github)
-   14. [**Commit and push the changes to GitHub and Trigger GitHub workflow**](#commit-and-push-the-changes-to-github-and-trigger-github-workflow)
+   10. [Make a change and build**](#make-a-change-and-build-1)
+   11. [Make a change to Cobol component TPROG15.cob](#make-a-change-to-cobol-component-tprog15cob)
+   12. [Perform the build action to verify the source generates successfully along with any impacted components](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
+   13. [Submit change to GitHub](#submit-change-to-github)
+   14. [Commit and push the changes to GitHub and Trigger GitHub workflow](#commit-and-push-the-changes-to-github-and-trigger-github-workflow)
       * [<u>Commit and push TPROG15</u>](#ucommit-and-push-tprog15u)
-   15. [**Determine whether the synchronization process completed successfully**](#determine-whether-the-synchronization-process-completed-successfully)
-   16. [**Verify the updates occurred to the mainframe**](#verify-the-updates-occurred-to-the-mainframe)
+   15. [Determine whether the synchronization process completed successfully](#determine-whether-the-synchronization-process-completed-successfully)
+   16. [Verify the updates occurred to the mainframe](#verify-the-updates-occurred-to-the-mainframe)
 
-## Steps
+## Detailed Steps
 <a id="install-the-necessary-plugins-in-topaz-workbench"></a>
 
 ### Set up the environment
 
 
-
-#### **Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization**
+To set up the environment, you will:
+1. Install the necessary plugins in Topaz Workbench
+2. Configure GitHub Self-hosted Runner
+3. Complete Extra Setup for ISPW Synchronization
 
 <a id='topaz-workbench'></a>
 
-##### <u>Topaz Workbench</u>
+#### Install the necessary plugins in Topaz Workbench
 
 Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.eclipse.org/egit/download) for the installation.
 
@@ -74,11 +76,11 @@ Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.ecli
 
 
 
-##### <u>Config GitHub Self-hosted Runner</u>
+#### Configure GitHub Self-hosted Runner
 
 This how-to will guide you on the setup required for creating a self-hosted runner and some configurations to get you started.
 
-**Step-by-step Guild**
+##### Step-by-step Guide to Create the Self-hosted Runner
 
 Before starting, ensure you know what machine/environment you would like to create the self-hosted runner. In some cases, you would want this installed on a **virtual machine**, and in other cases on your **own machine**. 
 It's also important to understand the difference between all 3 levels that a self-hosted runner can be set-up on. See the explanation below to better understand the 3 levels and which one is more applicable for you.
@@ -128,11 +130,14 @@ The steps below will be more geared towards creating a **repository/organization
 
 
 
-<u>**Extra Setup for ISPW Synchronization**</u>
+#### Complete Extra Setup for ISPW Synchronization
+Extra setup steps are required for ISPW Synchronization when using:
+- ispw-sync GitHub Docker action
+- ispw-sync-local GitHub action 
 
 <a id='extra-setup1'></a>
 
-**Extra setup if using ispw-sync GitHub Docker action**
+##### Setup if using the ispw-sync GitHub Docker action
 
 In order to use **ispw-sync** Docker container action (a TopazCLI Docker image is distributed from Docker hub and no need to install TopazCLI on the self-hosted runner), self-hosted runner must use a Linux operating system and have Docker installed. Currently, GitHub only supports Linux self-hosted runner for Docker container action. 
 
@@ -173,11 +178,11 @@ $ sudo systemctl restart docker
 $ sudo chmod 666 /var/run/docker.sock
 ```
 
-**Note**: You certainly can setup Docker on Windows WSL2 (Windows Subsystem for Linux, version 2). In this case, ispw-sync will work on Windows self-hosted runner too. Please following the [link](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) for more information.
+::: tip NOTE: You certainly can setup Docker on Windows WSL2 (Windows Subsystem for Linux, version 2). In this case, ispw-sync will work on Windows self-hosted runner too. Please following the [link](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) for more information. :::
 
 <a id='extra-setup2'></a>
 
-**Extra setup if using ispw-sync-local GitHub action**
+##### Setup if using the ispw-sync-local GitHub action
 
 If Windows based self-hosted runner, install the TopazCLI windows distribution.
 
@@ -189,9 +194,9 @@ Please remember the root path to TopazCLI, then specify the CLI location in the 
 
 <a id="verify-the-ispw-mainframe-play-application-is-available"></a>
 
-#### **Verify the ISPW mainframe PLAY application is available** 
+#### Verify the ISPW mainframe PLAY application is available
 
-Verify the ISPW PLAY application was installed as part of the ISPW install. It is installed as part of the Training Application delivered in the ISPW SAMPLIB that is as part of the Installation Verification Process (IVP). 
+Verify that the ISPW PLAY application is installed. It should be included as part of the Training Application delivered in the ISPW SAMPLIB as part of the Installation Verification Process (IVP). 
 
 If the following steps can be executed successfully, then the PLAY application was successfully installed in the ISPW instance based on the host connection.  
 
@@ -199,7 +204,7 @@ If you are unable to locate the PLAY application, refer to the *ISPW Installatio
 
 1. In Topaz Workbench, open the **ISPW** perspective. From the **Window** menu, select **Open Perspective>Other**. The **Open Perspective** dialog box appears. Select **ISPW** and click **OK**. The **ISPW Repository Explorer** view appears.
 
-   **Note:** The **ISPW Repository Explorer** view is visible by default. If it is not visible, from the **Window** menu, select **Show View>Other**. The **Show View** dialog box appears. Toggle open **ISPW**, select the **ISPW Repository Explorer** view, and click **OK**. 
+::: tip NOTE: The **ISPW Repository Explorer** view is visible by default. If it is not visible, from the **Window** menu, select **Show View>Other**. The **Show View** dialog box appears. Toggle open **ISPW**, select the **ISPW Repository Explorer** view, and click **OK**. :::
 
 2. Do the following:
 
@@ -239,7 +244,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 <a id='clone-gitplay'></a>
 
-#### **Clone GitPlay repository from GitHub and Import as an Eclipse project**
+#### Clone GitPlay Repository Rrom GitHub and Import as an Eclipse Project
 
 1. In Topaz Workbench, open the Git perspective.
 
@@ -255,7 +260,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 <a id='config-import-ispw-source'></a>
 
-#### Configure the ISPW and Import the ISPW Source
+#### Configure ISPW and Import the ISPW Source
 
 1. In Topaz Workbench’s **Project Explorer** view, right-click the **GitPlay** project node and select **Configure>Configure to Use ISPW**. The **Configure ISPW and GIT Mapping** wizard appears.
 
@@ -314,7 +319,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 <a id='commit-init-source'></a>
 
-#### **Commit and push the initial source into GitPlay repository**
+#### Commit and Push the Initial Source into the GitPlay Repository
 
 1. In Topaz Workbench, open the **Git** perspective. 
 
@@ -332,7 +337,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 <a id='create-github-workflow'></a>
 
-#### Create a GitHub workflow
+#### Create a GitHub Workflow
 
 1. In Topaz Project Explorer View, select **Filters and Customization...**, then uncheck **\.\*resources** to show hidden files and folders for the GitPlay project.
 
@@ -385,7 +390,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
       * secrets.CES_TOKEN
 
 
-### **Make a change and build**
+### **Make a Change and Build**
 
 <a id='make-a-change-to-a-cobol-component-tprog15-cob'></a>
 
@@ -422,20 +427,20 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 7. In the **Project Explorer** view’s **COB** folder, right-click **TPROG15.cob** and select **ISPW>Build**. The **Console** view shows the progress of the build.
 
-**Note:** If an ISPW pop-up appears, click **YES** to continue.
+::: tip NOTE: If an ISPW pop-up appears, click **YES** to continue. :::
 
 ![IspwGithubConsoleViewBuild](../images/ispw_github_console_view_build.png)
 
 8. In the **Console** view, note the assignment where TPROG15 was loaded. In the example above, TPROG15 was loaded into assignment PLAY004840 at the DEV1 level.
 9. Delete the task from container PLAY004840 and close the container.
 
-###  **Submit change to GitHub**
+###  **Submit the Change to GitHub**
 
 <a id='submit-change-trigger-workflow'></a>
 
-#### **Commit and push the changes to GitHub and Trigger GitHub workflow**
+#### **Commit and Push the Changes to GitHub and Trigger the GitHub Workflow**
 
- ###### <u>Commit and push TPROG15</u>
+ ##### Commit and Push TPROG15
 
 1. In the **Unstaged Changes** box, select **TPROG15** and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
 
@@ -453,7 +458,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 <a id='determine-whether-the-synchronization-process-completed-successfully'></a>
 
-#### **Determine whether the synchronization process completed successfully**
+#### Determine Whether the Synchronization Process Completed Successfully
 
 Once the TPROG15 is pushed to GitHub, the workflow on GitHub is immediately triggered (for demo purpose, **ispw-sync-local-generate-deploy** workflow is disabled, workflow **ispw-sync-build-deploy** is enabled). 
 
@@ -512,13 +517,13 @@ Git commit information can be viewed in Topaz within the **ISPW Assignment** vie
 
 <a id='verify-the-updates-occurred-to-the-mainframe'></a>
 
-#### **Verify the updates occurred to the mainframe**
+#### Verify the Updates Occurred to the Mainframe**
 
 1. In Topaz Workbench’s **ISPW Containers** view, find the assignment where TPROG15 was loaded and double-click the assignment. The **ISPW Tasks** view appears.
 
 2. Double-click **TPROG15**. The source is opened in the editor. 
 
-   **Note:** If a copybook download message appears, click **No** to not download copybooks.
+   :::tip NOTE: If a copybook download message appears, click **No** to not download copybooks. :::
 
 3. Verify that line 8 shows **TEST** appended.
 
