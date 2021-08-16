@@ -178,7 +178,8 @@ $ sudo systemctl restart docker
 $ sudo chmod 666 /var/run/docker.sock
 ```
 
-::: tip NOTE: You certainly can setup Docker on Windows WSL2 (Windows Subsystem for Linux, version 2). In this case, ispw-sync will work on Windows self-hosted runner too. Please following the [link](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) for more information. :::
+::: tip **NOTE:** You certainly can setup Docker on Windows WSL2 (Windows Subsystem for Linux, version 2). In this case, ispw-sync will work on Windows self-hosted runner too. Please following the [link](https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers) for more information. 
+:::
 
 <a id='extra-setup2'></a>
 
@@ -204,7 +205,9 @@ If you are unable to locate the PLAY application, refer to the *ISPW Installatio
 
 1. In Topaz Workbench, open the **ISPW** perspective. From the **Window** menu, select **Open Perspective>Other**. The **Open Perspective** dialog box appears. Select **ISPW** and click **OK**. The **ISPW Repository Explorer** view appears.
 
-::: tip NOTE: The **ISPW Repository Explorer** view is visible by default. If it is not visible, from the **Window** menu, select **Show View>Other**. The **Show View** dialog box appears. Toggle open **ISPW**, select the **ISPW Repository Explorer** view, and click **OK**. :::
+::: tip **NOTE:** The **ISPW Repository Explorer** view is visible by default. If it is not visible, from the **Window** menu, select **Show View>Other**. The **Show View** dialog box appears. Toggle open **ISPW**, select the **ISPW Repository Explorer** view, and click **OK**. 
+
+:::
 
 2. Do the following:
 
@@ -427,7 +430,8 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 7. In the **Project Explorer** view’s **COB** folder, right-click **TPROG15.cob** and select **ISPW>Build**. The **Console** view shows the progress of the build.
 
-::: tip NOTE: If an ISPW pop-up appears, click **YES** to continue. :::
+::: tip **NOTE:** If an ISPW pop-up appears, click **YES** to continue. 
+:::
 
 ![IspwGithubConsoleViewBuild](../images/ispw_github_console_view_build.png)
 
@@ -511,8 +515,6 @@ The deploy request has been submitted.
 
 Git commit information can be viewed in Topaz within the **ISPW Assignment** view and the **ISPW Release** view.
 
-
-
 :::
 
 <a id='verify-the-updates-occurred-to-the-mainframe'></a>
@@ -523,7 +525,8 @@ Git commit information can be viewed in Topaz within the **ISPW Assignment** vie
 
 2. Double-click **TPROG15**. The source is opened in the editor. 
 
-   :::tip NOTE: If a copybook download message appears, click **No** to not download copybooks. :::
+   ::: tip **NOTE:** If a copybook download message appears, click **No** to not download copybooks. 
+   :::
 
 3. Verify that line 8 shows **TEST** appended.
 
