@@ -322,7 +322,7 @@ node {
    ![gitToIspwIntegration3](../images/gitToIspwIntegration3.png)
 
 
-   **Note:** For ISPW Operations Jenkins plugin 1.0.7 or older, if any user ID or login credentials are present at the beginning of the Git repository URL, remove them. 
+   ::: tip NOTE: For ISPW Operations Jenkins plugin 1.0.7 or older, if any user ID or login credentials are present at the beginning of the Git repository URL, remove them. :::
 
 9. Copy and paste the generated script within the second stage in the text file, replacing all code between the curly braces for that stage.
 
@@ -380,6 +380,7 @@ node {
    <a id="_11-commit-and-push-the-gitplay-project-to-the-master-branch-in-the-ispwgitplaytest-repository"></a>
    ::: tip
    It is important to ensure that the Jenkinsfile is located at the project root, where the multibranch pipeline project’s configuration **Script Path** field expects it to be.
+   
    :::
 
 #### Commit and Push the GitPlay Project to the Master Branch in the IspwGitPlayTest Repository
@@ -408,7 +409,7 @@ node {
 <a id="_1-switch-to-a-new-branch-named-playbranch1"></a>
 ### **Make a change and build**
 
-#### Switch to a New Branch Named PlayBranch1** 
+#### Switch to a New Branch Named PlayBranch1
 
 1. In Topaz Workbench’s **Project Explorer** view, right-click the GitPlay project node and select **Team**>**Switch To**>**New Branch**. The **Create Branch** dialog box appears.
 2. In the **Branch name** field, specify **PlayBranch1** as the branch name.
@@ -447,7 +448,7 @@ node {
 
 6. In the **Project Explorer** view’s **COB** folder, right-click **TPROG01.cob** and select **ISPW>Build**. The **Console** view shows the progress of the build.
 
-    **Note:** If an ISPW pop-up appears, click **YES** to continue.
+    ::: tip **NOTE:** If an ISPW pop-up appears, click **YES** to continue. :::
 
     ![ConsoleViewBuild](../images/ConsoleViewBuild.png)
 
@@ -533,6 +534,7 @@ The build process was successfully completed.
 Git commit information can be viewed in Topaz within the **ISPW Assignment** view and the **ISPW Release** view.
 
 :::
+
 
 ::: warning CAUTION
 For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
