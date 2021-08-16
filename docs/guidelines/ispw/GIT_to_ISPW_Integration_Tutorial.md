@@ -1,6 +1,6 @@
 ---
 spntitle: Git to ISPW Integration Tutorial
-footer: MIT Licensed | Copyright © 2020 – Compuware
+footer: MIT Licensed | Copyright © 2021 – Compuware
 ---
 # Git to ISPW Integration Tutorial
 
@@ -11,7 +11,6 @@ There are three sections in this tutorial:
 - *Environment Specifications:* this section describes what environments to use to follow the steps outlined in this tutorial. If a different version of any of the software or plugins are used instead of the versions specified in the *Environment* section, different results may occur than what is shown in this tutorial.
 
 - *Process Overview:* this section provides a brief overview of the steps for performing the Git to ISPW integration. This section outlines the following:
-
    - [Set up the environment.](#set-up-the-environment)
    - [Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline.](#set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline)
    - [Make a change and build.](#make-a-change-and-build)
@@ -76,6 +75,7 @@ If the PLAY application is already in Git but the Jenkins Pipeline is not set up
 1. [From Topaz Workbench’s **Git Staging** view, commit and push the changes to Git.](#_1-commit-and-push-the-changes-to-git)
 2. [From Jenkins, check the console output of the multibranch pipeline project job to determine whether the synchronization process completed successfully.](#_2-determine-whether-the-synchronization-process-completed-successfully)
 3. [From Topaz Workbench, go to the assignment where the component was loaded to verify the updates occurred to the mainframe.](#_3-verify-the-updates-occurred-to-the-mainframe)
+4. [From Topaz Workbench's **Project Explorer**, go to the project properties to configure a copybook concatenation list.](#configure-git-project-copybook-concatenation)
    
 
 ## Detailed Steps
@@ -552,3 +552,34 @@ For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during 
 3. Verify that line 3 shows **BENCHMARK ISPW TRAINING1** for **Author**.
 
 ![ComponentChange2](../images/ComponentChange2.png)
+
+#### **Configuring a copybook concatenation list for a Git project**
+<a id="configure-git-project-copybook-concatenation"></a>
+
+By configuring a copybook concatenation list, it will allow your programs to download the correct copybooks defined by the project list in the order they are provided. Keep in mind, the copybooks are only downloaded upon opening a component from the project explorer view, or if the **Download Copybooks** context menu option is selecting when right clicking from the editor itself.
+
+::: tip
+Before configuring a copybook concatenation list, it is a good idea to have your other Git projects already created/imported into your workspace. These other Git projects will be candidate for selection during the copybook concatenation configuration.
+
+:::
+
+1. In Topaz Workbench's **Project Explorer**, find the Git project where copybook concatenation list will be configured.
+
+2. Right click on the project then click on **Properties**.
+
+3. Within the properties, click on the arrow next to the **ISPW** node, followed by clicking on Copybook Concatenation.
+
+4. On the right hand side, click on the **Add...** button. Another window titled **Copybook Concatenation** will display with all the other projects that have been configured to utilize the **ISPW Nature**. The nature of the project can change in the same properties window within the **Project Natures** node.
+
+5. Within the Copybook Concatenation window, you can select all or partial projects from the list. Click **OK** when you are finished selecting your projects.
+
+6. Back in the properties window, you should now see the Git projects you selected in the previous step. See image below for a preview.
+
+7. You can also arrange the ordering of the projects by selecting one and clicking on the **Move Up** or **Move Down** buttons on the right-hand side.
+
+::: tip
+The ordering of the Git projects is important. During the copybook download process, the copybook is downloaded according to the ordering of the configured list of projects. For example, if you have configured your concatenation list to include projects test1 & test2, the copybook download process will first look for the referenced copybook in test1 and if not found, it will finally check within test2.
+
+:::
+
+![ComponentChange2](../images/GitProjectConcatList.png)
