@@ -4,40 +4,38 @@ footer: MIT Licensed | Copyright © 2021 – Compuware
 ---
 # Git to ISPW Integration Tutorial
 
-This tutorial helps a developer understand the process of how the ISPW and Git synchronization process can be performed. It uses the ISPW training application PLAY to synchronize a change to a component from Git to ISPW. Specifically, after the necessary setup is completed, within Topaz Workbench an ISPW project containing the PLAY application source code is imported to a Git project that is then pushed to the Git repository as the master branch in Bitbucket. Then a new file change is pushed to Git, which then triggers a Jenkins multibranch pipeline job to perform the Git to ISPW integration and perform a build.
+This tutorial helps developers understand how to synchronize ISPW and Git. It uses the ISPW training application, called PLAY, to synchronize a change to a component from Git to ISPW. The sync can be done after the necessary setup is completed within Topaz Workbench and an ISPW project containing the PLAY application source code is imported to a Git project. That project is then pushed to the Git repository as the master branch in Bitbucket. Then a new file change is pushed to Git, which then triggers a Jenkins multibranch pipeline job to perform the Git to ISPW integration and perform a build.
 
-There are three sections in this tutorial: *Environment*, *Overview Steps* and *Detailed Steps*.
+There are three sections in this tutorial:
 
-The *Environment* section describes what environments to use to follow the steps outlined in this tutorial. If a different version of any of the software or plugins are used instead of the versions specified in the *Environment* section, different results may occur than what is shown in this tutorial.
+- *Environment Specifications:* this section describes what environments to use to follow the steps outlined in this tutorial. If a different version of any of the software or plugins are used instead of the versions specified in the *Environment* section, different results may occur than what is shown in this tutorial.
 
-The *Overview Steps* section provides a brief overview of the steps for performing the Git to ISPW integration. This section outlines the following:
+- *Process Overview:* this section provides a brief overview of the steps for performing the Git to ISPW integration. This section outlines the following:
+   - [Set up the environment.](#set-up-the-environment)
+   - [Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline.](#set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline)
+   - [Make a change and build.](#make-a-change-and-build)
+   - [Submit change to pipeline.](#submit-change-to-pipeline)
 
-- [Set up the environment.](#set-up-the-environment)
-- [Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline.](#set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline)
-- [Make a change and build.](#make-a-change-and-build)
-- [Submit change to pipeline.](#submit-change-to-pipeline)
-- [Configuring a copybook concatenation list for Git project.](#configure-git-project-copybook-concatenation)
-
-The *Detailed Steps* section provides the comprehensive steps to perform the Git to ISPW integration.
+- *Detailed Steps:* this section provides the comprehensive steps to perform the Git to ISPW integration.
 
 
-## Environment
+## Environment Specifications
 These are the minimum releases of software and plugins required.
 
-Topaz Workbench 20.07.01:
-- Egit in Eclipse 5.6.0
+- Topaz Workbench 20.01.01 including:
+   - Egit in Eclipse 5.6.0
 
-Jenkins version 2.190.3:
-- Topaz Workbench CLI version 20.01.01
-- Compuware Common Configurations Jenkins plugin 1.0.10-SNAPSHOT
-- ISPW Operations Jenkins plugin 1.0.8-SNAPSHOT
+- Jenkins version 2.190.3 including:
+   - Topaz Workbench CLI version 20.01.01
+   - Compuware Common Configurations Jenkins plugin 1.0.10-SNAPSHOT
+   - ISPW Operations Jenkins plugin 1.0.8-SNAPSHOT
 
-Atlassian Bitbucket v5.16.0
+- Atlassian Bitbucket v5.16.0
 
-ISPW PLAY application 18.02
+- ISPW PLAY application 18.02
 
 
-## Overview Steps
+## Process Overview
 
 ### **Set up the environment**
 <a id="set-up-the-environment"></a>
@@ -45,8 +43,14 @@ ISPW PLAY application 18.02
 1. [Install the necessary plugins in Topaz Workbench and Jenkins.](#install-the-necessary-plugins-in-topaz-workbench-and-jenkins)
 2. [Verify the ISPW mainframe PLAY application is available.](#verify-the-ispw-mainframe-play-application-is-available)
 
-### **Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline** 
+### Set up a Git Project and a Jenkins Multibranch Pipeline
+The Git project will include the source, a YAML file, and a Jenkinsfile.
 <a id="set-up-a-git-project-with-the-source-yaml-file-and-jenkinsfile-and-set-up-a-jenkins-multibranch-pipeline"></a>
+
+::: tip
+If the PLAY application is already in Git but the Jenkins Pipeline is not set up, skip steps 1-4 and proceed to step 5. If the PLAY application is already in Git and the Jenkins Pipeline is set up, skip steps 1-8 and proceed to the next section.
+
+:::
 
 1. [From Topaz Workbench’s **Project Explorer** view, create a new general project called **GitPlay** and import the ISPW project source.](#_1-create-an-ispw-project-named-play-play)
 2. [From Topaz Workbench’s **Project Explorer** view within the GitPlay project, configure the ISPW and Git mapping.](#_2-change-the-ispw-project-properties-to-keep-a-downloaded-copy-of-each-component)
@@ -56,11 +60,6 @@ ISPW PLAY application 18.02
 6. [Create a Jenkinsfile, which does a checkout of the source code, performs the Git to ISPW synchronization, and performs a build.](#_6-share-the-gitplay-project-as-a-git-repository-to-convert-the-ispw-project-to-a-git-project)
 7. [From Topaz Workbench’s Project Explorer view, import a Jenkinsfile to the root directory of the GitPlay project.](#_7-create-a-new-git-repository-named-ispwgitplaytest)
 8. [From Topaz Workbench’s Git Staging view, commit and push the GitPlay project to the master branch in the IspwGitPlayTest repository.](#_8-create-a-multibranch-pipeline-project-using-the-jenkinsfile)
-
-::: tip
-If the PLAY application is already in Git but the Jenkins Pipeline is not set up, skip steps 1-4 and proceed to step 5. If the PLAY application is already in Git and the Jenkins Pipeline is set up, skip steps 1-8 and proceed to the next section.
-
-:::
 
 ### **Make a change and build**
 <a id="make-a-change-and-build"></a>
@@ -82,15 +81,15 @@ If the PLAY application is already in Git but the Jenkins Pipeline is not set up
 ## Detailed Steps
 <a id="install-the-necessary-plugins-in-topaz-workbench-and-jenkins"></a>
 
-### Set up the environment
+### Set up the Environment
 
-#### **Install the necessary plugins in Topaz Workbench and Jenkins**
+#### Install the Necessary Plugins in Topaz Workbench and Jenkins
 
-##### <u>Topaz Workbench</u>
+##### **Topaz Workbench**
 
 Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.eclipse.org/egit/download) for the installation.
 
-##### <u>Jenkins</u>
+##### **Jenkins**
 
 1. Install Topaz Workbench CLI version 20.01.01 on Windows or Linux according to the following [Topaz Workbench Installation Guide](https://docs.compuware.com/kb/KB2005/HTML/TopazWorkbench_Install/Responsive%20HTML5/index.html#t=TopazWorkbench_Install%2FInstall_Topaz_Workbench%2FInstall_Topaz_Workbench.htm%23TOC_Task_2_3_Install_Topazbc-4&rhsearch=command%20line%20interface&rhsyns=%20&rhtocid=_5_0_2)
    
@@ -103,7 +102,7 @@ Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.ecli
 3. ISPW Operations Jenkins plugin. For the installation, refer to [Tool Configurations/Compuware ISPW Operations Plugin](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-ispw-operations-plugin).
 <a id="verify-the-ispw-mainframe-play-application-is-available"></a>
 
-#### **Verify the ISPW mainframe PLAY application is available** 
+#### Verify the ISPW mMinframe PLAY Application is Available
 
 Verify the ISPW PLAY application was installed as part of the ISPW install. It is installed as part of the Training Application delivered in the ISPW SAMPLIB that is as part of the Installation Verification Process (IVP). 
 
@@ -131,10 +130,10 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
 <a id="_1-create-an-ispw-project-named-play-play"></a>
 
-### Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline
+### Set up a Git Project with the Source, YAML File, and Jenkinsfile, and Set Up a Jenkins Multibranch Pipeline
 
 
-#### **Create a new general project called GitPlay and import the ISPW project source**
+#### Create a New General Project called GitPlay and Import the ISPW Project Source
 
 1. In Topaz Workbench’s **Project Explorer** view, from the **File** menu, select **New>Project**. The **New Project** wizard appears. 
 2. Toggle open the **General** node, select **Project**, and click **Next**. The **New Project** page appears.
@@ -219,7 +218,7 @@ If you are not logged into a host connection where the ISPW PLAY application is 
 
    <a id="_4-create-a-new-general-project-called-gitplay-and-import-the-ispw-project-source"></a>
 
-#### Create a new Git repository named IspwGitPlayTest
+#### Create a New Git repository Named IspwGitPlayTest
 
 1. Go to the Bitbucket Server.
 
@@ -236,7 +235,7 @@ Depending on the Git server (GitHub, Bitbucket, etc.) and interface (web, deskto
 
 <a id="_5-configure-the-ispw-and-git-mapping"></a>
 
-#### Create a multibranch pipeline project using the Jenkinsfile
+#### Create a Multibranch Pipeline Project Using the Jenkinsfile
 
 1. In the Jenkins UI, click **Jenkins** and select **New Item**.
 2. In the **Enter an item name** field, enter the name for a multi-branch pipeline project.
@@ -274,7 +273,7 @@ node {
 	connectionId: '9079999f-ab78-4047-8366-00eb8aa4f173', 
 	credentialsId: 'ce986ae7-1b4d-4f0d-8f9b-a0b022182124', 
 	gitCredentialsId: 'loginToGit3',
-	gitRepoUrl: 'https://evolve.compuware.com:8443/scm/~kathy.turetzky_compuware.com/ispwgitplaytest.git', 
+	gitRepoUrl: ''https://host:port/path/ispwgitplaytest.git', 
 	runtimeConfig: 'TPZP', 
 	stream: 'PLAY'
   }
@@ -283,7 +282,7 @@ node {
   {
 	ispwOperation connectionId: '9079999f-ab78-4047-8366-00eb8aa4f173', 
 	consoleLogResponseBody: true, 
-	credentialsId: 'CES20.1Conn', 
+	credentialsId: 'your-credential-id.1conn', 
 	ispwAction: 'BuildAssignment', 
 	ispwRequestBody: '''buildautomatically = true
 	'''
@@ -323,7 +322,7 @@ node {
    ![gitToIspwIntegration3](../images/gitToIspwIntegration3.png)
 
 
-   **Note:** For ISPW Operations Jenkins plugin 1.0.7 or older, if any user ID or login credentials are present at the beginning of the Git repository URL, remove them. 
+   ::: tip NOTE: For ISPW Operations Jenkins plugin 1.0.7 or older, if any user ID or login credentials are present at the beginning of the Git repository URL, remove them. :::
 
 9. Copy and paste the generated script within the second stage in the text file, replacing all code between the curly braces for that stage.
 
@@ -360,7 +359,7 @@ node {
 18. Click **Save**.
     <a id="_10-import-a-jenkinsfile-to-the-root-directory-of-the-gitplay-project"></a>
 
-#### **Import a Jenkinsfile to the root directory of the GitPlay project**
+#### Import a Jenkinsfile to the Root Directory of the GitPlay Project
 
 1. In Topaz Workbench’s **Project Explorer** view, right-click the **GitPlay** project node.
 
@@ -381,9 +380,10 @@ node {
    <a id="_11-commit-and-push-the-gitplay-project-to-the-master-branch-in-the-ispwgitplaytest-repository"></a>
    ::: tip
    It is important to ensure that the Jenkinsfile is located at the project root, where the multibranch pipeline project’s configuration **Script Path** field expects it to be.
+   
    :::
 
-#### **Commit and push the GitPlay project to the master branch in the IspwGitPlayTest repository**
+#### Commit and Push the GitPlay Project to the Master Branch in the IspwGitPlayTest Repository
 
 1. In Topaz Workbench, open the **Git** perspective. 
 
@@ -409,7 +409,7 @@ node {
 <a id="_1-switch-to-a-new-branch-named-playbranch1"></a>
 ### **Make a change and build**
 
-#### **Switch to a new branch named PlayBranch1** 
+#### Switch to a New Branch Named PlayBranch1
 
 1. In Topaz Workbench’s **Project Explorer** view, right-click the GitPlay project node and select **Team**>**Switch To**>**New Branch**. The **Create Branch** dialog box appears.
 2. In the **Branch name** field, specify **PlayBranch1** as the branch name.
@@ -419,7 +419,7 @@ node {
 ![VerifyMyBranch1](../images/VerifyMyBranch1.png)
 <a id="_2-make-a-change-to-a-cobol-component-tprog01-cob"></a>
 
-#### **Make a change to Cobol component TPROG01.cob**
+#### **Make a Change to Cobol Component TPROG01.cob**
 
 1. In Topaz Workbench’s **Project Explorer** view, expand **GitPlay>COB**.
 
@@ -434,7 +434,7 @@ node {
 5. From the **File** menu, select **Close**.
     <a id="_3-perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components"></a>
 
-#### **Perform the build action to verify the source generates successfully along with any impacted components**
+#### Perform the Build Action to Verify the Source Generates Successfully Along With Any Impacted Components
 
 1. In Topaz Workbench’s **Project Explorer** view, right-click the **GitPlay** project node and select **Properties>ISPW**. The **ISPW** page of the **Properties** dialog box appears.
 
@@ -448,7 +448,7 @@ node {
 
 6. In the **Project Explorer** view’s **COB** folder, right-click **TPROG01.cob** and select **ISPW>Build**. The **Console** view shows the progress of the build.
 
-    **Note:** If an ISPW pop-up appears, click **YES** to continue.
+    ::: tip **NOTE:** If an ISPW pop-up appears, click **YES** to continue. :::
 
     ![ConsoleViewBuild](../images/ConsoleViewBuild.png)
 
@@ -470,11 +470,11 @@ node {
 <a id="_1-commit-and-push-the-changes-to-git"></a>
 ###  **Submit change to pipeline**
 
-#### **Commit and push the changes to Git**
+#### Commit and Push the Changes to Git
 
 First commit and push only the Jenkinsfile so the updated assignmentId is used for the change to TPROG01. Then commit and push TPROG01.
 
-######  <u>Commit and push the Jenkinsfile</u>
+######  **Commit and Push the Jenkinsfile**
 
 1. In Topaz Workbench, open the **Git** perspective’s **Git Staging** view.
 
@@ -490,7 +490,7 @@ First commit and push only the Jenkinsfile so the updated assignmentId is used f
 
 6. Click **Close**.
 
- ###### <u>Commit and push TPROG01</u>
+ ###### **Commit and Push TPROG01**
 
 1. In the **Unstaged Changes** box, select **TPROG01** and click ![GitStagingAdd](../images/GitStagingAdd.png) to add it to the **Staged Changes** box.
 
@@ -503,7 +503,7 @@ First commit and push only the Jenkinsfile so the updated assignmentId is used f
 4. Click **Close**.
    <a id="_2-determine-whether-the-synchronization-process-completed-successfully"></a>
 
-#### **Determine whether the synchronization process completed successfully**
+#### Determine Whether the Synchronization Process Completed Successfully
 
 Two jobs will be triggered for the Jenkins multibranch pipeline project within a one-minute interval: one job when the Jenkinsfile was pushed and one job when TPROG01 was pushed. 
 
@@ -533,16 +533,15 @@ The build process was successfully completed.
 
 Git commit information can be viewed in Topaz within the **ISPW Assignment** view and the **ISPW Release** view.
 
-
-
 :::
+
 
 ::: warning CAUTION
 For Topaz release 20.07.01, the ISPW CLI will skip loading deleted files during the Git to ISPW synchronization.
 
 :::
 
-#### **Verify the updates occurred to the mainframe**
+#### Verify the Updates Occurred to the Mainframe**
 
 1. In Topaz Workbench’s **ISPW Containers** view, find the assignment where TPROG01 was loaded and double-click the assignment. The **ISPW Tasks** view appears.
 
