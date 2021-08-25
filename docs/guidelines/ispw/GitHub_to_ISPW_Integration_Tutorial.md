@@ -36,47 +36,42 @@ These are the minimum releases of software and plugins required.
 ## Process Overview
 
    1. [Set up the environment](#set-up-the-environment)
-   2. [Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization](#install-the-necessary-plugins-in-topaz-workbench-configure-github-self-hosted-runner-and-extra-setup-for-synchronization)
-      *  [<u>Topaz Workbench</u>](#utopaz-workbenchu)
-      *  [<u>Config GitHub Self-hosted Runner</u>](#uconfig-github-self-hosted-runneru)
+   2. [Install the necessary plugins in Topaz Workbench, Configure GitHub Self-hosted Runner and Extra Setup for Synchronization](#install-the-necessary-plugins-in-topaz-workbench)
+      *  [<u>Topaz Workbench</u>](#install-the-necessary-plugins-in-topaz-workbench)
+      *  [<u>Config GitHub Self-hosted Runner</u>](#configure-github-self-hosted-runner)
    3. [Verify the ISPW mainframe PLAY application is available](#verify-the-ispw-mainframe-play-application-is-available)
    4. [Set up a GitHub repository with the ISPW source and YAML configuration file](#set-up-a-github-repository-with-the-ispw-source-and-yaml-configuration-file)
    5. [Create a new GitHub repository named GitPlay](#create-a-new-github-repository-named-gitplay)
    6. [Clone GitPlay repository from GitHub and Import as an Eclipse project](#clone-gitplay-repository-from-github-and-import-as-an-eclipse-project)
-   7. [Configure the ISPW and Import the ISPW Source](#configure-the-ispw-and-import-the-ispw-source)
-   8. [Commit and push the initial source into GitPlay repository](#commit-and-push-the-initial-source-into-gitplay-repository)
+   7. [Configure the ISPW and Import the ISPW Source](#configure-ispw-and-import-the-ispw-source)
+   8. [Commit and push the initial source into GitPlay repository](#commit-and-push-the-initial-source-into-the-gitplay-repository)
    9. [Create a GitHub workflow](#create-a-github-workflow)
-   10. [Make a change and build**](#make-a-change-and-build-1)
+   10. [Make a change and build](#make-a-change-and-build)
    11. [Make a change to Cobol component TPROG15.cob](#make-a-change-to-cobol-component-tprog15cob)
    12. [Perform the build action to verify the source generates successfully along with any impacted components](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
-   13. [Submit change to GitHub](#submit-change-to-github)
-   14. [Commit and push the changes to GitHub and Trigger GitHub workflow](#commit-and-push-the-changes-to-github-and-trigger-github-workflow)
-      * [<u>Commit and push TPROG15</u>](#ucommit-and-push-tprog15u)
+   13. [Submit change to GitHub](#submit-the-change-to-github)
+   14. [Commit and push the changes to GitHub and Trigger GitHub workflow](#commit-and-push-the-changes-to-github-and-trigger-the-github-workflow)
+      * [Commit and push TPROG15](#commit-and-push-tprog15)
    15. [Determine whether the synchronization process completed successfully](#determine-whether-the-synchronization-process-completed-successfully)
    16. [Verify the updates occurred to the mainframe](#verify-the-updates-occurred-to-the-mainframe)
 
 ## Detailed Steps
-<a id="install-the-necessary-plugins-in-topaz-workbench"></a>
 
 ### Set up the environment
-
 
 To set up the environment, you will:
 1. Install the necessary plugins in Topaz Workbench
 2. Configure GitHub Self-hosted Runner
 3. Complete Extra Setup for ISPW Synchronization
 
-<a id='topaz-workbench'></a>
 
 #### Install the necessary plugins in Topaz Workbench
+<a id="install-the-necessary-plugins-in-topaz-workbench"></a>
 
 Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.eclipse.org/egit/download) for the installation.
 
-<a id='setup-self-hosted-runner'></a>
-
-
-
 #### Configure GitHub Self-hosted Runner
+<a id='setup-self-hosted-runner'></a>
 
 This how-to will guide you on the setup required for creating a self-hosted runner and some configurations to get you started.
 
@@ -254,7 +249,7 @@ The repository can also be created under an organization. Refer to GitHub online
 
 <a id='clone-gitplay'></a>
 
-#### Clone GitPlay Repository Rrom GitHub and Import as an Eclipse Project
+#### Clone GitPlay Repository From GitHub and Import as an Eclipse Project
 
 1. In Topaz Workbench, open the Git perspective.
 

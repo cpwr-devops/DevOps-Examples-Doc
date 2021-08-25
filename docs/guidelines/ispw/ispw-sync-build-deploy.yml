@@ -1,0 +1,72 @@
+name: sync, build and deploy
+
+on: [push]
+
+jobs:
+  generate:
+    name: sync, build & deploy
+    runs-on: [self-hosted, ubuntu20]
+    steps:
+      - name: checkout step
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      
+      - name: sync step
+        uses: bmc-compuware/ispw-sync@v2
+        id: sync
+        with:
+          host: 'ispw-host.com'
+          port: 12345
+          uid: ${{ secrets.TSOUSER }}
+          pass: ${{ secrets.TSOPASS }}
+          runtimeConfiguration: 'TPZP'
+          stream: 'PLAY'
+          application: 'PLAY'
+          checkoutLevel: 'DEV1'
+          gitUid: ${{ secrets.GITUID }}
+          gitToken: ${{ secrets.GITHUB_TOKEN }}
+          #containerCreation: 'per-branch'
+          showEnv: true
+      
+      - name: Get automatic build parameters
+        run: echo "automaticBuildJson=${{ steps.sync.outputs.automaticBuildJson }}"
+      
+      - name: build step
+        uses: bmc-compuware/ispw-build@main
+        id: build
+        if: ${{ steps.sync.outputs.automaticBuildJson != '{}'}}
+        with:
+          ces_url: 'http://ces-host.com:48226/'
+          ces_token: ${{ secrets.CES_TOKEN }}
+          srid: ${{ srid }}
+          runtime_configuration: 'TPZP'
+          build_automatically: ${{ steps.sync.outputs.automaticBuildJson }}
+      
+      - name: build output
+        if: success() || failure()
+        run: |
+          echo "failed count: ${{ steps.build.outputs.generate_failed_count }}"
+          echo "success count: ${{ steps.build.outputs.generate_success_count }}"
+          echo "timeout? ${{ steps.build.outputs.is_timed_out }} "
+          echo "has failure? ${{ steps.build.outputs.has_failures }}"
+          echo "task count: ${{ steps.build.outputs.task_count }}"
+          echo "set id: ${{ steps.build.outputs.set_id }}"
+          echo "url: ${{ steps.build.outputs.url }}"
+          echo "assignment id: ${{ steps.build.outputs.assignment_id }}"
+          echo "output json: ${{fromJSON(steps.build.outputs.output_json)}}"
+          
+      - name: wait 30 second for build to complete
+        run: sleep 30s
+        shell: bash
+      
+      - name: deploy
+        if: ${{ steps.sync.outputs.automaticBuildJson != '{}'}}
+        uses: bmc-compuware/ispw-deploy@main
+        id: deploy
+        with:
+          ces_url: 'http://ces-host.com:48226/'
+          ces_token: ${{ secrets.CES_TOKEN }}
+          srid: ${{ srid }}
+          runtime_configuration: 'TPZP'
+          deploy_automatically: ${{ steps.sync.outputs.automaticBuildJson }}
