@@ -47,11 +47,11 @@ These are the minimum releases of software and plugins required.
    8. [Commit and push the initial source into GitPlay repository](#commit-and-push-the-initial-source-into-the-gitplay-repository)
    9. [Create a GitHub workflow](#create-a-github-workflow)
    10. [Make a change and build](#make-a-change-and-build)
-   11. [Make a change to Cobol component TPROG15.cob](#make-a-change-to-cobol-component-tprog15cob)
+   11. [Make a change to Cobol component TPROG15.cob](#make-a-change-to-cobol-component-tprog15-cob)
    12. [Perform the build action to verify the source generates successfully along with any impacted components](#perform-the-build-action-to-verify-the-source-generates-successfully-along-with-any-impacted-components)
    13. [Submit change to GitHub](#submit-the-change-to-github)
    14. [Commit and push the changes to GitHub and Trigger GitHub workflow](#commit-and-push-the-changes-to-github-and-trigger-the-github-workflow)
-      * [Commit and push TPROG15](#commit-and-push-tprog15)
+       *  [<u>Commit and push TPROG15</u>](#commit-and-push-tprog15)
    15. [Determine whether the synchronization process completed successfully](#determine-whether-the-synchronization-process-completed-successfully)
    16. [Verify the updates occurred to the mainframe](#verify-the-updates-occurred-to-the-mainframe)
 
