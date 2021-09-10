@@ -104,7 +104,7 @@ Adopting Total Test is more than just starting to use a new tool. Its about chan
 1. Establish a “Test Automation Knowledge Center” or what you want to call it. You should have at least one expert user of Total Test and who has understanding test automation and DevOps that can help coworkers getting started, educate team in understanding best approach for success, and help solve issues. The expert user should also be the one responsible for having contact with Compuware support to create and update support cases. Having expertise in house to do first level support of internal users learning to use the tool is the fastest way to improve adoption.
 
 ::: tip
-You can access a Forester Total Economic Impact report on a customer adopting Topaz for Total Test here [Forrester TEI study](https://resources.compuware.com/forrester_tei_topaz_for_total_test_lp). The study shows how the customer measured developers performance and leak of bugs to their integration test environment before and after adopting Topaz for Total Test and how their developers gained a 233% productivity improvement while number of bugs decreased with 83%.
+You can access a Forester Total Economic Impact report on a customer adopting Topaz for Total Test here [Forrester TEI study](https://www.bmc.com/it-solutions/brands/compuware.html?301=resources-compuware-com). The study shows how the customer measured developers performance and leak of bugs to their integration test environment before and after adopting Topaz for Total Test and how their developers gained a 233% productivity improvement while number of bugs decreased with 83%.
 :::
 
 
@@ -675,7 +675,7 @@ There’s a lot more to successfully automating unit testing on the mainframe th
 
 We welcome your feedback as we continue to update this document alongside the continuous improvement of Topaz for Total Test with quarterly enhancements. To share your feedback on or ask a question about a best practice, please contact your Compuware account manager.
 
-For more information on Topaz for Total Test, please visit <http://compuware.com/topaz-for-total-test> or contact your Compuware account manager.
+For more information on Topaz for Total Test, please visit [The BMC Compuware Topaz for Total Test page](https://www.bmc.com/it-solutions/bmc-compuware-topaz-total-test.html) or contact your BMC account manager.
 <!--stackedit_data:
 eyJoaXN0b3J5IjpbLTE0MTkwMzM3ODIsMzk1MTc1NjgwLC0zMT
 YwNzk5MF19

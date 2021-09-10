@@ -19,14 +19,14 @@ Compuware provides a continuously growing set of plugins that allow connecting t
 
 ### Compuware Common Configuration
 
-The [Compuware Common Configuration](https://wiki.jenkins.io/display/JENKINS/Compuware+Common+Configuration+Plugin) plugin allows defining and storing configuration settings that are used by and shared between the other Compuware plugins. 
+The [Compuware Common Configuration](https://plugins.jenkins.io/compuware-common-configuration) plugin allows defining and storing configuration settings that are used by and shared between the other Compuware plugins. 
 
 ::: tip
 There is no code that can be or needs to be generated to use the plugin.
 :::
 
 ### Compuware ISPW Operations Plugin
-The [Compuware ISPW Operations Plugin](https://wiki.jenkins.io/display/JENKINS/Compuware+ISPW+Operations+Plugin) allows using ISPW REST API operations without having to code native http requests.
+The [Compuware ISPW Operations Plugin](https://plugins.jenkins.io/compuware-ispw-operations) allows using ISPW REST API operations without having to code native http requests.
 
 ::: tip
 In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entries 
@@ -37,7 +37,7 @@ In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Ste
 
 ### Compuware Source Code Download for Endevor, PDS, and ISPW
 
-The [Compuware Source Code Download for Endevor, PDS, and ISPW](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Source+Code+Download+for+Endevor%2C+PDS%2C+and+ISPW+Plugin) plugin allows downloading source code and other assets stored in mainframe SCM tools:
+The [Compuware Source Code Download for Endevor, PDS, and ISPW](https://plugins.jenkins.io/compuware-scm-downloader) plugin allows downloading source code and other assets stored in mainframe SCM tools:
 
 - ISPW
 - Endevor
@@ -56,7 +56,7 @@ respectively.
 
 ### Compuware Topaz for Total Test
 
-The [Compuware Topaz for Total Test](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Topaz+for+Total+Test+Plugin) plugin allows execution of Topaz for Total Test unit and functional test scenarios and suites and retrieving of the results. The results will be downloaded and stored in *html* format as well as *xml* format for further use by SonarQube. Collection of Xpediter Code Coverage data can be triggered alongside the execution of the unit tests.
+The [Compuware Topaz for Total Test](https://plugins.jenkins.io/compuware-topaz-for-total-test) plugin allows execution of Topaz for Total Test unit and functional test scenarios and suites and retrieving of the results. The results will be downloaded and stored in *html* format as well as *xml* format for further use by SonarQube. Collection of Xpediter Code Coverage data can be triggered alongside the execution of the unit tests.
 
 ::: tip
 In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **step**, followed by the *Build Step* dropdown entry **Topaz for Total Test**.
@@ -64,7 +64,7 @@ In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Ste
 
 ### Compuware Xpediter Code Coverage
 
-The [Compuware Xpediter Code Coverage](https://wiki.jenkins-ci.org/display/JENKINS/Compuware+Xpediter+Code+Coverage+Plugin) plugin allows querying an Xpediter Code Coverage repository and downloading the results. These results will be stored in *xml* format for further use by SonarQube.
+The [Compuware Xpediter Code Coverage](https://plugins.jenkins.io/compuware-xpediter-code-coverage) plugin allows querying an Xpediter Code Coverage repository and downloading the results. These results will be stored in *xml* format for further use by SonarQube.
 
 ::: tip
 In the Pipeline Syntax generator, the plugin can be accessed via the *Sample Step* dropdown entry **step**, followed by the *Build Step* dropdown entry **Retrieve Xpediter Code Coverage Statistics**.
@@ -94,7 +94,7 @@ Other plugins that are used by the examples are:
 
 ### Pipeline Utility Steps
 
-The [Pipeline Utility Steps](https://wiki.jenkins.io/display/JENKINS/Pipeline+Utility+Steps+Plugin) plugin provides a set of script methhods that are being used in the examples like
+The [Pipeline Utility Steps](https://plugins.jenkins.io/pipeline-utility-steps) plugin provides a set of script methhods that are being used in the examples like
 
 - `findFiles`   to search for files by name pattern
 - `zip`         to create zip archives
@@ -102,7 +102,7 @@ The [Pipeline Utility Steps](https://wiki.jenkins.io/display/JENKINS/Pipeline+Ut
 
 ### Config File Provider
 
-The [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) allows defining files and storing their content within Jenkins, thus allowing you to define configuration files that do not have to be stored on disk within repository (e.g. the Git) storing the *jenkinsfile*.
+The [Config File Provider](https://plugins.jenkins.io/config-file-provider) allows defining files and storing their content within Jenkins, thus allowing you to define configuration files that do not have to be stored on disk within repository (e.g. the Git) storing the *jenkinsfile*.
 
 ### Credentials Binding Plugin
 

@@ -45,8 +45,8 @@ Performs the following tasks:
 - receives the path to the `workspace` for the pipeline job
 - uses the `referencedCopyBooks` method to determine all copybooks used by the download COBOL programs
 - uses a [`JclSkeleton`](./Jcl_skeletons.md) object's `createIebcopyCopyBooksJcl` method to create an `IEBCOPY` job `JCL` that copies all required copybooks in the list from the ISPW libraries into a temporary PDS
-- submits this `JCL` using the [Topaz Utilities](https://wiki.jenkins.io/display/JENKINS/Compuware+Topaz+Utilities+Plugin) plugin
-- downloads the content of the temporary PDS, using the [ISPW PDS downloader](https://wiki.jenkins.io/display/JENKINS/Compuware+Source+Code+Download+for+Endevor,+PDS,+and+ISPW+Plugin)
+- submits this `JCL` using the [Topaz Utilities](https://plugins.jenkins.io/compuware-topaz-utilities/) plugin
+- downloads the content of the temporary PDS, using the [ISPW PDS downloader](https://plugins.jenkins.io/compuware-scm-downloader/)
 - uses the `JclSkeleton` method `jclSkeleton.createDeleteTempDsn` to create a `DELETE` job `JCL`
 - and submits that `JCL`
 
@@ -217,16 +217,16 @@ Builds the path to point to Topaz for Total Test unit test results files to be p
 
 Prepares all parameters required for Sonar and executes the Sonar scanner:
 
-- [`sonar.testExecutionReportPaths`](https://docs.sonarqube.org/display/SONAR/Generic+Test+Data) allows using a comma-separated list of paths the results of unit tests (Topaz for Total Test in our case) in the format required by the Sonar scanner.
-- [`sonar.tests`](https://docs.sonarqube.org/display/SONAR/Analysis+Parameters) comma-separated list of folders containing unit tests (Topaz for Total Test projects in our case)
-- [`coverageReportPaths`](https://docs.sonarqube.org/display/SONAR/Generic+Test+Data) path to code coverage results. With Xpediter Code Coverage the results will reside in `Coverage/Coverage.xml`.
-- [`sonar.projectKey`](https://docs.sonarqube.org/display/SONAR/Analysis+Parameters) the SonarQube project key that is unique for each project. Our example pipelines use the [Jenkins environment variable](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project) `JOB_NAME`.
-- [`sonar.projectName`](https://docs.sonarqube.org/display/SONAR/Analysis+Parameters) the SonarQube project name that is unique for each project. Our example pipelines use the [Jenkins environment variable](https://wiki.jenkins.io/display/JENKINS/Building+a+software+project) `JOB_NAME`.
-- [`sonar.projectVersion`](https://docs.sonarqube.org/display/SONAR/Analysis+Parameters) the SonarQube project version. The current examples to not modify the project version between executions.
-- [`sonar.sources`](https://docs.sonarqube.org/display/SONAR/Analysis+Parameters) comma-separated paths to directories containing source files. With the ISPW downloader the sources reside in folder `<ispw_application>/MF_Source`.
-- [`sonar.cobol.copy.directories`](https://docs.sonarqube.org/display/PLUG/COBOL+Plugin+Advanced+Configuration) comma-separated paths to COBOL copybooks.  With the ISPW downloader the sources reside in folder `<ispw_application>/MF_Source` and the `downloadCopyBooks` method of the [`IspwHelper`](./IspwHelper.md) class copybooks will reside in the same folder as the COBOL sources `<ispw_application>/MF_Source`.
-- [`sonar.cobol.file.suffixes`](https://docs.sonarqube.org/display/PLUG/COBOL+Plugin+Advanced+Configuration) file suffixes for the Sonar scanner to identify files that need to be scanned.
-- [`sonar.cobol.copy.suffixes`](https://docs.sonarqube.org/display/PLUG/COBOL+Plugin+Advanced+Configuration) file suffixes for the Sonar scanner to identify COBOL copybooks.
+- [`sonar.testExecutionReportPaths`](https://docs.sonarqube.org/latest/analysis/generic-test/) allows using a comma-separated list of paths the results of unit tests (Topaz for Total Test in our case) in the format required by the Sonar scanner.
+- [`sonar.tests`](https://docs.sonarqube.org/latest/analysis/analysis-parameters/) comma-separated list of folders containing unit tests (Topaz for Total Test projects in our case)
+- [`coverageReportPaths`](https://docs.sonarqube.org/latest/analysis/generic-test/) path to code coverage results. With Xpediter Code Coverage the results will reside in `Coverage/Coverage.xml`.
+- [`sonar.projectKey`](https://docs.sonarqube.org/latest/analysis/analysis-parameters/) the SonarQube project key that is unique for each project. Our example pipelines use the [Jenkins environment variable](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables) `JOB_NAME`.
+- [`sonar.projectName`](https://docs.sonarqube.org/latest/analysis/analysis-parameters/) the SonarQube project name that is unique for each project. Our example pipelines use the [Jenkins environment variable](https://www.jenkins.io/doc/book/pipeline/jenkinsfile/#using-environment-variables) `JOB_NAME`.
+- [`sonar.projectVersion`](https://docs.sonarqube.org/latest/analysis/analysis-parameters/) the SonarQube project version. The current examples to not modify the project version between executions.
+- [`sonar.sources`](https://docs.sonarqube.org/latest/analysis/analysis-parameters/) comma-separated paths to directories containing source files. With the ISPW downloader the sources reside in folder `<ispw_application>/MF_Source`.
+- [`sonar.cobol.copy.directories`](https://docs.sonarqube.org/latest/analysis/languages/cobol/) comma-separated paths to COBOL copybooks.  With the ISPW downloader the sources reside in folder `<ispw_application>/MF_Source` and the `downloadCopyBooks` method of the [`IspwHelper`](./IspwHelper.md) class copybooks will reside in the same folder as the COBOL sources `<ispw_application>/MF_Source`.
+- [`sonar.cobol.file.suffixes`](https://docs.sonarqube.org/latest/analysis/languages/cobol/) file suffixes for the Sonar scanner to identify files that need to be scanned.
+- [`sonar.cobol.copy.suffixes`](https://docs.sonarqube.org/latest/analysis/languages/cobol/) file suffixes for the Sonar scanner to identify COBOL copybooks.
 
 ## TttHelper
 

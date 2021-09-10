@@ -7,7 +7,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Getting Started
 
-To get started building your own mainframe DevOps pipeline, we have provided pipeline examples and setup instructions using Jenkins. To implement a pipeline using other tools, refer to  [Mainframe CI using alternatives Jenkins](https://devops.api.compuware.com/pipelines/alternatives_to_jenkins.html).
+To get started building your own mainframe DevOps pipeline, we have provided pipeline examples and setup instructions using Jenkins. To implement a pipeline using other tools, refer to  [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
 
 Example code and documentation are provided for:
 -   [A suggested starting point for Jenkins CI pipelines](./basic_scenario.md)
@@ -16,7 +16,7 @@ Example code and documentation are provided for:
 -   Code snippets or sample code for:
 	  - [CI pipelines using various techniques](#pipeline-examples)
     - [general purpose for use in Jenkins](#other-code-examples)
-    - making use of the  [ISPW REST API](https://devops.api.compuware.com/apis/rest_api.html)  and  [Topaz CLI](https://devops.api.compuware.com/apis/topaz_cli.html), which may be  [used in tools other than Jenkins](./alternatives_to_jenkins.md).
+    - making use of the  [ISPW REST API](../apis/rest_api_ispw.md)  and  [Topaz CLI](../apis/topaz_cli.md), which may be  [used in tools other than Jenkins](./alternatives_to_jenkins.md).
 
 ::: warning
 The code published serves as example code, using Compuware example applications and environments. It needs to be adjusted to site specific needs and requirements.
@@ -70,7 +70,7 @@ The GitHub repository is organized as follows:
         - [Scan_Sources_from_ISPW_Repository_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_ISPW_Repository_with_Sonar.jenkinsfile) - using the *repository* downloader for sources stored in ISPW.
         - [Scan_Sources_from_PDS_with_Sonar](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Scan_Sources_from_PDS_with_Sonar.jenkinsfile) - uses the *PDS* downloader for sources stored in PDS's (inside or outside a mainframe SCM tool).
     - [Push_TTT_results_to_Git](../pipeline_snippets/push_ttt_results_to_git.md) - ([jenkinsfile](https://github.com/cpwr-devops/DevOps-Examples/tree/master/src/Jenkinsfile/Push_TTT_results_to_Git.jenkinsfile)) - shows how to push results of unit test execution back to GitHub for a developer to consume locally.
-- ***misc-examples/Powershell* sub-folder**: that resides within the *src* directory of the repository, Powershell scripts and examples for using alternatives to Jenkins or the Jenkins plugins**. These scripts make use of the [ISPW REST API](../apis/rest_api.md) and the [Topaz CLI](../apis/topaz_cli.md), and we describe them in detail in [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
+- ***misc-examples/Powershell* sub-folder**: that resides within the *src* directory of the repository, Powershell scripts and examples for using alternatives to Jenkins or the Jenkins plugins**. These scripts make use of the [ISPW REST API](../apis/rest_api_ispw.md) and the [Topaz CLI](../apis/topaz_cli.md), and we describe them in detail in [Mainframe CI using alternatives Jenkins](./alternatives_to_jenkins.md).
 
 ## What has changed in April 2021
 
@@ -79,12 +79,12 @@ Over the recent few releases of [Topaz for Total Test](../guidelines/ttt/ttt_sce
 ## Tools Used
 The example pipelines use a development scenario based on:
 
-- [ISPW](https://compuware.com/ispw-source-code-management/) as the SCM to store and govern mainframe sources
+- [ISPW](https://www.bmc.com/it-solutions/bmc-compuware-ispw.html?301=compuware-com-ispw-source-code-management) as the SCM to store and govern mainframe sources
 - [Git (GitHub)](https://github.com/) as the SCM to store unit test assets.
-- [Topaz for Total Test](https://compuware.com/topaz-for-total-test-automation/) as the mainframe unit, functional, and integration testing tool to create and maintain test assets.
-- [Xpediter Code Coverage](https://compuware.com/xpediter-mainframe-debugging-tools/) as the tool to gather code coverage data during execution of the unit tests.
+- [Topaz for Total Test](https://www.bmc.com/it-solutions/bmc-compuware-topaz-total-test.html?301=compuware-com-topaz-for-total-test-automation) as the mainframe unit, functional, and integration testing tool to create and maintain test assets.
+- [Xpediter Code Coverage](https://www.bmc.com/it-solutions/bmc-compuware-xpediter.html?301=compuware-com-xpediter-mainframe-debugging-tools) as the tool to gather code coverage data during execution of the unit tests.
 - [SonarQube](https://www.sonarsource.com/) as the server for code analysis and setting up quality gates.
-- [XLRelease](https://xebialabs.com/) as the CD server for release steps following the initial CI process Jenkins.
+- [digital.ai Release](https://digital.ai/) as the CD server for release steps following the initial CI process Jenkins.
  
 Instructions for configuring the various tools can be found in the [Configuration](../tool_configuration/readme.md) section of this site.
 
