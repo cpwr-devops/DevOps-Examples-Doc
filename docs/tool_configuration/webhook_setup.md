@@ -47,7 +47,7 @@ Will be `POST`.
 
 ### Request headers
 
-Depending on the configuration of the Jenkins server, you may need addition request headers. Especially if [CSRF Protection](https://wiki.jenkins.io/display/JENKINS/CSRF+Protection) is activated, then you will need an authorization header. Contact your Jenkins administrator for the required value.
+Depending on the configuration of the Jenkins server, you may need addition request headers. Especially if [CSRF Protection](https://www.jenkins.io/doc/book/security/csrf-protection) is activated, then you will need an authorization header. Contact your Jenkins administrator for the required value.
 
 ### Product
 
