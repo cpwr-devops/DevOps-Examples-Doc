@@ -1,5 +1,5 @@
 [[redirects]]
-  from = "https://devops.api.compuware.com"
-  to = "https://devops.api.bmc.com"
+  from = "https://devops.api.compuware.com/*"
+  to = "https://devops.api.bmc.com/:splat"
   status = 301
   force = true
