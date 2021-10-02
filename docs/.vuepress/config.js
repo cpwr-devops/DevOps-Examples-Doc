@@ -257,9 +257,9 @@ module.exports = {
       '/guidelines/ispw/': [ 
         'ispw_setup',
         'ispw_projects',
-        'GitHub_to_ISPW_Integration_Tutorial',
-	      'GIT_to_ISPW_Integration_Tutorial',
-        'Git to ISPW Integration - The ISPW YAML Configuration File',
+        'github_to_ispw_integration_tutorial',
+	'git_to_ispw_integration_tutorial',
+        'git to ispw integration - the ispw yaml configuration file',
       ],
       '/guidelines/azure_devops/': [
         'azure_devops_pipeline',
