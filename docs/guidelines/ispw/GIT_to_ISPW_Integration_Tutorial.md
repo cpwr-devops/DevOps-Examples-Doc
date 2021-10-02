@@ -3,7 +3,7 @@ spntitle: Git to ISPW Integration Tutorial
 footer: MIT Licensed | Copyright © 2021 – Compuware
 ---
 # Git to ISPW Integration Tutorial
-
+<!-- filename change 10/02/21 smidxk0 -->
 This tutorial helps developers understand how to synchronize ISPW and Git. It uses the ISPW training application, called PLAY, to synchronize a change to a component from Git to ISPW. The sync can be done after the necessary setup is completed within Topaz Workbench and an ISPW project containing the PLAY application source code is imported to a Git project. That project is then pushed to the Git repository as the master branch in Bitbucket. Then a new file change is pushed to Git, which then triggers a Jenkins multibranch pipeline job to perform the Git to ISPW integration and perform a build.
 
 There are three sections in this tutorial:
