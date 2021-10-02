@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "https://devops.api.compuware.com"
+  to = "https://devops.api.bmc.com"
+  status = 301
+  force = true
