@@ -3,7 +3,7 @@ module.exports = {
   //description: "Mainframe DevOps",
   ga: 'UA-139353569-1',
   themeConfig: {
-    logo: 'compuware_logo.png',
+    logo: '/compuware_logo.png',
     //displayAllHeaders: true,
     sidebarDepth: 1,
     nav: 
