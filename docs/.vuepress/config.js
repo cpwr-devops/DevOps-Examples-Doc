@@ -155,15 +155,15 @@ module.exports = {
             [
               { 
                 text: 'GitHub Workflow and ISPW Integration Tutorial',
-                link: '/guidelines/ispw/GitHub_to_ISPW_Integration_Tutorial' 
+                link: '/guidelines/ispw/github_to_ispw_integration_tutorial' 
               },    
               { 
                 text: 'Git to ISPW Integration Tutorial',
-                link: '/guidelines/ispw/GIT_to_ISPW_Integration_Tutorial' 
+                link: '/guidelines/ispw/git_to_ispw_integration_tutorial' 
               },
               { 
                 text: 'Git to ISPW Integration - The ISPW YAML Configuration File',
-                link: '/guidelines/ispw/Git to ISPW Integration - The ISPW YAML Configuration File' 
+                link: '/guidelines/ispw/git to ispw integration - the ispw yaml configuration file' 
               }
             ]
           },
@@ -257,9 +257,9 @@ module.exports = {
       '/guidelines/ispw/': [ 
         'ispw_setup',
         'ispw_projects',
-        'GitHub_to_ISPW_Integration_Tutorial',
-	      'GIT_to_ISPW_Integration_Tutorial',
-        'Git to ISPW Integration - The ISPW YAML Configuration File',
+        'github_to_ispw_integration_tutorial',
+	      'git_to_ispw_integration_tutorial',
+        'git to ispw integration - the ispw yaml configuration file',
       ],
       '/guidelines/azure_devops/': [
         'azure_devops_pipeline',
