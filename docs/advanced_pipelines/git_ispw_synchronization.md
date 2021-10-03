@@ -5,7 +5,7 @@ footer: MIT Licensed | Copyright © 2018 - Compuware
 
 # Git to ISPW Synchronization
 
-Based on the [Git to ISPW Integration Tutorial](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md), we have created a Git repository connected to ISPW that shows some of the advantges moving to this combination may bring to a development team:
+Based on the [Git to ISPW Integration Tutorial](../guidelines/ispw/git_to_ispw_integration_tutorial.md), we have created a Git repository connected to ISPW that shows some of the advantges moving to this combination may bring to a development team:
 
 - Storing mainframe code and distributed code for the same application in the same location
 - Storing Topaz for Total Test assets in the same location as the mainframe code
@@ -32,7 +32,7 @@ The Git repository uses a branching model consisting of two long lived branches 
 
 Code residing in the `main` branch / at the `MAIN` level is ready to be released to production. There is a `PROD` level in the ISPW life cycle, which represents production, and does not have a matching Git branch. Instead ISPW promote, release and deploy are used to move code from the `MAIN` level into production.
 
-Likewise, there are no Git branches directly matching the lowest levels (`UT<n>`, `BUG1`) in the ISPW life cycle. Instead, these levels get synchronized from the local developer's workspace using the Git/ISPW within Topaz. The target level for any "local" ativity (load, generate, build) is determined during the [initial connection of the project to ISPW](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md#verify-the-ispw-mainframe-play-application-is-available) and can by modified via the project's ISPÜW properties.
+Likewise, there are no Git branches directly matching the lowest levels (`UT<n>`, `BUG1`) in the ISPW life cycle. Instead, these levels get synchronized from the local developer's workspace using the Git/ISPW within Topaz. The target level for any "local" ativity (load, generate, build) is determined during the [initial connection of the project to ISPW](../guidelines/ispw/git_to_ispw_integration_tutorial.md#verify-the-ispw-mainframe-play-application-is-available) and can by modified via the project's ISPÜW properties.
 
 ![GitToIspw Life Cycle](./images/git_ispw_life_cycle.png)
 
@@ -112,7 +112,7 @@ As will be discussed further below, the `ispwcofig.yml' contains information tha
 
 ## The pipeline
 
-Again, based on the tutorial, the Jenkins job is setup as a [Multibranch Pipeline](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md#_5-configure-the-ispw-and-git-mapping). It is using 
+Again, based on the tutorial, the Jenkins job is setup as a [Multibranch Pipeline](../guidelines/ispw/git_to_ispw_integration_tutorial.md#_5-configure-the-ispw-and-git-mapping). It is using 
 - [Jenkins Shared Libraries](./readme.md) to access pipeline scripts
 - [`Git_To_Ispw.Jenkinsfile`](https://github.com/cpwr-devops/DevOps-Examples/blob/april_2021/src/Jenkinsfile/Git_To_Ispw.Jenkinsfile) as Jenkinsfile - stored in the source Git repository root
 - two configuration files
@@ -124,7 +124,7 @@ Again, based on the tutorial, the Jenkins job is setup as a [Multibranch Pipelin
 
 ### `Git_To_Ispw.Jenkinsfile`
 
-The `Git_To_Ispw.Jenkinsfile` specified as Jenkinsfile when setting up the [Multibranch pipeline](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md#_5-configure-the-ispw-and-git-mapping) gets triggered whenever the Multibranch pipeline detects changes in one of the branches of the source repository. In contrast to the other pipeline scripts used here, it does not take any parameters. 
+The `Git_To_Ispw.Jenkinsfile` specified as Jenkinsfile when setting up the [Multibranch pipeline](../guidelines/ispw/git_to_ispw_integration_tutorial.md#_5-configure-the-ispw-and-git-mapping) gets triggered whenever the Multibranch pipeline detects changes in one of the branches of the source repository. In contrast to the other pipeline scripts used here, it does not take any parameters. 
 
 As mentioned before, it uses a Shared Library
 
@@ -158,7 +158,7 @@ Since the following will execute the two scripts for mainframe and Java code in 
 ```
 
 ::: tip Note
-`useDefaultExcludes: false` ensures that the whole workspace (including the `.git` folder) gets stashed. This is required by the ISPW [synchronization step](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md#create-a-jenkinsfile) of the `Git_MainframeCode_Pipeline`.
+`useDefaultExcludes: false` ensures that the whole workspace (including the `.git` folder) gets stashed. This is required by the ISPW [synchronization step](../guidelines/ispw/git_to_ispw_integration_tutorial.md#create-a-jenkinsfile) of the `Git_MainframeCode_Pipeline`.
 :::
 
 As mentioned above, the two scripts for mainframe build and Java build get executed in parallel.
@@ -198,7 +198,7 @@ The script will execute
     - clear the workspace
     - `unstash` the workspace that has been `stashed` by the calling script, i.e. copy the content of workspace of the main script into its own workspace
     - `initialize` global variables, primarily by processing the [two configuration files](#the-configuration-files) and by determining the branch it is executing for. During initialization method `determinePipelineBehavior` sets the flags that determine which stages need to be executed.
--   `stage('Load code to mainframe')` - This stage will [synchronize any changes to mainframe code into ISPW](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md#create-a-jenkinsfile)
+-   `stage('Load code to mainframe')` - This stage will [synchronize any changes to mainframe code into ISPW](../guidelines/ispw/git_to_ispw_integration_tutorial.md#create-a-jenkinsfile)
 -   If changes were detected the ISPW CLI will create a file called `automaticBuildParams.txt`, listing information about the modified components. This file will be used by the next stage building the mainframe code. Method `checkForBuildParams` verifies that this file got created. If it did not created, it means, that no changes to mainframne code were responsible for the execution of the pipeline, and the build and test stages will be skipped.
 -   `stage('Build mainframe code')`- If changes to mainframe code were detected, this stage will use the `automaticBuildParams.txt` to build all components that were changed. "Build" alsoe means that any impacted components will be generated alongside.
 -   `stage('Execute Unit Tests')` - If changes to mainframe code were detected and if "unit tests" need to be run for the current branch, this stage will execute any Topaz for Total Test Virtualized tests that match components that were built by the previous stage.
@@ -268,7 +268,7 @@ As mentioned before, this script will use two `.yml` files as primary source for
 
 #### Branch mapping
 
-Worth mentioning is the `branchInfo` of the `synchconfig.yml` file. This is used to determine the `branchMapping` [parameter for the Git to ISPW synchronization](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md#create-a-jenkinsfile):
+Worth mentioning is the `branchInfo` of the `synchconfig.yml` file. This is used to determine the `branchMapping` [parameter for the Git to ISPW synchronization](../guidelines/ispw/git_to_ispw_integration_tutorial.md#create-a-jenkinsfile):
 
 Each entry corresponds to a certain branch name or branch name pattern and lists 
 - the target level in the ISPW life cycle to use
