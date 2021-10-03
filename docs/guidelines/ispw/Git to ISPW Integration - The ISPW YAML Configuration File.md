@@ -2,11 +2,11 @@
  title: Git to ISPW Integration - The ISPW YAML Configuration File
  footer: MIT Licensed | Copyright © 2020 – Compuware
 ---
-<!-- file name update 10/02/21 -->
+
 
 # Git to ISPW Integration - The ISPW YAML Configuration File
 
-An ISPW YAML configuration file is required for the Git to ISPW integration. A YAML configuration file can be created from a Git project within Topaz based on the content of the project. To create a YAML file, refer to the [Git to ISPW Integration – A Tutorial](git_to_ispw_integration_tutorial.md)’s *Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline* section’s Step 5.
+An ISPW YAML configuration file is required for the Git to ISPW integration. A YAML configuration file can be created from a Git project within Topaz based on the content of the project. To create a YAML file, refer to the [Git to ISPW Integration – A Tutorial](GIT_to_ISPW_Integration_Tutorial.md)’s *Set up a Git project with the source, YAML file, and Jenkinsfile, and set up a Jenkins multibranch pipeline* section’s Step 5.
 
 The YAML configuration file contains ISPW property settings and path mappings.
 
