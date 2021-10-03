@@ -14,7 +14,7 @@ Earlier versions of Topaz for Total Test Virtualized Testing required a very str
 Starting with Topaz for Total Test 20.04.01, Topaz for Total Test allows storing Virtualized and Non-Virtualized test scenario in any folder of a given Topaz for Total Test project. For Virtualized Test scenarios, the corresponding sub folders still need to meet the required folder structure, but with the new architecture storing Topaz for Total Test assets has become highly flexible. 
 
 ::: tip Note
-It is now even possible to store mainframe code alongside Topaz for Total Test scenarios within the same Eclipse project and Git repository, when using the [Git to ISPW integration](../guidelines/ispw/git_to_ispw_integration_tutorial.md).
+It is now even possible to store mainframe code alongside Topaz for Total Test scenarios within the same Eclipse project and Git repository, when using the [Git to ISPW integration](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md).
 :::
 
 **Old Version folder structure** | **New Version fodler structure** | **New Version folder structure with sources**
