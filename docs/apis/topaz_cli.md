@@ -333,7 +333,7 @@ Parameter | Description
 `-operation <arg>` | the ISPW operation to perform
 `-targetFolder <arg>` | the target folder where the output of the operation will be saved.
 
-For an example using the CLI (the plugin to be precise) refer to the [Git to ISPW Integration - A Tutorial](../guidelines/ispw/GIT_to_ISPW_Integration_Tutorial.md).
+For an example using the CLI (the plugin to be precise) refer to the [Git to ISPW Integration - A Tutorial](../guidelines/ispw/git_to_ispw_integration_tutorial.md).
 
 ## Submit JCL (SubmitJclCLI.bat)
 

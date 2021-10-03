@@ -3,7 +3,7 @@ spntitle: GitHub Workflow and ISPW Integration Tutorial
 footer: MIT Licensed | Copyright © 2020 – Compuware
 ---
 # GitHub Workflow and ISPW Integration Tutorial
-
+<!-- file name update 10/02/21 -->
 This tutorial helps developers understand how the ISPW and GitHub synchronization process can be performed using GitHub actions. It uses PLAY, the ISPW training application, to synchronize a change to a component from GitHub to ISPW. After the necessary setup is complete, an ISPW project containing the PLAY application source code is imported to a GitHub project within Topaz Workbench. The GitHub project is then pushed to the GitHub repository as the main branch. Then a new file change is pushed to GitHub, which then triggers a GitHub workflow to perform the GitHub to ISPW integration to perform a build.
 
 There are three sections in this tutorial:
