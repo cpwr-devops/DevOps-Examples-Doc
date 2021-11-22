@@ -137,13 +137,24 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </tr>
 <tbody>
 <tr class="altColor">
+<td class="colFirst"><code><a href="../IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a></code></td>
+<th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#copyPDSMember(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean)">copyPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetMember,
+             boolean&nbsp;replace)</code></th>
+<td class="colLast">
+<div class="block">Copies a PDS member from the source PDS to the target PDS with the target member name.</div>
+</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSet.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSet.html#deleteMember(java.lang.String)">deleteMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
 <td class="colLast">
 <div class="block">Deletes the member with the specified name from this partitioned dataset.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#deletePDSMember(java.lang.String,java.lang.String)">deletePDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -151,7 +162,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Deletes a partitioned dataset member with the given member name from the specified partitioned dataset</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../IPartitionedDataSetMemberStatistics.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMemberStatistics</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSetMember.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSetMember.html#fetchStatistics()">fetchStatistics</a></span>()</code></th>
 <td class="colLast">

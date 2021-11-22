@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6};
+var data = {"i0":6,"i1":6,"i2":6,"i3":6,"i4":6,"i5":6,"i6":6,"i7":6,"i8":6,"i9":6,"i10":6,"i11":6,"i12":6,"i13":6,"i14":6,"i15":6,"i16":6,"i17":6,"i18":6,"i19":6,"i20":6,"i21":6,"i22":6,"i23":6,"i24":6,"i25":6,"i26":6};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],4:["t3","Abstract Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -181,6 +181,23 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
          .getDataSetCommandProvider();
  </pre>
  
+ To copy a PDS member:
+ 
+ <pre>
+ IZOSHostConnection zosHostConnection = ...
+ IDataSetCommandProvider commandProvider = zosHostConnection
+         .getDataSetCommandProvider();
+ 
+ String sourcePDS = ...
+ String sourceMember = ...
+ String targetPDS = ...
+ String targetMember = ...
+ boolean replace = ...
+ 
+ IPartitionedDataSetMember newMember = commandProvider.copyPDSMember(
+         sourcePDS, sourceMember, targetPDS, targetMember, replace);
+ </pre>
+ 
  For examples on how to connect to a z/OS host with an <code>IZOSHostConnection</code>, see <a href="../../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos"><code>IZOSHostConnection</code></a>.<br>
  For examples on how to retrieve <code>IDataSet</code>s, see <a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSet</code></a>.<br>
  For examples on how to delete <code>IDataSet</code>s, see <a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSet</code></a>.<br>
@@ -244,6 +261,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code><a href="IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyPDSMember(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean)">copyPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetMember,
+             boolean&nbsp;replace)</code></th>
+<td class="colLast">
+<div class="block">Copies a PDS member from the source PDS to the target PDS with the target member name.</div>
+</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#createPDSMember(java.lang.String,java.lang.String)">createPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -251,7 +279,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Creates a partitioned dataset member with the given name within the specified partitioned dataset name on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#defineGenerationDataGroup(java.lang.String,com.compuware.api.topaz.hostresources.zos.IDefineGenerationDataGroupParameters)">defineGenerationDataGroup</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;generationDataGroupName,
                          <a href="IDefineGenerationDataGroupParameters.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDefineGenerationDataGroupParameters</a>&nbsp;parameters)</code></th>
@@ -259,14 +287,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Defines a generation data group with the specified name and parameters on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deleteDataSet(java.lang.String)">deleteDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetName)</code></th>
 <td class="colLast">
 <div class="block">Deletes a dataset with the given name from the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#deletePDSMember(java.lang.String,java.lang.String)">deletePDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -274,28 +302,28 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Deletes a partitioned dataset member with the given member name from the specified partitioned dataset</div>
 </td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSet</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#fetchGenerationDataSets(java.lang.String)">fetchGenerationDataSets</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;generationDataGroupName)</code></th>
 <td class="colLast">
 <div class="block">Returns a list of all generation datasets from the specified generation data group on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code><a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findDataSet(java.lang.String)">findDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetName)</code></th>
 <td class="colLast">
 <div class="block">Returns the dataset with the specified name if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSet</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findDataSets(java.lang.String)">findDataSets</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of datasets that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSet</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findDataSets(java.lang.String,com.compuware.api.topaz.hostresources.zos.DataSetType...)">findDataSets</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetFilter,
             <a href="DataSetType.html" title="enum in com.compuware.api.topaz.hostresources.zos">DataSetType</a>...&nbsp;dataSetTypes)</code></th>
@@ -303,21 +331,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Returns the list of datasets of the specified type(s) that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i10" class="altColor">
+<tr id="i11" class="rowColor">
 <td class="colFirst"><code><a href="IGenerationDataGroup.html" title="interface in com.compuware.api.topaz.hostresources.zos">IGenerationDataGroup</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findGenerationDataGroup(java.lang.String)">findGenerationDataGroup</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;generationDataGroupName)</code></th>
 <td class="colLast">
 <div class="block">Returns the generation data group with the specified name if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i11" class="rowColor">
+<tr id="i12" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IGenerationDataGroup.html" title="interface in com.compuware.api.topaz.hostresources.zos">IGenerationDataGroup</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findGenerationDataGroups(java.lang.String)">findGenerationDataGroups</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;generationDataGroupFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of generation data groups that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i12" class="altColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><code><a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findGenerationDataSet(java.lang.String,int)">findGenerationDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;generationDataGroupName,
                      int&nbsp;relativeGenerationNumber)</code></th>
@@ -325,7 +353,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Returns a specific generation dataset from the specified generation data group if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i13" class="rowColor">
+<tr id="i14" class="altColor">
 <td class="colFirst"><code><a href="ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">ISequentialDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findGenerationSequentialDataSet(java.lang.String,int)">findGenerationSequentialDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;generationDataGroupName,
                                int&nbsp;relativeGenerationNumber)</code></th>
@@ -334,35 +362,35 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i14" class="altColor">
+<tr id="i15" class="rowColor">
 <td class="colFirst"><code><a href="IMigratedDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IMigratedDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findMigratedDataSet(java.lang.String)">findMigratedDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;migratedDataSetName)</code></th>
 <td class="colLast">
 <div class="block">Returns the migrated dataset with the specified name if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i15" class="rowColor">
+<tr id="i16" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IMigratedDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IMigratedDataSet</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findMigratedDataSets(java.lang.String)">findMigratedDataSets</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of migrated datasets that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i16" class="altColor">
+<tr id="i17" class="rowColor">
 <td class="colFirst"><code><a href="IPartitionedDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findPartitionedDataSet(java.lang.String)">findPartitionedDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName)</code></th>
 <td class="colLast">
 <div class="block">Returns the partitioned dataset with the specified name if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i17" class="rowColor">
+<tr id="i18" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IPartitionedDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSet</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findPartitionedDataSets(java.lang.String)">findPartitionedDataSets</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of partitioned datasets that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i18" class="altColor">
+<tr id="i19" class="rowColor">
 <td class="colFirst"><code><a href="IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findPDSMember(java.lang.String,java.lang.String)">findPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -371,7 +399,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i19" class="rowColor">
+<tr id="i20" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findPDSMembers(java.lang.String,java.lang.String)">findPDSMembers</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberFilter)</code></th>
@@ -380,42 +408,42 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i20" class="altColor">
+<tr id="i21" class="rowColor">
 <td class="colFirst"><code><a href="ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">ISequentialDataSet</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findSequentialDataSet(java.lang.String)">findSequentialDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sequentialDataSetName)</code></th>
 <td class="colLast">
 <div class="block">Returns the sequential dataset with the specified name if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i21" class="rowColor">
+<tr id="i22" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">ISequentialDataSet</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findSequentialDataSets(java.lang.String)">findSequentialDataSets</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of sequential datasets that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i22" class="altColor">
+<tr id="i23" class="rowColor">
 <td class="colFirst"><code><a href="IVSAMCluster.html" title="interface in com.compuware.api.topaz.hostresources.zos">IVSAMCluster</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findVSAMCluster(java.lang.String)">findVSAMCluster</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;vsamClusterName)</code></th>
 <td class="colLast">
 <div class="block">Returns the VSAM cluster with the specified name if it can be found on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i23" class="rowColor">
+<tr id="i24" class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="IVSAMCluster.html" title="interface in com.compuware.api.topaz.hostresources.zos">IVSAMCluster</a>&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#findVSAMClusters(java.lang.String)">findVSAMClusters</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of VSAM clusters that match the specified filter on the associated z/OS host.</div>
 </td>
 </tr>
-<tr id="i24" class="altColor">
+<tr id="i25" class="rowColor">
 <td class="colFirst"><code><a href="../../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos">IZOSHostConnection</a></code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getZOSHostConnection()">getZOSHostConnection</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Returns the z/OS host connection associated with this command provider.</div>
 </td>
 </tr>
-<tr id="i25" class="rowColor">
+<tr id="i26" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isGenerationDataGroupsSupported()">isGenerationDataGroupsSupported</a></span>()</code></th>
 <td class="colLast">
@@ -541,6 +569,48 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="DataSetNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetNotFoundException</a></code> - if the dataset does not exist</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>2.2.0</dd>
+</dl>
+</li>
+</ul>
+<a id="copyPDSMember(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>copyPDSMember</h4>
+<pre class="methodSignature"><a href="IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a>&nbsp;copyPDSMember&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
+                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
+                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
+                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetMember,
+                                        boolean&nbsp;replace)
+                                 throws <a href="DataSetAccessException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetAccessException</a>,
+                                        <a href="DataSetInUseException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetInUseException</a>,
+                                        <a href="DataSetMigratedException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetMigratedException</a>,
+                                        <a href="DataSetNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetNotFoundException</a>,
+                                        <a href="MemberAlreadyExistsException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberAlreadyExistsException</a>,
+                                        <a href="MemberNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberNotFoundException</a></pre>
+<div class="block">Copies a PDS member from the source PDS to the target PDS with the target member name.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>sourceDataSet</code> - the name of the source dataset (PDS or PDSE)</dd>
+<dd><code>sourceMember</code> - the name of the source member</dd>
+<dd><code>targetDataSet</code> - the name of the target dataset (PDS or PDSE)</dd>
+<dd><code>targetMember</code> - the name of the target member</dd>
+<dd><code>replace</code> - true to replace an existing member with the same name, else false</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>IPartitionedDataSetMember instance for the target member</dd>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if either pdsName is <code>null</code> or invalid, or if either memberName is <code>null</code> or invalid</dd>
+<dd><code><a href="../../hosts/zos/ZOSSystemException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSSystemException</a></code> - if a z/OS system error occurs</dd>
+<dd><code><a href="../../hosts/zos/ZOSAbendException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSAbendException</a></code> - if a z/OS ABEND occurs</dd>
+<dd><code><a href="DataSetAccessException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetAccessException</a></code> - if the user's credentials do not grant access authority for the partitioned dataset</dd>
+<dd><code><a href="DataSetInUseException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetInUseException</a></code> - if an exclusive enqueue exists on the partitioned dataset</dd>
+<dd><code><a href="DataSetMigratedException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetMigratedException</a></code> - if the partitioned dataset is migrated</dd>
+<dd><code><a href="DataSetNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetNotFoundException</a></code> - if the partitioned dataset does not exist</dd>
+<dd><code><a href="MemberNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberNotFoundException</a></code> - if the member does not exist</dd>
+<dd><code><a href="MemberAlreadyExistsException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberAlreadyExistsException</a></code> - if the target member already exists and the replace flag is false</dd>
+<dt><span class="simpleTagLabel">Since:</span></dt>
+<dd>2.5.0</dd>
 </dl>
 </li>
 </ul>
