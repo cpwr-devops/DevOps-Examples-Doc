@@ -194,8 +194,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  String targetMember = ...
  boolean replace = ...
  
- IPartitionedDataSetMember newMember = commandProvider.copyPDSMember(
-         sourcePDS, sourceMember, targetPDS, targetMember, replace);
+ commandProvider.copyPDSMember(sourcePDS, sourceMember, targetPDS, targetMember, replace);
  </pre>
  
  For examples on how to connect to a z/OS host with an <code>IZOSHostConnection</code>, see <a href="../../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos"><code>IZOSHostConnection</code></a>.<br>
@@ -209,7 +208,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="simpleTagLabel">Since:</span></dt>
 <dd>1.0.0</dd>
 <dt><span class="simpleTagLabel">Version:</span></dt>
-<dd>2.2.0</dd>
+<dd>2.5.0</dd>
 <dt><span class="seeLabel">See Also:</span></dt>
 <dd><a href="../../hostconnections/zos/IZOSHostConnection.html" title="interface in com.compuware.api.topaz.hostconnections.zos"><code>IZOSHostConnection</code></a>, 
 <a href="IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos"><code>IDataSet</code></a>, 
@@ -261,7 +260,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code><a href="IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a></code></td>
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#copyPDSMember(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean)">copyPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
@@ -578,17 +577,18 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <h4>copyPDSMember</h4>
-<pre class="methodSignature"><a href="IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a>&nbsp;copyPDSMember&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
-                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
-                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
-                                        <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetMember,
-                                        boolean&nbsp;replace)
-                                 throws <a href="DataSetAccessException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetAccessException</a>,
-                                        <a href="DataSetInUseException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetInUseException</a>,
-                                        <a href="DataSetMigratedException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetMigratedException</a>,
-                                        <a href="DataSetNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetNotFoundException</a>,
-                                        <a href="MemberAlreadyExistsException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberAlreadyExistsException</a>,
-                                        <a href="MemberNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberNotFoundException</a></pre>
+<pre class="methodSignature">void&nbsp;copyPDSMember&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
+                   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
+                   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
+                   <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetMember,
+                   boolean&nbsp;replace)
+            throws <a href="DataSetAccessException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetAccessException</a>,
+                   <a href="DataSetInUseException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetInUseException</a>,
+                   <a href="DataSetMigratedException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetMigratedException</a>,
+                   <a href="DataSetNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetNotFoundException</a>,
+                   <a href="MemberAlreadyExistsException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberAlreadyExistsException</a>,
+                   <a href="MemberNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberNotFoundException</a>,
+                   <a href="DataSetOutOfSpaceException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetOutOfSpaceException</a></pre>
 <div class="block">Copies a PDS member from the source PDS to the target PDS with the target member name.</div>
 <dl>
 <dt><span class="paramLabel">Parameters:</span></dt>
@@ -597,8 +597,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code>targetDataSet</code> - the name of the target dataset (PDS or PDSE)</dd>
 <dd><code>targetMember</code> - the name of the target member</dd>
 <dd><code>replace</code> - true to replace an existing member with the same name, else false</dd>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>IPartitionedDataSetMember instance for the target member</dd>
 <dt><span class="throwsLabel">Throws:</span></dt>
 <dd><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html?is-external=true" title="class or interface in java.lang" class="externalLink">IllegalArgumentException</a></code> - if either pdsName is <code>null</code> or invalid, or if either memberName is <code>null</code> or invalid</dd>
 <dd><code><a href="../../hosts/zos/ZOSSystemException.html" title="class in com.compuware.api.topaz.hosts.zos">ZOSSystemException</a></code> - if a z/OS system error occurs</dd>
@@ -607,6 +605,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dd><code><a href="DataSetInUseException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetInUseException</a></code> - if an exclusive enqueue exists on the partitioned dataset</dd>
 <dd><code><a href="DataSetMigratedException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetMigratedException</a></code> - if the partitioned dataset is migrated</dd>
 <dd><code><a href="DataSetNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetNotFoundException</a></code> - if the partitioned dataset does not exist</dd>
+<dd><code><a href="DataSetOutOfSpaceException.html" title="class in com.compuware.api.topaz.hostresources.zos">DataSetOutOfSpaceException</a></code> - if the target dataset is out of space</dd>
 <dd><code><a href="MemberNotFoundException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberNotFoundException</a></code> - if the member does not exist</dd>
 <dd><code><a href="MemberAlreadyExistsException.html" title="class in com.compuware.api.topaz.hostresources.zos">MemberAlreadyExistsException</a></code> - if the target member already exists and the replace flag is false</dd>
 <dt><span class="simpleTagLabel">Since:</span></dt>
