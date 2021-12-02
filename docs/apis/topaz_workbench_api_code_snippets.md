@@ -838,7 +838,7 @@ String targetMember = ...
 boolean replace = ...
 
 try {
-        commandProvider.copyPDSMember(sourcePDS, sourceMember, targetPDS, targetMember, replace);
+    commandProvider.copyPDSMember(sourcePDS, sourceMember, targetPDS, targetMember, replace);
 } catch (DataSetAccessException e) {
     // One of the datasets is not accessible - Probably an authentication issue
     // Use e.getHostResourceName() to determine which dataset
