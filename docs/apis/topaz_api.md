@@ -20,6 +20,7 @@ Version | Release Date | Description
 `2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 `2.1.0` | 1/6/2021 | Added API for Generation Data Groups.
 `2.2.0` | 4/1/2021 | Added APIs for finding lists of JES jobs and retrieving a job's sysout data definitions (DDs). Added APIs for reading the JES output of a job and reading the contents of a DD of a job. Added APIs to delete partitioned, sequential, migrated or VSAM datasets. Added API to execute TSO commands.
+`2.5.0` | 1/1/2022 | Added APIS to read system logs, cancel a job and copy a PDS member to another member in the same PDS, or a different one.
 
 ## Dataset API
 
@@ -37,7 +38,7 @@ The following actions are provided regarding datasets:
 * Recall a migrated dataset
 * Define a generation data group
 * Obtain generation dataset objects from generation data groups
-
+* Copy a PDS member to another member, or to another PDS
 
 ## JES API
 
@@ -50,6 +51,8 @@ The Compuware Topaz API provides users with methods to programmatically perform 
 * Obtain sysout data definition (DD) objects of jobs
 * Read the JES output of a job
 * Read the contents of a DD of a job
+* Read the currently active system log, or any available system log
+* Cancel a job
 
 ## z/OS User Program API
 
@@ -75,18 +78,19 @@ This is the list of dependent libraries you must include in your class path, in 
 
 Library | Version | Description
 ------- | ------- | -----------
-com.compuware.api.topaz | 2.1.0 | The Topaz API
-com.compuware.frameworks.hostservices.common | 20.6.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.core.messages | 20.6.1 | Internal Compuware Library
-com.compuware.frameworks.hostservices.crypto | 20.6.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.css | 20.6.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.hci | 20.6.1 | Internal Compuware library
-com.compuware.frameworks.hostservices.message.resources | 20.6.1 | Internal Compuware library
-com.compuware.frameworks.nls | 20.6.1 | Internal Compuware library
-com.compuware.java.utilities | 20.6.1 | Internal Compuware library
-com.compuware.java.utilities.icu | 20.6.1 | Internal Compuware library
+com.compuware.api.topaz | 2.5.0 | The Topaz API
+com.compuware.frameworks.hostservices.common | 20.9.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.core.messages | 20.9.1 | Internal Compuware Library
+com.compuware.frameworks.hostservices.crypto | 20.9.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.css | 20.9.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.hci | 20.9.1 | Internal Compuware library
+com.compuware.frameworks.hostservices.message.resources | 20.9.1 | Internal Compuware library
+com.compuware.frameworks.nls | 20.9.1 | Internal Compuware library
+com.compuware.java.utilities | 20.9.1 | Internal Compuware library
+com.compuware.java.utilities.icu | 20.9.1 | Internal Compuware library
 ch.qos.logback.classic | 1.0.7 | 3rd party logging library
 ch.qos.logback.core | 1.0.7 | 3rd party logging library
+org.apache.commons.codec | 1.10.0 | 3rd party encoding/decoding library
 org.apache.commons.lang | 2.6.0 | 3rd party language utilities library
 org.slf4j.api | 1.7.2 | 3rd party logging library
 

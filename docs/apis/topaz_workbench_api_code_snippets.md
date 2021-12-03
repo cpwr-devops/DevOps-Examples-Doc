@@ -825,6 +825,42 @@ try (BufferedWriter writer = new BufferedWriter(new MemberWriter(
 }
 ```
 
+## Copying a PDS member
+
+To copy a PDS member to another member, or another PDS
+
+```java
+IDataSetCommandProvider = ...
+String sourcePDS = ...
+String sourceMember = ...
+String targetPDS = ...
+String targetMember = ...
+boolean replace = ...
+
+try {
+    commandProvider.copyPDSMember(sourcePDS, sourceMember, targetPDS, targetMember, replace);
+} catch (DataSetAccessException e) {
+    // One of the datasets is not accessible - Probably an authentication issue
+    // Use e.getHostResourceName() to determine which dataset
+} catch (DataSetInUseException e) {
+    // One of the datasets is currently in use
+    // Use e.getHostResourceName() to determine which dataset
+} catch (DataSetMigratedException e) {
+    // One of the datasets is migrated
+    // Use e.getHostResourceName() to determine which dataset
+} catch (DataSetNotFoundException e) {
+    // One of the datasets was not found
+    // Use e.getHostResourceName() to determine which dataset
+} catch (DataSetOutOfSpaceException e) {
+    // One of the datasets was not found
+    // Use e.getHostResourceName() to determine which dataset
+} catch (MemberAlreadyExistsException e) {
+    // The target member already exists and replace is false
+} catch (MemberNotFoundException e) {
+    // The source member was not found
+}
+```
+
 ## Obtaining the Characteristics of a Dataset
 
 To obtain the characteristics of a dataset of any type:

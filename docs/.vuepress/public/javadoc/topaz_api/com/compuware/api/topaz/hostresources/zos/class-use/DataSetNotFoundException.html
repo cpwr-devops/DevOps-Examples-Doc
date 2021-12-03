@@ -138,12 +138,23 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <tbody>
 <tr class="altColor">
 <td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#copyPDSMember(java.lang.String,java.lang.String,java.lang.String,java.lang.String,boolean)">copyPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceDataSet,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;sourceMember,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetDataSet,
+             <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;targetMember,
+             boolean&nbsp;replace)</code></th>
+<td class="colLast">
+<div class="block">Copies a PDS member from the source PDS to the target PDS with the target member name.</div>
+</td>
+</tr>
+<tr class="rowColor">
+<td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSet.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSet.html#createMember(java.lang.String)">createMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
 <td class="colLast">
 <div class="block">Creates a member with the specified name within this partitioned dataset.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#createPDSMember(java.lang.String,java.lang.String)">createPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -151,21 +162,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Creates a partitioned dataset member with the given name within the specified partitioned dataset name on the associated z/OS host.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#deleteDataSet(java.lang.String)">deleteDataSet</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;dataSetName)</code></th>
 <td class="colLast">
 <div class="block">Deletes a dataset with the given name from the associated z/OS host.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSet.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSet.html#deleteMember(java.lang.String)">deleteMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
 <td class="colLast">
 <div class="block">Deletes the member with the specified name from this partitioned dataset.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#deletePDSMember(java.lang.String,java.lang.String)">deletePDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
                <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -173,35 +184,35 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <div class="block">Deletes a partitioned dataset member with the given member name from the specified partitioned dataset</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../IDataSetCharacteristics.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSetCharacteristics</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSet.</span><code><span class="memberNameLink"><a href="../IDataSet.html#fetchCharacteristics()">fetchCharacteristics</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Fetches the characteristics of this dataset from the z/OS host on which it resides.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../IPartitionedDataSetCharacteristics.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetCharacteristics</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSet.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSet.html#fetchCharacteristics()">fetchCharacteristics</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Fetches the characteristics of this partitioned dataset from the z/OS host on which it resides.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../ISequentialDataSetCharacteristics.html" title="interface in com.compuware.api.topaz.hostresources.zos">ISequentialDataSetCharacteristics</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">ISequentialDataSet.</span><code><span class="memberNameLink"><a href="../ISequentialDataSet.html#fetchCharacteristics()">fetchCharacteristics</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Fetches the characteristics of this sequential dataset from the z/OS host on which it resides.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../IVSAMClusterCharacteristics.html" title="interface in com.compuware.api.topaz.hostresources.zos">IVSAMClusterCharacteristics</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IVSAMCluster.</span><code><span class="memberNameLink"><a href="../IVSAMCluster.html#fetchCharacteristics()">fetchCharacteristics</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Fetches the characteristics of this VSAM cluster from the z/OS host on which it resides.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="../IPartitionedDataSetMemberStatistics.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMemberStatistics</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSetMember.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSetMember.html#fetchStatistics()">fetchStatistics</a></span>()</code></th>
 <td class="colLast">
@@ -209,21 +220,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  resides.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSet.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSet.html#findMember(java.lang.String)">findMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
 <td class="colLast">
 <div class="block">Returns the member with the specified name if it can be found within this partitioned dataset.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a>&gt;</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IPartitionedDataSet.</span><code><span class="memberNameLink"><a href="../IPartitionedDataSet.html#findMembers(java.lang.String)">findMembers</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberFilter)</code></th>
 <td class="colLast">
 <div class="block">Returns the list of this partitioned dataset's members that match the specified filter.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#findPDSMember(java.lang.String,java.lang.String)">findPDSMember</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
              <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberName)</code></th>
@@ -232,7 +243,7 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  on the associated z/OS host.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/util/List.html?is-external=true" title="class or interface in java.util" class="externalLink">List</a>&lt;<a href="../IPartitionedDataSetMember.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSetMember</a>&gt;</code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IDataSetCommandProvider.</span><code><span class="memberNameLink"><a href="../IDataSetCommandProvider.html#findPDSMembers(java.lang.String,java.lang.String)">findPDSMembers</a></span>&#8203;(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;pdsName,
               <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html?is-external=true" title="class or interface in java.lang" class="externalLink">String</a>&nbsp;memberFilter)</code></th>
@@ -241,21 +252,21 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
  the associated z/OS host.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code>static <a href="../AllocateParametersBuilder.html" title="class in com.compuware.api.topaz.hostresources.zos">AllocateParametersBuilder</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">AllocateParametersBuilder.</span><code><span class="memberNameLink"><a href="../AllocateParametersBuilder.html#like(com.compuware.api.topaz.hostresources.zos.IPartitionedDataSet)">like</a></span>&#8203;(<a href="../IPartitionedDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IPartitionedDataSet</a>&nbsp;partitionedDataSet)</code></th>
 <td class="colLast">
 <div class="block">Creates an allocate parameters builder instance and sets the parameters based on the specified partitioned dataset.</div>
 </td>
 </tr>
-<tr class="rowColor">
+<tr class="altColor">
 <td class="colFirst"><code>static <a href="../AllocateParametersBuilder.html" title="class in com.compuware.api.topaz.hostresources.zos">AllocateParametersBuilder</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">AllocateParametersBuilder.</span><code><span class="memberNameLink"><a href="../AllocateParametersBuilder.html#like(com.compuware.api.topaz.hostresources.zos.ISequentialDataSet)">like</a></span>&#8203;(<a href="../ISequentialDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">ISequentialDataSet</a>&nbsp;sequentialDataSet)</code></th>
 <td class="colLast">
 <div class="block">Creates an allocate parameters builder instance and sets the parameters based on the specified sequential dataset.</div>
 </td>
 </tr>
-<tr class="altColor">
+<tr class="rowColor">
 <td class="colFirst"><code><a href="../IDataSet.html" title="interface in com.compuware.api.topaz.hostresources.zos">IDataSet</a></code></td>
 <th class="colSecond" scope="row"><span class="typeNameLabel">IMigratedDataSet.</span><code><span class="memberNameLink"><a href="../IMigratedDataSet.html#recall()">recall</a></span>()</code></th>
 <td class="colLast">
