@@ -20,7 +20,8 @@ Version | Release Date | Description
 `2.0.2` | 7/1/2020 | Non-displayable binary data can now be read from and written to a sequential dataset or a PDS member. Non-displayable binary data is substituted with Unicode characters outside of the EBCDIC range when read, and is converted back to binary data on write.
 `2.1.0` | 1/6/2021 | Added API for Generation Data Groups.
 `2.2.0` | 4/1/2021 | Added APIs for finding lists of JES jobs and retrieving a job's sysout data definitions (DDs). Added APIs for reading the JES output of a job and reading the contents of a DD of a job. Added APIs to delete partitioned, sequential, migrated or VSAM datasets. Added API to execute TSO commands.
-`2.5.0` | 1/1/2022 | Added APIS to read system logs, cancel a job and copy a PDS member to another member in the same PDS, or a different one.
+`2.5.0` | 1/1/2022 | Added APIs to read system logs, cancel a job and copy a PDS member to another member in the same PDS, or a different one.
+`2.6.0` | 4/1/2022 | Added API to retrieve job by job ID
 
 ## Dataset API
 
@@ -47,6 +48,7 @@ The Compuware Topaz API provides users with methods to programmatically perform 
 * Submit JCL
 * Track a job’s status
 * Obtain job objects by job name and/or owner filters
+* Obtain job objects by job ID
 * Obtain execution and queue data of jobs
 * Obtain sysout data definition (DD) objects of jobs
 * Read the JES output of a job

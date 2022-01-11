@@ -1367,6 +1367,16 @@ List<IJob> jobs = commandProvider.findJobs(jobNameFilter, ownerFilter,
         jesLimit, includePrintQueue, includeExecutionQueue);
 ```
 
+To retrieve a job matching a job ID:
+
+```java
+IJESCommandProvider commandProvider = ...
+String jobId = ...
+
+// job will be null if a job is not found for this job ID
+IJob job = commandProvider.findJob(jobId);
+```
+
 To retrieve the list of sysout data definitions of a job from an IJESCommandProvider:
 
 ```java
