@@ -459,12 +459,20 @@ node {
 
 1. In Topaz Workbench’s **Project Explorer** view’s **GitPlay** project, right-click **Jenkinsfile** and select **Open**. The source’ opens in the editor.
 
-3. In the **Build ISPW assignment** stage, verify that the ispwRequestBody reads “‘buildautomatically=true’”.
+2. In the **Build ISPW assignment** stage, verify that the ispwRequestBody reads “‘buildautomatically=true’”.
 
    ![UpdateJenkinsFile1](../images/UpdateJenkinsFile1.png)
 
-4. From the **File** menu, select **Save.**
-5. From the **File** menu, select **Close.**
+3. From the **File** menu, select **Save.**
+4. From the **File** menu, select **Close.**
+
+::: tip
+
+
+In order to properly sync changed files between Git and ISPW, please do not change the ISPW level of Jenkinsfile’s branch mapping during pipeline execution.
+
+
+:::
 
 
 <a id="_1-commit-and-push-the-changes-to-git"></a>
