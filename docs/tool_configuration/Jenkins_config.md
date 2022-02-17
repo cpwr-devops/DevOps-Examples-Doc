@@ -61,7 +61,7 @@ Use the credentials manager to store the following credentials for use in the ex
 
 ## Cross Site Request Forgery (CSRF) Protection
 
-Usually, Jenkins gets installed with [Cross site request forgery Protection](https://wiki.jenkins.io/display/JENKINS/CSRF+Protection) being turned on. This prevents people to trigger jobs from outside using the REST API unless they have a so called "crumb", which acts as a kind of authentication Token. The result if CSRF Protection is turned on and you try to use the REST API without specifying the required crumb header will look something like this:
+Usually, Jenkins gets installed with [Cross site request forgery Protection](https://www.jenkins.io/doc/book/security/csrf-protection/) being turned on. This prevents people to trigger jobs from outside using the REST API unless they have a so called "crumb", which acts as a kind of authentication Token. The result if CSRF Protection is turned on and you try to use the REST API without specifying the required crumb header will look something like this:
 
 ![CSRF bad response](./images/CSRF_bad_response.png)
 
@@ -94,7 +94,7 @@ To, finally, use the crumb in a REST call, make sure to include the `Jenkins-cru
 
 ## Managed Files
 
-The option `Manage Jenkins` -> `Managed Files` will be available after installation of the [Config File Provider](https://wiki.jenkins.io/display/JENKINS/Config+File+Provider+Plugin) plugin. The examples make use of configuration files handled and stored by this plugin. Especially this will be a list of TSO user IDs and [corresponding mail addresses](../advanced_pipelines/config_files.md). Over time other configuration files will use the same technology.
+The option `Manage Jenkins` -> `Managed Files` will be available after installation of the [Config File Provider](https://plugins.jenkins.io/config-file-provider/) plugin. The examples make use of configuration files handled and stored by this plugin. Especially this will be a list of TSO user IDs and [corresponding mail addresses](../advanced_pipelines/config_files.md). Over time other configuration files will use the same technology.
 
 In `Manage Jenkins` -> `Managed Files` select `Add a new Config` to add a new configuration file to be handled by this plugin. Once files are created you can select the existing files to review and modify their content.
 

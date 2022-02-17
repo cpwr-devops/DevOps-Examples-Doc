@@ -8,7 +8,7 @@ The scenarios covered by the [primary pipelines](../pipelines/readme.md), the [o
 
 ## Compuware Enterprise Services
 
-Next to serving as web application server for Compuware's web based tools like [iStrobe](https://compuware.com/strobe-mainframe-performance-monitoring/) or the [ISPW web interface](https://compuware.com/ispw-source-code-management/), Compuware Enterprise Services (CES) provides a set of services that allow interfacing with Compuware tools outside the mainframe. For Jenkins and CI/CD these are ISPW Webhooks and CES Credentials Tokens.
+Next to serving as web application server for Compuware's web based tools like [iStrobe](https://www.bmc.com/it-solutions/bmc-compuware-strobe.html?301=compuware-com-strobe-mainframe-performance-monitoring) or the [ISPW web interface](https://www.bmc.com/it-solutions/bmc-compuware-ispw.html?301=compuware-com-ispw-source-code-management), Compuware Enterprise Services (CES) provides a set of services that allow interfacing with Compuware tools outside the mainframe. For Jenkins and CI/CD these are ISPW Webhooks and CES Credentials Tokens.
 
 ### ISPW Webhooks
 

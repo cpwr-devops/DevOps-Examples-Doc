@@ -95,11 +95,11 @@ Install Egit: Refer to [https://www.eclipse.org/egit/download/](https://www.ecli
    
    **Update Jenkins configuration for the Topaz Workbench CLI** 
    
-   In Jenkins, click **Jenkins**, select **Manage Jenkins**, and then select **Configure System** and set up the [Topaz Workbench CLI location](https://devops.api.compuware.com/tool_configuration/Jenkins_config.html#compuware-configurations) and a host connection.
+   In Jenkins, click **Jenkins**, select **Manage Jenkins**, and then select **Configure System** and set up the [Topaz Workbench CLI location](../../tool_configuration/Jenkins_config.md#compuware-configurations) and a host connection.
 
-2. Compuware Common Configurations Jenkins. For the installation, refer to [Tool Configurations/Compuware Common Configuration](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-common-configuration).
+2. Compuware Common Configurations Jenkins. For the installation, refer to [Tool Configurations/Compuware Common Configuration](../../tool_configuration/plugins.md#compuware-common-configuration).
 
-3. ISPW Operations Jenkins plugin. For the installation, refer to [Tool Configurations/Compuware ISPW Operations Plugin](https://devops.api.compuware.com/tool_configuration/plugins.html#compuware-ispw-operations-plugin).
+3. ISPW Operations Jenkins plugin. For the installation, refer to [Tool Configurations/Compuware ISPW Operations Plugin](../../tool_configuration/plugins.md#compuware-ispw-operations-plugin).
 <a id="verify-the-ispw-mainframe-play-application-is-available"></a>
 
 #### Verify the ISPW mMinframe PLAY Application is Available
