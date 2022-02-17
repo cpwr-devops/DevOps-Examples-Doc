@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "enhance.js": "^1.0.0",
     "material-design-icons-iconfont": "^4.0.5",
     "vuetify": "^1.5.6",
