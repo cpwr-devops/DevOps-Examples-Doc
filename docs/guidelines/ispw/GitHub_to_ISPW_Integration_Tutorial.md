@@ -352,7 +352,7 @@ The repository can also be created under an organization. Refer to GitHub online
 
 2. Expand GitPlay project, create folder **.github/workflows**.
 
-3. Create a GitHub workflow file, for example, **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml)), the workflow is broken up into the following stages:
+3. Create a GitHub workflow file, for example, **ispw-sync-build-deploy.yml** ([Download a template](https://github.com/bmc-compuware/ispw-deploy/blob/main/.github/templates/ispw-sync-build-deploy.yml)), the workflow is broken up into the following stages:
 
    ![image-20210610164731778](../images/ispw_github_topaz_new_workflow.png)
 
@@ -374,7 +374,7 @@ To better understand how variable substitutions work in the workflow file, visit
 :::
 
 
-4. Or if you prefer to use GitHub action **ispw-sync-local** , you may specify the **sync** step as below, the workflow is broken up into the following stages ([Download a template - ispw-sync-local-generate-deploy.yml](ispw-sync-local-generate-deploy.yml)):
+4. Or if you prefer to use GitHub action **ispw-sync-local** , you may specify the **sync** step as below, the workflow is broken up into the following stages ([Download a template - ispw-sync-local-generate-deploy.yml](https://github.com/bmc-compuware/ispw-generate/blob/main/.github/templates/ispw-sync-local-generate-deploy.yml):
    * Checkout - checks out the source code.
    * Synchronize changeset to ISPW - uses GitHub action **ispw-sync-local** to perform GitHub to ISPW synchronization.
    * Generate ISPW tasks - uses GitHub action **ispw-generate** to perform a generate
@@ -389,7 +389,7 @@ To better understand how variable substitutions work in the workflow file, visit
    b. Click on the **Settings** tab that is located on the top left just under the repository path
    c. Click on the **Secrets** section
    d. From the following screen, you can either create organization level secrets (secrets that can be used across all repositories within your organization group) or repository level secrets.
-   e. Some secrets examples you may create based on the **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml))
+   e. Some secrets examples you may create based on the **ispw-sync-build-deploy.yml** ([Download a template](https://github.com/bmc-compuware/ispw-deploy/blob/main/.github/templates/ispw-sync-build-deploy.yml))
       * secrets.TSOUSER
       * secrets.TSOPASS
       * secrets.GITUID
