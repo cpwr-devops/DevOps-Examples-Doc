@@ -352,7 +352,7 @@ The repository can also be created under an organization. Refer to GitHub online
 
 2. Expand GitPlay project, create folder **.github/workflows**.
 
-3. Create a GitHub workflow file, for example, **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml)), the workflow is broken up into the following stages:
+3. Create a GitHub workflow file, for example, **ispw-sync-build-deploy.yml** ([Download a template](https://github.com/bmc-compuware/ispw-deploy/blob/main/.github/templates/ispw-sync-build-deploy.yml)), the workflow is broken up into the following stages:
 
    ![image-20210610164731778](../images/ispw_github_topaz_new_workflow.png)
 
@@ -389,7 +389,7 @@ To better understand how variable substitutions work in the workflow file, visit
    b. Click on the **Settings** tab that is located on the top left just under the repository path
    c. Click on the **Secrets** section
    d. From the following screen, you can either create organization level secrets (secrets that can be used across all repositories within your organization group) or repository level secrets.
-   e. Some secrets examples you may create based on the **ispw-sync-build-deploy.yml** ([Download a template](./ispw-sync-build-deploy.yml))
+   e. Some secrets examples you may create based on the **ispw-sync-build-deploy.yml** ([Download a template](https://github.com/bmc-compuware/ispw-deploy/blob/main/.github/templates/ispw-sync-build-deploy.yml))
       * secrets.TSOUSER
       * secrets.TSOPASS
       * secrets.GITUID
