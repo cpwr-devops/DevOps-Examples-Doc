@@ -374,7 +374,7 @@ To better understand how variable substitutions work in the workflow file, visit
 :::
 
 
-4. Or if you prefer to use GitHub action **ispw-sync-local** , you may specify the **sync** step as below, the workflow is broken up into the following stages ([Download a template - ispw-sync-local-generate-deploy.yml](ispw-sync-local-generate-deploy.yml)):
+4. Or if you prefer to use GitHub action **ispw-sync-local** , you may specify the **sync** step as below, the workflow is broken up into the following stages ([Download a template - ispw-sync-local-generate-deploy.yml]([ispw-sync-local-generate-deploy.yml](https://github.com/bmc-compuware/ispw-generate/blob/main/.github/templates/ispw-sync-generate-deploy.yml)):
    * Checkout - checks out the source code.
    * Synchronize changeset to ISPW - uses GitHub action **ispw-sync-local** to perform GitHub to ISPW synchronization.
    * Generate ISPW tasks - uses GitHub action **ispw-generate** to perform a generate
