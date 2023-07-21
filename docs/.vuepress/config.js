@@ -1,188 +1,188 @@
 module.exports = {
-  title: "Mainframe DevOps",
+  title: "BMC Mainframe DevOps",
   //description: "Mainframe DevOps",
   ga: 'UA-139353569-1',
   themeConfig: {
-    logo: '/compuware_logo.png',
+    logo: '/bmc_logo_RGB_128x55.png',
     //displayAllHeaders: true,
     sidebarDepth: 1,
     nav: 
-    [
-      { 
-        text: 'Pipelines',
-        items: 
-        [
-          { 
-            text: 'Getting Started',
-            items: 
-            [
-              { 
-                text: 'Getting started',
-                link: '/pipelines/'
-              },
-              { 
-                text: 'Basic Pipeline Scenario',
-                link: '/pipelines/basic_scenario'
-              },
-              { 
-                text: 'Basic Pipeline Example',
-                link: '/pipelines/basic_example_pipeline'
-              },
-              { 
-                text: 'Alternatives to Jenkins',
-                link: '/pipelines/alternatives_to_jenkins'
-              }
-            ]
-          },
-          { 
-            text: 'Pipeline Snippets',
-            items: 
-            [
-              { 
-                text: 'All Snippets',
-                link: '/pipeline_snippets/'
-              },
-              { 
-                text: 'Pushing test results to GitHub',
-                link: '/pipeline_snippets/push_ttt_results_to_git'
-              }
-            ]
-          },
-          { 
-            text: 'Advanced Pipelines',
-            items: 
-            [
-              { 
-                text: 'Shared Library Examples',
-                link: '/advanced_pipelines/'
-              },
-              { 
-                text: 'Elaborate Scenario',
-                link: '/advanced_pipelines/elaborate_scenario'
-              },
-              { text: 'Git to ISPW Synchronization',
-                link: '/advanced_pipelines/git_ispw_synchronization'
-              },
-              // { 
-              //   text: 'Helper Classes',
-              //   link: '/advanced_pipelines/helper_classes/'
-              // },
-              { 
-                text: 'Groovy Tips',
-                link: '/advanced_pipelines/jenkins_groovy'
-              }
-            ]
-          }
-        ]
-      },
-      { 
-        text: 'Configuration',
-        items: 
-        [
-          {
-            text: 'Overview',
-            link: '/tool_configuration/'
-          },
-          {
-            text: 'Jenkins',
-            items:
-            [
-              { 
-                text: 'Introduction to Jenkins Plugins',
-                link: '/tool_configuration/plugins'
-              },
-              { 
-                text: 'Jenkins Configuration',
-                link: '/tool_configuration/Jenkins_config'
-              },
-              { 
-                text: 'Using Jenkins Plugins',
-                link: '/tool_configuration/jenkins_usage'
-              }
-            ]
-          },
-          { 
-            text: ' BMC Compuware',
-            items:
-            [
-              { 
-                text: 'CES Webhook Configuration',
-                link: '/tool_configuration/webhook_setup'
-              },
-              { 
-                text: 'CES Access Token Configuration',
-                link: '/tool_configuration/CES_credentials_token'
-              }
-            ]
-          }
-        ] 
-      },
-      { 
-        text: 'Guides',
-        items: 
-        [
-          {
-            text: 'Topaz for Total Test',
-            items:
-            [
-              { 
-                text: 'Total Test Best Practices',
-                link: '/guidelines/ttt/ttt_best_practices'
-              },
-              { 
-                text: 'Using Total Test Unit Test',
-                link: '/guidelines/ttt/ttt_scenario'
-              }
-            ]
-          },
-          {
-            text: 'ISPW',
-            items:
-            [
-              { 
-                text: 'ISPW Setup',
-                link: '/guidelines/ispw/ispw_setup'
-              },
-              { 
-                text: 'SonarLint and ISPW Setup',
-                link: '/guidelines/ispw/ispw_projects' 
-              }
-            ]
-          },
-          {
-            text: 'Git and ISPW',
-            items:
-            [
-              { 
-                text: 'GitHub Workflow and ISPW Integration Tutorial',
-                link: '/guidelines/ispw/GitHub_to_ISPW_Integration_Tutorial' 
-              },    
-              { 
-                text: 'Git to ISPW Integration Tutorial',
-                link: '/guidelines/ispw/GIT_to_ISPW_Integration_Tutorial' 
-              },
-              { 
-                text: 'Git to ISPW Integration - The ISPW YAML Configuration File',
-                link: '/guidelines/ispw/Git to ISPW Integration - The ISPW YAML Configuration File' 
-              }
-            ]
-          },
-          {
-            text: 'Azure DevOps',
-            items:
-            [
-              { 
-                text: 'Setting up Azure DevOps Pipelines',
-                link: '/guidelines/azure_devops/azure_devops_pipeline'
-              },
-              {
-                text: 'Powershell scripts',
-                link: '/guidelines/azure_devops/powershell_scripts'
-              }
-            ]
-          }
-        ]
-      },  
+       [
+ //     { 
+ //       text: 'Pipelines',
+ //       items: 
+ //       [
+ //         { 
+ //           text: 'Getting Started',
+ //           items: 
+ //           [
+ //             { 
+ //               text: 'Getting started',
+ //               link: '/pipelines/'
+ //             },
+ //             { 
+ //               text: 'Basic Pipeline Scenario',
+ //               link: '/pipelines/basic_scenario'
+ //             },
+ //             { 
+ //               text: 'Basic Pipeline Example',
+ //               link: '/pipelines/basic_example_pipeline'
+ //             },
+ //             { 
+ //               text: 'Alternatives to Jenkins',
+ //               link: '/pipelines/alternatives_to_jenkins'
+ //             }
+ //           ]
+ //         },
+ //         { 
+ //           text: 'Pipeline Snippets',
+ //           items: 
+ //           [
+ //             { 
+ //               text: 'All Snippets',
+ //               link: '/pipeline_snippets/'
+ //             },
+ //             { 
+ //               text: 'Pushing test results to GitHub',
+ //               link: '/pipeline_snippets/push_ttt_results_to_git'
+ //             }
+ //           ]
+ //         },
+ //         { 
+ //           text: 'Advanced Pipelines',
+ //           items: 
+ //           [
+ //             { 
+ //               text: 'Shared Library Examples',
+ //               link: '/advanced_pipelines/'
+ //             },
+ //             { 
+ //               text: 'Elaborate Scenario',
+ //               link: '/advanced_pipelines/elaborate_scenario'
+ //             },
+ //             { text: 'Git to ISPW Synchronization',
+ //               link: '/advanced_pipelines/git_ispw_synchronization'
+ //             },
+ //             // { 
+ //             //   text: 'Helper Classes',
+ //             //   link: '/advanced_pipelines/helper_classes/'
+ //             // },
+ //             { 
+ //               text: 'Groovy Tips',
+ //               link: '/advanced_pipelines/jenkins_groovy'
+ //             }
+ //           ]
+ //         }
+ //       ]
+ //     },
+ //     { 
+ //       text: 'Configuration',
+ //       items: 
+ //       [
+ //         {
+ //           text: 'Overview',
+ //           link: '/tool_configuration/'
+ //         },
+ //         {
+ //           text: 'Jenkins',
+ //           items:
+ //           [
+ //             { 
+ //               text: 'Introduction to Jenkins Plugins',
+ //               link: '/tool_configuration/plugins'
+ //             },
+ //             { 
+ //               text: 'Jenkins Configuration',
+ //               link: '/tool_configuration/Jenkins_config'
+ //             },
+ //             { 
+ //               text: 'Using Jenkins Plugins',
+ //               link: '/tool_configuration/jenkins_usage'
+ //             }
+ //           ]
+ //         },
+ //         { 
+ //           text: ' BMC Compuware',
+ //           items:
+ //           [
+ //             { 
+ //               text: 'CES Webhook Configuration',
+ //              link: '/tool_configuration/webhook_setup'
+ //             },
+ //             { 
+ //               text: 'CES Access Token Configuration',
+ //               link: '/tool_configuration/CES_credentials_token'
+ //             }
+ //           ]
+ //         }
+ //       ] 
+ //     },
+ //     { 
+ //       text: 'Guides',
+ //       items: 
+ //       [
+ //         {
+ //           text: 'Topaz for Total Test',
+ //           items:
+ //           [
+ //             { 
+ //               text: 'Total Test Best Practices',
+ //               link: '/guidelines/ttt/ttt_best_practices'
+ //             },
+ //             { 
+ //               text: 'Using Total Test Unit Test',
+ //               link: '/guidelines/ttt/ttt_scenario'
+ //             }
+ //           ]
+ //         },
+ //         {
+ //           text: 'ISPW',
+ //           items:
+ //           [
+ //             { 
+ //               text: 'ISPW Setup',
+ //               link: '/guidelines/ispw/ispw_setup'
+ //             },
+ //             { 
+ //               text: 'SonarLint and ISPW Setup',
+ //               link: '/guidelines/ispw/ispw_projects' 
+ //             }
+ //           ]
+ //         },
+ //         {
+ //           text: 'Git and ISPW',
+ //           items:
+ //           [
+ //             { 
+ //               text: 'GitHub Workflow and ISPW Integration Tutorial',
+ //               link: '/guidelines/ispw/GitHub_to_ISPW_Integration_Tutorial' 
+ //             },    
+ //             { 
+ //               text: 'Git to ISPW Integration Tutorial',
+ //               link: '/guidelines/ispw/GIT_to_ISPW_Integration_Tutorial' 
+ //             },
+ //             { 
+ //               text: 'Git to ISPW Integration - The ISPW YAML Configuration File',
+ //               link: '/guidelines/ispw/Git to ISPW Integration - The ISPW YAML Configuration File' 
+ //             }
+ //           ]
+ //         },
+ //         {
+ //           text: 'Azure DevOps',
+ //           items:
+ //           [
+ //             { 
+ //               text: 'Setting up Azure DevOps Pipelines',
+ //               link: '/guidelines/azure_devops/azure_devops_pipeline'
+ //             },
+ //             {
+ //               text: 'Powershell scripts',
+ //               link: '/guidelines/azure_devops/powershell_scripts'
+ //             }
+ //           ]
+ //         }
+ //       ]
+ //     },  
       { 
         text: 'APIs',
         items: 
@@ -192,42 +192,47 @@ module.exports = {
             items: 
             [
               {
-                text: 'Topaz Rest APIs',
-                link: '/apis/rest_api_topaz'
+                text: 'Workbench Rest APIs',
+                link: 'https://docs.bmc.com/docs/mdvops/workbench-rest-apis-1095684447.html'
               },
               {
-                text: 'Topaz Total Test Rest APIs',
-                link: '/apis/rest_api_ttt'
+                text: 'Total Test Rest APIs',
+                link: 'https://docs.bmc.com/docs/mdvops/workbench-total-test-rest-apis-1095684460.html'
               },
               {
-                text: 'ISPW Rest APIs',
-                link: '/apis/rest_api_ispw'
+                text: 'Code Pipeline Rest APIs',
+                link: 'https://docs.bmc.com/docs/mdvops/code-pipeline-rest-api-1095684479.html'
+              },
+
+              {
+                text: 'Abend-AID Rest APIs',
+                link: 'https://docs.bmc.com/docs/mdvops/abend-aid-rest-api-1168606278.html'
               }
             ]
           },
           {
-            text: 'Topaz CLI',
+            text: 'Workbench CLI',
             items: [
               { 
-                text: 'Topaz CLI',            
-                link: '/apis/topaz_cli'
+                text: 'Workbench CLI',            
+                link: 'https://docs.bmc.com/docs/mdvops/workbench-cli-1095684487.html'
               }
             ]
           },
           {
-            text: 'Topaz Java APIs',
+            text: 'Workbench Java APIs',
             items: [
             { 
-              text: 'Topaz Java API',            
-              link: '/apis/topaz_api'
+              text: 'Workbench Java API',            
+              link: 'https://docs.bmc.com/docs/mdvops/workbench-java-apis-1095684508.html'
             },
             { 
-              text: 'Topaz Workbench SDK',            
-              link: '/apis/topaz_workbench_sdk'
+              text: 'Workbench SDK',            
+              link: 'https://docs.bmc.com/docs/mdvops/workbench-sdk-1095684523.html'
             },
             { 
-              text: 'Topaz Java API Code Examples',            
-              link: '/apis/topaz_workbench_api_code_snippets'
+              text: 'Workbench Java API Code Examples',            
+              link: 'https://docs.bmc.com/docs/mdvops/workbench-java-api-code-snippets-1095684536.html'
             }
           ]
         },
@@ -235,8 +240,8 @@ module.exports = {
             text: 'Use cases',
             items: [
               { 
-                text: 'Developing a Topaz Workbench Passticket Extension',            
-                link: '/apis/passticket'
+                text: 'Developing a Workbench Passticket Extension',            
+                link: 'https://docs.bmc.com/docs/mdvops/use-cases-1095684586.html'
               }
             ]
           }

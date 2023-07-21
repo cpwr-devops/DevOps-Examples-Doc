@@ -1,6 +1,6 @@
 ---
 title: Powershell scripts
-footer: MIT Licensed | Copyright &copy; 2018 - Compuware
+footer: MIT Licensed | Copyright &copy; 2018-2023 - BMC Software, Inc.
 ---
 # Powershell scripts
 
