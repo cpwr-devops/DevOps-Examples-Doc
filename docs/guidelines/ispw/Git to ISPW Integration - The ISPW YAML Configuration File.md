@@ -1,6 +1,6 @@
 ---
  title: Git to ISPW Integration - The ISPW YAML Configuration File
- footer: MIT Licensed | Copyright © 2020 – Compuware
+ footer: MIT Licensed | Copyright © 2020-2023 – BMC Software, Inc.
 ---
 
 

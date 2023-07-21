@@ -1,6 +1,6 @@
 ---
 title: Setting up Azure DevOps Pipelines
-footer: MIT Licensed | Copyright &copy; 2018 - Compuware
+footer: MIT Licensed | Copyright &copy; 2018-2023 - BMC Software, Inc.
 ---
 # Setting up Azure DevOps Pipelines
 
